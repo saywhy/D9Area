@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Nav></Nav>
   <div class="home">
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -39,12 +41,18 @@
       <!-- 右箭头。如果放置在swiper-container外面，需要自定义样式。 -->
     </div>
   </div>
+  <Footer></Footer>  
+</div>
+
 </template>
 
 <script>
 import Swiper from 'swiper'
+import Nav from '@/views/nav.vue'
+import Footer from '@/views/footer.vue'
 export default {
   name: 'Home',
+  components: {Nav,Footer},  
   data () {
     return {
       img_list: [
