@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/*
+Document : CSS样式初始化
+Description: CSS样式表的初始化，全局样式设置。
+*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Source Han Sans CN;
+  font-size: 14px;
+  background-color: #000000;
+  color: #F6F6F6;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 清除列表样式 */
+dl,
+ul,
+ol,
+menu,
+li {
+  list-style: none
+}
+
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* 鼠标样式 */
+a {
+  color: #F6F6F6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
