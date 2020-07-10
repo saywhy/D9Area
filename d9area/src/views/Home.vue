@@ -1,48 +1,49 @@
 <template>
-<div>
-  <Nav></Nav>
-  <div class="home">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"
-             v-for='item in img_list'>
-          <img :src="item.src"
-               alt="">
-        </div>
-      </div>
-      <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>
-    </div>
-    <!-- 视频 -->
-    <div class="video_box">
-      <div class="video_swiper_container">
+  <div>
+    <Nav></Nav>
+    <div class="home">
+      <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide"
-               v-for='(item,index) in video_list'>
-            <div class="sider_video_box">
-              <video-player class="video-player vjs-custom-skin"
-                            ref="videoPlayer"
-                            @play="onPlayerPlay($event,index)"
-                            @pause="onPlayerPause($event,index)"
-                            :playsinline="true"
-                            :options="item.playerOptions"></video-player>
-              <img :src="item.suspend"
-                   @click="img_play(index)"
-                   v-if="item.suspend_show"
-                   class="suspend_box"
-                   alt="">
+               v-for='item in img_list'>
+            <img :src="item.src"
+                 style="height: 100%; width: 100%;"
+                 alt="">
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <!-- 视频 -->
+      <div class="video_box">
+        <div class="video_swiper_container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"
+                 v-for='(item,index) in video_list'>
+              <div class="sider_video_box">
+                <video-player class="video-player vjs-custom-skin"
+                              ref="videoPlayer"
+                              @play="onPlayerPlay($event,index)"
+                              @pause="onPlayerPause($event,index)"
+                              :playsinline="true"
+                              :options="item.playerOptions"></video-player>
+                <img :src="item.suspend"
+                     @click="img_play(index)"
+                     v-if="item.suspend_show"
+                     class="suspend_box"
+                     alt="">
+              </div>
             </div>
           </div>
         </div>
+        <!-- <div class="swiper-button-prev"></div> -->
+        <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+        <!-- <div class="swiper-button-next"></div> -->
+        <!-- 右箭头。如果放置在swiper-container外面，需要自定义样式。 -->
       </div>
-      <!-- <div class="swiper-button-prev"></div> -->
-      <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-      <!-- <div class="swiper-button-next"></div> -->
-      <!-- 右箭头。如果放置在swiper-container外面，需要自定义样式。 -->
     </div>
+    <Footer></Footer>
   </div>
-  <Footer></Footer>  
-</div>
 
 </template>
 
@@ -52,18 +53,15 @@ import Nav from '@/views/nav.vue'
 import Footer from '@/views/footer.vue'
 export default {
   name: 'Home',
-  components: {Nav,Footer},  
+  components: { Nav, Footer },
   data () {
     return {
       img_list: [
         {
-          src: require('@/assets/images/home/bg1.png'),
+          src: require('@/assets/images/home/bg1.jpg'),
         },
         {
-          src: require('@/assets/images/home/bg1.png'),
-        },
-        {
-          src: require('@/assets/images/home/bg1.png'),
+          src: require('@/assets/images/home/bg2.jpg'),
         },
       ],
       video_list: [

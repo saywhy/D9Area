@@ -1,35 +1,36 @@
 <template>
-    <div id="nav">
-      <div class="nav_box">
-        <img class="logo"
-             src="@/assets/images/home/logo.png"
-             alt="">
-        <el-menu :default-active="activeIndex"
-                 text-color='#F6F6F6'
-                 active-text-color='#C9A562'
-                 background-color='#000'
-                 class="el_menu"
-                 mode="horizontal"
-                 @select="handleSelect">
-          <el-menu-item index="1">
-            首页
-          </el-menu-item>
-          <el-menu-item index="2">
-            ICF电影节
-          </el-menu-item>
-          <el-menu-item index="3">在线观影</el-menu-item>
-          <el-menu-item index="4">D9制片厂</el-menu-item>
-          <el-menu-item index="5">Q&A</el-menu-item>
-        </el-menu>
-        <span class="nav_right">
-          <span @click="change_language('cn')"
-                :class="language=='cn'?'language_color':''">中文 </span>
-          <span>/</span>
-          <span @click="change_language('en')"
-                :class="language=='en'?'language_color':''"> EN</span>
-        </span>
-      </div>
+  <div id="nav">
+    <div class="nav_box">
+      <img class="logo"
+           width="70"
+           src="@/assets/images/home/D9-logo.png"
+           alt="">
+      <el-menu :default-active="activeIndex"
+               text-color='#F6F6F6'
+               active-text-color='#C9A562'
+               background-color='#000'
+               class="el_menu"
+               mode="horizontal"
+               @select="handleSelect">
+        <el-menu-item index="1">
+          首页
+        </el-menu-item>
+        <el-menu-item index="2">
+          ICF电影节
+        </el-menu-item>
+        <el-menu-item index="3">在线观影</el-menu-item>
+        <el-menu-item index="4">D9制片厂</el-menu-item>
+        <el-menu-item index="5">Q&A</el-menu-item>
+      </el-menu>
+      <span class="nav_right">
+        <span @click="change_language('cn')"
+              :class="language=='cn'?'language_color':''">中文 </span>
+        <span>/</span>
+        <span @click="change_language('en')"
+              :class="language=='en'?'language_color':''"> EN</span>
+      </span>
     </div>
+  </div>
 </template>
 
 <script>
@@ -55,7 +56,7 @@ export default {
           this.$router.push('/about')
           break;
         case '3':
-          this.$router.push('/online')
+          this.$router.push('/online_login')
           break;
         case '4':
           this.$router.push('/about2')

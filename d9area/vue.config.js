@@ -48,27 +48,27 @@ module.exports = {
             .set('@utils', resolve('./src/utils'))
     },
     // 配置打包 js、css文件为.gz格式，优化加载速度  （参考：https://blog.csdn.net/qq_31677507/article/details/102742196）
-    configureWebpack: config => {
-        if (process.env.NODE_ENV === 'production') {
-            return {
-                plugins: [new CompressionPlugin({
-                    test: /\.js$|\.css/, // 匹配文件
-                    threshold: 10240, // 超过10kB的数据进行压缩
-                    deleteOriginalAssets: false // 是否删除原文件 （原文件也建议发布到服务器以支持不兼容gzip的浏览器）
-                })],
-                performance: { // 生产环境构建代码文件超出以下配置大小会在命令行中显示警告
-                    hints: 'warning',
-                    // 入口起点的最大体积 整数类型（以字节为单位,默认值是：250000 (bytes)）
-                    maxEntrypointSize: 5000000,
-                    // 生成文件的最大体积 整数类型（以字节为单位,默认值是：250000 (bytes)）
-                    maxAssetSize: 3000000
-                    // // 只给出 js 文件的性能提示
-                    // assetFilter: function (assetFilename) {
-                    //   return assetFilename.endsWith('.js')
-                    // }
-                }
-            }
-        }
-    }
+    // configureWebpack: config => {
+    //     if (process.env.NODE_ENV === 'production') {
+    //         return {
+    //             plugins: [new CompressionPlugin({
+    //                 test: /\.js$|\.css/, // 匹配文件
+    //                 threshold: 10240, // 超过10kB的数据进行压缩
+    //                 deleteOriginalAssets: false // 是否删除原文件 （原文件也建议发布到服务器以支持不兼容gzip的浏览器）
+    //             })],
+    //             performance: { // 生产环境构建代码文件超出以下配置大小会在命令行中显示警告
+    //                 hints: 'warning',
+    //                 // 入口起点的最大体积 整数类型（以字节为单位,默认值是：250000 (bytes)）
+    //                 maxEntrypointSize: 5000000,
+    //                 // 生成文件的最大体积 整数类型（以字节为单位,默认值是：250000 (bytes)）
+    //                 maxAssetSize: 3000000
+    //                 // // 只给出 js 文件的性能提示
+    //                 // assetFilter: function (assetFilename) {
+    //                 //   return assetFilename.endsWith('.js')
+    //                 // }
+    //             }
+    //         }
+    //     }
+    // }
 
 }
