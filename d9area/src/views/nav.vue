@@ -20,7 +20,6 @@
         </el-menu-item>
         <el-menu-item index="3">在线观影</el-menu-item>
         <el-menu-item index="4">D9制片厂</el-menu-item>
-        <el-menu-item index="5">Q&A</el-menu-item>
       </el-menu>
       <span class="nav_right">
         <span @click="change_language('cn')"
