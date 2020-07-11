@@ -53,7 +53,7 @@ export default {
           this.$router.push('/home')
           break;
         case '2':
-          this.$router.push('/about')
+          this.$router.push('/film_festival')
           break;
         case '3':
           this.$router.push('/online_login')
@@ -94,6 +94,8 @@ export default {
   // border: 1px solid red;
   background: #000000;
   font-size: 22px;
+  position: fixed;
+  z-index: 9999999;
 }
 .nav_box {
   text-align: left;

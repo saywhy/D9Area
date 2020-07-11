@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Nav></Nav>
     <div class="home">
       <div class="swiper-container">
@@ -151,6 +151,18 @@ export default {
 }
 </script>
 <style lang="less">
+.container{
+  height: 100%;
+  width: 100%;
+   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.home{
+  margin-top: 114px;
+}
 .swiper-container {
   width: 100%;
   height: 915px;
