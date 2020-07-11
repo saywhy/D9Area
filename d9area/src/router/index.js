@@ -4,38 +4,45 @@ import Home from '../views/Home.vue'
 import Online_login from '../views/online_login.vue'
 import Online from '../views/online.vue'
 import FilmFestival from '../views/film_festival.vue'
+import QA from '../views/QA.vue'
+
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/online_login',
-        name: 'Online_login',
-        component: Online_login
-    },
-    {
-        path: '/online',
-        name: 'Online',
-        component: Online
-    },
-    {
-        path: '/film_festival',
-        name: 'FilmFestival',
-        component: FilmFestival
-    }
-   
+  path: '/',
+  name: 'Home',
+  component: Home
+},
+{
+  path: '/home',
+  name: 'Home',
+  component: Home
+},
+{
+  path: '/online_login',
+  name: 'Online_login',
+  component: Online_login
+},
+{
+  path: '/online',
+  name: 'Online',
+  component: Online
+},
+{
+  path: '/film_festival',
+  name: 'FilmFestival',
+  component: FilmFestival
+},
+{
+  path: '/QA',
+  name: 'QA',
+  component: QA
+}
+
 ]
 
 const router = new VueRouter({
-    routes
+  routes
 })
 
 export default router
