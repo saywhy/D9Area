@@ -7,7 +7,7 @@
           <film-top></film-top>
         </div>
       </div>
-     <film-nav :activen='Index'></film-nav>
+     <film-nav :activenav='Index'></film-nav>
       <div class="FilmFestival_swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -91,20 +91,7 @@ export default {
     this.initSwiper();
   },
   methods: {
-    imghover() {
-      console.log(1111);
-      console.log(this.$refs.input_search);
-      this.$refs.input_search.style.width = "250px";
-      this.$refs.input_search.style.padding = "0 10px";
-      // document.getElementById('input_search').animate({'width':'250px'})
-    },
-    imgleave() {
-      console.log(this.$refs.input_search);
-      this.$refs.input_search.style.width = "0";
-      this.$refs.input_search.style.padding = "0";
-      // document.getElementById('input_search').animate({'width':'250px'})
-    },
-  
+   
     initSwiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {

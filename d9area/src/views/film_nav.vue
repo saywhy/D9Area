@@ -31,6 +31,7 @@ export default {
   props: ["activenav"],
   mounted() {
     this.activeIndex = this.activenav;
+    console.log( this.activenav);
   },
   methods: {
     handleSelect(key, keyPath) {
