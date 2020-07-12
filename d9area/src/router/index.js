@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Online_login from '../views/online_login.vue'
 import Online from '../views/online.vue'
 import FilmFestival from '../views/film_festival.vue'
+import QA from '../views/QA.vue'
+import FilmShow from '../views/film_show.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -30,6 +32,16 @@ const routes = [{
         path: '/film_festival',
         name: 'FilmFestival',
         component: FilmFestival
+    },
+    {
+        path: '/QA',
+        name: 'QA',
+        component: QA
+    },
+    {
+        path: '/film_show',
+        name: 'FilmShow',
+        component: FilmShow
     }
    
 ]

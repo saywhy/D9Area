@@ -140,7 +140,7 @@ export default {
           this.$router.push("/film_festival");
           break;
         case "3":
-          this.$router.push("/online_login");
+          this.$router.push("/film_show");
           break;
         case "4":
           this.$router.push("/about2");
