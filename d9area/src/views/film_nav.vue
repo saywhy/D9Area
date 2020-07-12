@@ -38,7 +38,7 @@ export default {
       console.log(key, keyPath);
       switch (key) {
         case "1":
-          this.$router.push("/home");
+          this.$router.push("/film_festival");
           break;
         case "2":
           this.$router.push("/film_festival");
