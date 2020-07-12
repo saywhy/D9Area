@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <div id="nav_home">
     <div class="nav_box">
       <img class="logo"
            width="70"
@@ -86,7 +86,7 @@ export default {
 
 
 <style lang="less">
-#nav {
+#nav_home {
   position: relative;
   width: 100%;
   height: 114px;
@@ -134,48 +134,5 @@ export default {
     color: #c9a562;
   }
 }
-.foot_box {
-  width: 100%;
-  height: 196px;
-  background: #0a0a0a;
-  // position: fixed;
-  bottom: 0;
-  .foot_box_main {
-    height: 196px;
-    // border: 1px solid red;
-    width: 530px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    ul {
-      margin-top: 50px;
-      display: flex;
-    }
 
-    li {
-      flex: 1;
-      font-size: 22px;
-      font-weight: 400;
-      color: rgba(188, 188, 188, 1);
-      position: relative;
-      .line {
-        position: absolute;
-        right: 0;
-        width: 2px;
-        height: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(188, 188, 188, 1);
-      }
-    }
-    .bottom {
-      li {
-        color: rgba(142, 142, 142, 1);
-      }
-      .line {
-        background: rgba(142, 142, 142, 1);
-      }
-    }
-  }
-}
 </style>

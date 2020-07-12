@@ -1,4 +1,4 @@
-   <template>
+<template>
   <div class="QA">
     <Nav></Nav>
     <div class="QA_bg">

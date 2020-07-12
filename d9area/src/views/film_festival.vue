@@ -17,26 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="FilmFestival_nav">
-        <div class="container_main">
-          <el-menu
-            :default-active="activeIndex"
-            text-color="#F6F6F6"
-            active-text-color="#C9A562"
-            background-color="#000"
-            class="el_menu"
-            mode="horizontal"
-            @select="handleSelect"
-          >
-            <el-menu-item index="1">新闻</el-menu-item>
-            <el-menu-item index="2">简介</el-menu-item>
-            <el-menu-item index="3">影片展示</el-menu-item>
-            <el-menu-item index="4">影片申报</el-menu-item>
-            <el-menu-item index="5">电影基金</el-menu-item>
-            <el-menu-item index="6">Q&A</el-menu-item>
-          </el-menu>
-        </div>
-      </div>
+     <film-nav :activenav='Index'></film-nav>
       <div class="FilmFestival_swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -94,12 +75,14 @@
 import Swiper from "swiper";
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
+import filmNav from "@/views/film_nav.vue";
+
 export default {
   name: "FilmFestival",
-  components: { Nav, Footer },
+  components: { Nav, Footer, filmNav},
   data() {
     return {
-      activeIndex: "1",
+      Index: "1",
       img_list: [
         {
           src: require("@/assets/images/film/banner1.jpg")
@@ -130,28 +113,7 @@ export default {
       this.$refs.input_search.style.padding = "0";
       // document.getElementById('input_search').animate({'width':'250px'})
     },
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-      switch (key) {
-        case "1":
-          this.$router.push("/home");
-          break;
-        case "2":
-          this.$router.push("/film_festival");
-          break;
-        case "3":
-          this.$router.push("/film_show");
-          break;
-        case "4":
-          this.$router.push("/about2");
-          break;
-               case "6":
-          this.$router.push("/QA");
-          break;
-        default:
-          break;
-      }
-    },
+  
     initSwiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
@@ -234,28 +196,7 @@ export default {
     .img_hover:hover {
     }
   }
-  //   nav 导航
-  .FilmFestival_nav {
-    height: 90px;
-    border: 1px solid red;
-    .el_menu,
-    .el_menu li {
-      font-size: 22px;
-      height: 90px;
-      line-height: 90px;
-      float: left;
-      background: #000000;
-    }
-    .el-menu.el-menu--horizontal {
-      border: 0;
-    }
-    .el-menu--horizontal > .el-menu-item.is-active {
-      border: 0;
-    }
-    .el-menu--horizontal > .el-menu-item {
-      border: 0;
-    }
-  }
+ 
   .FilmFestival_content {
     height: 2500px;
     background: #fff;
