@@ -4,20 +4,10 @@
     <div class="FilmFestival">
       <div class="FilmFestival_top">
         <div class="container_main">
-          <div class="top_left">
-            <img class="logo logo_left" width="117" src="@/assets/logo_2x.png" alt />
-            <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-            <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-            <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-            <img class="logo" src="@/assets/images/home/logo.png" alt />
-          </div>
-          <div @mouseover="imghover" @mouseleave="imgleave" style="float: right;">
-            <img src="@/assets/images/film/search.png" class="img_hover" width="54" height="54" alt />
-            <input type="text" ref="input_search" class="input_search" id="input_search" />
-          </div>
+          <film-top></film-top>
         </div>
       </div>
-     <film-nav :activenav='Index'></film-nav>
+     <film-nav :activen='Index'></film-nav>
       <div class="FilmFestival_swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -76,10 +66,11 @@ import Swiper from "swiper";
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import filmNav from "@/views/film_nav.vue";
+import filmTop from "@/views/film_top.vue";
 
 export default {
   name: "FilmFestival",
-  components: { Nav, Footer, filmNav},
+  components: { Nav, Footer, filmNav,filmTop},
   data() {
     return {
       Index: "1",
@@ -152,50 +143,7 @@ export default {
 .FilmFestival {
   margin-top: 114px;
   border: 1px solid red;
-  .FilmFestival_top {
-    height: 188px;
-    padding: 28px 0;
-    background: #0a0a0a;
-    border: 1px solid red;
-    height: 130px;
-    line-height: 130px;
-    .top_left {
-      float: left;
-      .logo {
-        vertical-align: middle;
-      }
-      .logo_left {
-        margin-right: 130px;
-      }
-      .logo_right {
-        margin-right: 76px;
-      }
-    }
-    .img_hover {
-      cursor: pointer;
-      vertical-align: middle;
-    }
-    .input_search {
-      width: 0;
-      height: 54px;
-      font-size: 26px;
-      color: rgb(246, 246, 246);
-      caret-color: #fff;
-      border: 0;
-      background: rgba(85, 85, 84, 0.3);
-      border-radius: 8px;
-      outline: none;
-      vertical-align: middle;
-      &:hover,
-      &:focus {
-        border: 0;
-        outline: none;
-      }
-    }
 
-    .img_hover:hover {
-    }
-  }
  
   .FilmFestival_content {
     height: 2500px;
