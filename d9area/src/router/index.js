@@ -7,6 +7,7 @@ import FilmFestival from '../views/film_festival.vue'
 import QA from '../views/QA.vue'
 import FilmShow from '../views/film_show.vue'
 import Simple from '@/views/simple.vue'
+import Messages from '@/views/messages.vue'
 
 Vue.use(VueRouter)
 
@@ -49,6 +50,11 @@ const routes = [{
   path: '/simple',
   name: 'Simple',
   component: Simple
+},
+{
+  path: '/messages',
+  name: 'Messages',
+  component: Messages
 }
 ]
 

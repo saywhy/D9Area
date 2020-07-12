@@ -5,10 +5,10 @@
     <div class="FilmShow">
       <div class="FilmShow_top"></div>
       <!-- 内容 -->
-      <div class="main_container">
+      <div class="main_container" v-if="selected_box">
         <p class="content_title">入围作品</p>
         <div class="content_top">
-          <div class="content_top_left">
+          <div class="content_top_left" @click="show_swiper('selected')">
             <span class="content_top_left_time">时长：1分20秒</span>
           </div>
           <div class="content_top_right">
@@ -81,6 +81,11 @@
           </div>
         </div>
       </div>
+      <div v-if="!selected_box">
+<film-swiper></film-swiper>
+      </div>
+
+
     </div>
     <Footer></Footer>
   </div>
@@ -91,16 +96,29 @@ import Swiper from "swiper";
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import filmNav from "@/views/film_nav.vue";
+import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
-  components: { Nav, Footer, filmNav },
+  components: { Nav, Footer, filmNav,filmSwiper },
   data() {
     return {
-      Index: "3"
+      Index: "3",
+      selected_box:true
     };
   },
   mounted() {},
-  methods: {}
+  methods: {
+    show_swiper(name){
+      switch (name) {
+        case 'selected':
+          this.selected_box = false
+          break;
+      
+        default:
+          break;
+      }
+    }
+  }
 };
 </script>
 <style lang="less">
