@@ -1,15 +1,13 @@
 <template>
   <div class="film_nav">
     <div class="container_main">
-      <el-menu
-        :default-active="activeIndex"
-        text-color="#F6F6F6"
-        active-text-color="#C9A562"
-        background-color="#000"
-        class="el_menu"
-        mode="horizontal"
-        @select="handleSelect"
-      >
+      <el-menu :default-active="activeIndex"
+               text-color="#F6F6F6"
+               active-text-color="#C9A562"
+               background-color="#000"
+               class="el_menu"
+               mode="horizontal"
+               @select="handleSelect">
         <el-menu-item index="1">新闻</el-menu-item>
         <el-menu-item index="2">简介</el-menu-item>
         <el-menu-item index="3">影片展示</el-menu-item>
@@ -23,25 +21,25 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      activeIndex: "5"
+      activeIndex: "1",
     };
   },
   props: ["activenav"],
-  mounted() {
+  mounted () {
     this.activeIndex = this.activenav;
-    console.log( this.activenav);
+    console.log(this.activenav);
   },
   methods: {
-    handleSelect(key, keyPath) {
+    handleSelect (key, keyPath) {
       console.log(key, keyPath);
       switch (key) {
         case "1":
           this.$router.push("/film_festival");
           break;
         case "2":
-          this.$router.push("/film_festival");
+          this.$router.push("/simple");
           break;
         case "3":
           this.$router.push("/film_show");
