@@ -5,7 +5,7 @@
               class="top_nav"></film-nav>
     <div class="FilmShow">
       <div class="FilmShow_top">
-        <img src="@/assets/images/film/film_show_bg.jpg"
+        <img src="@/assets/images/film/film_show_bg.png"
              alt="">
       </div>
       <!-- 内容 -->

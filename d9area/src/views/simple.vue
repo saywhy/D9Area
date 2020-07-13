@@ -1,8 +1,8 @@
 <template>
   <div class="simple">
     <Nav :mainnav='mainnav'></Nav>
-      <film-top class="nav_margin_top"></film-top>
     <div class="container_main">
+      <film-top class="nav_margin_top"></film-top>
       <film-nav :activenav="Index"></film-nav>
     </div>
     <div class="simple_box">
@@ -65,7 +65,6 @@ export default {
 }
 .simple_box {
   width: 100%;
-  background: #0a0a0a;
   .jj {
     width: 100%;
   }
