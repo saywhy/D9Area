@@ -3,9 +3,7 @@
     <Nav :mainnav='mainnav'></Nav>
     <div class="FilmFestival">
       <div class="FilmFestival_top">
-        <div class="container_main">
           <film-top></film-top>
-        </div>
       </div>
       <film-nav :activenav='Index'></film-nav>
       <div class="FilmFestival_swiper">

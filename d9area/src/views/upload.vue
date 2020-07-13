@@ -115,6 +115,7 @@ export default {
       }
     }
     .el-menu--horizontal > .el-menu-item.is-active {
+      background: #0a0a0a !important;
       border: 0;
       &:after {
         content: '';
@@ -130,6 +131,7 @@ export default {
     }
     .el-menu--horizontal > .el-menu-item {
       border: 0;
+         background: #0a0a0a !important;
     }
   }
 

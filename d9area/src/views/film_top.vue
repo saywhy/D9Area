@@ -1,65 +1,44 @@
 <template>
   <div class="film_top">
-    <div class="top_left">
-      <img class="logo logo_left"
-           width="117"
-           src="@/assets/logo_2x.png"
-           alt />
-      <img class="logo logo_right"
-           src="@/assets/images/home/logo.png"
-           alt />
-      <img class="logo logo_right"
-           src="@/assets/images/home/logo.png"
-           alt />
-      <img class="logo logo_right"
-           src="@/assets/images/home/logo.png"
-           alt />
-      <img class="logo"
-           src="@/assets/images/home/logo.png"
-           alt />
-    </div>
-    <div @mouseover="imghover"
-         @mouseleave="imgleave"
-         style="float: right;">
-      <img src="@/assets/images/film/search.png"
-           class="img_hover"
-           width="54"
-           height="54"
-           alt />
-      <input type="text"
-             ref="input_search"
-             class="input_search"
-             id="input_search" />
+    <div class="main_container">
+      <div class="top_left">
+        <img class="logo logo_left" width="117" src="@/assets/logo_2x.png" alt />
+        <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
+        <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
+        <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
+        <img class="logo" src="@/assets/images/home/logo.png" alt />
+      </div>
+      <div @mouseover="imghover" @mouseleave="imgleave" style="float: right;">
+        <img src="@/assets/images/film/search.png" class="img_hover" width="54" height="54" alt />
+        <input type="text" ref="input_search" class="input_search" id="input_search" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
   methods: {
-    imghover () {
+    imghover() {
       console.log(1111);
       console.log(this.$refs.input_search);
       this.$refs.input_search.style.width = "250px";
       this.$refs.input_search.style.padding = "0 10px";
       // document.getElementById('input_search').animate({'width':'250px'})
     },
-    imgleave () {
+    imgleave() {
       console.log(this.$refs.input_search);
       this.$refs.input_search.style.width = "0";
       this.$refs.input_search.style.padding = "0";
       // document.getElementById('input_search').animate({'width':'250px'})
-    },
-
+    }
   }
-}
+};
 </script>
 
 <style lang="less">
 .film_top {
   height: 188px;
-  padding: 28px 0;
   background: #0a0a0a;
   // border: 1px solid red;
   height: 130px;
