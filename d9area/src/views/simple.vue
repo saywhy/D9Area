@@ -1,6 +1,6 @@
 <template>
   <div class="simple">
-    <Nav></Nav>
+    <Nav :mainnav='mainnav'></Nav>
     <div class="container_main">
       <film-top class="nav_margin_top"></film-top>
       <film-nav :activenav="Index"></film-nav>
@@ -40,6 +40,7 @@ export default {
   data () {
     return {
       Index: '2',
+      mainnav: '2',
     }
   }
 };
@@ -66,7 +67,6 @@ export default {
   width: 100%;
   .jj {
     width: 100%;
-    height: 615px;
   }
   .simple_box_min {
     width: 1200px;

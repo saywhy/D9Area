@@ -7,14 +7,12 @@
         <div class="main_box">
           <!-- 左边 -->
           <div class="nav_left">
-            <el-menu
-              :default-active="activeIndex"
-              class="el-menu-vertical-demo"
-              @select="handleSelect"
-              background-color="#000"
-              text-color="#fff"
-              active-text-color="#fff"
-            >
+            <el-menu :default-active="activeIndex"
+                     class="el-menu-vertical-demo"
+                     @select="handleSelect"
+                     background-color="#000"
+                     text-color="#fff"
+                     active-text-color="#fff">
               <el-menu-item index="1">
                 <span slot="title">用户协议</span>
               </el-menu-item>
@@ -56,8 +54,9 @@ import Footer from "@/views/footer.vue";
 export default {
   name: "Messages",
   components: { Nav, Footer },
-  data() {
+  data () {
     return {
+      session: "",
       activeIndex: "1",
       nav_list: [
         { name: "用户协议" },
@@ -68,20 +67,50 @@ export default {
     };
   },
   mounted () {
-    console.log(this.$route.query.name ); 
     switch (this.$route.query.name) {
-        case 'contact':
-             this.activeIndex='4'
-            break;
-    
-        default:
-            break;
+      case 'contact':
+        this.activeIndex = '4'
+        break;
+      case 'user':
+        this.activeIndex = '1'
+        break;
+      case 'help':
+        this.activeIndex = '3'
+        break;
+      case 'privacy':
+        this.activeIndex = '2'
+        break;
+
+      default:
+        break;
     }
   },
+  // 监听器监听路由参数变化
+  watch: {
+    '$route': 'swtch_router'
+  },
   methods: {
-    handleSelect(index) {
+    handleSelect (index) {
       console.log(index);
       this.activeIndex = index;
+    },
+    swtch_router () {
+      switch (this.$route.query.name) {
+        case 'contact':
+          this.activeIndex = '4'
+          break;
+        case 'user':
+          this.activeIndex = '1'
+          break;
+        case 'help':
+          this.activeIndex = '3'
+          break;
+        case 'privacy':
+          this.activeIndex = '2'
+          break;
+        default:
+          break;
+      }
     }
   }
 };
@@ -93,7 +122,7 @@ export default {
   background: #0a0a0a;
   .msg_top {
     height: 844px;
-    background-image: url("../assets/images/film/film_show_bg.png");
+    background-image: url('../assets/images/film/film_show_bg.png');
     background-size: 100% 100%;
   }
   .main_box {
@@ -137,7 +166,7 @@ export default {
     width: 843px;
     height: 1400px;
     background: #000;
-    border: 1px solid red;
+    // border: 1px solid red;
     text-align: left;
     .nav_right_top {
       height: 114px;

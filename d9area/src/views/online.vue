@@ -1,29 +1,41 @@
 <template>
   <div class="container">
-    <Nav></Nav>
+    <Nav :mainnav='mainnav'></Nav>
     <div class="online">
       <div class="top">
         <div class="top_left">
-          <img class="logo logo_left" width="117" src="@/assets/logo_2x.png" alt />
-          <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-          <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-          <img class="logo logo_right" src="@/assets/images/home/logo.png" alt />
-          <img class="logo" src="@/assets/images/home/logo.png" alt />
+          <img class="logo logo_left"
+               width="117"
+               src="@/assets/logo_2x.png"
+               alt />
+          <img class="logo logo_right"
+               src="@/assets/images/home/logo.png"
+               alt />
+          <img class="logo logo_right"
+               src="@/assets/images/home/logo.png"
+               alt />
+          <img class="logo logo_right"
+               src="@/assets/images/home/logo.png"
+               alt />
+          <img class="logo"
+               src="@/assets/images/home/logo.png"
+               alt />
         </div>
-        <el-input class="s_key" v-model="search" clearable>
-          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        <el-input class="s_key"
+                  v-model="search"
+                  clearable>
+          <i slot="prefix"
+             class="el-input__icon el-icon-search"></i>
         </el-input>
       </div>
       <div class="title_nav">
-        <el-menu
-          :default-active="activeIndex"
-          text-color="#F6F6F6"
-          active-text-color="#C9A562"
-          background-color="#000"
-          class="el_menu"
-          mode="horizontal"
-          @select="handleSelect"
-        >
+        <el-menu :default-active="activeIndex"
+                 text-color="#F6F6F6"
+                 active-text-color="#C9A562"
+                 background-color="#000"
+                 class="el_menu"
+                 mode="horizontal"
+                 @select="handleSelect">
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">专题</el-menu-item>
           <el-menu-item index="3">系列</el-menu-item>
@@ -32,15 +44,15 @@
       <div class="banner">
         <div class="banner_text">
           <p class="banner_title">水牛男孩</p>
-          <p
-            class="banner_content"
-          >1860年，面对荷兰殖民势力的暗杀，阿拉纳带着哥哥的两个孩子逃到美国西部。多年后，两个孩子回来替父亲报仇，然而在他们看到家乡的境况后，复仇的意义好像改变了。</p>
+          <p class="banner_content">1860年，面对荷兰殖民势力的暗杀，阿拉纳带着哥哥的两个孩子逃到美国西部。多年后，两个孩子回来替父亲报仇，然而在他们看到家乡的境况后，复仇的意义好像改变了。</p>
           <div class="banner_btn_left">
-            <img src="@/assets/images/online/start.png" alt />
+            <img src="@/assets/images/online/start.png"
+                 alt />
             <span>播放</span>
           </div>
           <div class="banner_btn_right">
-            <img src="@/assets/images/online/add.png" alt />
+            <img src="@/assets/images/online/add.png"
+                 alt />
             <span>我的影片</span>
           </div>
         </div>
@@ -52,9 +64,13 @@
           <div class="swiper_box">
             <div class="swiper-container">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item,index) in img_list">
+                <div class="swiper-slide"
+                     v-for="(item,index) in img_list">
                   <!-- 2323213 -->
-                  <img :src="item.src" width="350" @click="choose_detail(index)" alt />
+                  <img :src="item.src"
+                       width="350"
+                       @click="choose_detail(index)"
+                       alt />
                 </div>
               </div>
               <div class="swiper-button-prev"></div>
@@ -64,16 +80,21 @@
             </div>
           </div>
         </div>
-        <div class="detail_box" v-if="detail_show">dasdasdasdasdasd</div>
+        <div class="detail_box"
+             v-if="detail_show">dasdasdasdasdasd</div>
         <!-- D9区推荐 -->
         <div class="recommend_mid">
           <p class="subtitle_mid">D9区推荐</p>
           <div class="swiper_box">
             <div class="swiper_container_mid">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item,index) in img_list">
+                <div class="swiper-slide"
+                     v-for="(item,index) in img_list">
                   <!-- 2323213 -->
-                  <img :src="item.src" width="350" @click="choose_detail(index)" alt />
+                  <img :src="item.src"
+                       width="350"
+                       @click="choose_detail(index)"
+                       alt />
                 </div>
               </div>
               <div class="swiper-button-prev-mid"></div>
@@ -89,9 +110,13 @@
           <div class="swiper_box">
             <div class="swiper_container_bom">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item,index) in img_list">
+                <div class="swiper-slide"
+                     v-for="(item,index) in img_list">
                   <!-- 2323213 -->
-                  <img :src="item.src" width="350" @click="choose_detail(index)" alt />
+                  <img :src="item.src"
+                       width="350"
+                       @click="choose_detail(index)"
+                       alt />
                 </div>
               </div>
               <div class="swiper-button-prev-bom"></div>
@@ -113,10 +138,11 @@ import Swiper from "swiper";
 export default {
   name: "Online",
   components: { Nav, Footer },
-  data() {
+  data () {
     return {
       search: "",
       activeIndex: "1",
+      mainnav: "3",
       detail_show: false,
       img_list: [
         {
@@ -143,14 +169,14 @@ export default {
       ]
     };
   },
-  mounted() {
+  mounted () {
     this.initSwiper();
     this.initSwiper_mid();
-     this.initSwiper_bom();
+    this.initSwiper_bom();
   },
   methods: {
-    handleSelect() {},
-    initSwiper() {
+    handleSelect () { },
+    initSwiper () {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
         autoplay: false, //等同于以下设置
@@ -170,7 +196,7 @@ export default {
         },
         // 点击事件
         on: {
-          click: function() {
+          click: function () {
             let elem2 = Array.from(swiper.slides);
             elem2.forEach(element => {
               element.style.border = 0;
@@ -181,7 +207,7 @@ export default {
         }
       });
     },
-    initSwiper_mid() {
+    initSwiper_mid () {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper_container_mid", {
         autoplay: false, //等同于以下设置
@@ -201,7 +227,7 @@ export default {
         }
       });
     },
-    initSwiper_bom() {
+    initSwiper_bom () {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper_container_bom", {
         autoplay: false, //等同于以下设置
@@ -221,7 +247,7 @@ export default {
         }
       });
     },
-    choose_detail(item) {
+    choose_detail (item) {
       console.log(item);
     }
   }
@@ -300,7 +326,7 @@ export default {
   }
   .banner {
     height: 1192px;
-    background-image: url("../assets/images/online/banner.png");
+    background-image: url('../assets/images/online/banner.png');
     // background-size: 100% 780px;
     position: relative;
     .banner_text {
@@ -403,7 +429,7 @@ export default {
             top: 0;
             background: rgba(0, 0, 0, 0.6);
             margin-top: 0;
-            background-image: url("../assets/images/online/prev.png");
+            background-image: url('../assets/images/online/prev.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;
@@ -417,7 +443,7 @@ export default {
             background: rgba(0, 0, 0, 0.6);
 
             margin-top: 0;
-            background-image: url("../assets/images/online/next.png");
+            background-image: url('../assets/images/online/next.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;
@@ -470,7 +496,7 @@ export default {
             top: 0;
             background: rgba(0, 0, 0, 0.6);
             margin-top: 0;
-            background-image: url("../assets/images/online/prev.png");
+            background-image: url('../assets/images/online/prev.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;
@@ -483,7 +509,7 @@ export default {
             top: 0;
             background: rgba(0, 0, 0, 0.6);
             margin-top: 0;
-            background-image: url("../assets/images/online/next.png");
+            background-image: url('../assets/images/online/next.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;
@@ -508,7 +534,7 @@ export default {
         height: 790px;
       }
     }
-      .recommend_bom {
+    .recommend_bom {
       margin-top: 60px;
       .subtitle_bom {
         width: 1200px;
@@ -537,7 +563,7 @@ export default {
             top: 0;
             background: rgba(0, 0, 0, 0.6);
             margin-top: 0;
-            background-image: url("../assets/images/online/prev.png");
+            background-image: url('../assets/images/online/prev.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;
@@ -550,7 +576,7 @@ export default {
             top: 0;
             background: rgba(0, 0, 0, 0.6);
             margin-top: 0;
-            background-image: url("../assets/images/online/next.png");
+            background-image: url('../assets/images/online/next.png');
             background-repeat: no-repeat;
             background-position: center;
             z-index: 99999;

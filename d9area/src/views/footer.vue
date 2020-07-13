@@ -2,19 +2,23 @@
   <div class="foot_box">
     <div class="foot_box_main">
       <ul>
-        <li class="cursor" @click="go_message('contact')">
+        <li class="cursor"
+            @click="go_message('contact')">
           联系我们
           <span class="line"></span>
         </li>
-        <li class="cursor" @click="go_message('user')">
+        <li class="cursor"
+            @click="go_message('user')">
           用户协议
           <span class="line"></span>
         </li>
-        <li class="cursor" @click="go_message('help')">
+        <li class="cursor"
+            @click="go_message('help')">
           使用帮助
           <span class="line"></span>
         </li>
-        <li class="cursor" @click="go_message('privacy')">隐私协议</li>
+        <li class="cursor"
+            @click="go_message('privacy')">隐私协议</li>
       </ul>
       <ul class="bottom">
         <li>
@@ -29,15 +33,15 @@
  <script>
 export default {
   name: "Footer",
-  data() {
+  data () {
     return {};
   },
-  mounted() {
+  mounted () {
 
-    
+
   },
   methods: {
-    go_message(name) {
+    go_message (name) {
       this.$router.push({
         path: "/messages",
         query: { name: name }

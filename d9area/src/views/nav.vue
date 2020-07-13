@@ -37,11 +37,13 @@ export default {
   name: 'nav',
   data () {
     return {
-      activeIndex: '1',
+      activeIndex: '',
       language: 'cn'
     };
   },
+  props: ["mainnav"],
   mounted () {
+    this.activeIndex = this.mainnav;
     // this.$i18n.locale = 'en'
   },
   methods: {
@@ -58,7 +60,7 @@ export default {
           this.$router.push('/online_login')
           break;
         case '4':
-          this.$router.push('/about2')
+          this.$router.push('/login')
           break;
         default:
           break;
@@ -134,5 +136,4 @@ export default {
     color: #c9a562;
   }
 }
-
 </style>

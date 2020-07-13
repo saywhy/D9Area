@@ -62,7 +62,6 @@ export default {
 //   nav 导航
 .film_nav {
   height: 90px;
-  border: 1px solid red;
   .el_menu,
   .el_menu li {
     font-size: 22px;

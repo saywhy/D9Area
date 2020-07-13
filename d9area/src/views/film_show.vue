@@ -1,23 +1,27 @@
 <template>
   <div class="container">
-    <Nav></Nav>
-    <film-nav :activenav="Index" class="top_nav"></film-nav>
+    <Nav :mainnav='mainnav'></Nav>
+    <film-nav :activenav="Index"
+              class="top_nav"></film-nav>
     <div class="FilmShow">
-      <div class="FilmShow_top"></div>
+      <div class="FilmShow_top">
+        <img src="@/assets/images/film/film_show_bg.png"
+             alt="">
+      </div>
       <!-- 内容 -->
-      <div class="main_container" v-if="selected_box">
+      <div class="main_container"
+           v-if="selected_box">
         <p class="content_title">入围作品</p>
         <div class="content_top">
-          <div class="content_top_left" @click="show_swiper('selected')">
+          <div class="content_top_left"
+               @click="show_swiper('selected')">
             <span class="content_top_left_time">时长：1分20秒</span>
           </div>
           <div class="content_top_right">
             <div class="content_top_right_top">
               <p class="film_name">拯救计划</p>
               <p class="film_theme">VFX电影短片 | 战争</p>
-              <p
-                class="film_des"
-              >想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
+              <p class="film_des">想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
             </div>
             <div class="content_top_right_bom">
               <p class="film_company">出品方：凉山重工</p>
@@ -82,9 +86,8 @@
         </div>
       </div>
       <div v-if="!selected_box">
-<film-swiper></film-swiper>
+        <film-swiper></film-swiper>
       </div>
-
 
     </div>
     <Footer></Footer>
@@ -99,21 +102,22 @@ import filmNav from "@/views/film_nav.vue";
 import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
-  components: { Nav, Footer, filmNav,filmSwiper },
-  data() {
+  components: { Nav, Footer, filmNav, filmSwiper },
+  data () {
     return {
       Index: "3",
-      selected_box:true
+      mainnav: "2",
+      selected_box: true
     };
   },
-  mounted() {},
+  mounted () { },
   methods: {
-    show_swiper(name){
+    show_swiper (name) {
       switch (name) {
         case 'selected':
           this.selected_box = false
           break;
-      
+
         default:
           break;
       }
@@ -129,9 +133,7 @@ export default {
 .FilmShow {
   background: #0a0a0a;
   .FilmShow_top {
-    height: 615px;
-    background-image: url("../assets/images/film/film_show_bg.png");
-    background-size: 100% 100%;
+    width: 100%;
   }
   // 内容
   .content_title {
@@ -148,7 +150,7 @@ export default {
       width: 800px;
       float: left;
       height: 504px;
-      background-image: url("../assets/images/film/show/main.png");
+      background-image: url('../assets/images/film/show/main.png');
       background-size: 100% 100%;
       cursor: pointer;
       position: relative;
@@ -208,7 +210,7 @@ export default {
       background: #000;
       .item_img {
         height: 227px;
-        background-image: url("../assets/images/film/show/sub.png");
+        background-image: url('../assets/images/film/show/sub.png');
         background-size: 100% 100%;
         position: relative;
         .item_time {
@@ -235,7 +237,7 @@ export default {
           }
         }
         .item_content_bom {
-             padding: 26px 19px;
+          padding: 26px 19px;
           .item_company {
             font-size: 17px;
             color: rgba(255, 255, 255, 1);

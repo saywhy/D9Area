@@ -61,7 +61,7 @@ export default {
   height: 188px;
   padding: 28px 0;
   background: #0a0a0a;
-  border: 1px solid red;
+  // border: 1px solid red;
   height: 130px;
   line-height: 130px;
   z-index: 999999;
