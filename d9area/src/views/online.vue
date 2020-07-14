@@ -159,6 +159,7 @@ export default {
         slidesPerView: "auto",
         slidesPerView: 5,
         spaceBetween: 20,
+        slidesOffsetBefore: 360,
         loop: false,
         speed: 1000,
         pagination: {
@@ -190,6 +191,7 @@ export default {
         slidesPerView: "auto",
         slidesPerView: 5,
         spaceBetween: 20,
+        slidesOffsetBefore: 368,
         loop: false,
         speed: 1000,
         pagination: {
@@ -210,6 +212,7 @@ export default {
         slidesPerView: "auto",
         slidesPerView: 5,
         spaceBetween: 20,
+        slidesOffsetBefore: 360,
         loop: false,
         speed: 1000,
         pagination: {
@@ -398,7 +401,7 @@ export default {
             width: 100%;
           }
           .swiper-button-prev {
-            width: 19.8%;
+            width: 368px;
             height: 100%;
             left: 0;
             position: absolute;

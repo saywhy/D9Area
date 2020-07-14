@@ -2,9 +2,7 @@
   <div class="body_box">
     <Nav :mainnav='mainnav'></Nav>
     <div class="FilmDetail">
-      <div class="detail_top">
-
-      </div>
+      <div class="detail_top"></div>
       <div class="detail_content">
         <div class="container_main">
           dsadasdsa
