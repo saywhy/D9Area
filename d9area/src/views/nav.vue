@@ -28,6 +28,13 @@
         <span @click="change_language('en')"
               :class="language=='en'?'language_color':''"> EN</span>
       </span>
+      <span class="nav_right personl"
+            v-if="personl_show">
+        <span class="personl_name"
+              @click="go_personl">永恒</span>
+        <span>｜</span>
+        <span @click="logout">退出</span>
+      </span>
     </div>
   </div>
 </template>
@@ -38,13 +45,18 @@ export default {
   data () {
     return {
       activeIndex: '',
-      language: 'cn'
+      language: 'cn',
+      personl_show: false
     };
   },
   props: ["mainnav"],
   mounted () {
     this.activeIndex = this.mainnav;
     // this.$i18n.locale = 'en'
+    console.log(sessionStorage.getItem('personal'));
+    if (sessionStorage.getItem('personal') == 'true') {
+      this.personl_show = true
+    }
   },
   methods: {
     handleSelect (key, keyPath) {
@@ -81,6 +93,13 @@ export default {
         default:
           break;
       }
+    },
+    logout () {
+      this.personl_show = false
+      sessionStorage.setItem('personal', 'false')
+    },
+    go_personl () {
+      this.$router.push('/personal')
     }
   }
 }
@@ -91,10 +110,10 @@ export default {
 #nav_home {
   position: relative;
   width: 100%;
-  height: 114px;
+  height: 80px;
   // border: 1px solid red;
   background: #000000;
-  font-size: 22px;
+  font-size: 16px;
   position: fixed;
   z-index: 9999999;
 }
@@ -115,9 +134,16 @@ export default {
     cursor: pointer;
     line-height: 70px;
   }
+  .personl {
+    font-size: 16px;
+    margin-right: 37px;
+    .personl_name {
+      color: #c9a562;
+    }
+  }
   .el_menu,
   .el_menu li {
-    font-size: 22px;
+    font-size: 16px;
     height: 70px;
     line-height: 70px;
     float: left;

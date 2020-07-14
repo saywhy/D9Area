@@ -7,8 +7,8 @@
           <div class="submit_top">
             <div class="top_left">
               <img src="@/assets/images/login/user.png"
-                   width="64"
-                   height="64"
+                   width="44"
+                   height="44"
                    alt="">
               <p>我的账号</p>
             </div>
@@ -81,25 +81,24 @@ export default {
 </script>
 <style lang='less'>
 .submit {
-  margin-top: 200px;
-  height: 1000px;
+  margin-top: 100px;
   color: #333;
   .submit_box {
-    height: 893px;
+    height: 780px;
     background: #fff;
     .submit_top {
-      height: 172px;
-      border-bottom: 2px solid #c8a461;
+      height: 140px;
+      border-bottom: 1px solid #c8a461;
       .top_left {
         float: left;
-        width: 147px;
+        width: 120px;
         background: #c8a461;
         height: 100%;
         line-height: 100%;
         padding: 32px 10px;
         p {
-          margin-top: 15px;
-          font-size: 22px;
+          margin-top: 6px;
+          font-size: 14px;
           color: #fff;
         }
       }
@@ -107,9 +106,9 @@ export default {
         float: left;
         padding-left: 50px;
         p {
-          font-size: 48px;
+          font-size: 40px;
           color: rgba(200, 164, 97, 1);
-          line-height: 172px;
+          line-height: 140px;
         }
       }
     }

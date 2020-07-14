@@ -45,7 +45,6 @@ export default {
           this.$router.push("/film_show");
           break;
         case "4":
-          this.$router.push("/about2");
           break;
         case "6":
           this.$router.push("/QA");
@@ -61,12 +60,10 @@ export default {
 <style lang='less'>
 //   nav 导航
 .film_nav {
-  height: 90px;
+  height: 60px;
   .el_menu,
   .el_menu li {
     font-size: 22px;
-    height: 90px;
-    line-height: 90px;
     float: left;
     background: #000000;
   }

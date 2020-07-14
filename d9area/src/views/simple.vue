@@ -1,8 +1,8 @@
 <template>
   <div class="simple">
     <Nav :mainnav='mainnav'></Nav>
+    <film-top class="nav_margin_top"></film-top>
     <div class="container_main">
-      <film-top class="nav_margin_top"></film-top>
       <film-nav :activenav="Index"></film-nav>
     </div>
     <div class="simple_box">
@@ -73,13 +73,11 @@ export default {
     height: 1919px;
     margin: 0 auto;
     background-color: #0a0a0a;
-    // border: 1px solid red;
-    margin-top: 70px;
+    margin-top: 60px;
   }
   .tc {
     height: 594px;
     margin-bottom: 40px;
-    // border: 1px solid red;
   }
   .question {
     text-align: left;

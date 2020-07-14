@@ -2,32 +2,7 @@
   <div class="container">
     <Nav :mainnav='mainnav'></Nav>
     <div class="online">
-      <div class="top">
-        <div class="top_left">
-          <img class="logo logo_left"
-               width="117"
-               src="@/assets/logo_2x.png"
-               alt />
-          <img class="logo logo_right"
-               src="@/assets/images/home/logo.png"
-               alt />
-          <img class="logo logo_right"
-               src="@/assets/images/home/logo.png"
-               alt />
-          <img class="logo logo_right"
-               src="@/assets/images/home/logo.png"
-               alt />
-          <img class="logo"
-               src="@/assets/images/home/logo.png"
-               alt />
-        </div>
-        <el-input class="s_key"
-                  v-model="search"
-                  clearable>
-          <i slot="prefix"
-             class="el-input__icon el-icon-search"></i>
-        </el-input>
-      </div>
+      <film-top></film-top>
       <div class="title_nav">
         <el-menu :default-active="activeIndex"
                  text-color="#F6F6F6"
@@ -135,9 +110,10 @@
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import Swiper from "swiper";
+import filmTop from "@/views/film_top.vue";
 export default {
   name: "Online",
-  components: { Nav, Footer },
+  components: { Nav, Footer, filmTop },
   data () {
     return {
       search: "",

@@ -3,7 +3,7 @@
     <Nav :mainnav='mainnav'></Nav>
     <div class="FilmFestival">
       <div class="FilmFestival_top">
-          <film-top></film-top>
+        <film-top></film-top>
       </div>
       <film-nav :activenav='Index'></film-nav>
       <div class="FilmFestival_swiper">
@@ -21,7 +21,8 @@
         </div>
       </div>
       <div class="FilmFestival_content">
-        <div class="container_main">
+        <div class="container_main"
+             style="overflow: hidden;">
           <div class="top">
             <div class="left">
               <img src="@/assets/images/film/top_left.png"
@@ -148,58 +149,48 @@ export default {
   margin: 0 auto;
 }
 .FilmFestival {
-  margin-top: 114px;
-  // border: 1px solid red;
-
+  margin-top: 80px;
   .FilmFestival_content {
-    height: 2500px;
     background: #fff;
-    padding-top: 70px;
+    padding-top: 60px;
     .top {
-      height: 650px;
+      overflow: hidden;
       .left {
         float: left;
         width: 760px;
-        height: 650px;
-
         p {
           margin-top: 15px;
-          // height: 30px;
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
         }
         .left_top_p {
-          margin-top: 63px;
+          // margin-top: 63px;
         }
       }
       .right {
         float: right;
         width: 389px;
-        height: 650px;
         p {
-          margin-top: 22px;
-          height: 30px;
-          font-size: 32px;
+          margin-top: 6px;
+          font-size: 22px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
         }
         .right_bom {
-          margin-top: 58px;
+          margin-top: 42px;
         }
       }
     }
     .bom {
-      margin-top: 80px;
-      height: 650px;
+      overflow: hidden;
+      margin-top: 20px;
       .left {
         float: left;
         width: 389px;
-        height: 650px;
         p {
-          margin-top: 22px;
-          height: 30px;
-          font-size: 32px;
+          margin-top: 6px;
+          font-size: 22px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
         }
@@ -210,17 +201,14 @@ export default {
       .right {
         float: right;
         width: 760px;
-        height: 650px;
-
         p {
           margin-top: 15px;
-          // height: 30px;
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
         }
         .right_top_p {
-          margin-top: 63px;
+          // margin-top: 63px;
         }
       }
     }

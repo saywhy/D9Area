@@ -7,8 +7,8 @@
           <div class="login_top">
             <div class="top_left">
               <img src="@/assets/images/login/user.png"
-                   width="64"
-                   height="64"
+                   width="44"
+                   height="44"
                    alt="">
               <p>我的账号</p>
             </div>
@@ -30,12 +30,14 @@
                 <p class="email_box">
                   <span class="email">邮箱</span>
                   <span>:</span>
-                  <input type="email">
+                  <input type="email"
+                         v-model="account.email">
                 </p>
                 <p class="pswd_box">
                   <span class="pswd">密码</span>
                   <span>:</span>
-                  <input type="password">
+                  <input type="password"
+                         v-model="account.pswd">
                 </p>
                 <p class="forget">
                   <span @click="find_pswd">忘记密码</span>
@@ -136,6 +138,10 @@ export default {
       checked: true,
       find_pswd_box: false,
       creat_box: false,
+      account: {
+        email: '',
+        pswd: '',
+      }
     }
   },
   methods: {
@@ -152,8 +158,13 @@ export default {
       this.creat_box = false
     },
     login_go () {
-      this.$router.push('/submit_type')
-    }
+      if (this.account.email == 'admin' || this.account.pswd == '12345') {
+        this.$router.push('/personal')
+        sessionStorage.setItem('personal', 'true')
+      } else {
+        this.$router.push('/submit_type')
+      }
+    },
 
   },
 
@@ -162,25 +173,24 @@ export default {
 </script>
 <style lang='less'>
 .login {
-  margin-top: 200px;
-  height: 1000px;
+  margin-top: 100px;
   color: #333;
   .login_box {
-    height: 893px;
+    height: 780px;
     background: #fff;
     .login_top {
-      height: 172px;
-      border-bottom: 2px solid #c8a461;
+      height: 140px;
+      border-bottom: 1px solid #c8a461;
       .top_left {
         float: left;
-        width: 147px;
+        width: 120px;
         background: #c8a461;
         height: 100%;
         line-height: 100%;
         padding: 32px 10px;
         p {
-          margin-top: 15px;
-          font-size: 22px;
+          margin-top: 6px;
+          font-size: 14px;
           color: #fff;
         }
       }
@@ -188,9 +198,9 @@ export default {
         float: left;
         padding-left: 50px;
         p {
-          font-size: 48px;
+          font-size: 40px;
           color: rgba(200, 164, 97, 1);
-          line-height: 172px;
+          line-height: 140px;
         }
       }
     }

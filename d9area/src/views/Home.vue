@@ -162,24 +162,24 @@ export default {
   bottom: 0;
 }
 .home {
-  margin-top: 114px;
+  margin-top: 80px;
 }
 .swiper-container {
   width: 100%;
-  height: 915px;
+  height: 540px;
   color: #fff;
 }
 .swiper-pagination {
   .swiper-pagination-bullet {
-    width: 26px;
-    height: 26px;
+    width: 10px;
+    height: 10px;
     background: #9b9b9b;
     opacity: 0.5;
     border-radius: 50%;
   }
   .swiper-pagination-bullet-active {
-    width: 26px;
-    height: 26px;
+    width: 10px;
+    height: 10px;
     background: #fff;
     opacity: 1;
   }
