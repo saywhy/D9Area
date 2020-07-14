@@ -127,7 +127,7 @@ export default {
 </script>
 <style lang="less">
 .top_nav {
-  margin-top: 114px;
+  margin-top: 80px;
 }
 
 .FilmShow {

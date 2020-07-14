@@ -58,7 +58,7 @@ export default {
 </script>
 <style lang="less">
 .submit_agree {
-  margin-top: 114px;
+  margin-top: 80px;
   background: #0a0a0a;
   min-height: 2500px;
   .agree_banner {

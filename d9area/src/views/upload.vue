@@ -87,7 +87,7 @@ export default {
 </script>
 <style lang="less">
 .upload {
-  margin-top: 114px;
+  margin-top: 80px;
   background: #0a0a0a;
   .upload_banner {
     width: 100%;

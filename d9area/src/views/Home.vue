@@ -36,9 +36,9 @@
             </div>
           </div>
         </div>
-        <!-- <div class="swiper-button-prev"></div> -->
+        <div class="swiper-button-prev_video"></div>
         <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-        <!-- <div class="swiper-button-next"></div> -->
+        <div class="swiper-button-next_video"></div>
         <!-- 右箭头。如果放置在swiper-container外面，需要自定义样式。 -->
       </div>
     </div>
@@ -96,7 +96,38 @@ export default {
               fullscreenToggle: true  //全屏按钮
             }
           }
-        }
+        },
+         {
+          suspend_show: true,
+          suspend: require('@/assets/images/home/suspend.png'),
+          img: require('@/assets/images/home/bh2.png'),
+          // 视频播放
+          playerOptions: {
+            playbackRates: [0.5, 1.0, 1.5, 2.0], //可选择的播放速度
+            autoplay: false, //如果true,浏览器准备好时开始回放。
+            muted: false, // 默认情况下将会消除任何音频。
+            loop: false, // 视频一结束就重新开始。
+            preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+            // width: '100%',
+            // height: '600px',
+            language: 'zh-CN',
+            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+            sources: [{
+              type: "video/mp4",
+              src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'//url地址
+            }],
+            poster: require('@/assets/images/home/bh2.png'), //你的封面地址
+            width: document.documentElement.clientWidth,
+            notSupportedMessage: '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+            controlBar: {
+              timeDivider: true,//当前时间和持续时间的分隔符
+              durationDisplay: true,//显示持续时间
+              remainingTimeDisplay: false,//是否显示剩余时间功能
+              fullscreenToggle: true  //全屏按钮
+            }
+          }
+        },
       ],
     }
   },
@@ -127,8 +158,12 @@ export default {
       // this.$nextTick(() => {
       var swiper = new Swiper(".video_swiper_container", {
         autoplay: false,//等同于以下设置
-        loop: true,
+        // loop: true,
         speed: 1000,
+          navigation: {
+      nextEl: '.swiper-button-next_video',
+      prevEl: '.swiper-button-prev_video',
+    },
       });
       // });
     },
@@ -184,9 +219,11 @@ export default {
     opacity: 1;
   }
 }
+// 视频部分
 .video_box {
+  position: relative;
   width: 100%;
-  margin-top: 82px;
+  margin-top: 60px;
   height: 600px;
   overflow: hidden;
   .vjs-poster {
@@ -218,4 +255,21 @@ export default {
   top: 50%;
   transform: translateY(-50%);
 }
+// .swiper-button-next_video{
+//         width: 96px;
+//         height: 188px;
+//         position: absolute;
+//         right: 10%;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         background: rgba(0, 0, 0, 0.6);
+//         margin-top: 0;
+//         background-image: url("../assets/images/online/next.png");
+//         background-repeat: no-repeat;
+//         background-position: center;
+//         z-index: 99999;
+// }
+ 
+
+
 </style>

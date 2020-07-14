@@ -243,7 +243,7 @@ export default {
   bottom: 0;
 }
 .online {
-  margin-top: 114px;
+  margin-top: 80px;
   .top {
     width: 1200px;
     height: 130px;

@@ -57,7 +57,7 @@ export default {
   bottom: 0;
 }
 .nav_margin_top {
-  margin-top: 114px;
+  margin-top: 80px;
 }
 .container_main {
   width: 1200px;

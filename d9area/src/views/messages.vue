@@ -173,7 +173,7 @@ export default {
 
 <style lang="less">
 .messages_box {
-  margin-top: 114px;
+  margin-top: 80px;
   background: #0a0a0a;
   .msg_top {
     height: 844px;
