@@ -6,7 +6,7 @@
 
     <div class="simple_box">
       <div>
-        <img src="@/assets/images/simple/jj.jpg" alt class="jj" />
+        <img src="@/assets/images/simple/jj.jpg" alt class="jj" height="540" />
       </div>
       <div class="simple_box_min">
         <img src="@/assets/images/simple/tc.png" width="1000" height="380" alt class="tc" />
