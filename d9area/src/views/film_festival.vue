@@ -1,19 +1,16 @@
 <template>
   <div class="container">
-    <Nav :mainnav='mainnav'></Nav>
+    <Nav :mainnav="mainnav"></Nav>
+    <film-nav :activenav="Index"></film-nav>
     <div class="FilmFestival">
-      <div class="FilmFestival_top">
+      <!-- <div class="FilmFestival_top">
         <film-top></film-top>
-      </div>
-      <film-nav :activenav='Index'></film-nav>
+      </div>-->
       <div class="FilmFestival_swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"
-                 v-for="item in img_list">
-              <img :src="item.src"
-                   style="height: 100%; width: 100%;"
-                   alt />
+            <div class="swiper-slide" v-for="item in img_list">
+              <img :src="item.src" style="height: 100%; width: 100%;" alt />
             </div>
           </div>
           <!-- 如果需要分页器 -->
@@ -21,30 +18,20 @@
         </div>
       </div>
       <div class="FilmFestival_content">
-        <div class="container_main"
-             style="overflow: hidden;">
+        <div class="content_box" style="overflow: hidden;">
           <div class="top">
             <div class="left">
-              <img src="@/assets/images/film/top_left.png"
-                   width="760"
-                   height="497"
-                   alt />
+              <img src="@/assets/images/film/top_left.png" width="632" height="413" alt />
               <p class="left_top_p">ICF国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
             <div class="right">
               <div class="right_top">
-                <img src="@/assets/images/film/top_right.png"
-                     width="389"
-                     height="240"
-                     alt />
+                <img src="@/assets/images/film/top_right.png" width="324" height="200" alt />
                 <p>ICF短片申报规则说明</p>
               </div>
               <div class="right_bom">
-                <img src="@/assets/images/film/top_right.png"
-                     width="389"
-                     height="240"
-                     alt />
+                <img src="@/assets/images/film/top_right.png" width="324" height="200" alt />
                 <p>新闻发布会</p>
               </div>
             </div>
@@ -52,26 +39,18 @@
           <div class="bom">
             <div class="left">
               <div class="left_top">
-                <img src="@/assets/images/film/bom_left.png"
-                     width="389"
-                     height="240"
-                     alt />
+                <img src="@/assets/images/film/bom_left.png" width="324" height="200" alt />
                 <p>详细了解2020年官方评选影片</p>
               </div>
               <div class="left_bom">
-                <img src="@/assets/images/film/bom_left.png"
-                     width="389"
-                     height="240"
-                     alt />
+                <img src="@/assets/images/film/bom_left.png" width="324" height="200" alt />
                 <p>详细了解2020年官方评选影片</p>
               </div>
             </div>
             <div class="right">
-              <img src="@/assets/images/film/bom_right.png"
-                   width="760"
-                   height="497"
-                   alt />
-              <p class="right_top_p">头条视频</p>
+              <img src="@/assets/images/film/bom_right.png" width="632" height="413" alt />
+              <p class="right_top_p">ICF国际CG动画电影周</p>
+              <p>开启短片申报通道</p>
             </div>
           </div>
         </div>
@@ -91,7 +70,7 @@ import filmTop from "@/views/film_top.vue";
 export default {
   name: "FilmFestival",
   components: { Nav, Footer, filmNav, filmTop },
-  data () {
+  data() {
     return {
       Index: "1",
       mainnav: "2",
@@ -108,12 +87,11 @@ export default {
       ]
     };
   },
-  mounted () {
+  mounted() {
     this.initSwiper();
   },
   methods: {
-
-    initSwiper () {
+    initSwiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
         autoplay: false, //等同于以下设置
@@ -144,20 +122,21 @@ export default {
   right: 0;
   bottom: 0;
 }
-.container_main {
-  width: 1200px;
+.content_box {
+  width: 998px;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 .FilmFestival {
-  margin-top: 80px;
+  margin-top: 200px;
   .FilmFestival_content {
     background: #fff;
-    padding-top: 60px;
+    padding-top: 40px;
     .top {
       overflow: hidden;
       .left {
         float: left;
-        width: 760px;
+        width: 632px;
         p {
           margin-top: 15px;
           font-size: 28px;
@@ -170,15 +149,13 @@ export default {
       }
       .right {
         float: right;
-        width: 389px;
+        width: 324px;
         p {
-          margin-top: 6px;
-          font-size: 22px;
+          height: 64px;
+          font-size: 18px;
+          line-height: 64px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
-        }
-        .right_bom {
-          margin-top: 42px;
         }
       }
     }
@@ -187,20 +164,19 @@ export default {
       margin-top: 20px;
       .left {
         float: left;
-        width: 389px;
+        width: 324px;
         p {
-          margin-top: 6px;
-          font-size: 22px;
+          height: 64px;
+          font-size: 18px;
+          line-height: 64px;
+          font-size: 18px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
-        }
-        .left_bom {
-          margin-top: 58px;
         }
       }
       .right {
         float: right;
-        width: 760px;
+        width: 632px;
         p {
           margin-top: 15px;
           font-size: 28px;

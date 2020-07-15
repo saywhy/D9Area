@@ -1,7 +1,8 @@
 <template>
   <div id="nav_home">
-    <div class="nav_box">
+    <div class="nav_box" :class="activeIndex=='2'? 'widht100':''">
       <img class="logo"
+      v-if="activeIndex !='2'"
            width="70"
            src="@/assets/images/home/D9-logo.png"
            alt="">
@@ -16,7 +17,7 @@
           首页
         </el-menu-item>
         <el-menu-item index="2">
-          ICF电影节
+          动画电影周
         </el-menu-item>
         <el-menu-item index="3">在线观影</el-menu-item>
         <el-menu-item index="4">D9制片厂</el-menu-item>
@@ -161,5 +162,9 @@ export default {
   .language_color {
     color: #c9a562;
   }
+}
+.widht100{
+  width: 100%;
+  padding-right: 30px;
 }
 </style>
