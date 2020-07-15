@@ -14,6 +14,7 @@ import SubmitAgree from '@/views/submit_agree.vue'
 import Upload from '@/views/upload.vue'
 import Personal from '@/views/personal.vue'
 import FilmDetail from '@/views/film_detail.vue'
+import UploadSteps from '@/views/upload_steps.vue'
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = VueRouter.prototype.push
@@ -97,7 +98,12 @@ const routes = [{
         path: '/film_detail',
         name: 'FilmDetail',
         component: FilmDetail
-    }
+    },
+    {
+        path: '/upload_steps',
+        name: 'UploadSteps',
+        component: UploadSteps
+    },
 ]
 
 const router = new VueRouter({

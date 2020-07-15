@@ -46,7 +46,8 @@ export default {
       if (!this.checked) {
         return false
       }
-      this.$router.push('/upload')
+      // this.$router.push('/upload')
+      this.$router.push('/upload_steps')
     },
     agree_type (val) {
       console.log(val);
