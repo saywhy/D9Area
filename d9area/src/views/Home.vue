@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <Nav :mainnav='mainnav'></Nav>
-    <div class="home">
+    <div class="home"
+         @contextmenu.prevent>
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide"
@@ -17,7 +18,7 @@
       <!-- 视频 -->
       <div class="video_box">
         <div class="video_swiper_container">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper swiper-no-swiping">
             <div class="swiper-slide"
                  v-for='(item,index) in video_list'>
               <div class="sider_video_box">
@@ -77,11 +78,10 @@ export default {
             muted: false, // 默认情况下将会消除任何音频。
             loop: false, // 视频一结束就重新开始。
             preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-            // width: '100%',
-            // height: '600px',
             language: 'zh-CN',
-            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-            fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+            height: "600px",
+            // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            fluid: false, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [{
               type: "video/mp4",
               src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'//url地址
@@ -97,7 +97,7 @@ export default {
             }
           }
         },
-         {
+        {
           suspend_show: true,
           suspend: require('@/assets/images/home/suspend.png'),
           img: require('@/assets/images/home/bh2.png'),
@@ -108,11 +108,11 @@ export default {
             muted: false, // 默认情况下将会消除任何音频。
             loop: false, // 视频一结束就重新开始。
             preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-            // width: '100%',
-            // height: '600px',
+            width: '100%',
+            height: "600px",
             language: 'zh-CN',
-            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-            fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+            // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            fluid: false, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [{
               type: "video/mp4",
               src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'//url地址
@@ -155,17 +155,36 @@ export default {
       // });
     },
     initSwiper_video () {
+      var video_list = this.video_list
+      let that = this
+      // var that = _this
+      var beforeIndex = 0;
       // this.$nextTick(() => {
       var swiper = new Swiper(".video_swiper_container", {
         autoplay: false,//等同于以下设置
         // loop: true,
         speed: 1000,
-          navigation: {
-      nextEl: '.swiper-button-next_video',
-      prevEl: '.swiper-button-prev_video',
-    },
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true,//修改swiper的父元素时，自动初始化swiper
+        navigation: {
+          nextEl: '.swiper-button-next_video',
+          prevEl: '.swiper-button-prev_video',
+        },
+        on: {
+          slidePrevTransitionStart: function (index) {
+            console.log('1111');
+            console.log(this.activeIndex);
+            //stopVideo:停止视频; pauseVideo:暂停; playVideo:播放视频	
+            that.$refs.videoPlayer[this.activeIndex + 1].player.pause()
+          },
+          slideNextTransitionStart: function (index) {
+            console.log('1111');
+            console.log(this.activeIndex);
+            //stopVideo:停止视频; pauseVideo:暂停; playVideo:播放视频	
+            that.$refs.videoPlayer[this.activeIndex - 1].player.pause()
+          },
+        }
       });
-      // });
     },
     onPlayerPlay (event, index) {
       this.video_list[index].suspend_show = false;
@@ -175,10 +194,9 @@ export default {
       this.video_list[index].suspend_show = true;
     },
     img_play (index) {
-      console.log(index);
       // var name = 'videoPlayer' + index
       // console.log(name);
-      console.log(this.$refs.videoPlayer);
+      // console.log(this.$refs.videoPlayer);
       this.$refs.videoPlayer[index].player.play()
       this.video_list[index].suspend_show = false;
     }
@@ -226,27 +244,43 @@ export default {
   margin-top: 60px;
   height: 600px;
   overflow: hidden;
+  &:hover .swiper-button-next_video {
+    display: block;
+  }
+  &:hover .swiper-button-prev_video {
+    display: block;
+  }
   .vjs-poster {
     height: 600px;
     background-position: 0 0;
     background-size: 100% 100%;
   }
+  .video-js.vjs-ended .vjs-big-play-button {
+    display: none !important;
+  }
+  .vjs-big-play-button {
+    display: none !important;
+  }
+  video {
+    outline: none;
+  }
 }
 .video_swiper_container {
   width: 100%;
-  height: 600px;
+  height: 100%;
   color: #fff;
   .swiper-slide {
     // height: 920px;
   }
   .sider_video_box {
-    height: 600px;
+    height: 100%;
     position: relative;
+    .video-player {
+      height: 100%;
+    }
   }
 }
-.vjs-big-play-button {
-  display: none !important;
-}
+
 .suspend_box {
   width: 100px;
   height: 100px;
@@ -255,21 +289,38 @@ export default {
   top: 50%;
   transform: translateY(-50%);
 }
-// .swiper-button-next_video{
-//         width: 96px;
-//         height: 188px;
-//         position: absolute;
-//         right: 10%;
-//         top: 50%;
-//         transform: translateY(-50%);
-//         background: rgba(0, 0, 0, 0.6);
-//         margin-top: 0;
-//         background-image: url("../assets/images/online/next.png");
-//         background-repeat: no-repeat;
-//         background-position: center;
-//         z-index: 99999;
-// }
- 
-
-
+.swiper-button-next_video {
+  display: none;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 0;
+  background-image: url('../assets/images/online/next.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 99999;
+  outline: none;
+}
+.swiper-button-prev_video {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 0;
+  background-image: url('../assets/images/online/prev.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 99999;
+}
 </style>
