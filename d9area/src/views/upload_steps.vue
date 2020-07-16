@@ -1,6 +1,7 @@
 <template>
   <div class="body_box">
     <Nav :mainnav='mainnav'></Nav>
+     <film-nav :activenav="Index"></film-nav>
     <div class="UploadSteps">
       <div class="main_container">
         <div class="steps_top">
@@ -28,12 +29,14 @@
 <script>
 import Nav from '@/views/nav.vue'
 import Footer from '@/views/footer.vue'
+import filmNav from "@/views/film_nav.vue";
 export default {
   name: 'UploadSteps',
-  components: { Nav, Footer },
+  components: { Nav, Footer,filmNav },
   data () {
     return {
-      mainnav: '4',
+       Index: "4",
+      mainnav: "2",
       stpes_active: 1,
     }
   },
@@ -43,7 +46,7 @@ export default {
 </script>
 <style lang="less">
 .UploadSteps {
-  margin-top: 80px;
+  margin-top: 200px;
   border: 1px solid red;
   background: #0a0a0a;
   padding-top: 43px;

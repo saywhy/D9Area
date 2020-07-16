@@ -55,6 +55,7 @@ export default {
           this.$router.push("/film_show");
           break;
         case "4":
+             this.$router.push("/upload_steps");
           break;
         case "6":
           this.$router.push("/QA");
