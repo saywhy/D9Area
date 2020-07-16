@@ -15,6 +15,7 @@ import Upload from '@/views/upload.vue'
 import Personal from '@/views/personal.vue'
 import FilmDetail from '@/views/film_detail.vue'
 import UploadSteps from '@/views/upload_steps.vue'
+import Newlogin from '@/views/newlogin.vue'
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = VueRouter.prototype.push
@@ -104,6 +105,12 @@ const routes = [{
         name: 'UploadSteps',
         component: UploadSteps
     },
+    {
+        path: '/newlogin',
+        name: 'Newlogin',
+        component: Newlogin
+    },
+    
 ]
 
 const router = new VueRouter({
