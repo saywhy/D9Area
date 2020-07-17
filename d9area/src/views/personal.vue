@@ -3,15 +3,17 @@
     <Nav :mainnav='mainnav'></Nav>
     <div class="personal">
       <div class="personal_top">
-        <img src="@/assets/images/film/film_show_bg.png"
+        <img src="../assets/images/personal/core.jpg"
+            height="540"
+            width="100%"
              alt="">
         <div class="container_main header_box">
           <div class="head_img_box">
             <img src="@/assets/images/personal/head.png"
                  :class="edit_head_img?'edit_head_img':''"
                  @mouseover='mouseOver'
-                 width="180"
-                 height="180"
+                 width="80"
+                 height="80"
                  alt="">
           </div>
           <div class="head_edit_img_box"
@@ -39,6 +41,8 @@
           <el-menu-item index="2">资料</el-menu-item>
           <el-menu-item index="3">
             <img src="@/assets/images/personal/edit.png"
+                 width="20"
+                 height="20"
                  alt="">
           </el-menu-item>
         </el-menu>
@@ -260,7 +264,6 @@ export default {
 </script>
 <style lang="less">
 .personal {
-  height: 2690px;
   background: #0a0a0a;
   .personal_top {
     position: relative;
@@ -291,38 +294,39 @@ export default {
       }
 
       .head_name {
-        margin-top: 40px;
-        font-size: 50px;
+        margin-top: 22px;
+        font-size: 22px;
         font-weight: 500;
         color: rgba(255, 255, 255, 1);
       }
       .head_des {
-        margin: 26px 0;
-        font-size: 24px;
+        margin: 16px 0;
+        font-size: 12px;
         font-weight: 400;
         color: rgba(255, 255, 255, 1);
       }
       .head_position {
-        font-size: 24px;
+        font-size: 16px;
+        font-size: 12px;
         font-weight: 400;
         color: rgba(255, 255, 255, 1);
       }
     }
   }
   .personal_nav {
-    height: 115px;
+    height: 74px;
     background: #0a0a0a;
     text-align: center;
     border-bottom: 1px solid rgba(161, 128, 55, 1);
     .el_menu,
     .el_menu li {
       margin: 0 auto;
-      font-size: 32px;
-      height: 114px;
+      font-size: 16px;
+      // height: 74px;
       display: inline-block;
-      line-height: 114px;
+      line-height: 74px;
       background: #0a0a0a !important;
-      padding: 0 45px;
+      padding: 0 60px;
     }
     .el-menu.el-menu--horizontal {
       border: 0;
@@ -341,54 +345,60 @@ export default {
   }
   // 作品
   .personal_works {
-    margin-top: 40px;
+    width:1000px;
+    margin:0 auto;
+     margin-top: 30px;
+     padding-bottom: 70px;
+    .main_container{
+      width:1000px;
+    }
     .content_top {
-      height: 504px;
+      height: 418px;
       background: #000000;
       .content_top_left {
-        width: 800px;
+        width: 667px;
         float: left;
-        height: 504px;
+        height: 418px;
         background-image: url('../assets/images/film/show/main.png');
         background-size: 100% 100%;
         cursor: pointer;
         position: relative;
         .content_top_left_time {
           position: absolute;
-          right: 30px;
-          bottom: 30px;
-          font-size: 17px;
+          right: 10px;
+          bottom: 10px;
+          font-size: 12px;
         }
       }
       .content_top_right {
-        width: 400px;
+        width: 330px;
         float: left;
         text-align: left;
         .content_top_right_top {
-          height: 385px;
+          height: 330px;
           border-bottom: 1px solid #a18037;
-          padding: 30px 36px;
+          padding: 35px 36px;
           .film_name {
-            font-size: 38px;
+            font-size: 24px;
           }
           .film_theme {
-            font-size: 22px;
+            font-size: 14px;
             color: rgba(123, 124, 123, 1);
-            margin: 30px 0;
+            margin: 20px 0;
           }
           .film_des {
-            font-size: 18px;
+            font-size: 14px;
             color: rgba(207, 207, 207, 1);
           }
         }
         .content_top_right_bom {
-          padding: 26px 36px;
+          padding:16px 0 0 28px;
           .film_company {
-            font-size: 22px;
+            font-size: 14px;
             margin-bottom: 16px;
           }
           .film_author {
-            font-size: 18px;
+            font-size: 14px;
             color: rgba(123, 124, 123, 1);
           }
         }
@@ -405,45 +415,46 @@ export default {
       }
       .content_bom_item {
         flex: 1;
-        height: 406px;
+        height: 189px;
         background: #000;
         .item_img {
-          height: 227px;
+          height: 189px;
           background-image: url('../assets/images/film/show/sub.png');
           background-size: 100% 100%;
           position: relative;
           .item_time {
             position: absolute;
-            right: 15px;
-            bottom: 16px;
-            font-size: 17px;
+            right: 27px;
+            bottom: 12px;
+            font-size: 12px;
           }
         }
         .item_content {
           text-align: left;
+          background-color: #000;
           .item_content_top {
             height: 110px;
             border-bottom: 1px solid rgba(10, 10, 10, 1);
             padding: 26px 19px;
             .item_name {
-              font-size: 21px;
+              font-size: 14px;
               color: rgba(255, 255, 255, 1);
               margin-bottom: 20px;
             }
             .item_author {
-              font-size: 14px;
+              font-size: 12px;
               color: rgba(123, 124, 123, 1);
             }
           }
           .item_content_bom {
             padding: 26px 19px;
             .item_company {
-              font-size: 17px;
+              font-size: 12px;
               color: rgba(255, 255, 255, 1);
-              margin-right: 39px;
+              margin-right: 30px;
             }
             .item_theme {
-              font-size: 16px;
+              font-size: 12px;
               color: rgba(123, 124, 123, 1);
             }
           }
@@ -453,14 +464,15 @@ export default {
   }
   // 资料信息
   .personal_info {
-    margin-top: 40px;
+    margin-top: 30px;
+    padding-bottom: 70px;
     .personal_info_container {
-      width: 1000px;
+      width: 800px;
       margin: 0 auto;
       text-align: left;
       .personal_info_item {
-        margin-bottom: 53px;
-        font-size: 22px;
+        margin-bottom: 30px;
+        font-size: 14px;
         color: #ebeae9;
       }
     }
@@ -468,58 +480,57 @@ export default {
   // 修改
   .personal_edit {
     margin-top: 40px;
+    padding-bottom:170px;
     .personal_edit_container {
       width: 800px;
       margin: 0 auto;
     }
     .edit_item {
-      height: 66px;
-      margin-bottom: 60px;
-      line-height: 66px;
+      height: 32px;
+      margin-bottom: 30px;
+      line-height: 32px;
       display: flex;
       .edit_title {
-        font-size: 22px;
+        font-size: 14px;
         font-weight: 400;
         width: 150px;
         text-align: right;
-        margin-right: 35px;
+        margin-right: 8px;
       }
 
       .edit_right {
         flex: 1;
         .el-input__inner {
-          height: 66px;
+          height: 32px;
           background: #000;
           color: #fff;
           border: 0;
           border-radius: 8px;
-          font-size: 18px;
-          padding-left: 26px;
+          font-size: 12px;
+          // padding-left: 26px;
         }
-      }
-      .el-input .el-input__count .el-input__count-inner {
-        background: #000;
       }
       .upload_radio {
         text-align: left;
-        line-height: 66px;
-        font-size: 26px;
+        line-height: 32px;
+        font-size: 16px;
         .el-radio__inner {
-          height: 26px;
-          width: 26px;
+          height: 16px;
+          width: 16px;
           background: #000;
           border-color: #c8a461;
         }
+       
         .el-radio__inner::after {
           width: 14px;
           height: 14px;
           background: #c8a461;
         }
         .el-radio {
-          margin-right: 70px;
+          margin-right: 30px;
         }
         .el-radio__label {
-          font-size: 26px;
+          font-size: 16px;
           color: #fff;
         }
         .el-radio__input.is-checked .el-radio__inner {
@@ -528,6 +539,7 @@ export default {
         }
         .el-radio__input.is-checked + .el-radio__label {
           color: #c8a461;
+
         }
         .el-radio__input {
           vertical-align: sub;
@@ -536,14 +548,15 @@ export default {
     }
     .save_btn {
       cursor: pointer;
-      margin: 0 auto;
-      margin-top: 60px;
-      width: 280px;
-      height: 66px;
-      background: rgba(215, 159, 86, 1);
+      // margin-top: 60px;
+      width: 100px;
+      height: 40px;
       border-radius: 8px;
-      line-height: 66px;
-      font-size: 26px;
+      line-height: 40px;
+      font-size: 14px;
+      border:1px solid rgba(200,164,97,1);
+      background-color: #000;
+      float:right;
     }
   }
 }

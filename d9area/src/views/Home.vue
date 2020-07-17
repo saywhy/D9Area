@@ -216,6 +216,8 @@ export default {
 }
 .home {
   margin-top: 80px;
+    padding-bottom: 70px;
+    background-color: #0a0a0a;
 }
 .swiper-container {
   width: 100%;

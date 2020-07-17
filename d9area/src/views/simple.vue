@@ -63,6 +63,7 @@ export default {
 .simple_box {
   background: #0a0a0a;
   margin-top: 200px;
+  padding-bottom: 70px;
   width: 100%;
   .jj {
     width: 100%;
@@ -93,7 +94,7 @@ export default {
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     line-height: 30px;
-    margin-bottom: 40px;
+   
   }
 }
 </style>

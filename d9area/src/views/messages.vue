@@ -192,7 +192,7 @@ export default {
   background: #0a0a0a;
   .msg_top {
     height: 220px;
-    background-image: url("../assets/images/film/film_show_bg.png");
+    background-image: url("../assets/images/messages/user.jpg");
     background-size: 100% 100%;
   }
   .message_container {

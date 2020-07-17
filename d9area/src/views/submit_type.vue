@@ -2,13 +2,12 @@
   <div class="body_box">
     <Nav :mainnav='mainnav'></Nav>
     <div class='submit'>
-      <div class="main_container">
         <div class="submit_box">
           <div class="submit_top">
             <div class="top_left">
               <img src="@/assets/images/login/user.png"
-                   width="44"
-                   height="44"
+                   width="34"
+                   height="32"
                    alt="">
               <p>我的账号</p>
             </div>
@@ -52,7 +51,7 @@
           </div>
         </div>
       </div>
-    </div>
+  
     <Footer></Footer>
   </div>
 
@@ -82,16 +81,21 @@ export default {
 <style lang='less'>
 .submit {
   margin-top: 100px;
+  background: #0a0a0a;
+  padding: 120px 0 126px 0;
   color: #333;
   .submit_box {
-    height: 780px;
+    width:1000px;
+    height: 640px;
+    margin:0 auto;
+   
     background: #fff;
     .submit_top {
-      height: 140px;
+      height: 116px;
       border-bottom: 1px solid #c8a461;
       .top_left {
         float: left;
-        width: 120px;
+        width: 110px;
         background: #c8a461;
         height: 100%;
         line-height: 100%;
@@ -104,41 +108,41 @@ export default {
       }
       .top_right {
         float: left;
-        padding-left: 50px;
+        padding-left: 40px;
         p {
-          font-size: 40px;
+          font-size: 28px;
           color: rgba(200, 164, 97, 1);
-          line-height: 140px;
+          line-height: 116px;
         }
       }
     }
     .submit_bom {
-      padding: 86px 70px 0 70px;
+      padding: 45px  58px 0 58px;
       .bom_title {
         text-align: left;
         padding-left: 20px;
-        height: 52px;
-        line-height: 52px;
+        height: 43px;
+        line-height: 43px;
         background: #000;
-        font-size: 14px;
+        font-size: 12px;
         color: #fff;
       }
       .bom_left {
-        width: 496px;
+        width: 412px;
         float: left;
         border: 1px solid rgba(0, 0, 0, 1);
       }
       .bom_right {
-        width: 496px;
+        width: 412px;
         float: right;
         border: 1px solid rgba(0, 0, 0, 1);
       }
       .bom_content {
-        height: 439px;
-        padding: 58px 52px;
+        // height: 256px;
+        padding: 38px 44px 40px 60px;
         text-align: left;
         p {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 400;
           margin-bottom: 10px;
           text-align: left;
@@ -150,7 +154,7 @@ export default {
         .submit_btn {
           text-align: center;
           margin: 0 auto;
-          margin-top: 40px;
+          margin-top: 30px;
           cursor: pointer;
           width: 214px;
           height: 46px;

@@ -4,7 +4,7 @@
     <film-nav :activenav="Index"></film-nav>
     <div class="FilmShow">
       <div class="FilmShow_top">
-        <img src="@/assets/images/film/film_show_bg.png" alt />
+        <img src="../assets/images/film/film_show1.jpg" alt />
       </div>
       <!-- 内容 -->
       <div class="sub_container">
