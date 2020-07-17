@@ -1,7 +1,7 @@
 <template>
   <div class="body_box">
     <Nav :mainnav='mainnav'></Nav>
-     <film-nav :activenav="Index"></film-nav>
+    <film-nav :activenav="Index"></film-nav>
     <div class="UploadSteps">
       <div class="main_container">
         <div class="steps_top">
@@ -19,6 +19,9 @@
           </div>
 
         </div>
+        <div class="content">
+
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -32,12 +35,12 @@ import Footer from '@/views/footer.vue'
 import filmNav from "@/views/film_nav.vue";
 export default {
   name: 'UploadSteps',
-  components: { Nav, Footer,filmNav },
+  components: { Nav, Footer, filmNav },
   data () {
     return {
-       Index: "4",
+      Index: "4",
       mainnav: "2",
-      stpes_active: 1,
+      stpes_active: 0,
     }
   },
   methods: {},
@@ -79,6 +82,25 @@ export default {
       .el-step__icon.is-text {
         color: #919191;
         border-color: #919191;
+      }
+      // 进行中
+      .el-step__head.is-process {
+        .el-step__icon.is-text {
+          color: #fff;
+          background: #c8a461;
+          border-color: #c8a461;
+        }
+      }
+      // 已完成
+      .el-step__title.is-success {
+        color: #c8a461;
+        border-color: #c8a461;
+      }
+      .el-step__head.is-success {
+        .el-step__icon.is-text {
+          color: #c8a461;
+          border-color: #c8a461;
+        }
       }
     }
   }
