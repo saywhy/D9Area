@@ -1,8 +1,8 @@
 <template>
   <div id="nav_home">
-    <div class="nav_box" :class="activeIndex=='2'? 'widht100':''">
+    <div class="nav_box" :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
       <img class="logo"
-      v-if="activeIndex !='2'"
+      v-if="activeIndex =='1'|| activeIndex =='4' "
            width="70"
            src="@/assets/images/home/D9-logo.png"
            alt="">
