@@ -1,7 +1,9 @@
 <template>
   <div class="film_nav" id="film_nav" :class="srcolltop?'nav_srcoll':''">
     <div class="main_container">
-      <img class="logo" width="70" src="@/assets/images/home/D9-logo.png" alt />
+      <div class="logo_box">
+        <img class="logo" src="@/assets/images/home/D9-logo.png" alt />
+      </div>
       <el-menu
         :default-active="activeIndex"
         text-color="#F6F6F6"
@@ -19,7 +21,7 @@
         <el-menu-item index="6">Q&A</el-menu-item>
       </el-menu>
       <div @mouseover="imghover" @mouseleave="imgleave" class="search_box">
-        <img src="@/assets/images/film/search.png" class="img_hover" width="28" height="28" alt />
+        <img src="@/assets/images/film/search.png" class="img_hover"  alt />
         <input type="text" ref="input_search" class="input_search" id="input_search" />
       </div>
     </div>
@@ -55,7 +57,7 @@ export default {
           this.$router.push("/film_show");
           break;
         case "4":
-             this.$router.push("/upload_steps");
+          this.$router.push("/upload_steps");
           break;
         case "6":
           this.$router.push("/QA");
@@ -113,20 +115,29 @@ export default {
   z-index: 9999;
   width: 100%;
   top: 80px;
-  .logo {
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-    margin-right: 10px;
+  .logo_box {
+    height: 120px;
+    width: 120px;
     float: left;
+    position: relative;
+    .logo {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
+
   .el_menu,
   .el_menu li {
+    margin: 1px 0;
     font-size: 16px;
     float: left;
     background: #000000;
-    height: 118px;
-    line-height: 118px;
+    height: 116px;
+    line-height: 116px;
   }
   .el-menu.el-menu--horizontal {
     border: 0;
@@ -143,6 +154,8 @@ export default {
     line-height: 120px;
   }
   .img_hover {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     vertical-align: middle;
   }
@@ -166,17 +179,29 @@ export default {
 }
 .nav_srcoll {
   height: 60px;
-  .logo {
-    width: 50px;
-    height: 50px;
+  top: 0;
+  .logo_box {
+    height: 60px;
+    width: 60px;
+    float: left;
+    position: relative;
+    .logo {
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
   .el_menu,
   .el_menu li {
-    height: 58px;
-    line-height: 58px;
+    margin: 1px 0;
+    height: 56px;
+    line-height: 56px;
   }
-  .search_box{
-      height: 60px;
+  .search_box {
+    height: 60px;
     line-height: 60px;
   }
 }

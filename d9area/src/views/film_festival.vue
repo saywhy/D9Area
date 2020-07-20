@@ -21,17 +21,19 @@
         <div class="content_box" style="overflow: hidden;">
           <div class="top">
             <div class="left">
-              <img src="@/assets/images/film/top_left.png" width="632" height="413" alt />
+              <div class="big_img">
+                <img src="@/assets/images/film/top_left.png" alt />
+              </div>
               <p class="left_top_p">ICF国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
             <div class="right">
               <div class="right_top">
-                <img src="@/assets/images/film/top_right.png" width="324" height="200" alt />
+                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
                 <p>ICF短片申报规则说明</p>
               </div>
               <div class="right_bom">
-                <img src="@/assets/images/film/top_right.png" width="324" height="200" alt />
+                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
                 <p>新闻发布会</p>
               </div>
             </div>
@@ -39,16 +41,16 @@
           <div class="bom">
             <div class="left">
               <div class="left_top">
-                <img src="@/assets/images/film/bom_left.png" width="324" height="200" alt />
+                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
                 <p>详细了解2020年官方评选影片</p>
               </div>
               <div class="left_bom">
-                <img src="@/assets/images/film/bom_left.png" width="324" height="200" alt />
+                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
                 <p>详细了解2020年官方评选影片</p>
               </div>
             </div>
             <div class="right">
-              <img src="@/assets/images/film/bom_right.png" width="632" height="413" alt />
+              <img src="@/assets/images/film/bom_right.png" class="big_img" alt />
               <p class="right_top_p">ICF国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
@@ -126,6 +128,23 @@ export default {
   width: 998px;
   margin: 0 auto;
   padding-bottom: 40px;
+
+  .big_img {
+    width: 632px;
+    height: 413px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .smal_img {
+    width: 324px;
+    height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .FilmFestival {
   margin-top: 200px;

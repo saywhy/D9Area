@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 
 import '@/assets/css/common.less'
+import '@/assets/js/rem'
+// import 'amfe-flexible'
 // 引入element-UI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

@@ -392,7 +392,8 @@
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
           <span class="next btn_common" @click="next_click" v-if="stpes_active!=4">下一页</span>
-          <span class="save btn_common">保存</span>
+          <span class="save btn_common"  v-if="stpes_active!=4">保存</span>
+            <span class="save btn_common" v-if="stpes_active==4">提交</span>
           <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
         </div>
       </div>
@@ -411,7 +412,7 @@ export default {
     return {
       Index: "4",
       mainnav: "2",
-      stpes_active: 4,
+      stpes_active: 0,
       base: {
         name: "",
         type: "1",
@@ -449,11 +450,15 @@ export default {
     padding: 48px 0;
     .steps_box {
       // border: 1px solid red;
+      .el-step.is-horizontal {
+        position: relative;
+      }
       .el-step__title {
         position: absolute;
-        left: 137px;
-        top: -7px;
+        top: 0;
+        left: 140px;
         font-size: 16px;
+        line-height: 24px;
         color: #919191;
       }
       .el-step.is-horizontal .el-step__line {
@@ -467,9 +472,14 @@ export default {
         color: #c8a461;
       }
       //
-      .el-step__icon {
-        background: #000;
+      .el-step.is-horizontal {
+        .el-step__icon {
+          background: #000;
+          width: 24px;
+          height: 24px;
+        }
       }
+
       .el-step__icon.is-text {
         color: #919191;
         border-color: #919191;
@@ -544,12 +554,14 @@ export default {
         height: 32px;
         background: #0a0a0a;
         border: 0;
+        color: #fff;
       }
       .el-textarea__inner {
         flex: 1;
         height: 32px;
         background: #0a0a0a;
         border: 0;
+            color: #fff;
       }
       .el-input__count {
         background: #0a0a0a;
@@ -613,6 +625,7 @@ export default {
       text-align: center;
       line-height: 40px;
       font-size: 14px;
+      color: #fff;
       border: 1px solid #c8a461;
       margin-left: 10px;
       display: inline-block;

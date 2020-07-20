@@ -47,6 +47,32 @@ module.exports = {
             .set('@store', resolve('./src/store'))
             .set('@utils', resolve('./src/utils'))
     },
+
+    css: {
+        loaderOptions: {
+            postcss: {
+                plugins: [
+                    require("autoprefixer")({
+                        // 配置使用 autoprefixer
+                        overrideBrowserslist: ["last 15 versions"]
+                    }),
+                    require("postcss-pxtorem")({
+                        rootValue: 14, // 换算的基数
+                        // 忽略转换正则匹配项。插件会转化所有的样式的px。比如引入了三方UI，也会被转化。目前我使用 selectorBlackList字段，来过滤
+                        //如果个别地方不想转化px。可以简单的使用大写的 PX 或 Px 。
+                        selectorBlackList: [],
+                        propList: ["*"],
+                        exclude: /node_modules/,
+                        mediaQuery: false,
+                        // minPixelValue: 12 // 这种小于13的都不会转换，也不好
+                    })
+                ]
+            }
+        }
+    }
+
+
+
     // 配置打包 js、css文件为.gz格式，优化加载速度  （参考：https://blog.csdn.net/qq_31677507/article/details/102742196）
     // configureWebpack: config => {
     //     if (process.env.NODE_ENV === 'production') {

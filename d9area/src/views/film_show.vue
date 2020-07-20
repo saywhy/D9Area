@@ -4,7 +4,7 @@
     <film-nav :activenav="Index"></film-nav>
     <div class="FilmShow">
       <div class="FilmShow_top">
-        <img src="../assets/images/film/film_show1.jpg" alt />
+        <img src="../assets/images/film/film_show1.jpg"  width:540px alt />
       </div>
       <!-- 内容 -->
       <div class="sub_container">
@@ -160,7 +160,7 @@ export default {
         position: absolute;
         right: 30px;
         bottom: 30px;
-        font-size: 17px;
+        font-size: 12px;
       }
     }
     .content_top_right {
@@ -219,7 +219,7 @@ export default {
           position: absolute;
           right: 15px;
           bottom: 16px;
-          font-size: 17px;
+          font-size: 12px;
         }
       }
       .item_content {

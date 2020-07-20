@@ -284,17 +284,18 @@ export default {
 }
 
 .suspend_box {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .swiper-button-next_video {
   display: none;
   cursor: pointer;
-  width: 100px;
+   width:100px;
   height: 100px;
   position: absolute;
   right: 10%;
@@ -303,6 +304,7 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   margin-top: 0;
   background-image: url('../assets/images/online/next.png');
+background-size:30px 30px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 99999;
@@ -312,7 +314,7 @@ export default {
   display: none;
   cursor: pointer;
   outline: none;
-  width: 100px;
+  width:100px;
   height: 100px;
   position: absolute;
   left: 10%;
@@ -321,6 +323,7 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   margin-top: 0;
   background-image: url('../assets/images/online/prev.png');
+  background-size:30px 30px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 99999;

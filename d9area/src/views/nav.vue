@@ -1,11 +1,13 @@
 <template>
-  <div id="nav_home">
+  <div id="nav_home" v-show="srcolltop">
     <div class="nav_box" :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
       <img class="logo"
-      v-if="activeIndex =='1'|| activeIndex =='4' "
-           width="70"
            src="@/assets/images/home/D9-logo.png"
            alt="">
+             <!-- <img class="logo"
+      v-if="activeIndex =='1'|| activeIndex =='4' "
+           src="@/assets/images/home/D9-logo.png"
+           alt=""> -->
       <el-menu :default-active="activeIndex"
                text-color='#F6F6F6'
                active-text-color='#C9A562'
@@ -47,7 +49,8 @@ export default {
     return {
       activeIndex: '',
       language: 'cn',
-      personl_show: false
+      personl_show: false,
+      srcolltop:true
     };
   },
   props: ["mainnav"],
@@ -58,6 +61,8 @@ export default {
     if (sessionStorage.getItem('personal') == 'true') {
       this.personl_show = true
     }
+        //首先，在mounted钩子window添加一个滚动滚动监听事件
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleSelect (key, keyPath) {
@@ -101,7 +106,24 @@ export default {
     },
     go_personl () {
       this.$router.push('/personal')
-    }
+    },
+     //然后在方法中，添加这个handleScroll方法来获取滚动的位置
+    handleScroll() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      let offsetTop = document.querySelector("#nav_home").offsetTop;
+
+
+      if (scrollTop < 5 && this.activeIndex=='2') {
+        console.log("我到顶部里");
+        this.srcolltop = true;
+      } else if (scrollTop > 5 && this.activeIndex=='2') {
+        console.log("我滚动里");
+        this.srcolltop = false;
+      }
+    },
   }
 }
 </script>
@@ -121,7 +143,7 @@ export default {
 .nav_box {
   text-align: left;
   width: 1200px;
-  height: 70px;
+  height: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -129,11 +151,15 @@ export default {
   // border: 1px solid green;
   .logo {
     float: left;
+    width: 70px;
+    height: 70px;
+    margin-top: 5px;
   }
   .nav_right {
     float: right;
     cursor: pointer;
-    line-height: 70px;
+    line-height: 80px;
+
   }
   .personl {
     font-size: 16px;
@@ -145,8 +171,8 @@ export default {
   .el_menu,
   .el_menu li {
     font-size: 16px;
-    height: 70px;
-    line-height: 70px;
+    height: 80px;
+    line-height: 80px;
     float: left;
     background: #000000;
   }

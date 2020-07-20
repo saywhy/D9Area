@@ -111,7 +111,7 @@ export default {
       // margin-bottom:20px;
     }
     .add_true {
-      background: rgba(161, 128, 55, 1);
+      background: #c8a461;
       cursor: pointer;
     }
   }

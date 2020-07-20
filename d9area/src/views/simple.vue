@@ -6,10 +6,10 @@
 
     <div class="simple_box">
       <div>
-        <img src="@/assets/images/simple/jj.jpg" alt class="jj" height="540" />
+        <img src="@/assets/images/simple/jj.jpg" alt class="jj"  />
       </div>
       <div class="simple_box_min">
-        <img src="@/assets/images/simple/tc.png" width="1000" height="380" alt class="tc" />
+        <img src="@/assets/images/simple/tc.png" alt class="tc" />
         <p class="question">电影节的使命是什么？</p>
         <p
           class="key"
@@ -67,6 +67,7 @@ export default {
   width: 100%;
   .jj {
     width: 100%;
+    height: 540;
   }
   .simple_box_min {
     width: 1000px;
@@ -76,7 +77,8 @@ export default {
     margin-top: 40px;
   }
   .tc {
-    // height: 594px;
+    width: 1000px;
+    height: 380px;
     margin-bottom: 40px;
   }
   .question {
