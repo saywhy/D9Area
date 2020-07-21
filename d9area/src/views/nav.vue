@@ -1,10 +1,13 @@
 <template>
-  <div id="nav_home" v-show="srcolltop">
-    <div class="nav_box" :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
+  <div id="nav_home"
+       v-show="srcolltop">
+    <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
+    <div class="nav_box"
+         :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
       <img class="logo"
            src="@/assets/images/home/D9-logo.png"
            alt="">
-             <!-- <img class="logo"
+      <!-- <img class="logo"
       v-if="activeIndex =='1'|| activeIndex =='4' "
            src="@/assets/images/home/D9-logo.png"
            alt=""> -->
@@ -50,7 +53,7 @@ export default {
       activeIndex: '',
       language: 'cn',
       personl_show: false,
-      srcolltop:true
+      srcolltop: true
     };
   },
   props: ["mainnav"],
@@ -61,7 +64,7 @@ export default {
     if (sessionStorage.getItem('personal') == 'true') {
       this.personl_show = true
     }
-        //首先，在mounted钩子window添加一个滚动滚动监听事件
+    //首先，在mounted钩子window添加一个滚动滚动监听事件
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
@@ -107,8 +110,8 @@ export default {
     go_personl () {
       this.$router.push('/personal')
     },
-     //然后在方法中，添加这个handleScroll方法来获取滚动的位置
-    handleScroll() {
+    //然后在方法中，添加这个handleScroll方法来获取滚动的位置
+    handleScroll () {
       let scrollTop =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
@@ -116,10 +119,10 @@ export default {
       let offsetTop = document.querySelector("#nav_home").offsetTop;
 
 
-      if (scrollTop < 5 && this.activeIndex=='2') {
+      if (scrollTop < 5 && this.activeIndex == '2') {
         console.log("我到顶部里");
         this.srcolltop = true;
-      } else if (scrollTop > 5 && this.activeIndex=='2') {
+      } else if (scrollTop > 5 && this.activeIndex == '2') {
         console.log("我滚动里");
         this.srcolltop = false;
       }
@@ -159,7 +162,6 @@ export default {
     float: right;
     cursor: pointer;
     line-height: 80px;
-
   }
   .personl {
     font-size: 16px;
@@ -189,8 +191,38 @@ export default {
     color: #c9a562;
   }
 }
-.widht100{
+.widht100 {
   width: 100%;
   padding-right: 30px;
+}
+
+/*定义打开弹窗动画*/
+.showCont {
+  animation: showPopUp 1s;
+  animation-fill-mode: forwards; /*保持动画后的状态*/
+}
+/*定义关闭弹窗动画*/
+.hiddenCont {
+  animation: hiddenPopUp 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showPopUp {
+  0% {
+    height: 80px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes hiddenPopUp {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 80px;
+  }
 }
 </style>
