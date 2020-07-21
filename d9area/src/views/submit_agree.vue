@@ -69,7 +69,7 @@ export default {
   }
   .main_container {
     .hr {
-      border-bottom: 2px solid #c8a461;
+      border-bottom: 2px solid #1B1305;
     }
     .agree_content {
       text-align: left;

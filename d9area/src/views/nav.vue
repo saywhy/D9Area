@@ -4,16 +4,16 @@
     <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
-      <img class="logo"
-           src="@/assets/images/home/D9-logo.png"
-           alt="">
       <!-- <img class="logo"
-      v-if="activeIndex =='1'|| activeIndex =='4' "
            src="@/assets/images/home/D9-logo.png"
            alt=""> -->
+      <img class="logo"
+      v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
+           src="@/assets/images/home/D9-logo.png"
+           alt="">
       <el-menu :default-active="activeIndex"
                text-color='#F6F6F6'
-               active-text-color='#C9A562'
+               active-text-color='#c8a461'
                background-color='#000'
                class="el_menu"
                mode="horizontal"
@@ -59,6 +59,7 @@ export default {
   props: ["mainnav"],
   mounted () {
     this.activeIndex = this.mainnav;
+    console.log(this.mainnav);
     // this.$i18n.locale = 'en'
     console.log(sessionStorage.getItem('personal'));
     if (sessionStorage.getItem('personal') == 'true') {
@@ -167,7 +168,7 @@ export default {
     font-size: 16px;
     margin-right: 37px;
     .personl_name {
-      color: #c9a562;
+      color: #c8a461;
     }
   }
   .el_menu,
@@ -188,7 +189,7 @@ export default {
     border: 0;
   }
   .language_color {
-    color: #c9a562;
+    color: #c8a461;
   }
 }
 .widht100 {

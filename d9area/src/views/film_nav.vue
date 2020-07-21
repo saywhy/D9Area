@@ -17,7 +17,7 @@
           <el-menu :default-active="activeIndex"
                    :class="srcolltop?'show_menu':'hidden_menu'"
                    text-color="#F6F6F6"
-                   active-text-color="#C9A562"
+                   active-text-color="#c8a461"
                    background-color="#000"
                    class="el_menu"
                    mode="horizontal"
@@ -137,8 +137,8 @@ export default {
 //   nav 导航
 .film_nav {
   height: 120px;
-  border-top: 1px solid #664c1b;
-  border-bottom: 1px solid #664c1b;
+  border-top: 1px solid #1B1305;
+  border-bottom: 1px solid #1B1305;
   background: #000;
   position: fixed;
   z-index: 9999;
@@ -171,13 +171,14 @@ export default {
   .el_menu,
   .el_menu li {
     // margin: 1px 0;
+    margin-top: 1px;
     font-size: 16px;
     float: left;
     background: #000000;
     height: 116px;
     line-height: 116px;
-    border-top: 1px solid #664c1b;
-    border-bottom: 1px solid #664c1b;
+    border-top: 1px solid #1B1305;
+    border-bottom: 1px solid #1B1305;
   }
   .search_box {
     float: right;

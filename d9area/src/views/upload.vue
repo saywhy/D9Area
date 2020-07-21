@@ -11,7 +11,7 @@
         <div class="upload_nav">
           <el-menu :default-active="active_type"
                    text-color="#F6F6F6"
-                   active-text-color="#C9A562"
+                   active-text-color="#c8a461"
                    background-color="#0a0a0a"
                    class="el_menu"
                    mode="horizontal"

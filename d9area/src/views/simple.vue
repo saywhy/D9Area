@@ -84,7 +84,7 @@ export default {
   .question {
     text-align: left;
     font-size: 22px;
-    font-family: Source Han Sans CN;
+    font-family: SimHei;
     font-weight: 500;
     color: rgba(200, 164, 97, 1);
     margin-bottom: 18px;
@@ -92,7 +92,7 @@ export default {
   .key {
     font-size: 16px;
 
-    font-family: Source Han Sans CN;
+    font-family: SimHei;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     line-height: 30px;

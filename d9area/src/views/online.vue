@@ -4,11 +4,11 @@
     <div class="online">
       <div class="border">
         <div class="title_nav" :class="srcolltop?'nav_srcoll':''">
-          <img class="logo" width="100" src="@/assets/images/home/D9-logo.png" alt />
+          <img class="logo"  src="@/assets/images/home/D9-logo.png" alt />
           <el-menu
             :default-active="activeIndex"
             text-color="#F6F6F6"
-            active-text-color="#C9A562"
+            active-text-color="#c8a461"
             background-color="#000"
             class="el_menu"
             mode="horizontal"
@@ -19,7 +19,7 @@
             <el-menu-item index="3">系列</el-menu-item>
           </el-menu>
           <div @mouseover="imghover" @mouseleave="imgleave" class="search_box">
-            <img src="@/assets/images/film/search.png" class="img_hover" width="28" height="28" alt />
+            <img src="@/assets/images/film/search.png" class="img_hover"  alt />
             <input type="text" ref="input_search" class="input_search" id="input_search" />
           </div>
         </div>
@@ -307,17 +307,19 @@ export default {
     }
   }
   .border {
-    border-top: 1px solid #664c1b;
-    border-bottom: 1px solid #664c1b;
+    border-top: 1px solid #1B1305;
+    border-bottom: 1px solid #1B1305;
   }
   .title_nav {
-    height: 120px;
+    height: 118px;
     width: 1200px;
     margin: 0 auto;
     font-size: 16px;
-    line-height: 120px;
+    line-height: 118px;
     text-align: left;
     .logo {
+      width:100px;
+      height: 100px;
       float: left;
       margin: 8px 36px 10px 0;
     }
@@ -325,8 +327,8 @@ export default {
     .el_menu li {
       text-align: left;
       font-size: 16px;
-      height: 120px;
-      line-height: 120px;
+      height: 114px;
+      line-height: 114px;
       float: left;
       background: #000000;
       &:nth-child(1) {
@@ -346,6 +348,10 @@ export default {
       float: right;
       height: 120px;
       line-height: 120px;
+      img{
+        width:20px;
+        height:20px;
+      }
     }
     .img_hover {
       cursor: pointer;

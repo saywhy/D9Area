@@ -51,7 +51,7 @@ export default {
       height: 66px;
       float: left;
       font-size: 24px;
-      font-family: Adobe Heiti Std;
+      font-family:SimHei;
       font-weight: normal;
       // color: rgba(200, 164, 97, 1);
        background: rgba(215, 159, 86, 1);
@@ -66,7 +66,7 @@ export default {
       background: rgba(215, 159, 86, 1);
       border-radius: 8px;
       font-size: 24px;
-      font-family: Adobe Heiti Std;
+      font-family: SimHei;
       font-weight: normal;
      background-image: url('../assets/images/online/vip_btn.png');
       background-size: 100% 100%;

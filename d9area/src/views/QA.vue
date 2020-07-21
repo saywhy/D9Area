@@ -82,7 +82,7 @@ export default {
       .problem {
         font-size: 20px;
         margin-bottom: 20px;
-        color: #a18037;
+        color: #c8a461;
       }
       .key {
         font-size: 16px;

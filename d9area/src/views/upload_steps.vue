@@ -56,7 +56,7 @@
               <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
             </div>
           </div>
-          <div class="content_item">
+          <!-- <div class="content_item">
             <span class="item_title">剧本大纲：</span>
             <div class="item_right">
               <el-input
@@ -68,7 +68,7 @@
                 show-word-limit
               ></el-input>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- 预告片信息 -->
         <div class="content" v-if="stpes_active==1">
@@ -656,6 +656,10 @@ export default {
       font-weight: 400;
       color: rgba(119, 119, 119, 1);
     }
+    .add_img{
+      width:30px;
+      height:30px;
+    }
   }
   // 正片信息
   // 信息确认
@@ -668,7 +672,7 @@ export default {
       text-align: left;
       line-height: 38px;
       img {
-        vertical-align: middle;
+        vertical-align: sub;
         margin: 0 10px;
       }
     }

@@ -32,7 +32,7 @@
       <div class="personal_nav">
         <el-menu :default-active="personal_active"
                  text-color="#F6F6F6"
-                 active-text-color="#C9A562"
+                 active-text-color="#c8a461"
                  background-color="#000"
                  class="el_menu"
                  mode="horizontal"
@@ -376,7 +376,7 @@ export default {
         text-align: left;
         .content_top_right_top {
           height: 330px;
-          border-bottom: 1px solid #a18037;
+          border-bottom: 1px solid #c8a461;
           padding: 35px 36px;
           .film_name {
             font-size: 24px;

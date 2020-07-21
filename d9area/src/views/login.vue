@@ -5,7 +5,7 @@
       <div class="login_box">
         <div class="login_top">
           <div class="top_left">
-            <img src="@/assets/images/login/user.png" width="36" height="34" alt />
+            <img src="@/assets/images/login/user.png" alt />
             <p>我的账号</p>
           </div>
           <div class="top_right">
@@ -162,6 +162,10 @@ export default {
         background: #c8a461;
         height: 118px;
         padding-top: 30px;
+        img {
+          width: 36px;
+          height: 34px;
+        }
         p {
           font-size: 14px;
           color: #fff;
@@ -194,6 +198,7 @@ export default {
         float: left;
         border: 1px solid rgba(0, 0, 0, 1);
         .bom_content {
+          position: relative;
           height: 400px;
           padding-top: 48px;
           text-align: center;
@@ -258,8 +263,10 @@ export default {
             }
           }
           .login_btn {
-            margin: 0 auto;
-            margin-top: 34px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
             cursor: pointer;
             width: 166px;
             height: 38px;
@@ -279,14 +286,18 @@ export default {
           height: 400px;
           padding: 58px 52px;
           text-align: left;
+          position: relative;
           p {
             font-size: 16px;
             font-weight: 400;
             margin-bottom: 10px;
           }
           .creat_box {
-            margin: 0 auto;
-            margin-top: 115px;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
             cursor: pointer;
             width: 166px;
             height: 38px;
@@ -387,8 +398,8 @@ export default {
       width: 122px;
       height: 50px;
       position: absolute;
-      left:60%;
-      top:65%;
+      left: 60%;
+      top: 65%;
       // transform: translateY(-50%);
     }
     .sure_box2 {
