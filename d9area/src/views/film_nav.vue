@@ -1,10 +1,40 @@
 <template>
   <div class="film_nav"
        id="film_nav"
-       ref="film_nav"
-       :class="navclass">
-    <!-- :class="srcolltop?'showCont':'hiddenCont'" -->
-    <div>
+       ref="film_nav">
+    <!-- 顶部导航 -->
+    <div class="top_nav">
+      <div class="nav_box">
+        <el-menu :default-active="main_nav"
+                 text-color='#F6F6F6'
+                 active-text-color='#c8a461'
+                 background-color='#000'
+                 class="el_menu"
+                 mode="horizontal"
+                 @select="handleSelect_main_nav">
+          <el-menu-item index="1">首页</el-menu-item>
+          <el-menu-item index="2">动画电影周</el-menu-item>
+          <el-menu-item index="3">在线观影</el-menu-item>
+          <el-menu-item index="4">D9制片厂</el-menu-item>
+        </el-menu>
+        <span class="nav_right">
+          <span :class="language=='cn'?'language_color':''">中文 </span>
+          <span>/</span>
+          <span :class="language=='en'?'language_color':''"> EN</span>
+        </span>
+        <span class="nav_right personl"
+              v-if="personl_show">
+          <span class="personl_name"
+                @click="go_personl">永恒</span>
+          <span>｜</span>
+          <span @click="logout">退出</span>
+        </span>
+      </div>
+    </div>
+    <!-- 第二导航 -->
+    <div class="sub_nav"
+         :class="srcolltop?'sub_fixd':''"
+         id="sub_nav">
       <div class="main_container">
         <div class="logo_box"
              :class="srcolltop?'showImg':'hiddenImg'">
@@ -57,20 +87,44 @@
 export default {
   data () {
     return {
+      main_nav: '2',
       activeIndex: "1",
       srcolltop: false,
       isshow: false,
-      navclass: ''
+      navclass: '',
+      language: 'cn',
+      personl_show: false,
     };
   },
   props: ["activenav"],
   mounted () {
     this.activeIndex = this.activenav;
     console.log(this.activenav);
+    if (sessionStorage.getItem('personal') == 'true') {
+      this.personl_show = true
+    }
     //首先，在mounted钩子window添加一个滚动滚动监听事件
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
+    handleSelect_main_nav (key) {
+      switch (key) {
+        case '1':
+          this.$router.push('/home')
+          break;
+        case '2':
+          this.$router.push('/film_festival')
+          break;
+        case '3':
+          this.$router.push('/online_login')
+          break;
+        case '4':
+          this.$router.push('/login')
+          break;
+        default:
+          break;
+      }
+    },
     handleSelect (key, keyPath) {
       console.log(key, keyPath);
       switch (key) {
@@ -99,31 +153,24 @@ export default {
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
-      let offsetTop = document.querySelector("#film_nav").offsetTop;
-      if (scrollTop < 5) {
-        // console.log("我到顶部里");
+      let offsetTop = document.querySelector("#sub_nav").offsetTop;
+      if (scrollTop <= offsetTop) {
         this.srcolltop = false;
         this.navclass = 'hiddenCont';
-        // console.log(this.$refs.film_nav.hasClass('showCont'));
-      } else if (scrollTop > 5) {
-        // console.log("我滚动里");
+      } else if (scrollTop > offsetTop) {
         this.srcolltop = true;
         this.navclass = 'showCont';
       }
     },
     // 放大镜
     imghover () {
-      console.log(1111);
-      console.log(this.$refs.input_search);
       this.$refs.input_search.style.width = "250px";
       this.$refs.input_search.style.padding = "0 10px";
-      // document.getElementById('input_search').animate({'width':'250px'})
     },
     imgleave () {
       console.log(this.$refs.input_search);
       this.$refs.input_search.style.width = "0";
       this.$refs.input_search.style.padding = "0";
-      // document.getElementById('input_search').animate({'width':'250px'})
     }
   },
   //由于是在整个window中添加的事件，所以要在页面离开时摧毁掉，否则会报错
@@ -133,17 +180,73 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 //   nav 导航
 .film_nav {
-  height: 120px;
-  border-top: 1px solid #1B1305;
-  border-bottom: 1px solid #1B1305;
-  background: #000;
-  position: fixed;
-  z-index: 9999;
+  // height: 120px;
+  // border-top: 1px solid #1b1305;
+  // border-bottom: 1px solid #1b1305;
+  // background: #000;
+  // position: fixed;
+  // z-index: 9999;
   width: 100%;
-  top: 80px;
+  // 大导航
+  .top_nav {
+    height: 40px;
+    .nav_box {
+      text-align: left;
+      width: 100%;
+      height: 40px;
+      .nav_right {
+        float: right;
+        cursor: pointer;
+        line-height: 40px;
+        margin-right: 20px;
+      }
+      .personl {
+        font-size: 16px;
+        margin-right: 37px;
+        .personl_name {
+          color: #c8a461;
+        }
+      }
+      .el_menu,
+      .el_menu li {
+        font-size: 16px;
+        height: 38px;
+        line-height: 38px;
+        float: left;
+        background: #000000;
+      }
+      .el-menu.el-menu--horizontal {
+        border: 0;
+      }
+      .el-menu--horizontal > .el-menu-item.is-active {
+        border: 0;
+      }
+      .el-menu--horizontal > .el-menu-item {
+        border: 0;
+      }
+      .language_color {
+        color: #c8a461;
+      }
+    }
+  }
+  // 第二导航
+  .sub_nav {
+    border-top: 1px solid #1b1305;
+    border-bottom: 1px solid #1b1305;
+    overflow: hidden;
+    width: 100%;
+    background: #000;
+    // height: 120px;
+  }
+  .sub_fixd {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+  }
+
   .logo_box {
     height: 120px;
     width: 120px;
@@ -170,15 +273,11 @@ export default {
   }
   .el_menu,
   .el_menu li {
-    // margin: 1px 0;
-    margin-top: 1px;
     font-size: 16px;
     float: left;
     background: #000000;
-    height: 116px;
-    line-height: 116px;
-    border-top: 1px solid #1B1305;
-    border-bottom: 1px solid #1B1305;
+    height: 120px;
+    line-height: 120px;
   }
   .search_box {
     float: right;
@@ -317,22 +416,22 @@ export default {
 }
 @keyframes show_menu {
   0% {
-    height: 116px;
-    line-height: 116px;
+    height: 120px;
+    line-height: 120px;
   }
   100% {
-    height: 56px;
-    line-height: 56px;
+    height: 60px;
+    line-height: 60px;
   }
 }
 @keyframes hidden_menu {
   0% {
-    height: 56px;
-    line-height: 56px;
+    height: 60px;
+    line-height: 60px;
   }
   100% {
-    height: 116px;
-    line-height: 116px;
+    height: 120px;
+    line-height: 120px;
   }
 }
 @keyframes show_search {

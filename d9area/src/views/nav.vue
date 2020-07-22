@@ -1,14 +1,11 @@
 <template>
   <div id="nav_home"
-       v-show="srcolltop">
+       v-show="activeIndex!='2'">
     <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
-      <!-- <img class="logo"
-           src="@/assets/images/home/D9-logo.png"
-           alt=""> -->
       <img class="logo"
-      v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
+           v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
            src="@/assets/images/home/D9-logo.png"
            alt="">
       <el-menu :default-active="activeIndex"
@@ -59,9 +56,6 @@ export default {
   props: ["mainnav"],
   mounted () {
     this.activeIndex = this.mainnav;
-    console.log(this.mainnav);
-    // this.$i18n.locale = 'en'
-    console.log(sessionStorage.getItem('personal'));
     if (sessionStorage.getItem('personal') == 'true') {
       this.personl_show = true
     }
@@ -133,7 +127,7 @@ export default {
 </script>
 
 
-<style lang="less">
+<style lang="less" scoped>
 #nav_home {
   position: relative;
   width: 100%;
