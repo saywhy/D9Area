@@ -1,5 +1,6 @@
 <template>
   <div class="film_nav"
+       v-cloak
        id="film_nav"
        ref="film_nav">
     <!-- 顶部导航 -->
@@ -37,15 +38,15 @@
          id="sub_nav">
       <div class="main_container">
         <div class="logo_box"
-             :class="srcolltop?'showImg':'hiddenImg'">
+             :class="sub_nav.img">
           <img class="logo"
-               :class="srcolltop?'show_logo':'hidden_logo'"
+               :class="sub_nav.logo"
                src="@/assets/images/home/D9-logo.png"
                alt />
         </div>
         <div>
           <el-menu :default-active="activeIndex"
-                   :class="srcolltop?'show_menu':'hidden_menu'"
+                   :class="sub_nav.menu"
                    text-color="#F6F6F6"
                    active-text-color="#c8a461"
                    background-color="#000"
@@ -53,22 +54,22 @@
                    mode="horizontal"
                    @select="handleSelect">
             <el-menu-item index="1"
-                          :class="srcolltop?'show_menu':'hidden_menu'">新闻</el-menu-item>
+                          :class="sub_nav.menu">新闻</el-menu-item>
             <el-menu-item index="2"
-                          :class="srcolltop?'show_menu':'hidden_menu'">简介</el-menu-item>
+                          :class="sub_nav.menu">简介</el-menu-item>
             <el-menu-item index="3"
-                          :class="srcolltop?'show_menu':'hidden_menu'">影片展示</el-menu-item>
+                          :class="sub_nav.menu">影片展示</el-menu-item>
             <el-menu-item index="4"
-                          :class="srcolltop?'show_menu':'hidden_menu'">影片申报</el-menu-item>
+                          :class="sub_nav.menu">影片申报</el-menu-item>
             <el-menu-item index="5"
-                          :class="srcolltop?'show_menu':'hidden_menu'">电影基金</el-menu-item>
+                          :class="sub_nav.menu">电影基金</el-menu-item>
             <el-menu-item index="6"
-                          :class="srcolltop?'show_menu':'hidden_menu'">Q&A</el-menu-item>
+                          :class="sub_nav.menu">Q&A</el-menu-item>
           </el-menu>
         </div>
         <div @mouseover="imghover"
              @mouseleave="imgleave"
-             :class="srcolltop?'show_search':'hidden_search'"
+             :class="sub_nav.search"
              class="search_box">
           <img src="@/assets/images/film/search.png"
                class="img_hover"
@@ -94,6 +95,12 @@ export default {
       navclass: '',
       language: 'cn',
       personl_show: false,
+      sub_nav: {
+        img: '',
+        logo: '',
+        menu: '',
+        search: '',
+      }
     };
   },
   props: ["activenav"],
@@ -156,10 +163,17 @@ export default {
       let offsetTop = document.querySelector("#sub_nav").offsetTop;
       if (scrollTop <= offsetTop) {
         this.srcolltop = false;
-        this.navclass = 'hiddenCont';
+
+        this.sub_nav.img = 'hiddenImg';
+        this.sub_nav.logo = 'hidden_logo';
+        this.sub_nav.menu = 'hidden_menu';
+        this.sub_nav.search = 'hidden_search';
       } else if (scrollTop > offsetTop) {
         this.srcolltop = true;
-        this.navclass = 'showCont';
+        this.sub_nav.img = 'showImg';
+        this.sub_nav.logo = 'show_logo';
+        this.sub_nav.menu = 'show_menu';
+        this.sub_nav.search = 'show_search';
       }
     },
     // 放大镜
@@ -181,14 +195,11 @@ export default {
 </script>
 
 <style lang='less' scoped>
+[v-cloak] {
+  display: none;
+}
 //   nav 导航
 .film_nav {
-  // height: 120px;
-  // border-top: 1px solid #1b1305;
-  // border-bottom: 1px solid #1b1305;
-  // background: #000;
-  // position: fixed;
-  // z-index: 9999;
   width: 100%;
   // 大导航
   .top_nav {
@@ -239,116 +250,106 @@ export default {
     overflow: hidden;
     width: 100%;
     background: #000;
-    // height: 120px;
+
+    .logo_box {
+      height: 120px;
+      width: 120px;
+      float: left;
+      position: relative;
+      .logo {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .el-menu.el-menu--horizontal {
+      border: 0;
+    }
+    .el-menu--horizontal > .el-menu-item.is-active {
+      border: 0;
+    }
+    .el-menu--horizontal > .el-menu-item {
+      border: 0;
+    }
+    .el_menu,
+    .el_menu li {
+      font-size: 16px;
+      float: left;
+      background: #000000;
+      height: 120px;
+      line-height: 120px;
+    }
+    .search_box {
+      float: right;
+      height: 120px;
+      line-height: 120px;
+    }
+    .img_hover {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .input_search {
+      width: 0;
+      height: 30px;
+      font-size: 14px;
+      color: rgb(246, 246, 246);
+      caret-color: #fff;
+      border: 0;
+      background: rgba(85, 85, 84, 0.3);
+      border-radius: 8px;
+      outline: none;
+      vertical-align: middle;
+      &:hover,
+      &:focus {
+        border: 0;
+        outline: none;
+      }
+    }
   }
   .sub_fixd {
     position: fixed;
     top: 0;
     z-index: 9999;
   }
+}
 
-  .logo_box {
-    height: 120px;
-    width: 120px;
-    float: left;
-    position: relative;
-    .logo {
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-
-  .el-menu.el-menu--horizontal {
-    border: 0;
-  }
-  .el-menu--horizontal > .el-menu-item.is-active {
-    border: 0;
-  }
-  .el-menu--horizontal > .el-menu-item {
-    border: 0;
-  }
-  .el_menu,
-  .el_menu li {
-    font-size: 16px;
-    float: left;
-    background: #000000;
-    height: 120px;
-    line-height: 120px;
-  }
-  .search_box {
-    float: right;
-    height: 120px;
-    line-height: 120px;
-  }
-  .img_hover {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    vertical-align: middle;
-  }
-  .input_search {
-    width: 0;
-    height: 30px;
-    font-size: 14px;
-    color: rgb(246, 246, 246);
-    caret-color: #fff;
-    border: 0;
-    background: rgba(85, 85, 84, 0.3);
-    border-radius: 8px;
-    outline: none;
-    vertical-align: middle;
-    &:hover,
-    &:focus {
-      border: 0;
-      outline: none;
-    }
-  }
-}
-/*定义打开弹窗动画*/
-.showCont {
-  animation: showPopUp 0.5s;
-  animation-fill-mode: forwards; /*保持动画后的状态*/
-}
-/*定义关闭弹窗动画*/
-.hiddenCont {
-  animation: hiddenPopUp 0.5s;
-  animation-fill-mode: forwards;
-}
 .showImg {
-  animation: showImg 0.5s;
+  animation: showImg 1s;
   animation-fill-mode: forwards;
 }
 .hiddenImg {
-  animation: hiddenImg 0.5s;
+  animation: hiddenImg 1s;
   animation-fill-mode: forwards;
 }
 
 .show_logo {
-  animation: show_logo 0.5s;
+  animation: show_logo 1s;
   animation-fill-mode: forwards;
 }
 .hidden_logo {
-  animation: hidden_logo 0.5s;
+  animation: hidden_logo 1s;
   animation-fill-mode: forwards;
 }
 .show_menu {
-  animation: show_menu 0.5s;
+  animation: show_menu 1s;
   animation-fill-mode: forwards;
 }
 .hidden_menu {
-  animation: hidden_menu 0.5s;
+  animation: hidden_menu 1s;
   animation-fill-mode: forwards;
 }
 .show_search {
-  animation: show_search 0.5s;
+  animation: show_search 1s;
   animation-fill-mode: forwards;
 }
 .hidden_search {
-  animation: hidden_search 0.5s;
+  animation: hidden_search 1s;
   animation-fill-mode: forwards;
 }
 

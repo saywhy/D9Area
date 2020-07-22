@@ -1,12 +1,13 @@
 <template>
   <div class="body_box">
-    <Nav :mainnav="mainnav"></Nav>
     <film-nav :activenav="Index"></film-nav>
     <div class="UploadSteps">
       <div class="main_container main_box">
         <div class="steps_top">
           <div class="steps_box">
-            <el-steps :active="stpes_active" finish-status="success" align-center>
+            <el-steps :active="stpes_active"
+                      finish-status="success"
+                      align-center>
               <el-step title="基本信息"></el-step>
               <el-step title="预告片信息"></el-step>
               <el-step title="正片信息"></el-step>
@@ -16,44 +17,49 @@
           </div>
         </div>
         <!-- 基础信息 -->
-        <div class="content" v-if="stpes_active==0">
+        <div class="content"
+             v-if="stpes_active==0">
           <div class="content_item">
             <span class="item_title">影片类目：</span>
             <div class="upload_radio">
-              <el-radio v-model="base.type" label="1">VFX电影短片</el-radio>
-              <el-radio v-model="base.type" label="2">CG动画短片</el-radio>
-              <el-radio v-model="base.type" label="3">VR短片</el-radio>
+              <el-radio v-model="base.type"
+                        label="1">VFX电影短片</el-radio>
+              <el-radio v-model="base.type"
+                        label="2">CG动画短片</el-radio>
+              <el-radio v-model="base.type"
+                        label="3">VR短片</el-radio>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">作品名称：</span>
             <div class="item_right">
-              <el-input v-model="base.name" placeholder="请填写作品名称"></el-input>
+              <el-input v-model="base.name"
+                        placeholder="请填写作品名称"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">作品简介：</span>
             <div class="item_right">
-              <el-input
-                type="textarea"
-                placeholder="请填写作品简介"
-                :autosize="{ minRows: 2, maxRows: 1000}"
-                v-model="base.des"
-                maxlength="120"
-                show-word-limit
-              ></el-input>
+              <el-input type="textarea"
+                        placeholder="请填写作品简介"
+                        :autosize="{ minRows: 2, maxRows: 1000}"
+                        v-model="base.des"
+                        maxlength="120"
+                        show-word-limit></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">出品方：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请填写出品方"></el-input>
+              <el-input v-model="base.des"
+                        placeholder="请填写出品方"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">主创团队：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
+              <el-input v-model="base.des"
+                        placeholder="请注明职务与姓名"></el-input>
             </div>
           </div>
           <!-- <div class="content_item">
@@ -71,13 +77,16 @@
           </div> -->
         </div>
         <!-- 预告片信息 -->
-        <div class="content" v-if="stpes_active==1">
+        <div class="content"
+             v-if="stpes_active==1">
           <div class="content_item">
             <span class="item_title">上传作品：</span>
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>尺寸240*180 不超过4G</p>
                 </div>
               </div>
@@ -88,7 +97,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                 </div>
@@ -100,7 +111,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                 </div>
@@ -109,13 +122,16 @@
           </div>
         </div>
         <!-- 正片信息 -->
-        <div class="content" v-if="stpes_active==2">
+        <div class="content"
+             v-if="stpes_active==2">
           <div class="content_item">
             <span class="item_title">上传作品：</span>
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>尺寸240*180 不超过4G</p>
                 </div>
               </div>
@@ -126,7 +142,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                   <p>1-3张</p>
@@ -139,7 +157,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                   <p>（美术概念设定）</p>
@@ -149,7 +169,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                   <p>（故事版分镜）</p>
@@ -163,7 +185,9 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
                   <p>尺寸240*180不超过10M</p>
                 </div>
@@ -172,36 +196,43 @@
           </div>
         </div>
         <!-- 联系人信息 -->
-        <div class="content" v-if="stpes_active==3">
+        <div class="content"
+             v-if="stpes_active==3">
           <div class="content_item">
             <span class="item_title">姓名：</span>
             <div class="item_right">
-              <el-input v-model="base.name" placeholder="请输入联系人姓名"></el-input>
+              <el-input v-model="base.name"
+                        placeholder="请输入联系人姓名"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">手机号：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请输入联系人手机号"></el-input>
+              <el-input v-model="base.des"
+                        placeholder="请输入联系人手机号"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">地址：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请输入联系人地址"></el-input>
+              <el-input v-model="base.des"
+                        placeholder="请输入联系人地址"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">邮箱：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请输入联系人邮箱"></el-input>
+              <el-input v-model="base.des"
+                        placeholder="请输入联系人邮箱"></el-input>
             </div>
           </div>
         </div>
         <!-- 信息确认 -->
-        <div class="info" v-if="stpes_active==4">
+        <div class="info"
+             v-if="stpes_active==4">
           <p class="top_info">
-            <img src="@/assets/images/upload/warning.png" alt />
+            <img src="@/assets/images/upload/warning.png"
+                 alt />
             <span>请检查内容是否正确，提交后不可再次修改</span>
           </p>
           <p class="top_info_title">基本信息：</p>
@@ -209,53 +240,55 @@
             <div class="content_item">
               <span class="item_title">影片类目：</span>
               <div class="upload_radio">
-                <el-radio v-model="base.type" label="1">VFX电影短片</el-radio>
-                <el-radio v-model="base.type" label="2">CG动画短片</el-radio>
-                <el-radio v-model="base.type" label="3">VR短片</el-radio>
+                <el-radio v-model="base.type"
+                          label="1">VFX电影短片</el-radio>
+                <el-radio v-model="base.type"
+                          label="2">CG动画短片</el-radio>
+                <el-radio v-model="base.type"
+                          label="3">VR短片</el-radio>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">作品名称：</span>
               <div class="item_right">
-                <el-input v-model="base.name" placeholder="请填写作品名称"></el-input>
+                <el-input v-model="base.name"
+                          placeholder="请填写作品名称"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">作品简介：</span>
               <div class="item_right">
-                <el-input
-                  type="textarea"
-                  placeholder="请填写作品简介"
-                  :autosize="{ minRows: 2, maxRows: 1000}"
-                  v-model="base.des"
-                  maxlength="120"
-                  show-word-limit
-                ></el-input>
+                <el-input type="textarea"
+                          placeholder="请填写作品简介"
+                          :autosize="{ minRows: 2, maxRows: 1000}"
+                          v-model="base.des"
+                          maxlength="120"
+                          show-word-limit></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">出品方：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请填写出品方"></el-input>
+                <el-input v-model="base.des"
+                          placeholder="请填写出品方"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">主创团队：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
+                <el-input v-model="base.des"
+                          placeholder="请注明职务与姓名"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">剧本大纲：</span>
               <div class="item_right">
-                <el-input
-                  type="textarea"
-                  placeholder="请填写剧本大纲（非必填）"
-                  :autosize="{ minRows: 2, maxRows: 1000}"
-                  v-model="base.des"
-                  maxlength="1000"
-                  show-word-limit
-                ></el-input>
+                <el-input type="textarea"
+                          placeholder="请填写剧本大纲（非必填）"
+                          :autosize="{ minRows: 2, maxRows: 1000}"
+                          v-model="base.des"
+                          maxlength="1000"
+                          show-word-limit></el-input>
               </div>
             </div>
           </div>
@@ -266,7 +299,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>尺寸240*180 不超过4G</p>
                   </div>
                 </div>
@@ -277,7 +312,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                   </div>
@@ -289,7 +326,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                   </div>
@@ -304,7 +343,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>尺寸240*180 不超过4G</p>
                   </div>
                 </div>
@@ -315,7 +356,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                     <p>1-3张</p>
@@ -328,7 +371,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                     <p>（美术概念设定）</p>
@@ -338,7 +383,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                     <p>（故事版分镜）</p>
@@ -352,7 +399,9 @@
               <div class="item_right">
                 <div class="upload_box">
                   <div class="upload_img_box">
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
                     <p>尺寸240*180不超过10M</p>
                   </div>
@@ -365,25 +414,29 @@
             <div class="content_item">
               <span class="item_title">姓名：</span>
               <div class="item_right">
-                <el-input v-model="base.name" placeholder="请输入联系人姓名"></el-input>
+                <el-input v-model="base.name"
+                          placeholder="请输入联系人姓名"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">手机号：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请输入联系人手机号"></el-input>
+                <el-input v-model="base.des"
+                          placeholder="请输入联系人手机号"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">地址：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请输入联系人地址"></el-input>
+                <el-input v-model="base.des"
+                          placeholder="请输入联系人地址"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">邮箱：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请输入联系人邮箱"></el-input>
+                <el-input v-model="base.des"
+                          placeholder="请输入联系人邮箱"></el-input>
               </div>
             </div>
           </div>
@@ -391,10 +444,16 @@
 
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
-          <span class="next btn_common" @click="next_click" v-if="stpes_active!=4">下一页</span>
-          <span class="save btn_common"  v-if="stpes_active!=4">保存</span>
-            <span class="save btn_common" v-if="stpes_active==4">提交</span>
-          <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
+          <span class="next btn_common"
+                @click="next_click"
+                v-if="stpes_active!=4">下一页</span>
+          <span class="save btn_common"
+                v-if="stpes_active!=4">保存</span>
+          <span class="save btn_common"
+                v-if="stpes_active==4">提交</span>
+          <span class="pre btn_common"
+                v-if="stpes_active!=0"
+                @click="pre_click">上一页</span>
         </div>
       </div>
     </div>
@@ -408,7 +467,7 @@ import filmNav from "@/views/film_nav.vue";
 export default {
   name: "UploadSteps",
   components: { Nav, Footer, filmNav },
-  data() {
+  data () {
     return {
       Index: "4",
       mainnav: "2",
@@ -422,12 +481,12 @@ export default {
     };
   },
   methods: {
-    next_click() {
+    next_click () {
       console.log(this.stpes_active);
       this.stpes_active += 1;
     },
 
-    pre_click() {
+    pre_click () {
       console.log(this.stpes_active);
       this.stpes_active -= 1;
     }
@@ -437,7 +496,6 @@ export default {
 </script>
 <style lang="less">
 .UploadSteps {
-  margin-top: 200px;
   // border: 1px solid red;
   background: #0a0a0a;
   padding: 70px 0;
@@ -561,7 +619,7 @@ export default {
         height: 32px;
         background: #0a0a0a;
         border: 0;
-            color: #fff;
+        color: #fff;
       }
       .el-input__count {
         background: #0a0a0a;
@@ -592,7 +650,7 @@ export default {
               background-position: -1px -1px;
               background-repeat: no-repeat;
               background-size: 20px;
-              background-image: url("../assets/images/upload/check.png");
+              background-image: url('../assets/images/upload/check.png');
             }
           }
         }
@@ -656,9 +714,9 @@ export default {
       font-weight: 400;
       color: rgba(119, 119, 119, 1);
     }
-    .add_img{
-      width:30px;
-      height:30px;
+    .add_img {
+      width: 30px;
+      height: 30px;
     }
   }
   // 正片信息
