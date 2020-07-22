@@ -125,7 +125,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .container {
   height: 100%;
   width: 100%;
@@ -135,6 +135,7 @@ export default {
   right: 0;
   bottom: 0;
 }
+/deep/
 .content_box {
   width: 998px;
   margin: 0 auto;
@@ -157,7 +158,28 @@ export default {
     }
   }
 }
+/deep/
 .FilmFestival {
+    .swiper-container {
+    width: 100%;
+    height: 640px;
+    color: #fff;
+  }
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #9b9b9b;
+      opacity: 0.5;
+      border-radius: 50%;
+    }
+    .swiper-pagination-bullet-active {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      opacity: 1;
+    }
+  }
   .FilmFestival_content {
     background: #fff;
     padding-top: 40px;

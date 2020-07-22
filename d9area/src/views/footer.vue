@@ -57,6 +57,7 @@ export default {
   background: #000;
   bottom: 0;
   padding: 25px 0;
+  z-index: 9999;
   ul {
     height: 30px;
     margin: 0;

@@ -205,7 +205,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .container {
   height: 100%;
   width: 100%;
@@ -215,118 +215,120 @@ export default {
   right: 0;
   bottom: 0;
 }
+/deep/
 .home {
   margin-top: 80px;
   padding-bottom: 70px;
   background-color: #0a0a0a;
-}
-.swiper-container {
-  width: 100%;
-  height: 640px;
-  color: #fff;
-}
-.swiper-pagination {
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: #9b9b9b;
-    opacity: 0.5;
-    border-radius: 50%;
+  .swiper-container {
+    width: 100%;
+    height: 640px;
+    color: #fff;
   }
-  .swiper-pagination-bullet-active {
-    width: 10px;
-    height: 10px;
-    background: #fff;
-    opacity: 1;
-  }
-}
-// 视频部分
-.video_box {
-  position: relative;
-  width: 100%;
-  margin-top: 60px;
-  height: 600px;
-  overflow: hidden;
-  &:hover .swiper-button-next_video {
-    display: block;
-  }
-  &:hover .swiper-button-prev_video {
-    display: block;
-  }
-  .vjs-poster {
-    height: 600px;
-    background-position: 0 0;
-    background-size: 100% 100%;
-  }
-  .video-js.vjs-ended .vjs-big-play-button {
-    display: none !important;
-  }
-  .vjs-big-play-button {
-    display: none !important;
-  }
-  video {
-    outline: none;
-  }
-}
-.video_swiper_container {
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  .swiper-slide {
-    // height: 920px;
-  }
-  .sider_video_box {
-    height: 100%;
-    position: relative;
-    .video-player {
-      height: 100%;
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #9b9b9b;
+      opacity: 0.5;
+      border-radius: 50%;
+    }
+    .swiper-pagination-bullet-active {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      opacity: 1;
     }
   }
-}
 
-.suspend_box {
-  width: 90px;
-  height: 90px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.swiper-button-next_video {
-  display: none;
-  cursor: pointer;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  margin-top: 0;
-  background-image: url("../assets/images/online/next.png");
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 99999;
-  outline: none;
-}
-.swiper-button-prev_video {
-  display: none;
-  cursor: pointer;
-  outline: none;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  margin-top: 0;
-  background-image: url("../assets/images/online/prev.png");
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 99999;
+  // 视频部分
+  .video_box {
+    position: relative;
+    width: 100%;
+    margin-top: 60px;
+    height: 600px;
+    overflow: hidden;
+    &:hover .swiper-button-next_video {
+      display: block;
+    }
+    &:hover .swiper-button-prev_video {
+      display: block;
+    }
+    .vjs-poster {
+      height: 600px;
+      background-position: 0 0;
+      background-size: 100% 100%;
+    }
+    .video-js.vjs-ended .vjs-big-play-button {
+      display: none !important;
+    }
+    .vjs-big-play-button {
+      display: none !important;
+    }
+    video {
+      outline: none;
+    }
+  }
+  .video_swiper_container {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    .swiper-slide {
+      // height: 920px;
+    }
+    .sider_video_box {
+      height: 100%;
+      position: relative;
+      .video-player {
+        height: 100%;
+      }
+    }
+  }
+
+  .suspend_box {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .swiper-button-next_video {
+    display: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    margin-top: 0;
+    background-image: url("../assets/images/online/next.png");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 99999;
+    outline: none;
+  }
+  .swiper-button-prev_video {
+    display: none;
+    cursor: pointer;
+    outline: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    margin-top: 0;
+    background-image: url("../assets/images/online/prev.png");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 99999;
+  }
 }
 </style>
