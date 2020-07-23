@@ -1,102 +1,104 @@
 <template>
   <div class="body_box">
-    <Nav :mainnav="mainnav"></Nav>
-    <div class="login">
-      <div class="login_box">
-        <div class="login_top">
-          <div class="top_left">
-            <img src="@/assets/images/login/user.png" alt />
-            <p>我的账号</p>
+    <div class="container_box">
+      <Nav :mainnav="mainnav"></Nav>
+      <div class="login">
+        <div class="login_box">
+          <div class="login_top">
+            <div class="top_left">
+              <img src="@/assets/images/login/user.png" alt />
+              <p>我的账号</p>
+            </div>
+            <div class="top_right">
+              <p>登录 / 创建账号</p>
+            </div>
           </div>
-          <div class="top_right">
-            <p>登录 / 创建账号</p>
-          </div>
-        </div>
-        <div class="login_bom">
-          <div class="bom_left">
-            <p class="bom_title">我已有D9区账号了</p>
-            <div class="bom_content">
-              <p class="select_type">
-                <span class="type_account">账号登录</span>
-                <span>/</span>
-                <span class="type_mobile">手机号登录</span>
-              </p>
-              <p class="email_box">
-                <span class="email">邮箱</span>
-                <span>:</span>
-                <input type="email" v-model="account.email" />
-              </p>
-              <p class="pswd_box">
-                <span class="pswd">密码</span>
-                <span>:</span>
-                <input type="password" v-model="account.pswd" />
-              </p>
-              <p class="forget">
-                <span @click="find_pswd">忘记密码?</span>
-              </p>
+          <div class="login_bom">
+            <div class="bom_left">
+              <p class="bom_title">我已有D9区账号了</p>
+              <div class="bom_content">
+                <p class="select_type">
+                  <span class="type_account">账号登录</span>
+                  <span>/</span>
+                  <span class="type_mobile">手机号登录</span>
+                </p>
+                <p class="email_box">
+                  <span class="email">邮箱</span>
+                  <span>:</span>
+                  <input type="email" v-model="account.email" />
+                </p>
+                <p class="pswd_box">
+                  <span class="pswd">密码</span>
+                  <span>:</span>
+                  <input type="password" v-model="account.pswd" />
+                </p>
+                <p class="forget">
+                  <span @click="find_pswd">忘记密码?</span>
+                </p>
 
-              <p class="remember">
-                <el-checkbox v-model="checked">记住密码</el-checkbox>
-              </p>
-              <p class="login_btn" @click="login_go">登录</p>
+                <p class="remember">
+                  <el-checkbox v-model="checked">记住密码</el-checkbox>
+                </p>
+                <p class="login_btn" @click="login_go">登录</p>
+              </div>
             </div>
-          </div>
-          <div class="bom_right">
-            <p class="bom_title">我没有D9区账号</p>
-            <div class="bom_content">
-              <p>欢迎</p>
-              <p>请创建一个帐户：</p>
-              <p>• D9区影视</p>
-              <p>• D9区上传作品的正片在线下进行放映；</p>
-              <p>• 请您遵循审核过程</p>
-              <p class="creat_box" @click="creat_account">创建</p>
+            <div class="bom_right">
+              <p class="bom_title">我没有D9区账号</p>
+              <div class="bom_content">
+                <p>欢迎</p>
+                <p>请创建一个帐户：</p>
+                <p>• D9区影视</p>
+                <p>• D9区上传作品的正片在线下进行放映；</p>
+                <p>• 请您遵循审核过程</p>
+                <p class="creat_box" @click="creat_account">创建</p>
+              </div>
             </div>
           </div>
         </div>
+        <!-- 找回密码弹窗 -->
+        <el-dialog title="找回密码" :visible.sync="find_pswd_box">
+          <div class="content">
+            <span class="title1">邮箱：</span>
+            <input class="email_input" type="email" />
+          </div>
+          <div>
+            <p class="sure_box" @click="ok_btn">确定</p>
+          </div>
+        </el-dialog>
+
+        <!-- 创建账号 -->
+        <el-dialog title="欢迎！请创建一个账号：" class="creat_account_box" :visible.sync="creat_box">
+          <div class="content">
+            <div class="creat_item">
+              <span class="title2">姓名：</span>
+              <input class="email_input" type="email" />
+            </div>
+            <div class="creat_item">
+              <span class="title2">邮箱：</span>
+              <input class="email_input" type="email" />
+            </div>
+            <div class="creat_item">
+              <span class="title2">密码：</span>
+              <input class="email_input" type="password" />
+            </div>
+            <div class="creat_item">
+              <span class="title2">手机号：</span>
+              <input class="email_input" type="text" />
+            </div>
+            <div class="creat_item">
+              <span class="title2">验证码：</span>
+              <img src="../assets/images/login/picture.png" class="code" alt />
+              <input class="email_input" type="text" />
+            </div>
+          </div>
+          <div>
+            <p class="sure_box2" @click="creat_btn">创建</p>
+          </div>
+        </el-dialog>
       </div>
-      <!-- 找回密码弹窗 -->
-      <el-dialog title="找回密码" :visible.sync="find_pswd_box">
-        <div class="content">
-          <span class="title1">邮箱：</span>
-          <input class="email_input" type="email" />
-        </div>
-        <div>
-          <p class="sure_box" @click="ok_btn">确定</p>
-        </div>
-      </el-dialog>
 
-      <!-- 创建账号 -->
-      <el-dialog title="欢迎！请创建一个账号：" class="creat_account_box" :visible.sync="creat_box">
-        <div class="content">
-          <div class="creat_item">
-            <span class="title2">姓名：</span>
-            <input class="email_input" type="email" />
-          </div>
-          <div class="creat_item">
-            <span class="title2">邮箱：</span>
-            <input class="email_input" type="email" />
-          </div>
-          <div class="creat_item">
-            <span class="title2">密码：</span>
-            <input class="email_input" type="password" />
-          </div>
-          <div class="creat_item">
-            <span class="title2">手机号：</span>
-            <input class="email_input" type="text" />
-          </div>
-          <div class="creat_item">
-            <span class="title2">验证码：</span>
-            <img src="../assets/images/login/picture.png" class="code" alt />
-            <input class="email_input" type="text" />
-          </div>
-        </div>
-        <div>
-          <p class="sure_box2" @click="creat_btn">创建</p>
-        </div>
-      </el-dialog>
+      <Footer></Footer>
     </div>
-
-    <Footer></Footer>
   </div>
 </template>
 <script>
@@ -113,8 +115,8 @@ export default {
       creat_box: false,
       account: {
         email: "",
-        pswd: ""
-      }
+        pswd: "",
+      },
     };
   },
   methods: {
@@ -137,16 +139,16 @@ export default {
       } else {
         this.$router.push("/submit_type");
       }
-    }
+    },
   },
 
-  computed: {}
+  computed: {},
 };
 </script>
 <style lang='less'>
 .login {
   background-color: #0a0a0a;
-  padding: 200px 0 125px 0;
+  padding: 210px 0 ;
   color: #333;
   .login_box {
     height: 640px;

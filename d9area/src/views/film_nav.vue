@@ -1,83 +1,67 @@
 <template>
-  <div class="film_nav"
-       v-cloak
-       id="film_nav"
-       ref="film_nav">
+  <div class="film_nav" v-cloak id="film_nav" ref="film_nav">
     <!-- 顶部导航 -->
     <div class="top_nav">
       <div class="nav_box">
-        <el-menu :default-active="main_nav"
-                 text-color='#F6F6F6'
-                 active-text-color='#c8a461'
-                 background-color='#000'
-                 class="el_menu"
-                 mode="horizontal"
-                 @select="handleSelect_main_nav">
+        <el-menu
+          :default-active="main_nav"
+          text-color="#F6F6F6"
+          active-text-color="#c8a461"
+          background-color="#000"
+          class="el_menu"
+          mode="horizontal"
+          @select="handleSelect_main_nav"
+        >
           <el-menu-item index="1">首页</el-menu-item>
           <el-menu-item index="2">动画电影周</el-menu-item>
           <el-menu-item index="3">在线观影</el-menu-item>
           <el-menu-item index="4">D9制片厂</el-menu-item>
         </el-menu>
         <span class="nav_right">
-          <span :class="language=='cn'?'language_color':''">中文 </span>
+          <span :class="language=='cn'?'language_color':''">中文</span>
           <span>/</span>
-          <span :class="language=='en'?'language_color':''"> EN</span>
+          <span :class="language=='en'?'language_color':''">EN</span>
         </span>
-        <span class="nav_right personl"
-              v-if="personl_show">
-          <span class="personl_name"
-                @click="go_personl">永恒</span>
+        <span class="nav_right personl" v-if="personl_show">
+          <span class="personl_name" @click="go_personl">永恒</span>
           <span>｜</span>
           <span @click="logout">退出</span>
         </span>
       </div>
     </div>
     <!-- 第二导航 -->
-    <div class="sub_nav"
-         :class="srcolltop?'sub_fixd':''"
-         id="sub_nav">
+    <div class="sub_nav" :class="srcolltop?'sub_fixd':''" id="sub_nav">
       <div class="main_container">
-        <div class="logo_box"
-             :class="sub_nav.img">
-          <img class="logo"
-               :class="sub_nav.logo"
-               src="@/assets/images/home/D9-logo.png"
-               alt />
+        <div class="logo_box" :class="sub_nav.img">
+          <img class="logo" :class="sub_nav.logo" src="@/assets/images/home/D9-logo.png" alt />
         </div>
         <div>
-          <el-menu :default-active="activeIndex"
-                   :class="sub_nav.menu"
-                   text-color="#F6F6F6"
-                   active-text-color="#c8a461"
-                   background-color="#000"
-                   class="el_menu"
-                   mode="horizontal"
-                   @select="handleSelect">
-            <el-menu-item index="1"
-                          :class="sub_nav.menu">新闻</el-menu-item>
-            <el-menu-item index="2"
-                          :class="sub_nav.menu">简介</el-menu-item>
-            <el-menu-item index="3"
-                          :class="sub_nav.menu">影片展示</el-menu-item>
-            <el-menu-item index="4"
-                          :class="sub_nav.menu">影片申报</el-menu-item>
-            <el-menu-item index="5"
-                          :class="sub_nav.menu">电影基金</el-menu-item>
-            <el-menu-item index="6"
-                          :class="sub_nav.menu">Q&A</el-menu-item>
+          <el-menu
+            :default-active="activeIndex"
+            :class="sub_nav.menu"
+            text-color="#F6F6F6"
+            active-text-color="#c8a461"
+            background-color="#000"
+            class="el_menu"
+            mode="horizontal"
+            @select="handleSelect"
+          >
+            <el-menu-item index="1" :class="sub_nav.menu">新闻</el-menu-item>
+            <el-menu-item index="2" :class="sub_nav.menu">简介</el-menu-item>
+            <el-menu-item index="3" :class="sub_nav.menu">影片展示</el-menu-item>
+            <el-menu-item index="4" :class="sub_nav.menu">影片申报</el-menu-item>
+            <el-menu-item index="5" :class="sub_nav.menu">电影基金</el-menu-item>
+            <el-menu-item index="6" :class="sub_nav.menu">Q&A</el-menu-item>
           </el-menu>
         </div>
-        <div @mouseover="imghover"
-             @mouseleave="imgleave"
-             :class="sub_nav.search"
-             class="search_box">
-          <img src="@/assets/images/film/search.png"
-               class="img_hover"
-               alt />
-          <input type="text"
-                 ref="input_search"
-                 class="input_search"
-                 id="input_search" />
+        <div
+          @mouseover="imghover"
+          @mouseleave="imgleave"
+          :class="sub_nav.search"
+          class="search_box"
+        >
+          <img src="@/assets/images/film/search.png" class="img_hover" alt />
+          <input type="text" ref="input_search" class="input_search" id="input_search" />
         </div>
       </div>
     </div>
@@ -86,53 +70,53 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      main_nav: '2',
+      main_nav: "2",
       activeIndex: "1",
       srcolltop: false,
       isshow: false,
-      navclass: '',
-      language: 'cn',
+      navclass: "",
+      language: "cn",
       personl_show: false,
       sub_nav: {
-        img: '',
-        logo: '',
-        menu: '',
-        search: '',
-      }
+        img: "",
+        logo: "",
+        menu: "",
+        search: "",
+      },
     };
   },
   props: ["activenav"],
-  mounted () {
+  mounted() {
     this.activeIndex = this.activenav;
     console.log(this.activenav);
-    if (sessionStorage.getItem('personal') == 'true') {
-      this.personl_show = true
+    if (sessionStorage.getItem("personal") == "true") {
+      this.personl_show = true;
     }
     //首先，在mounted钩子window添加一个滚动滚动监听事件
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
-    handleSelect_main_nav (key) {
+    handleSelect_main_nav(key) {
       switch (key) {
-        case '1':
-          this.$router.push('/home')
+        case "1":
+          this.$router.push("/home");
           break;
-        case '2':
-          this.$router.push('/film_festival')
+        case "2":
+          this.$router.push("/film_festival");
           break;
-        case '3':
-          this.$router.push('/online_login')
+        case "3":
+          this.$router.push("/online_login");
           break;
-        case '4':
-          this.$router.push('/login')
+        case "4":
+          this.$router.push("/login");
           break;
         default:
           break;
       }
     },
-    handleSelect (key, keyPath) {
+    handleSelect(key, keyPath) {
       console.log(key, keyPath);
       switch (key) {
         case "1":
@@ -155,7 +139,7 @@ export default {
       }
     },
     //然后在方法中，添加这个handleScroll方法来获取滚动的位置
-    handleScroll () {
+    handleScroll() {
       let scrollTop =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
@@ -164,33 +148,33 @@ export default {
       if (scrollTop <= offsetTop) {
         this.srcolltop = false;
 
-        this.sub_nav.img = 'hiddenImg';
-        this.sub_nav.logo = 'hidden_logo';
-        this.sub_nav.menu = 'hidden_menu';
-        this.sub_nav.search = 'hidden_search';
+        this.sub_nav.img = "hiddenImg";
+        this.sub_nav.logo = "hidden_logo";
+        this.sub_nav.menu = "hidden_menu";
+        this.sub_nav.search = "hidden_search";
       } else if (scrollTop > offsetTop) {
         this.srcolltop = true;
-        this.sub_nav.img = 'showImg';
-        this.sub_nav.logo = 'show_logo';
-        this.sub_nav.menu = 'show_menu';
-        this.sub_nav.search = 'show_search';
+        this.sub_nav.img = "showImg";
+        this.sub_nav.logo = "show_logo";
+        this.sub_nav.menu = "show_menu";
+        this.sub_nav.search = "show_search";
       }
     },
     // 放大镜
-    imghover () {
+    imghover() {
       this.$refs.input_search.style.width = "250px";
       this.$refs.input_search.style.padding = "0 10px";
     },
-    imgleave () {
+    imgleave() {
       console.log(this.$refs.input_search);
       this.$refs.input_search.style.width = "0";
       this.$refs.input_search.style.padding = "0";
-    }
+    },
   },
   //由于是在整个window中添加的事件，所以要在页面离开时摧毁掉，否则会报错
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-  }
+  },
 };
 </script>
 
@@ -201,13 +185,16 @@ export default {
 //   nav 导航
 .film_nav {
   width: 100%;
+  overflow: hidden;
   // 大导航
   .top_nav {
     height: 40px;
     .nav_box {
       text-align: left;
       width: 100%;
+      background: #000;
       height: 40px;
+      overflow: hidden;
       .nav_right {
         float: right;
         cursor: pointer;
@@ -280,8 +267,9 @@ export default {
       font-size: 16px;
       float: left;
       background: #000000;
-      height: 120px;
-      line-height: 120px;
+      height: 118px;
+        overflow: hidden;
+      line-height: 118px;
     }
     .search_box {
       float: right;

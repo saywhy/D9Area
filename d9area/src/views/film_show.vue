@@ -1,96 +1,96 @@
 <template>
   <div class="body_box">
-    <Nav :mainnav="mainnav"></Nav>
-    <film-nav :activenav="Index"></film-nav>
-    <div class="FilmShow">
-      <div class="FilmShow_top">
-        <img src="../assets/images/film/film_show1.jpg"
-             width:540px
-             alt />
-      </div>
-      <!-- 内容 -->
-      <div class="sub_container">
-        <div v-if="selected_box">
-          <p class="content_title">入围作品</p>
-          <div class="content_top">
-            <div class="content_top_left"
-                 @click="show_swiper('selected')">
-              <span class="content_top_left_time">时长：1分20秒</span>
-            </div>
-            <div class="content_top_right">
-              <div class="content_top_right_top">
-                <p class="film_name">拯救计划</p>
-                <p class="film_theme">VFX电影短片 | 战争</p>
-                <p class="film_des">想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
+    <div class="container_box">
+      <film-nav :activenav="Index"></film-nav>
+      <div class="FilmShow">
+        <div class="FilmShow_top">
+          <img src="../assets/images/film/film_show1.jpg" width:540px alt />
+        </div>
+        <!-- 内容 -->
+        <div class="sub_container">
+          <div v-if="selected_box">
+            <p class="content_title">入围作品</p>
+            <div class="content_top">
+              <div class="content_top_left" @click="show_swiper('selected')">
+                <span class="content_top_left_time">时长：1分20秒</span>
               </div>
-              <div class="content_top_right_bom">
-                <p class="film_company">出品方：凉山重工</p>
-                <p class="film_author">主创团队：导演11111/编剧/制片……</p>
-              </div>
-            </div>
-          </div>
-          <div class="content_bom">
-            <div class="content_bom_item">
-              <div class="item_img">
-                <span class="item_time">时长：1分20秒</span>
-              </div>
-              <div class="item_content">
-                <div class="item_content_top">
-                  <p class="item_name">复古文艺短片 | 拯救计划</p>
-                  <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+              <div class="content_top_right">
+                <div class="content_top_right_top">
+                  <p class="film_name">拯救计划</p>
+                  <p class="film_theme">VFX电影短片 | 战争</p>
+                  <p
+                    class="film_des"
+                  >想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
                 </div>
-                <div class="item_content_bom">
-                  <p>
-                    <span class="item_company">出品方：凉山重工</span>
-                    <span class="item_theme">VFX电影短片</span>
-                  </p>
+                <div class="content_top_right_bom">
+                  <p class="film_company">出品方：凉山重工</p>
+                  <p class="film_author">主创团队：导演11111/编剧/制片……</p>
                 </div>
               </div>
             </div>
-            <div class="space"></div>
-            <div class="content_bom_item">
-              <div class="item_img">
-                <span class="item_time">时长：1分20秒</span>
-              </div>
-              <div class="item_content">
-                <div class="item_content_top">
-                  <p class="item_name">复古文艺短片 | 拯救计划</p>
-                  <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+            <div class="content_bom">
+              <div class="content_bom_item">
+                <div class="item_img">
+                  <span class="item_time">时长：1分20秒</span>
                 </div>
-                <div class="item_content_bom">
-                  <p>
-                    <span class="item_company">出品方：凉山重工</span>
-                    <span class="item_theme">VFX电影短片</span>
-                  </p>
+                <div class="item_content">
+                  <div class="item_content_top">
+                    <p class="item_name">复古文艺短片 | 拯救计划</p>
+                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+                  </div>
+                  <div class="item_content_bom">
+                    <p>
+                      <span class="item_company">出品方：凉山重工</span>
+                      <span class="item_theme">VFX电影短片</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="space"></div>
-            <div class="content_bom_item">
-              <div class="item_img">
-                <span class="item_time">时长：1分20秒</span>
-              </div>
-              <div class="item_content">
-                <div class="item_content_top">
-                  <p class="item_name">复古文艺短片 | 拯救计划</p>
-                  <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+              <div class="space"></div>
+              <div class="content_bom_item">
+                <div class="item_img">
+                  <span class="item_time">时长：1分20秒</span>
                 </div>
-                <div class="item_content_bom">
-                  <p>
-                    <span class="item_company">出品方：凉山重工</span>
-                    <span class="item_theme">VFX电影短片</span>
-                  </p>
+                <div class="item_content">
+                  <div class="item_content_top">
+                    <p class="item_name">复古文艺短片 | 拯救计划</p>
+                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+                  </div>
+                  <div class="item_content_bom">
+                    <p>
+                      <span class="item_company">出品方：凉山重工</span>
+                      <span class="item_theme">VFX电影短片</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="space"></div>
+              <div class="content_bom_item">
+                <div class="item_img">
+                  <span class="item_time">时长：1分20秒</span>
+                </div>
+                <div class="item_content">
+                  <div class="item_content_top">
+                    <p class="item_name">复古文艺短片 | 拯救计划</p>
+                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+                  </div>
+                  <div class="item_content_bom">
+                    <p>
+                      <span class="item_company">出品方：凉山重工</span>
+                      <span class="item_theme">VFX电影短片</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div v-if="!selected_box">
+          <film-swiper></film-swiper>
+        </div>
       </div>
-      <div v-if="!selected_box">
-        <film-swiper></film-swiper>
-      </div>
+      <Footer></Footer>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
@@ -103,16 +103,15 @@ import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
   components: { Nav, Footer, filmNav, filmSwiper },
-  data () {
+  data() {
     return {
       Index: "3",
-      mainnav: "2",
-      selected_box: true
+      selected_box: true,
     };
   },
-  mounted () { },
+  mounted() {},
   methods: {
-    show_swiper (name) {
+    show_swiper(name) {
       switch (name) {
         case "selected":
           this.selected_box = false;
@@ -121,8 +120,8 @@ export default {
         default:
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less">
@@ -152,7 +151,7 @@ export default {
       width: 667px;
       float: left;
       height: 418px;
-      background-image: url('../assets/images/film/show/main.png');
+      background-image: url("../assets/images/film/show/main.png");
       background-size: 100% 100%;
       cursor: pointer;
       position: relative;
@@ -212,7 +211,7 @@ export default {
       background: #000;
       .item_img {
         height: 189px;
-        background-image: url('../assets/images/film/show/sub.png');
+        background-image: url("../assets/images/film/show/sub.png");
         background-size: 100% 100%;
         position: relative;
         .item_time {

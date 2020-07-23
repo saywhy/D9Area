@@ -1,6 +1,5 @@
 <template>
-  <div id="nav_home"
-       v-show="activeIndex!='2'">
+  <div id="nav_home" >
     <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">

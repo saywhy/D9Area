@@ -89,8 +89,11 @@ export default {
 <style lang='less'>
 .submit {
   background: #0a0a0a;
-  padding: 200px 0 230px 0;
   color: #333;
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
   .submit_box {
     width: 1000px;
     height: 640px;
