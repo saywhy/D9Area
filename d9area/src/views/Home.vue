@@ -1,48 +1,53 @@
 <template>
   <div class="container">
     <Nav :mainnav="mainnav"></Nav>
-    <div class="home" @contextmenu.prevent>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="item in img_list">
-            <img :src="item.src" style="height: 100%; width: 100%;" alt />
+    <full-page :options="options"
+               id="fullpage"
+               ref="fullpage">
+      <div class="section">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"
+                 v-for="item in img_list">
+              <img :src="item.src"
+                   style="height: 100%; width: 100%;"
+                   alt />
+            </div>
           </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
       </div>
-      <!-- 视频 -->
-      <div class="video_box">
-        <div class="video_swiper_container">
-          <div class="swiper-wrapper swiper-no-swiping">
-            <div class="swiper-slide" v-for="(item,index) in video_list">
-              <div class="sider_video_box">
-                <video-player
-                  class="video-player vjs-custom-skin"
-                  ref="videoPlayer"
-                  @play="onPlayerPlay($event,index)"
-                  @pause="onPlayerPause($event,index)"
-                  :playsinline="true"
-                  :options="item.playerOptions"
-                ></video-player>
-                <img
-                  :src="item.suspend"
-                  @click="img_play(index)"
-                  v-if="item.suspend_show"
-                  class="suspend_box"
-                  alt
-                />
+      <div class="section"
+           style="position:relative; background:#0a0a0a">
+        <!-- <div class="setion_bom"> -->
+        <div class="video_box">
+          <div class="video_swiper_container">
+            <div class="swiper-wrapper swiper-no-swiping">
+              <div class="swiper-slide"
+                   v-for="(item,index) in video_list">
+                <div class="sider_video_box">
+                  <video-player class="video-player vjs-custom-skin"
+                                ref="videoPlayer"
+                                @play="onPlayerPlay($event,index)"
+                                @pause="onPlayerPause($event,index)"
+                                :playsinline="true"
+                                :options="item.playerOptions"></video-player>
+                  <img :src="item.suspend"
+                       @click="img_play(index)"
+                       v-if="item.suspend_show"
+                       class="suspend_box"
+                       alt />
+                </div>
               </div>
             </div>
           </div>
+          <div class="swiper-button-prev_video"></div>
+          <div class="swiper-button-next_video"></div>
         </div>
-        <div class="swiper-button-prev_video"></div>
-        <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-        <div class="swiper-button-next_video"></div>
-        <!-- 右箭头。如果放置在swiper-container外面，需要自定义样式。 -->
+        <Footer style="position:absolute;bottom:0"></Footer>
+        <!-- </div> -->
       </div>
-    </div>
-    <Footer></Footer>
+    </full-page>
   </div>
 </template>
 
@@ -53,7 +58,7 @@ import Footer from "@/views/footer.vue";
 export default {
   name: "Home",
   components: { Nav, Footer },
-  data() {
+  data () {
     return {
       mainnav: "1",
       img_list: [
@@ -77,9 +82,9 @@ export default {
             loop: false, // 视频一结束就重新开始。
             preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
             language: "zh-CN",
-            height: "600px",
-            // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-            fluid: false, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+            // height: "600px",
+            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [
               {
                 type: "video/mp4",
@@ -109,10 +114,10 @@ export default {
             loop: false, // 视频一结束就重新开始。
             preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
             width: "100%",
-            height: "600px",
+            // height: "600px",
             language: "zh-CN",
-            // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-            fluid: false, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [
               {
                 type: "video/mp4",
@@ -130,15 +135,30 @@ export default {
             }
           }
         }
-      ]
+      ],
+      options: {
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        afterLoad: this.afterLoad,
+        navigation: true,
+        anchors: ['page1', 'page2', 'page3'],
+        sectionsColor: [
+          '#0a0a0a',
+        ]
+      }
     };
   },
-  mounted() {
+  mounted () {
     this.initSwiper();
     this.initSwiper_video();
   },
   methods: {
-    initSwiper() {
+
+    afterLoad (origin, destination, direction) {
+      console.log('After load....');
+      console.log(destination);
+    },
+
+    initSwiper () {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
         autoplay: false, //等同于以下设置
@@ -156,7 +176,7 @@ export default {
       });
       // });
     },
-    initSwiper_video() {
+    initSwiper_video () {
       var video_list = this.video_list;
       let that = this;
       // var that = _this
@@ -173,13 +193,13 @@ export default {
           prevEl: ".swiper-button-prev_video"
         },
         on: {
-          slidePrevTransitionStart: function(index) {
+          slidePrevTransitionStart: function (index) {
             console.log("1111");
             console.log(this.activeIndex);
             //stopVideo:停止视频; pauseVideo:暂停; playVideo:播放视频
             that.$refs.videoPlayer[this.activeIndex + 1].player.pause();
           },
-          slideNextTransitionStart: function(index) {
+          slideNextTransitionStart: function (index) {
             console.log("1111");
             console.log(this.activeIndex);
             //stopVideo:停止视频; pauseVideo:暂停; playVideo:播放视频
@@ -188,14 +208,14 @@ export default {
         }
       });
     },
-    onPlayerPlay(event, index) {
+    onPlayerPlay (event, index) {
       this.video_list[index].suspend_show = false;
     },
-    onPlayerPause(event, index) {
+    onPlayerPause (event, index) {
       console.log(index);
       this.video_list[index].suspend_show = true;
     },
-    img_play(index) {
+    img_play (index) {
       // var name = 'videoPlayer' + index
       // console.log(name);
       // console.log(this.$refs.videoPlayer);
@@ -214,18 +234,13 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-}
-/deep/
-.home {
-  margin-top: 80px;
-  padding-bottom: 70px;
   background-color: #0a0a0a;
-  .swiper-container {
+  /deep/ .swiper-container {
     width: 100%;
-    height: 640px;
+    height: 100%;
     color: #fff;
   }
-  .swiper-pagination {
+  /deep/ .swiper-pagination {
     .swiper-pagination-bullet {
       width: 10px;
       height: 10px;
@@ -240,13 +255,16 @@ export default {
       opacity: 1;
     }
   }
-
   // 视频部分
-  .video_box {
+  /deep/ .setion_bom {
+    height: 100%;
+  }
+  /deep/ .video_box {
     position: relative;
     width: 100%;
-    margin-top: 60px;
+    // margin-top: 60px;
     height: 600px;
+    // height: 100%;
     overflow: hidden;
     &:hover .swiper-button-next_video {
       display: block;
@@ -269,7 +287,7 @@ export default {
       outline: none;
     }
   }
-  .video_swiper_container {
+  /deep/ .video_swiper_container {
     width: 100%;
     height: 100%;
     color: #fff;
@@ -285,7 +303,7 @@ export default {
     }
   }
 
-  .suspend_box {
+  /deep/ .suspend_box {
     width: 90px;
     height: 90px;
     cursor: pointer;
@@ -294,7 +312,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .swiper-button-next_video {
+  /deep/ .swiper-button-next_video {
     display: none;
     cursor: pointer;
     width: 100px;
@@ -305,14 +323,14 @@ export default {
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     margin-top: 0;
-    background-image: url("../assets/images/online/next.png");
+    background-image: url('../assets/images/online/next.png');
     background-size: 30px 30px;
     background-repeat: no-repeat;
     background-position: center;
     z-index: 99999;
     outline: none;
   }
-  .swiper-button-prev_video {
+  /deep/ .swiper-button-prev_video {
     display: none;
     cursor: pointer;
     outline: none;
@@ -324,11 +342,16 @@ export default {
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.6);
     margin-top: 0;
-    background-image: url("../assets/images/online/prev.png");
+    background-image: url('../assets/images/online/prev.png');
     background-size: 30px 30px;
     background-repeat: no-repeat;
     background-position: center;
     z-index: 99999;
   }
+}
+.home {
+  margin-top: 80px;
+  padding-bottom: 70px;
+  background-color: #0a0a0a;
 }
 </style>

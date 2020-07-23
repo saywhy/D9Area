@@ -11,6 +11,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI);
 
+
+import 'fullpage.js/vendors/scrolloverflow'
+// import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
+import VueFullPage from 'vue-fullpage.js/dist/vue-fullpage.js'
+Vue.use(VueFullPage)
+
+
 import VueI18n from 'vue-i18n'
 // import i18n from './i18n/i18n'
 Vue.use(VueI18n) // 通过插件的形式挂载
