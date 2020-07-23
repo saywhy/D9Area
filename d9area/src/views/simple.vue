@@ -1,5 +1,5 @@
 <template>
-  <div class="simple">
+  <div class="body_box">
     <Nav :mainnav="mainnav"></Nav>
     <film-nav :activenav="Index"></film-nav>
     <!-- <film-top class="nav_margin_top"></film-top> -->
@@ -46,21 +46,12 @@ export default {
 </script>
 
 <style lang="less">
-.simple {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 .nav_margin_top {
   background-color: #000;
 }
 .simple_box {
   background: #0a0a0a;
-  padding-bottom: 70px;
+  padding-bottom: 180px;
   width: 100%;
   .jj {
     width: 100%;

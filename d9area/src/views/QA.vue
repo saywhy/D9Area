@@ -56,7 +56,7 @@ export default {
 <style lang="less">
 .QA {
   background-color: #0a0a0a;
-  padding-bottom: 70px;
+  padding-bottom: 180px;
   .QA_bg img {
     width: 100%;
     height: 540px;

@@ -2,56 +2,56 @@
   <div class="body_box">
     <Nav :mainnav='mainnav'></Nav>
     <div class='submit'>
-        <div class="submit_box">
-          <div class="submit_top">
-            <div class="top_left">
-              <img src="@/assets/images/login/user.png"
-                   width="34"
-                   height="32"
-                   alt="">
-              <p>我的账号</p>
-            </div>
-            <div class="top_right">
-              <p>作品提交方式</p>
+      <div class="submit_box">
+        <div class="submit_top">
+          <div class="top_left">
+            <img src="@/assets/images/login/user.png"
+                 width="34"
+                 height="32"
+                 alt="">
+            <p>我的账号</p>
+          </div>
+          <div class="top_right">
+            <p>作品提交方式</p>
+          </div>
+        </div>
+        <div class="submit_bom">
+          <div class="bom_left">
+            <p class="bom_title">
+              提交ICF电影节作品
+            </p>
+            <div class="bom_content">
+              <p>ICF电影节：</p>
+              <p>• D9区影视；</p>
+              <p>• D9区上传作品的正片在线下进行放映；</p>
+              <p>• 请您遵循审核过程</p>
+              <p class="remember">
+                <el-checkbox v-model="checked">我已阅读并同意遵守条例</el-checkbox>
+              </p>
+              <p class="submit_btn"
+                 @click="declare('film')">开始申报</p>
             </div>
           </div>
-          <div class="submit_bom">
-            <div class="bom_left">
-              <p class="bom_title">
-                提交ICF电影节作品
+          <div class="bom_right">
+            <p class="bom_title">
+              提交在线观影作品
+            </p>
+            <div class="bom_content">
+              <p> 在线观影：</p>
+              <p>• D9区影视；</p>
+              <p>• D9区上传作品的正片在线下进行放映；</p>
+              <p>• 请您遵循审核过程</p>
+              <p class="remember">
+                <el-checkbox v-model="checked2">我已阅读并同意遵守条例</el-checkbox>
               </p>
-              <div class="bom_content">
-                <p>ICF电影节：</p>
-                <p>• D9区影视；</p>
-                <p>• D9区上传作品的正片在线下进行放映；</p>
-                <p>• 请您遵循审核过程</p>
-                <p class="remember">
-                  <el-checkbox v-model="checked">我已阅读并同意遵守条例</el-checkbox>
-                </p>
-                <p class="submit_btn"
-                   @click="declare">开始申报</p>
-              </div>
-            </div>
-            <div class="bom_right">
-              <p class="bom_title">
-                提交在线观影作品
-              </p>
-              <div class="bom_content">
-                <p> 在线观影：</p>
-                <p>• D9区影视；</p>
-                <p>• D9区上传作品的正片在线下进行放映；</p>
-                <p>• 请您遵循审核过程</p>
-                <p class="remember">
-                  <el-checkbox v-model="checked2">我已阅读并同意遵守条例</el-checkbox>
-                </p>
-                <p class="submit_btn"
-                   @click="declare">开始申报</p>
-              </div>
+              <p class="submit_btn"
+                 @click="declare('online')">开始申报</p>
             </div>
           </div>
         </div>
       </div>
-  
+    </div>
+
     <Footer></Footer>
   </div>
 
@@ -70,8 +70,16 @@ export default {
     }
   },
   methods: {
-    declare () {
-      this.$router.push('/submit_agree')
+    declare (name) {
+      this.$router.push(
+        {
+          path: '/submit_agree',
+          query: {
+            type: name
+          }
+        }
+      )
+
     }
   },
 
@@ -80,15 +88,14 @@ export default {
 </script>
 <style lang='less'>
 .submit {
-  margin-top: 100px;
   background: #0a0a0a;
-  padding: 120px 0 126px 0;
+  padding: 200px 0 230px 0;
   color: #333;
   .submit_box {
-    width:1000px;
+    width: 1000px;
     height: 640px;
-    margin:0 auto;
-   
+    margin: 0 auto;
+
     background: #fff;
     .submit_top {
       height: 116px;
@@ -117,7 +124,7 @@ export default {
       }
     }
     .submit_bom {
-      padding: 45px  58px 0 58px;
+      padding: 45px 58px 0 58px;
       .bom_title {
         text-align: left;
         padding-left: 20px;

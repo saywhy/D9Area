@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="body_box">
     <Nav :mainnav="mainnav"></Nav>
     <film-nav :activenav="Index"></film-nav>
     <div class="FilmShow">
@@ -128,7 +128,7 @@ export default {
 <style lang="less">
 .FilmShow {
   background: #0a0a0a;
-  padding-bottom: 70px;
+  padding-bottom: 180px;
   .FilmShow_top {
     width: 100%;
     height: 540px;

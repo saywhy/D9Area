@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="body_box">
     <film-nav :activenav="Index"></film-nav>
     <div class="FilmFestival">
       <div class="FilmFestival_swiper">
@@ -126,17 +126,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.container {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-/deep/
-.content_box {
+/deep/ .content_box {
   width: 998px;
   margin: 0 auto;
   padding-bottom: 40px;
@@ -158,9 +148,9 @@ export default {
     }
   }
 }
-/deep/
-.FilmFestival {
-    .swiper-container {
+/deep/ .FilmFestival {
+  padding-bottom: 110px;
+  .swiper-container {
     width: 100%;
     height: 640px;
     color: #fff;
