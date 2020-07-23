@@ -145,9 +145,11 @@ export default {
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       let offsetTop = document.querySelector("#sub_nav").offsetTop;
+      console.log(offsetTop);
+      console.log(scrollTop);
       if (scrollTop <= offsetTop) {
         this.srcolltop = false;
-
+            console.log(11111);
         this.sub_nav.img = "hiddenImg";
         this.sub_nav.logo = "hidden_logo";
         this.sub_nav.menu = "hidden_menu";
@@ -158,6 +160,7 @@ export default {
         this.sub_nav.logo = "show_logo";
         this.sub_nav.menu = "show_menu";
         this.sub_nav.search = "show_search";
+                console.log(2222);
       }
     },
     // 放大镜
@@ -237,7 +240,6 @@ export default {
     overflow: hidden;
     width: 100%;
     background: #000;
-
     .logo_box {
       height: 120px;
       width: 120px;

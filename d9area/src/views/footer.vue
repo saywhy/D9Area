@@ -1,53 +1,48 @@
  <template>
   <div class="foot_box">
-    <ul class="foot_top_ul">
-      <li class="cursor"
-          @click="go_message('contact')">
-        联系我们
-        <span class="line"></span>
-      </li>
-      <li class="cursor"
-          @click="go_message('user')">
-        用户协议
-        <span class="line"></span>
-      </li>
-      <li class="cursor"
-          @click="go_message('help')">
-        使用帮助
-        <span class="line"></span>
-      </li>
-      <li class="cursor"
-          @click="go_message('privacy')">隐私协议</li>
-    </ul>
-    <div class="foot_bom_ul">
-      <ul class="foot_box_ul">
-        <li>
-          京ICP备06050721号
+    <div class="foot_main_box">
+      <ul class="foot_top_ul">
+        <li class="cursor" @click="go_message('contact')">
+          联系我们
           <span class="line"></span>
         </li>
-        <li>网络出版服务许可证</li>
+        <li class="cursor" @click="go_message('user')">
+          用户协议
+          <span class="line"></span>
+        </li>
+        <li class="cursor" @click="go_message('help')">
+          使用帮助
+          <span class="line"></span>
+        </li>
+        <li class="cursor" @click="go_message('privacy')">隐私协议</li>
       </ul>
+      <div class="foot_bom_ul">
+        <ul class="foot_box_ul">
+          <li>
+            京ICP备06050721号
+            <span class="line"></span>
+          </li>
+          <li>网络出版服务许可证</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
  <script>
 export default {
   name: "Footer",
-  data () {
+  data() {
     return {};
   },
-  mounted () {
-
-
-  },
+  mounted() {},
   methods: {
-    go_message (name) {
+    go_message(name) {
       this.$router.push({
         path: "/messages",
-        query: { name: name }
+        query: { name: name },
       });
-    }
-  }
+    },
+  },
 };
 </script>
  <style lang="less">
@@ -55,10 +50,14 @@ export default {
   width: 100%;
   height: 110px;
   background: #000;
-  position: absolute;
-  bottom: 0;
-  padding: 25px 0;
   z-index: 9999;
+  position: relative;
+  .foot_main_box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  }
   ul {
     height: 30px;
     margin: 0;

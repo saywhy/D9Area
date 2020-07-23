@@ -1,62 +1,60 @@
 <template>
   <div class="body_box">
-    <div class="container_box">
-      <film-nav :activenav="Index"></film-nav>
-      <div class="FilmFestival">
-        <div class="FilmFestival_swiper">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" v-for="item in img_list">
-                <img :src="item.src" style="height: 100%; width: 100%;" alt />
-              </div>
+    <film-nav :activenav="Index"></film-nav>
+    <div class="FilmFestival">
+      <div class="FilmFestival_swiper">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="item in img_list">
+              <img :src="item.src" style="height: 100%; width: 100%;" alt />
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
           </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="FilmFestival_content">
-          <div class="content_box" style="overflow: hidden;">
-            <div class="top">
-              <div class="left">
-                <div class="big_img">
-                  <img src="@/assets/images/film/top_left.png" alt />
-                </div>
-                <p class="left_top_p">ICF国际CG动画电影周</p>
-                <p>开启短片申报通道</p>
+      </div>
+      <div class="FilmFestival_content">
+        <div class="content_box" style="overflow: hidden;">
+          <div class="top">
+            <div class="left">
+              <div class="big_img">
+                <img src="@/assets/images/film/top_left.png" alt />
               </div>
-              <div class="right">
-                <div class="right_top">
-                  <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                  <p>ICF短片申报规则说明</p>
-                </div>
-                <div class="right_bom">
-                  <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                  <p>新闻发布会</p>
-                </div>
+              <p class="left_top_p">ICF国际CG动画电影周</p>
+              <p>开启短片申报通道</p>
+            </div>
+            <div class="right">
+              <div class="right_top">
+                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
+                <p>ICF短片申报规则说明</p>
+              </div>
+              <div class="right_bom">
+                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
+                <p>新闻发布会</p>
               </div>
             </div>
-            <div class="bom">
-              <div class="left">
-                <div class="left_top">
-                  <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
-                  <p>详细了解2020年官方评选影片</p>
-                </div>
-                <div class="left_bom">
-                  <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
-                  <p>详细了解2020年官方评选影片</p>
-                </div>
+          </div>
+          <div class="bom">
+            <div class="left">
+              <div class="left_top">
+                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
+                <p>详细了解2020年官方评选影片</p>
               </div>
-              <div class="right">
-                <img src="@/assets/images/film/bom_right.png" class="big_img" alt />
-                <p class="right_top_p">ICF国际CG动画电影周</p>
-                <p>开启短片申报通道</p>
+              <div class="left_bom">
+                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
+                <p>详细了解2020年官方评选影片</p>
               </div>
+            </div>
+            <div class="right">
+              <img src="@/assets/images/film/bom_right.png" class="big_img" alt />
+              <p class="right_top_p">ICF国际CG动画电影周</p>
+              <p>开启短片申报通道</p>
             </div>
           </div>
         </div>
       </div>
-      <Footer></Footer>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -136,7 +134,6 @@ export default {
   }
 }
 /deep/ .FilmFestival {
-  padding-bottom: 110px;
   .swiper-container {
     width: 100%;
     height: 640px;
@@ -160,8 +157,9 @@ export default {
   .FilmFestival_content {
     background: #fff;
     padding-top: 40px;
+
     .top {
-      overflow: hidden;
+      overflow: auto;
       .left {
         float: left;
         width: 632px;
@@ -188,7 +186,7 @@ export default {
       }
     }
     .bom {
-      overflow: hidden;
+      overflow: auto;
       margin-top: 20px;
       .left {
         float: left;

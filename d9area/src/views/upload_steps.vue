@@ -1,6 +1,5 @@
 <template>
   <div class="body_box">
-     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
       <div class="UploadSteps">
         <div class="main_container main_box">
@@ -399,7 +398,6 @@
         </div>
       </div>
       <Footer></Footer>
-  </div>
     </div>
 </template>
 <script>
@@ -441,7 +439,7 @@ export default {
   // border: 1px solid red;
   // min-height: 1080px;
   background: #0a0a0a;
-  padding: 70px 0 220px;
+  padding: 70px 0 70px;
   .main_box {
     background: #000;
     overflow: hidden;
