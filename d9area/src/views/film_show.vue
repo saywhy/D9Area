@@ -168,7 +168,7 @@ export default {
       text-align: left;
       .content_top_right_top {
         height: 320px;
-        border-bottom: 1px solid #1b1305;
+        border-bottom: 1px solid #292929;
         padding: 34px 16px 16px 28px;
         .film_name {
           font-size: 22px;

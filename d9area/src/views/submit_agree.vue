@@ -3,19 +3,18 @@
     <Nav :mainnav="mainnav"></Nav>
     <div class="submit_agree">
       <div class="agree_banner">
-        <img src="@/assets/images/film/film_show_bg1.jpg"
-             alt />
+        <img src="@/assets/images/film/film_show_bg1.jpg" alt />
       </div>
       <div class="main_container">
         <!-- <p class="agree_title">影片提交协议</p> -->
         <div class="hr"></div>
         <div class="agree_content">
-         <p class="category">首届D9区国际CG动画电影周竞赛单元只接受短片，分为以下三个类别：VFX电影短片、CG动画短片、VR短片。</p>
-          <p class="title2">(一)注册报名与作品提交时间：</p>
+          <p class="category">首届D9区国际CG动画电影周竞赛单元只接受短片，分为以下三个类别：VFX电影短片、CG动画短片、VR短片。</p>
+          <p class="title">(一)注册报名与作品提交时间：</p>
           <p class="height">2020年8月10日～2020年10月30日。</p>
-          <p class="title2">(二)首届D9区国际CG动画电影周奖项设置：</p>
+          <p class="title">(二)首届D9区国际CG动画电影周奖项设置：</p>
           <p class="height">最佳短片奖、最佳导演奖、最佳编剧奖、最佳剪辑奖、最佳艺术指导奖、最佳特效制作奖、最佳角色设计奖、最佳环境设计奖、最佳动效设计奖、最佳技术贡献奖</p>
-          <p class="title2">(三)作品提交须知与规则</p>
+          <p class="title">(三)作品提交须知与规则</p>
           <div class="rule">
             <p class="height">1.所有类别的短片时长要求5-15min；</p>
             <p>2.题材类型不限，须全CG三维制作；</p>
@@ -29,19 +28,16 @@
             <p>10.申报者所提交的所有材料均不可退还，请务必保留原件，并且一旦申请者接受提名，则不能退出评选，最终入围选手须给予主办方至少一次在北京区放映影片的权利；</p>
             <p>11.入围作品的导演（制片人或制作团队的其他代表）将被邀请到北京参加为期一周的电影周及其他相关活动，包括映后谈、ICF论坛、青年导演扶持计划、颁奖典礼等。最终入围者需要独立承担赴中旅游签和旅游保险，主办方可根据需求提供邀请函；</p>
             <p>12.本活动的最终解释权归主办方所有，主办方有权不经预先通知根据实际情况对推选活动章程中所涉及到的各项条款进行适当调整;</p>
+          </div>
+          <div class="remember">
+            <el-checkbox v-model="checked" @change="agree_type">我已阅读并同意遵守条例</el-checkbox>
+          </div>
+          <p class="submit_btn" :class="checked==true?'add_true':''" @click="declare">开始申报</p>
         </div>
-        <div class="remember">
-          <el-checkbox v-model="checked"
-                       @change="agree_type">我已阅读并同意遵守条例</el-checkbox>
-        </div>
-        <p class="submit_btn"
-           :class="checked==true?'add_true':''"
-           @click="declare">开始申报</p>
       </div>
+      <Footer></Footer>
     </div>
-    <Footer></Footer>
   </div>
-   </div>
 </template>
 <script>
 import Nav from "@/views/nav.vue";
@@ -49,43 +45,42 @@ import Footer from "@/views/footer.vue";
 export default {
   name: "SubmitAgree",
   components: { Nav, Footer },
-  data () {
+  data() {
     return {
       mainnav: "4",
-      checked: false
+      checked: false,
     };
   },
-  created () {
+  created() {
     console.log(this.$route.params);
   },
   methods: {
-    declare () {
+    declare() {
       if (!this.checked) {
         return false;
       }
       switch (this.$route.query.type) {
-        case 'online':
+        case "online":
           this.$router.push("/online_steps");
           break;
-        case 'film':
+        case "film":
           this.$router.push("/upload_steps");
           break;
         default:
           break;
       }
     },
-    agree_type (val) {
+    agree_type(val) {
       console.log(val);
-    }
+    },
   },
-  computed: {}
+  computed: {},
 };
 </script>
 <style lang="less">
 .submit_agree {
   padding-top: 80px;
   background: #0a0a0a;
-  padding-bottom: 180px;
   .agree_banner {
     width: 100%;
     height: 540px;
@@ -96,34 +91,38 @@ export default {
   }
   .main_container {
     .hr {
-      border-bottom: 2px solid #1b1305;
+      border-bottom: 2px solid #292929;
     }
     .agree_content {
-      text-align: left;
-      // padding: 50px;
       background: #0a0a0a;
-  
-      .title2 {
-        margin-top: 30px;
+      .category {
+        font-size: 22px;
+        color: #fff;
+        margin-top: 40px;
+        text-align: left;
+      }
+      .title {
         font-size: 22px;
         color: #c8a461;
+        margin-top: 30px;
+        text-align: left;
       }
-       .height {
+      .height {
+        font-size: 16px;
+        color: #f6f6f6;
         margin-top: 10px;
-        color: #f6f6f6;
+        text-align: left;
       }
-   
-        .rule {
-      line-height: 30px;
-      text-align: left;
-      p {
-        font-size: 14px;
+      .rule {
+        font-size: 16px;
         color: #f6f6f6;
+        line-height: 30px;
+        text-align: left;
       }
     }
-    }
+
     .remember {
-      margin: 40px 0 40px 0;
+      margin:72px 0 42px 0;
       .el-checkbox__label {
         font-size: 16px;
       }
@@ -136,7 +135,7 @@ export default {
       line-height: 58px;
       background: #3b3b3b;
       border-radius: 8px;
-      // margin-bottom:20px;
+      margin-bottom: 70px;
     }
     .add_true {
       background: #c8a461;

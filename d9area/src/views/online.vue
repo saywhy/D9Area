@@ -4,7 +4,7 @@
     <div class="online">
       <div class="border">
         <div class="title_nav" :class="srcolltop?'nav_srcoll':''">
-          <img class="logo"  src="@/assets/images/home/D9-logo.png" alt />
+          <img class="logo" src="@/assets/images/home/D9-logo.png" alt />
           <el-menu
             :default-active="activeIndex"
             text-color="#F6F6F6"
@@ -19,7 +19,7 @@
             <el-menu-item index="3">系列</el-menu-item>
           </el-menu>
           <div @mouseover="imghover" @mouseleave="imgleave" class="search_box">
-            <img src="@/assets/images/film/search.png" class="img_hover"  alt />
+            <img src="@/assets/images/film/search.png" class="img_hover" alt />
             <input type="text" ref="input_search" class="input_search" id="input_search" />
           </div>
         </div>
@@ -98,7 +98,7 @@
         </div>
       </div>
     </div>
-    <Footer></Footer>
+    <Footer class="footer"></Footer>
   </div>
 </template>
 <script>
@@ -115,30 +115,30 @@ export default {
       activeIndex: "1",
       mainnav: "3",
       detail_show: false,
-       srcolltop: false,
+      srcolltop: false,
       img_list: [
         {
-          src: require("@/assets/images/online/item1.png")
+          src: require("@/assets/images/online/item1.png"),
         },
         {
-          src: require("@/assets/images/online/item2.png")
+          src: require("@/assets/images/online/item2.png"),
         },
         {
-          src: require("@/assets/images/online/item3.png")
+          src: require("@/assets/images/online/item3.png"),
         },
         {
-          src: require("@/assets/images/online/item1.png")
+          src: require("@/assets/images/online/item1.png"),
         },
         {
-          src: require("@/assets/images/online/item2.png")
+          src: require("@/assets/images/online/item2.png"),
         },
         {
-          src: require("@/assets/images/online/item3.png")
+          src: require("@/assets/images/online/item3.png"),
         },
         {
-          src: require("@/assets/images/online/item1.png")
-        }
-      ]
+          src: require("@/assets/images/online/item1.png"),
+        },
+      ],
     };
   },
   mounted() {
@@ -163,22 +163,22 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
-          dragSize: 30
+          dragSize: 30,
         },
         navigation: {
           nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
+          prevEl: ".swiper-button-prev",
         },
         // 点击事件
         on: {
-          click: function() {
+          click: function () {
             let elem2 = Array.from(swiper.slides);
-            elem2.forEach(element => {
+            elem2.forEach((element) => {
               element.style.border = 0;
             });
             swiper.clickedSlide.style.border = "4px solid rgba(161,128,55,1)";
             this.detail_show = true;
-          }
+          },
         },
         //然后在方法中，添加这个handleScroll方法来获取滚动的位置
         handleScroll() {
@@ -199,7 +199,7 @@ export default {
         //由于是在整个window中添加的事件，所以要在页面离开时摧毁掉，否则会报错
         beforeDestroy() {
           window.removeEventListener("scroll", this.handleScroll);
-        }
+        },
       });
     },
     initSwiper_mid() {
@@ -215,12 +215,12 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
-          dragSize: 30
+          dragSize: 30,
         },
         navigation: {
           nextEl: ".swiper-button-next-mid",
-          prevEl: ".swiper-button-prev-mid"
-        }
+          prevEl: ".swiper-button-prev-mid",
+        },
       });
     },
     initSwiper_bom() {
@@ -236,12 +236,12 @@ export default {
         pagination: {
           el: ".swiper-pagination-bom",
           clickable: true,
-          dragSize: 30
+          dragSize: 30,
         },
         navigation: {
           nextEl: ".swiper-button-next-bom",
-          prevEl: ".swiper-button-prev-bom"
-        }
+          prevEl: ".swiper-button-prev-bom",
+        },
       });
     },
     choose_detail(item) {
@@ -260,8 +260,8 @@ export default {
       this.$refs.input_search.style.width = "0";
       this.$refs.input_search.style.padding = "0";
       // document.getElementById('input_search').animate({'width':'250px'})
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less">
@@ -307,8 +307,8 @@ export default {
     }
   }
   .border {
-    border-top: 1px solid #1B1305;
-    border-bottom: 1px solid #1B1305;
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
   }
   .title_nav {
     height: 118px;
@@ -318,7 +318,7 @@ export default {
     line-height: 118px;
     text-align: left;
     .logo {
-      width:100px;
+      width: 100px;
       height: 100px;
       float: left;
       margin: 8px 36px 10px 0;
@@ -348,9 +348,9 @@ export default {
       float: right;
       height: 120px;
       line-height: 120px;
-      img{
-        width:20px;
-        height:20px;
+      img {
+        width: 20px;
+        height: 20px;
       }
     }
     .img_hover {
@@ -684,9 +684,15 @@ export default {
     height: 58px;
     line-height: 58px;
   }
-  .search_box{
-      height: 60px;
+  .search_box {
+    height: 60px;
     line-height: 60px;
   }
+}
+.footer {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
 }
 </style>

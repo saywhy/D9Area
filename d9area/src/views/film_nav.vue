@@ -235,8 +235,8 @@ export default {
   }
   // 第二导航
   .sub_nav {
-    border-top: 1px solid #1b1305;
-    border-bottom: 1px solid #1b1305;
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
     overflow: hidden;
     width: 100%;
     background: #000;
