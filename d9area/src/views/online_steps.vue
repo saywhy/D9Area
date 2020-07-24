@@ -22,34 +22,12 @@
           <div class="content_item">
             <span class="item_title">影片类目：</span>
             <div class="upload_radio">
-              <el-radio v-model="base.type"
-                        label="1">动作</el-radio>
-              <el-radio v-model="base.type"
-                        label="2">战争</el-radio>
-              <el-radio v-model="base.type"
-                        label="3">科幻</el-radio>
-              <el-radio v-model="base.type"
-                        label="4">冒险</el-radio>
-              <el-radio v-model="base.type"
-                        label="5">犯罪</el-radio>
-              <el-radio v-model="base.type"
-                        label="6">灾难</el-radio>
-              <el-radio v-model="base.type"
-                        label="7">魔幻</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">悬疑</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">剧情</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">恐怖</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">西部</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">喜剧</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">动画</el-radio>
-              <el-radio v-model="base.type"
-                        label="8">纪录片</el-radio>
+              <el-checkbox-group v-model="checkedCities"
+                                 :max="3">
+                <el-checkbox v-for="city in cities"
+                             :label="city.name"
+                             :key="city.name">{{city.name}}</el-checkbox>
+              </el-checkbox-group>
               <p>注：影片类目可选择三类</p>
             </div>
           </div>
@@ -251,12 +229,13 @@
             <div class="content_item">
               <span class="item_title">影片类目：</span>
               <div class="upload_radio">
-                <el-radio v-model="base.type"
-                          label="1">VFX电影短片</el-radio>
-                <el-radio v-model="base.type"
-                          label="2">CG动画短片</el-radio>
-                <el-radio v-model="base.type"
-                          label="3">VR短片</el-radio>
+                <el-checkbox-group v-model="checkedCities"
+                                   :max="3">
+                  <el-checkbox v-for="city in cities"
+                               :label="city.name"
+                               :key="city.name">{{city.name}}</el-checkbox>
+                </el-checkbox-group>
+                <p>注：影片类目可选择三类</p>
               </div>
             </div>
             <div class="content_item">
@@ -486,7 +465,24 @@ export default {
         type: "1",
         des: ""
       },
-      checked: true
+      checked: true,
+      checkedCities: [],
+      cities: [
+        { name: '战争' },
+        { name: '动作' },
+        { name: '科幻' },
+        { name: '冒险' },
+        { name: '犯罪' },
+        { name: '灾难' },
+        { name: '魔幻' },
+        { name: '悬疑' },
+        { name: '剧情' },
+        { name: '恐怖' },
+        { name: '西部' },
+        { name: '喜剧' },
+        { name: '动画' },
+        { name: '纪录片' },
+      ]
     }
   },
   methods: {
@@ -505,9 +501,8 @@ export default {
 </script>
 <style scoped lang="less">
 .OnlineSteps {
-  border: 1px solid red;
-  // background: #0a0a0a0a;
-  background: green;
+  // border: 1px solid red;
+  background: #0a0a0a;
   padding: 150px 0 180px;
   /deep/ .main_box {
     background: #000;
@@ -639,38 +634,23 @@ export default {
           line-height: 32px;
           font-size: 14px;
           text-align: left;
-          .el-radio__inner:hover {
-            border-color: #c8a461;
+          // checkbox
+          .el-checkbox__inner {
+            border: 1px solid #717171;
+            background-color: #000;
           }
-          .el-radio__input {
-            .el-radio__inner {
-              background: #000;
-              width: 18px;
-              height: 18px;
-              border-radius: 0;
-              &:after {
-                width: 0;
-                height: 0;
-              }
-            }
-            &.is-checked {
-              .el-radio__inner {
-                border: 0;
-                background-position: -1px -1px;
-                background-repeat: no-repeat;
-                background-size: 20px;
-                background-image: url('../assets/images/upload/check.png');
-              }
-            }
-          }
-          .el-radio__label {
-            font-size: 14px;
+          .el-checkbox__label {
             color: #fff;
+            font-size: 14px;
           }
-          &.is-checked {
-            .el-radio__label {
-              color: #fff;
+          .el-checkbox__input.is-checked .el-checkbox__inner {
+            background-color: #c8a461;
+            .el-checkbox__inner::after {
+              border: 1px solid #000;
             }
+          }
+          .el-checkbox__input.is-checked + .el-checkbox__label {
+            color: #c8a461;
           }
         }
         .item_right {
