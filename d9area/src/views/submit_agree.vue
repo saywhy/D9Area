@@ -3,11 +3,11 @@
     <Nav :mainnav="mainnav"></Nav>
     <div class="submit_agree">
       <div class="agree_banner">
-        <img src="@/assets/images/film/film_show_bg1.jpg" alt />
+        <img src="@/assets/images/film/film_show_bg1.png" alt />
       </div>
       <div class="main_container">
         <!-- <p class="agree_title">影片提交协议</p> -->
-        <div class="hr"></div>
+        <!-- <div class="hr"></div> -->
         <div class="agree_content">
           <p class="category">首届D9区国际CG动画电影周竞赛单元只接受短片，分为以下三个类别：VFX电影短片、CG动画短片、VR短片。</p>
           <p class="title">(一)注册报名与作品提交时间：</p>
@@ -80,7 +80,7 @@ export default {
 <style lang="less">
 .submit_agree {
   padding-top: 80px;
-  background: #0a0a0a;
+  background: #fff;
   .agree_banner {
     width: 100%;
     height: 540px;
@@ -90,32 +90,33 @@ export default {
     }
   }
   .main_container {
-    .hr {
-      border-bottom: 2px solid #292929;
-    }
+    width:1200px;
+    background-color: #fff;
+    // .hr {
+    //   border-bottom: 2px solid #292929;
+    // }
     .agree_content {
-      background: #0a0a0a;
       .category {
-        font-size: 22px;
-        color: #fff;
+        font-size: 20px;
+        color: #141414;
         margin-top: 40px;
         text-align: left;
       }
       .title {
-        font-size: 22px;
-        color: #c8a461;
+        font-size: 20px;
+        color: #141414;
         margin-top: 30px;
         text-align: left;
       }
       .height {
         font-size: 16px;
-        color: #f6f6f6;
+        color: #666666;
         margin-top: 10px;
         text-align: left;
       }
       .rule {
         font-size: 16px;
-        color: #f6f6f6;
+        color: #666666;
         line-height: 30px;
         text-align: left;
       }
@@ -138,7 +139,7 @@ export default {
       margin-bottom: 70px;
     }
     .add_true {
-      background: #c8a461;
+      background: #C8A461;
       cursor: pointer;
     }
   }

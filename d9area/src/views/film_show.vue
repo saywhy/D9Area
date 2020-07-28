@@ -127,7 +127,7 @@ export default {
 <style lang="less">
 .FilmShow {
   background: #0a0a0a;
-  padding-bottom: 180px;
+  padding-bottom: 70px;
   .FilmShow_top {
     width: 100%;
     height: 540px;
@@ -137,57 +137,62 @@ export default {
     }
   }
   // 内容
+  .sub_container{
+    width:1200px;
+  }
   .content_title {
     font-size: 28px;
     font-weight: 500;
     color: #fff;
-    margin: 40px 0 20px 0;
+    margin: 70px 0 50px 0;
     text-align: left;
   }
   .content_top {
     overflow: hidden;
     background: #000000;
     .content_top_left {
-      width: 667px;
+      width: 800px;
       float: left;
-      height: 418px;
+      height: 500px;
       background-image: url("../assets/images/film/show/main.png");
       background-size: 100% 100%;
       cursor: pointer;
       position: relative;
       .content_top_left_time {
         position: absolute;
-        right: 30px;
-        bottom: 30px;
-        font-size: 12px;
+        right: 14px;
+        bottom: 12px;
+        font-size: 14px;
       }
     }
     .content_top_right {
-      width: 333px;
+      width: 398px;
       float: left;
       text-align: left;
       .content_top_right_top {
-        height: 320px;
+        height: 380px;
         border-bottom: 1px solid #292929;
-        padding: 34px 16px 16px 28px;
+        padding: 44px 0  25px 34px;
         .film_name {
           font-size: 22px;
         }
         .film_theme {
-          font-size: 14px;
+          font-size: 16px;
           color: rgba(123, 124, 123, 1);
-          margin: 30px 0;
+          margin: 26px 0;
         }
         .film_des {
           font-size: 14px;
           color: rgba(207, 207, 207, 1);
+          margin:0 20px 136px 0;
+          line-height: 28px;
         }
       }
       .content_top_right_bom {
-        padding: 24px 16px 16px 28px;
+        padding: 32px 0px 28px 34px;
         .film_company {
           font-size: 14px;
-          margin-bottom: 16px;
+          margin-bottom: 24px;
         }
         .film_author {
           font-size: 14px;
@@ -197,7 +202,7 @@ export default {
     }
   }
   .content_bom {
-    margin-top: 20px;
+    margin-top: 40px;
     // height: 406px;
     width: 100%;
     display: flex;
@@ -210,23 +215,23 @@ export default {
       // height: 406px;
       background: #000;
       .item_img {
-        height: 189px;
+        height: 226px;
         background-image: url("../assets/images/film/show/sub.png");
         background-size: 100% 100%;
         position: relative;
         .item_time {
           position: absolute;
-          right: 15px;
-          bottom: 16px;
-          font-size: 12px;
+          right: 30px;
+          bottom: 18px;
+          font-size: 14px;
         }
       }
       .item_content {
         text-align: left;
         .item_content_top {
-          height: 86px;
+          height: 100px;
           border-bottom: 1px solid rgba(10, 10, 10, 1);
-          padding: 20px 16px;
+          padding: 24px 16px;
           .item_name {
             font-size: 14px;
             color: rgba(255, 255, 255, 1);
@@ -238,7 +243,7 @@ export default {
           }
         }
         .item_content_bom {
-          height: 50px;
+          height: 60px;
           line-height: 50px;
           padding: 0 16px;
           .item_company {

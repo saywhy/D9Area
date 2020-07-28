@@ -33,7 +33,7 @@
     <div class="sub_nav" :class="srcolltop?'sub_fixd':''" id="sub_nav">
       <div class="main_container">
         <div class="logo_box" :class="sub_nav.img">
-          <img class="logo" :class="sub_nav.logo" src="@/assets/images/home/D9-logo.png" alt />
+          <img class="logo" :class="sub_nav.logo" src="@/assets/images/film/icf_logo.png" alt />
         </div>
         <div>
           <el-menu
@@ -149,7 +149,7 @@ export default {
       console.log(scrollTop);
       if (scrollTop <= offsetTop) {
         this.srcolltop = false;
-            console.log(11111);
+        console.log(11111);
         this.sub_nav.img = "hiddenImg";
         this.sub_nav.logo = "hidden_logo";
         this.sub_nav.menu = "hidden_menu";
@@ -160,7 +160,7 @@ export default {
         this.sub_nav.logo = "show_logo";
         this.sub_nav.menu = "show_menu";
         this.sub_nav.search = "show_search";
-                console.log(2222);
+        console.log(2222);
       }
     },
     // 放大镜
@@ -241,17 +241,17 @@ export default {
     width: 100%;
     background: #000;
     .logo_box {
-      height: 120px;
-      width: 120px;
+      width: 150px;
+      height: 72px;
       float: left;
       position: relative;
       .logo {
-        width: 70px;
+        width: 150px;
         height: 70px;
         position: absolute;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 20%;
+        transform: translate(-50%);
       }
     }
 
@@ -270,7 +270,7 @@ export default {
       float: left;
       background: #000000;
       height: 118px;
-        overflow: hidden;
+      overflow: hidden;
       line-height: 118px;
     }
     .search_box {
@@ -387,22 +387,22 @@ export default {
 
 @keyframes show_logo {
   0% {
-    height: 70px;
-    width: 70px;
+    width: 150px;
+    height: 72px;
   }
   100% {
-    height: 35px;
-    width: 35px;
+    width: 74px;
+    height: 36px;
   }
 }
 @keyframes hidden_logo {
   0% {
-    height: 35px;
-    width: 35px;
+    width: 74px;
+    height: 36px;
   }
   100% {
-    height: 70px;
-    width: 70px;
+    width: 150px;
+    height: 72px;
   }
 }
 @keyframes show_menu {
