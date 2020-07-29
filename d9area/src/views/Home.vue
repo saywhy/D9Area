@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="container"
+       v-cloak>
     <Nav :mainnav="mainnav"></Nav>
     <full-page :options="options"
                id="fullpage"
@@ -20,6 +21,10 @@
       <div class="section"
            style="position:relative; background:#0a0a0a">
         <!-- <div class="setion_bom"> -->
+
+        <!-- <img :src="img3"
+             alt=""> -->
+
         <div class="video_box">
           <div class="video_swiper_container">
             <div class="swiper-wrapper swiper-no-swiping">
@@ -44,7 +49,7 @@
           <div class="swiper-button-prev_video"></div>
           <div class="swiper-button-next_video"></div>
         </div>
-        <Footer style="position:absolute;bottom:0"></Footer>
+        <!-- <Footer style="position:absolute;bottom:0"></Footer> -->
         <!-- </div> -->
       </div>
     </full-page>
@@ -52,6 +57,9 @@
 </template>
 
 <script>
+import img3 from '@/assets/images/home/bh2.png'
+import { img2 } from '@/assets/images/home/bg2.jpg'
+import { img1 } from '@/assets/images/home/bg1.jpg'
 import Swiper from "swiper";
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
@@ -69,6 +77,7 @@ export default {
           src: require("@/assets/images/home/bg2.jpg")
         }
       ],
+      img3: require("@/assets/images/home/bh2.png"),
       video_list: [
         {
           suspend_show: true,
@@ -83,7 +92,7 @@ export default {
             preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
             language: "zh-CN",
             // height: "600px",
-            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            // aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
             fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [
               {
@@ -91,8 +100,8 @@ export default {
                 src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" //url地址
               }
             ],
-            poster: require("@/assets/images/home/bh2.png"), //你的封面地址
-            width: document.documentElement.clientWidth,
+            poster: img3, //你的封面地址
+            // width: document.documentElement.clientWidth,
             notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
             controlBar: {
               timeDivider: true, //当前时间和持续时间的分隔符
@@ -113,10 +122,10 @@ export default {
             muted: false, // 默认情况下将会消除任何音频。
             loop: false, // 视频一结束就重新开始。
             preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-            width: "100%",
+            // width: "100%",
             // height: "600px",
             language: "zh-CN",
-            aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+            //aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
             fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
             sources: [
               {
@@ -125,7 +134,7 @@ export default {
               }
             ],
             poster: require("@/assets/images/home/bh2.png"), //你的封面地址
-            width: document.documentElement.clientWidth,
+            // width: document.documentElement.clientWidth,
             notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
             controlBar: {
               timeDivider: true, //当前时间和持续时间的分隔符
@@ -150,9 +159,10 @@ export default {
   mounted () {
     this.initSwiper();
     this.initSwiper_video();
+
+
   },
   methods: {
-
     afterLoad (origin, destination, direction) {
       console.log('After load....');
       console.log(destination);
@@ -226,6 +236,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+[v-cloak] {
+  display: none;
+}
 .container {
   height: 100%;
   width: 100%;
@@ -261,10 +274,10 @@ export default {
   }
   /deep/ .video_box {
     position: relative;
-    width: 100%;
+    // width: 100%;
     // margin-top: 60px;
-    height: 600px;
-    // height: 100%;
+    // height: 600px;
+    height: 100%;
     overflow: hidden;
     &:hover .swiper-button-next_video {
       display: block;
@@ -273,12 +286,16 @@ export default {
       display: block;
     }
     .vjs-poster {
-      height: 600px;
+      // height: 600px;
+      height: 100%;
       background-position: 0 0;
       background-size: 100% 100%;
     }
     .video-js.vjs-ended .vjs-big-play-button {
       display: none !important;
+    }
+    .vjs-custom-skin > .video-js {
+      height: 100%;
     }
     .vjs-big-play-button {
       display: none !important;
@@ -334,7 +351,7 @@ export default {
     display: none;
     cursor: pointer;
     outline: none;
-   width: 64px;
+    width: 64px;
     height: 140px;
     position: absolute;
     left: 10%;

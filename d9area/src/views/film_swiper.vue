@@ -3,9 +3,12 @@
     <div class="swiper_box">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item,index) in img_list">
+          <div class="swiper-slide"
+               v-for="(item,index) in img_list">
             <!-- 2323213 -->
-            <img :src="item.src" width="350" alt />
+            <img :src="item.src"
+                 width="350"
+                 alt />
           </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -14,32 +17,32 @@
         <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
       </div>
     </div>
-    <transition name="fade" mode="out-in">
-      <div class="detail_box" v-if="detail_show">
+    <transition name="fade"
+                mode="out-in">
+      <div class="detail_box"
+           v-if="detail_show">
         <div class="main_container">
           <p class="detail_title">
             恐怖之夜
-            <img
-              src="@/assets/images/film_swiper/closed.png"
-              @click="closed_detail"
-              class="detail_closed"
-              alt
-            />
+            <img src="@/assets/images/film_swiper/closed.png"
+                 @click="closed_detail"
+                 class="detail_closed"
+                 alt />
           </p>
           <p class="detail_time">
             <span class="detail_date">2020-06-23</span>
             <span>1小时39分钟</span>
           </p>
-          <p
-            class="detail_des"
-          >罗德主持一个专门讨论恐怖的广播节目，有一天，播音员开始收到一个拼命求救的孩子的电话。起初，他认为这是一个笑话，后来他才意识到电话隐藏着一个黑暗的秘密</p>
+          <p class="detail_des">罗德主持一个专门讨论恐怖的广播节目，有一天，播音员开始收到一个拼命求救的孩子的电话。起初，他认为这是一个笑话，后来他才意识到电话隐藏着一个黑暗的秘密</p>
           <div class="detail_btn">
             <div class="banner_btn_left">
-              <img src="@/assets/images/online/start.png" alt />
+              <img src="@/assets/images/online/start.png"
+                   alt />
               <span>播放</span>
             </div>
             <div class="banner_btn_right">
-              <img src="@/assets/images/online/add.png" alt />
+              <img src="@/assets/images/online/add.png"
+                   alt />
               <span>我的影片</span>
             </div>
           </div>
@@ -54,7 +57,7 @@
 <script>
 import Swiper from "swiper";
 export default {
-  data() {
+  data () {
     return {
       swiper: {},
       detail_show: false,
@@ -83,10 +86,10 @@ export default {
       ]
     };
   },
-  mounted() {
+  mounted () {
     this.initSwiper();
     let _this = this;
-    this.swiper.on("click", function() {
+    this.swiper.on("onTap", function () {
       console.log(this.clickedIndex);
       // 当前活动块的索引，与activeIndex不同的是，在loop模式下不会将 复制的块 的数量计算在内。
       const clickedIndex = this.clickedIndex;
@@ -94,7 +97,7 @@ export default {
     });
   },
   methods: {
-    initSwiper() {
+    initSwiper () {
       // this.$nextTick(() => {
       this.swiper = new Swiper(".swiper-container", {
         autoplay: false, //等同于以下设置
@@ -114,7 +117,7 @@ export default {
         },
         // 点击事件
         on: {
-          click: function() {
+          click: function () {
             // let elem2 = Array.from(swiper.slides);
             // elem2.forEach(element => {
             //   element.style.border = 0;
@@ -122,19 +125,32 @@ export default {
             // swiper.clickedSlide.style.border = "4px solid rgba(161,128,55,1)";
             // this.detail_show = true;
           }
+        },
+        onTap: function (swiper) {
+          var index = swiper['clickedIndex'];
+          console.log(index);
+          // this.hasclass(index)
+
+
+
+
         }
       });
     },
-    handleSelect(clickedIndex) {
+    hasclass (index) {
+      this.swiper.eq(index).addClass('active_class').siblings().removeClass('active_class');
+    },
+    handleSelect (clickedIndex) {
       this.detail_show = true;
       console.log(clickedIndex);
       let elem2 = Array.from(this.swiper.slides);
       elem2.forEach(element => {
         element.style.border = 0;
       });
+      // $('.swiper-container').eq(clickedIndex).addClass('active_class').siblings().removeClass('active_class');
       this.swiper.clickedSlide.style.border = "4px solid rgba(161,128,55,1)";
     },
-    closed_detail() {
+    closed_detail () {
       this.detail_show = false;
       this.swiper.clickedSlide.style.border = "0";
     }
@@ -162,7 +178,7 @@ export default {
         top: 0;
         background: rgba(0, 0, 0, 0.6);
         margin-top: 0;
-        background-image: url("../assets/images/online/prev.png");
+        background-image: url('../assets/images/online/prev.png');
         background-repeat: no-repeat;
         background-position: center;
         z-index: 99999;
@@ -176,7 +192,7 @@ export default {
         background: rgba(0, 0, 0, 0.6);
 
         margin-top: 0;
-        background-image: url("../assets/images/online/next.png");
+        background-image: url('../assets/images/online/next.png');
         background-repeat: no-repeat;
         background-position: center;
         z-index: 99999;
@@ -196,9 +212,12 @@ export default {
   .swiper-slide {
     box-sizing: border-box;
   }
+  .active_class {
+    border: 2px solid red;
+  }
   .detail_box {
     height: 790px;
-    background-image: url("../assets/images/film_swiper/film_bg.png");
+    background-image: url('../assets/images/film_swiper/film_bg.png');
     background-size: 100% 100%;
     text-align: left;
     .detail_title {
