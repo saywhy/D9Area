@@ -315,8 +315,8 @@ export default {
   /deep/ .swiper-button-next_video {
     display: none;
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 64px;
+    height: 140px;
     position: absolute;
     right: 10%;
     top: 50%;
@@ -334,8 +334,8 @@ export default {
     display: none;
     cursor: pointer;
     outline: none;
-    width: 100px;
-    height: 100px;
+   width: 64px;
+    height: 140px;
     position: absolute;
     left: 10%;
     top: 50%;

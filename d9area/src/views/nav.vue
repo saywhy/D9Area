@@ -3,10 +3,13 @@
     <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
-      <img class="logo"
+         <div class="logo_box">
+     <img class="logo"
            v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
            src="@/assets/images/home/D9-logo.png"
            alt="">
+         </div>
+ 
       <el-menu :default-active="activeIndex"
                text-color='#F6F6F6'
                active-text-color='#c8a461'
@@ -72,7 +75,7 @@ export default {
           this.$router.push('/film_festival')
           break;
         case '3':
-          this.$router.push('/online_login')
+          // this.$router.push('/online_login')
           break;
         case '4':
           this.$router.push('/login')
@@ -146,11 +149,18 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   // border: 1px solid green;
-  .logo {
+  .logo_box{
+    width: 44px;
+    height: 80px;
     float: left;
-    width: 70px;
-    height: 70px;
-    margin-top: 5px;
+    position: relative;
+  }
+  .logo {
+    width: 44px;
+    height: 44px;
+        position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .nav_right {
     float: right;

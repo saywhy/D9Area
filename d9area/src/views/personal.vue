@@ -314,17 +314,17 @@ export default {
     }
   }
   .personal_nav {
-    height: 74px;
+    height: 76px;
     background: #0a0a0a;
     text-align: center;
-    border-bottom: 1px solid rgba(161, 128, 55, 1);
+    border-bottom: 1px solid #292929;
     .el_menu,
     .el_menu li {
       margin: 0 auto;
       font-size: 16px;
       // height: 74px;
       display: inline-block;
-      line-height: 74px;
+      line-height: 76px;
       background: #0a0a0a !important;
       padding: 0 60px;
     }
@@ -333,6 +333,10 @@ export default {
     }
     .el-menu--horizontal > .el-menu-item.is-active {
       border: 0;
+     
+    }
+    .el-menu--horizontal>.el-menu-item {
+       height:70px;
     }
     .el-menu--horizontal > .el-menu-item {
       border: 0;
@@ -345,54 +349,55 @@ export default {
   }
   // 作品
   .personal_works {
-    width:1000px;
+    width:1200px;
     margin:0 auto;
      margin-top: 30px;
      padding-bottom: 70px;
     .main_container{
-      width:1000px;
+      width:1200px;
     }
     .content_top {
-      height: 418px;
+      height: 500px;
       background: #000000;
       .content_top_left {
-        width: 667px;
+        width: 800px;
         float: left;
-        height: 418px;
+        height: 500px;
         background-image: url('../assets/images/film/show/main.png');
         background-size: 100% 100%;
         cursor: pointer;
         position: relative;
         .content_top_left_time {
           position: absolute;
-          right: 10px;
-          bottom: 10px;
-          font-size: 12px;
+          right: 14px;
+          bottom: 14px;
+          font-size: 14px;
         }
       }
       .content_top_right {
-        width: 330px;
+        width: 400px;
         float: left;
         text-align: left;
         .content_top_right_top {
-          height: 330px;
-          border-bottom: 1px solid #c8a461;
-          padding: 35px 36px;
+          height: 384px;
+          border-bottom: 1px solid #292929;
+          padding:36px;
           .film_name {
             font-size: 24px;
+            margin-bottom:26px;
           }
           .film_theme {
             font-size: 14px;
-            color: rgba(123, 124, 123, 1);
-            margin: 20px 0;
+            color: #7B7C7B;
+            margin: 34px 0;
           }
           .film_des {
             font-size: 14px;
-            color: rgba(207, 207, 207, 1);
+            color: #CFCFCF;
           }
         }
         .content_top_right_bom {
-          padding:16px 0 0 28px;
+          padding:30px 0 0 28px;
           .film_company {
             font-size: 14px;
             margin-bottom: 16px;
@@ -415,10 +420,10 @@ export default {
       }
       .content_bom_item {
         flex: 1;
-        height: 189px;
+        height: 226;
         background: #000;
         .item_img {
-          height: 189px;
+          height: 226px;
           background-image: url('../assets/images/film/show/sub.png');
           background-size: 100% 100%;
           position: relative;
@@ -467,13 +472,13 @@ export default {
     margin-top: 30px;
     padding-bottom: 70px;
     .personal_info_container {
-      width: 800px;
+      width: 1000px;
       margin: 0 auto;
       text-align: left;
       .personal_info_item {
         margin-bottom: 30px;
         font-size: 14px;
-        color: #ebeae9;
+        color: #EBEAE9;
       }
     }
   }
@@ -482,7 +487,7 @@ export default {
     margin-top: 40px;
     padding-bottom:170px;
     .personal_edit_container {
-      width: 800px;
+      width: 1000px;
       margin: 0 auto;
     }
     .edit_item {
@@ -510,6 +515,9 @@ export default {
           // padding-left: 26px;
         }
       }
+      .el-input__count-inner{
+         background: #000;
+      }
       .upload_radio {
         text-align: left;
         line-height: 32px;
@@ -518,7 +526,7 @@ export default {
           height: 16px;
           width: 16px;
           background: #000;
-          border-color: #c8a461;
+          // border-color: #c8a461;
         }
        
         .el-radio__inner::after {
@@ -548,10 +556,10 @@ export default {
     }
     .save_btn {
       cursor: pointer;
-      // margin-top: 60px;
+      margin-top: 30px;
       width: 100px;
       height: 40px;
-      border-radius: 8px;
+      border-radius: 4px;
       line-height: 40px;
       font-size: 14px;
       border:1px solid rgba(200,164,97,1);

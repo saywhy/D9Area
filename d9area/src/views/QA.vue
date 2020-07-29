@@ -4,7 +4,7 @@
       <film-nav :activenav="Index" class="top_nav"></film-nav>
       <div class="QA">
         <div class="QA_bg">
-          <img src="../assets/images/QA/QA.jpg" alt />
+          <img src="../assets/images/QA/QA.png" alt />
         </div>
         <div class="QA_box">
           <div class="QA_min">
@@ -60,8 +60,8 @@ export default {
    
 <style lang="less">
 .QA {
-  background-color: #0a0a0a;
-  padding-bottom: 180px;
+  background-color: #fff;
+  // padding-bottom: 180px;
   .QA_bg img {
     width: 100%;
     height: 540px;
@@ -71,21 +71,24 @@ export default {
     margin: 0 auto;
     margin-top: 40px;
     .QA_min {
-      background-color: #000;
+      background-color: #fff;
       text-align: left;
       padding: 40px 100px;
 
       .tite {
         font-size: 24px;
-        margin-bottom: 30px;
+        color:#000;
+        margin-bottom: 50px;
       }
       .problem {
-        font-size: 20px;
+        font-size: 18px;
+        color:#141414;
         margin-bottom: 20px;
-        color: #c8a461;
+        // color: #c8a461;
       }
       .key {
         font-size: 16px;
+        color:#666666;
         margin-bottom: 30px;
         line-height: 30px;
       }

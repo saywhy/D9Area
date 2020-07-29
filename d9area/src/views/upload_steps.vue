@@ -36,9 +36,9 @@
               <el-input
                 type="textarea"
                 placeholder="请填写作品简介"
-                :autosize="{ minRows: 2, maxRows: 1000}"
+                :autosize="{ minRows: 3, maxRows: 1000}"
                 v-model="base.des"
-                maxlength="200"
+                maxlength="1000"
                 show-word-limit
               ></el-input>
             </div>
@@ -77,7 +77,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>尺寸240*180 不超过4G</p>
+                  <p  class="info_p">尺寸240*180 不超过4G</p>
                 </div>
               </div>
             </div>
@@ -88,8 +88,8 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
                 </div>
               </div>
             </div>
@@ -100,8 +100,8 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>尺寸240*180 不超过4G</p>
+                  <p class="info_p">尺寸240*180 不超过4G</p>
                 </div>
               </div>
             </div>
@@ -126,9 +126,9 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
-                  <p>1-3张</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <p class="info_p">1-3张</p>
                 </div>
               </div>
             </div>
@@ -139,19 +139,17 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
-                  <p>（美术概念设定）</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <p class="info_p">（美术概念设定）</p>
                 </div>
               </div>
-            </div>
-            <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
-                  <p>（故事版分镜）</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <p class="info_p">（故事版分镜）</p>
                 </div>
               </div>
             </div>
@@ -163,8 +161,8 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
-                  <p>尺寸240*180不超过10M</p>
+                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">尺寸240*180不超过10M</p>
                 </div>
               </div>
             </div>
@@ -225,9 +223,9 @@
                 <el-input
                   type="textarea"
                   placeholder="请填写作品简介"
-                  :autosize="{ minRows: 2, maxRows: 1000}"
+                  :autosize="{ minRows: 3, maxRows: 1000}"
                   v-model="base.des"
-                  maxlength="120"
+                  maxlength="1000"
                   show-word-limit
                 ></el-input>
               </div>
@@ -244,9 +242,9 @@
                 <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
               </div>
             </div>
-            <div class="content_item">
+            <!-- <div class="content_item">
               <span class="item_title">剧本大纲：</span>
-              <div class="item_right">
+               <div class="item_right"> 
                 <el-input
                   type="textarea"
                   placeholder="请填写剧本大纲（非必填）"
@@ -255,8 +253,8 @@
                   maxlength="1000"
                   show-word-limit
                 ></el-input>
-              </div>
-            </div>
+            </div>-->
+            <!-- </div> -->
           </div>
           <p class="top_info_title">预告片信息：</p>
           <div class="content">
@@ -266,7 +264,7 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>尺寸240*180 不超过4G</p>
+                    <p class="info_p">尺寸240*180 不超过4G</p>
                   </div>
                 </div>
               </div>
@@ -277,8 +275,8 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
                   </div>
                 </div>
               </div>
@@ -289,8 +287,8 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
                   </div>
                 </div>
               </div>
@@ -304,7 +302,7 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>尺寸240*180 不超过4G</p>
+                    <p class="info_p">尺寸240*180 不超过4G</p>
                   </div>
                 </div>
               </div>
@@ -315,9 +313,9 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
-                    <p>1-3张</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">1-3张</p>
                   </div>
                 </div>
               </div>
@@ -328,19 +326,17 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
-                    <p>（美术概念设定）</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">（美术概念设定）</p>
                   </div>
                 </div>
-              </div>
-              <div class="item_right">
-                <div class="upload_box">
+                   <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
-                    <p>（故事版分镜）</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">（故事版分镜）</p>
                   </div>
                 </div>
               </div>
@@ -352,8 +348,8 @@
                 <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                    <p>支持jpg/gif/png格式RGB模式</p>
-                    <p>尺寸240*180不超过10M</p>
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
                   </div>
                 </div>
               </div>
@@ -439,12 +435,12 @@ export default {
   // border: 1px solid red;
   // min-height: 1080px;
   background: #fff;
-  padding: 70px 0 70px;
+  padding-top: 70px;
   .step_box {
     background: #fff;
     overflow: hidden;
     width: 1200px;
-    margin:0 auto;
+    margin: 0 auto;
   }
   .steps_top {
     background: #fff;
@@ -463,8 +459,8 @@ export default {
         line-height: 24px;
         color: #919191;
       }
-      .el-step__icon-inner{
-         font-weight: 0;
+      .el-step__icon-inner {
+        font-weight: 400;
       }
       .el-step.is-horizontal .el-step__line {
         top: 10px;
@@ -488,6 +484,7 @@ export default {
       .el-step__icon.is-text {
         color: #919191;
         border-color: #919191;
+        border: 1px solid;
       }
       // 进行中
       .el-step__head.is-process {
@@ -495,6 +492,7 @@ export default {
           color: #fff;
           background: #c8a461;
           border-color: #c8a461;
+          // font-size: 12px;
         }
       }
       // 已完成
@@ -513,73 +511,73 @@ export default {
           background: #c8a461;
         }
       }
-      .el-step__head.is-success {
-      }
     }
   }
   // 基本信息
   .content {
-    width: 700px;
-    margin: 0 auto;
+    width: 800px;
+    margin-left: 30px;
+    // margin: 0 auto;
     // border: 1px solid red;
     margin-top: 50px;
     input::-webkit-input-placeholder {
-      color: #777777;
+      color: #999;
     }
     input::-moz-input-placeholder {
-      color: #777777;
+      color: #999;
     }
     input::-ms-input-placeholder {
-      color: #777777;
+      color: #999;
     }
     textarea::-webkit-input-placeholder {
-      color: #777777;
+      color: #999;
     }
     textarea::-moz-input-placeholder {
-      color: #777777;
+      color: #999;
     }
     textarea::-ms-input-placeholder {
-      color: #777777;
+      color: #999;
     }
 
     .content_item {
       display: flex;
       // border: 1px solid red;
-      min-height: 32px;
+      min-height: 48px;
       margin-bottom: 30px;
       .item_title {
         width: 150px;
         text-align: right;
-        font-size: 14px;
-        line-height: 32px;
-        color: #141414;
+        font-size: 16px;
+        line-height: 48px;
+        color: #000;
       }
       .el-input__inner {
         flex: 1;
-        height: 50px;
+        height: 48px;
         background: #fff;
         border: 1px solid #999999;
-        border-top: none;
-        color: #fff;
+        color: #333;
         border-radius: 0;
+        font-size: 16px;
       }
       .el-textarea__inner {
         flex: 1;
         height: 96px;
         background: #fff;
         border: 1px solid #999999;
-        border-top: none;
-        color: #fff;
+        color: #333;
         border-radius: 0;
+        font-size: 16px;
       }
       .el-input__count {
+        margin-top: 2px;
         background: #fff;
-        color: #777777;
+        color: #999;
       }
       .upload_radio {
         flex: 1;
-        line-height: 32px;
-        font-size: 14px;
+        line-height: 48px;
+        font-size: 16px;
         text-align: left;
         .el-radio__inner:hover {
           border-color: #c8a461;
@@ -587,8 +585,8 @@ export default {
         .el-radio__input {
           .el-radio__inner {
             background: #fff;
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 0;
             &:after {
               width: 0;
@@ -617,7 +615,6 @@ export default {
       }
       .item_right {
         flex: 1;
-        line-height: 32px;
         font-size: 14px;
         text-align: left;
       }
@@ -626,7 +623,7 @@ export default {
 
   // 保存
   .btn_box {
-    width: 700px;
+    width: 1100px;
     margin: 40px auto 70px;
     height: 40px;
     .btn_common {
@@ -651,9 +648,11 @@ export default {
   .upload_box {
     width: 240px;
     height: 180px;
-    // border: 1px solid red;
-    background: #0a0a0a;
+    border: 1px solid #999;
+    background: #fff;
     position: relative;
+    margin-right: 20px;
+    float: left;
     cursor: pointer;
     .upload_img_box {
       text-align: center;
@@ -666,6 +665,9 @@ export default {
       font-weight: 400;
       color: rgba(119, 119, 119, 1);
     }
+    .info_p{
+      line-height: 24px;
+    }
     .add_img {
       width: 30px;
       height: 30px;
@@ -676,14 +678,21 @@ export default {
   .info {
     .top_info {
       border: 1px solid #c8a461;
-      width: 1040px;
+      width: 1050px;
       height: 38px;
-      margin: 0 auto;
+      // margin: 0 auto;
+      margin-top: 40px;
+      margin-left: 108px;
       text-align: left;
       line-height: 38px;
       img {
         vertical-align: sub;
         margin: 0 10px;
+      }
+      span {
+        font-size: 14px;
+        color: #141414;
+        font-weight: 400;
       }
     }
 
@@ -692,7 +701,7 @@ export default {
       font-weight: 400;
       color: rgba(200, 164, 97, 1);
       line-height: 22px;
-      width: 750px;
+      width: 1000px;
       margin: 0 auto;
       margin-top: 50px;
       text-align: left;

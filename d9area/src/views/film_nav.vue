@@ -107,7 +107,7 @@ export default {
           this.$router.push("/film_festival");
           break;
         case "3":
-          this.$router.push("/online_login");
+          // this.$router.push("/online_login");
           break;
         case "4":
           this.$router.push("/login");
@@ -242,16 +242,15 @@ export default {
     background: #000;
     .logo_box {
       width: 150px;
-      height: 72px;
+      height: 120px;
       float: left;
       position: relative;
       .logo {
         width: 150px;
-        height: 70px;
         position: absolute;
         left: 0;
-        top: 20%;
-        transform: translate(-50%);
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
 
@@ -366,22 +365,22 @@ export default {
 
 @keyframes showImg {
   0% {
-    height: 120px;
-    width: 120px;
+      width: 150px;
+      height: 120px;
   }
   100% {
-    height: 60px;
-    width: 60px;
+     width: 75px;
+     height: 60px;
   }
 }
 @keyframes hiddenImg {
   0% {
-    height: 60px;
-    width: 60px;
+      width: 75px;
+      height: 60px;
   }
   100% {
-    height: 120px;
-    width: 120px;
+      width: 150px;
+      height: 120px;
   }
 }
 
@@ -407,8 +406,8 @@ export default {
 }
 @keyframes show_menu {
   0% {
-    height: 120px;
-    line-height: 120px;
+    height: 118px;
+    line-height: 118px;
   }
   100% {
     height: 60px;
@@ -421,8 +420,8 @@ export default {
     line-height: 60px;
   }
   100% {
-    height: 120px;
-    line-height: 120px;
+    height: 118px;
+    line-height: 118px;
   }
 }
 @keyframes show_search {
