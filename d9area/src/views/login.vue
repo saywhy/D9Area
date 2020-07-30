@@ -328,6 +328,10 @@ export default {
       margin: 0 !important;
       // margin-top:200px;
     }
+    .el-icon-close:before {
+      font-size: 24px;
+      font-weight: 400;
+    }
     .find_pswd_box {
       width: 24px;
       height: 24px;
@@ -348,6 +352,7 @@ export default {
       font-weight: bold;
     }
     .content {
+      height:40px;
       text-align: center;
       margin: 100px 0;
 
@@ -361,11 +366,12 @@ export default {
     }
     .email_input {
       width: 340px;
+      height: 40px;
       outline: none;
       border: none;
       border-bottom: 1px dashed #000;
       padding-left: 10px;
-      font-size: 14px;
+      font-size: 16px;
       &:focus {
         outline: none;
         border: none;
@@ -395,22 +401,21 @@ export default {
       margin-bottom: 40px;
       height: 60px;
       position: relative;
-      input{
+      input {
         height: 40px;
-
       }
     }
     .title2 {
       font-size: 18px;
       color: #000;
-       height: 60px;
-       line-height: 60px;
+      height: 60px;
+      line-height: 60px;
     }
     .code {
       width: 122px;
       height: 50px;
       position: absolute;
-      right:145px;
+      right: 145px;
       // transform: translateY(-50%);
     }
     .sure_box2 {
