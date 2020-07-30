@@ -148,7 +148,7 @@ export default {
 <style lang='less'>
 .login {
   background-color: #0a0a0a;
-  padding: 210px 0 ;
+  padding: 210px 0;
   color: #333;
   .login_box {
     height: 640px;
@@ -328,6 +328,10 @@ export default {
       margin: 0 !important;
       // margin-top:200px;
     }
+    .find_pswd_box {
+      width: 24px;
+      height: 24px;
+    }
     .el-dialog__header {
       padding: 54px 0 0px 54px;
     }
@@ -360,7 +364,6 @@ export default {
       outline: none;
       border: none;
       border-bottom: 1px dashed #000;
-      // margin-left: 5px;
       padding-left: 10px;
       font-size: 14px;
       &:focus {
@@ -389,19 +392,25 @@ export default {
       padding: 0;
     }
     .creat_item {
-      margin-bottom: 72px;
+      margin-bottom: 40px;
+      height: 60px;
+      position: relative;
+      input{
+        height: 40px;
+
+      }
     }
     .title2 {
       font-size: 18px;
       color: #000;
-      position: relative;
+       height: 60px;
+       line-height: 60px;
     }
     .code {
       width: 122px;
       height: 50px;
       position: absolute;
-      left: 60%;
-      top: 65%;
+      right:145px;
       // transform: translateY(-50%);
     }
     .sure_box2 {

@@ -1,51 +1,44 @@
 <template>
   <div class="body_box">
-    <Nav :mainnav='mainnav'></Nav>
-    <div class='submit'>
-      <div class="submit_box">
-        <div class="submit_top">
-          <div class="top_left">
-            <img src="@/assets/images/login/user.png"
-                 width="34"
-                 height="32"
-                 alt="">
-            <p>我的账号</p>
-          </div>
-          <div class="top_right">
-            <p>作品提交方式</p>
-          </div>
-        </div>
-        <div class="submit_bom">
-          <div class="bom_left">
-            <p class="bom_title">
-              提交ICF电影节作品
-            </p>
-            <div class="bom_content">
-              <p>ICF电影节：</p>
-              <p>• D9区影视；</p>
-              <p>• D9区上传作品的正片在线下进行放映；</p>
-              <p>• 请您遵循审核过程</p>
-              <p class="remember">
-                <el-checkbox v-model="checked">我已阅读并同意遵守条例</el-checkbox>
-              </p>
-              <p class="submit_btn"
-                 @click="declare('film')">开始申报</p>
+    <Nav :mainnav="mainnav"></Nav>
+    <div style="height:100%;background: #0a0a0a;">
+      <div class="submit">
+        <div class="submit_box">
+          <div class="submit_top">
+            <div class="top_left">
+              <img src="@/assets/images/login/user.png" width="34" height="32" alt />
+              <p>我的账号</p>
+            </div>
+            <div class="top_right">
+              <p>作品提交方式</p>
             </div>
           </div>
-          <div class="bom_right">
-            <p class="bom_title">
-              提交在线观影作品
-            </p>
-            <div class="bom_content">
-              <p> 在线观影：</p>
-              <p>• D9区影视；</p>
-              <p>• D9区上传作品的正片在线下进行放映；</p>
-              <p>• 请您遵循审核过程</p>
-              <p class="remember">
-                <el-checkbox v-model="checked2">我已阅读并同意遵守条例</el-checkbox>
-              </p>
-              <p class="submit_btn"
-                 @click="declare('online')">开始申报</p>
+          <div class="submit_bom">
+            <div class="bom_left">
+              <p class="bom_title">提交ICF电影节作品</p>
+              <div class="bom_content">
+                <p>ICF电影节：</p>
+                <p>• D9区影视；</p>
+                <p>• D9区上传作品的正片在线下进行放映；</p>
+                <p>• 请您遵循审核过程</p>
+                <p class="remember">
+                  <el-checkbox v-model="checked">我已阅读并同意遵守条例</el-checkbox>
+                </p>
+                <p class="submit_btn" @click="declare('film')">开始申报</p>
+              </div>
+            </div>
+            <div class="bom_right">
+              <p class="bom_title">提交在线观影作品</p>
+              <div class="bom_content">
+                <p>在线观影：</p>
+                <p>• D9区影视；</p>
+                <p>• D9区上传作品的正片在线下进行放映；</p>
+                <p>• 请您遵循审核过程</p>
+                <p class="remember">
+                  <el-checkbox v-model="checked2">我已阅读并同意遵守条例</el-checkbox>
+                </p>
+                <p class="submit_btn" @click="declare('online')">开始申报</p>
+              </div>
             </div>
           </div>
         </div>
@@ -54,46 +47,42 @@
 
     <Footer></Footer>
   </div>
-
 </template>
 <script>
-import Nav from '@/views/nav.vue'
-import Footer from '@/views/footer.vue'
+import Nav from "@/views/nav.vue";
+import Footer from "@/views/footer.vue";
 export default {
-  name: 'Login',
+  name: "Login",
   components: { Nav, Footer },
-  data () {
+  data() {
     return {
-      mainnav: '4',
+      mainnav: "4",
       checked: true,
       checked2: true,
-    }
+    };
   },
   methods: {
-    declare (name) {
-      this.$router.push(
-        {
-          path: '/submit_agree',
-          query: {
-            type: name
-          }
-        }
-      )
-
-    }
+    declare(name) {
+      this.$router.push({
+        path: "/submit_agree",
+        query: {
+          type: name,
+        },
+      });
+    },
   },
 
-  computed: {}
-}
+  computed: {},
+};
 </script>
 <style lang='less'>
 .submit {
   background: #0a0a0a;
   color: #333;
   position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   .submit_box {
     width: 1000px;
     height: 640px;
