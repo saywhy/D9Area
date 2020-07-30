@@ -49,7 +49,7 @@ export default {
 .foot_box {
   width: 100%;
   height: 110px;
-  background: #000;
+  background: #141414;
   z-index: 9999;
   position: relative;
   .foot_main_box{

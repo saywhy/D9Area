@@ -253,7 +253,7 @@ export default {
     border-bottom: 1px solid #292929;
     overflow: hidden;
     width: 100%;
-    background: #000;
+    background: #141414;
     .logo_box {
       width: 150px;
       height: 120px;
@@ -281,7 +281,7 @@ export default {
     .el_menu li {
       font-size: 16px;
       float: left;
-      background: #000000;
+      background: #141414 !important;
       height: 118px;
       overflow: hidden;
       line-height: 118px;

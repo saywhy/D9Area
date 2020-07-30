@@ -136,9 +136,7 @@
                   <p>（美术概念设定）</p>
                 </div>
               </div>
-            </div>
-            <div class="item_right">
-              <div class="upload_box">
+             <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
@@ -328,9 +326,8 @@
                     <p>（美术概念设定）</p>
                   </div>
                 </div>
-              </div>
-              <div class="item_right">
-                <div class="upload_box">
+              
+               <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
@@ -448,14 +445,15 @@ export default {
 .OnlineSteps {
   // border: 1px solid red;
   background: #fff;
-  padding: 150px 0 70px;
+  padding: 70px 0 70px;
   /deep/ .main_box {
     background: #fff;
     overflow: hidden;
     .steps_top {
-      width:1200px;
+      width: 1200px;
       background: #fff;
-     margin:0 auto;
+      margin: 0 auto;
+      border:1px solid red;
       .steps_box {
         // border: 1px solid red;
         .el-step.is-horizontal {
@@ -493,7 +491,7 @@ export default {
           border-color: #999;
           border: 1px solid;
         }
-        .el-step__icon-inner{
+        .el-step__icon-inner {
           font-weight: 400;
         }
         // 进行中
@@ -554,25 +552,28 @@ export default {
         min-height: 48px;
         margin-bottom: 30px;
         .item_title {
-          width: 150px;
+          width: 120px;
           text-align: right;
           font-size: 14px;
           line-height: 48px;
           color: #000;
+          margin-left: -80px;
         }
         .el-input__inner {
           flex: 1;
           height: 48px;
           background: #fff;
-          border:1px solid #999999;
+          border: 1px solid #999999;
           color: #333;
+          border-radius: 0;
         }
         .el-textarea__inner {
           flex: 1;
           height: 48px;
           background: #fff;
-          border:1px solid #999;
+          border: 1px solid #999;
           color: #333;
+          border-radius: 0;
         }
         .el-input__count {
           background: #fff;
@@ -583,14 +584,15 @@ export default {
           line-height: 48px;
           font-size: 14px;
           text-align: left;
-          p{
+          p {
             font-size: 14px;
-            color:#999;
+            color: #999;
           }
           // checkbox
           .el-checkbox__inner {
             border: 1px solid #999;
             background-color: #fff;
+            border-radius: 0;
           }
           .el-checkbox__label {
             color: #141414;
@@ -617,9 +619,9 @@ export default {
 
     // 保存
     .btn_box {
-      width: 800px;
+      width: 1200px;
       // margin: 40px auto 70px;
-      margin-top:70px;
+      margin-top: 70px;
       height: 40px;
       .btn_common {
         height: 40px;
@@ -629,19 +631,20 @@ export default {
         font-size: 14px;
         color: #999;
         border: 1px solid #999;
-        border-radius: 4px;
+        // border-radius: 4px;
         margin-left: 10px;
         display: inline-block;
         float: right;
         cursor: pointer;
       }
-      
     }
     // 预告片信息
     .upload_box {
       width: 240px;
       height: 180px;
       // border: 1px solid red;
+      float: left;
+      margin-left: 20px;
       background: #fff;
       border: 1px solid #999;
       position: relative;
@@ -667,11 +670,11 @@ export default {
     .info {
       .top_info {
         border: 1px solid #c8a461;
-        width: 1100px;
+        width: 1200px;
         height: 38px;
         margin: 0 auto;
-        margin-top:46px;
-        color:#141414;
+        margin-top: 46px;
+        color: #141414;
         text-align: left;
         line-height: 38px;
         img {

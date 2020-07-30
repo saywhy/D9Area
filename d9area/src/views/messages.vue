@@ -196,7 +196,7 @@ export default {
     background-size: 100% 100%;
   }
   .message_container {
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
   }
   .main_box {
@@ -249,7 +249,7 @@ export default {
   .nav_right {
     float: right;
     border-radius: 8px;
-    width: 740px;
+    width: 940px;
     // height: 734px;
     padding-bottom: 74px;
     background: #000;
@@ -264,7 +264,7 @@ export default {
       line-height: 100px;
     }
     .hr2 {
-      border-bottom: 1px solid #533a05;
+      border-bottom: 1px solid #292929;
     }
     .user_box {
       margin: 30px 34px 42px 30px;
@@ -292,7 +292,7 @@ export default {
         line-height: 34px;
       }
       .user_box_hr {
-        border: 1px solid #533a05;
+        border: 1px solid #292929;
         margin: 40px 0 40px 0;
       }
     }
@@ -321,7 +321,7 @@ export default {
         line-height: 34px;
       }
       .privac_box_hr {
-        border: 1px solid #533a05;
+        border: 1px solid #292929;
         margin: 40px 0 40px 0;
       }
     }
@@ -338,8 +338,8 @@ export default {
         font-size: 16px;
       }
       .help_box_bg {
-        width: 679px;
-        background-color: #151414;
+        width: 880px;
+        background-color: #151515;
         margin: 4px 0 8px 0;
         .bg_word {
           font-size: 16px;
@@ -348,7 +348,7 @@ export default {
       }
 
       .help_box_hr {
-        border: 1px solid #533a05;
+        border: 1px solid #292929;
         margin: 44px 30px 40px 0;
       }
     }

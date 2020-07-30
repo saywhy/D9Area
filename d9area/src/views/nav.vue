@@ -135,9 +135,9 @@ export default {
   width: 100%;
   height: 80px;
   // border: 1px solid red;
-  background: #000000;
+  background: #080808;
   font-size: 16px;
-  position: fixed;
+  // position: fixed;
   z-index: 9999999;
 }
 .nav_box {
@@ -180,7 +180,7 @@ export default {
     height: 80px;
     line-height: 80px;
     float: left;
-    background: #000000;
+    background: #080808 !important;
   }
   .el-menu.el-menu--horizontal {
     border: 0;

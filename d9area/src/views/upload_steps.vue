@@ -447,7 +447,7 @@ export default {
     // padding: 48px 0;
 
     .steps_box {
-      // border: 1px solid red;
+      border: 1px solid red;
       .el-step.is-horizontal {
         position: relative;
       }
@@ -516,7 +516,7 @@ export default {
   // 基本信息
   .content {
     width: 800px;
-    margin-left: 30px;
+    // margin-left: 30px;
     // margin: 0 auto;
     // border: 1px solid red;
     margin-top: 50px;
@@ -545,7 +545,7 @@ export default {
       min-height: 48px;
       margin-bottom: 30px;
       .item_title {
-        width: 150px;
+        width: 130px;
         text-align: right;
         font-size: 16px;
         line-height: 48px;
@@ -678,11 +678,11 @@ export default {
   .info {
     .top_info {
       border: 1px solid #c8a461;
-      width: 1050px;
+      width: 1100px;
       height: 38px;
       // margin: 0 auto;
       margin-top: 40px;
-      margin-left: 108px;
+      margin-left: 50px;
       text-align: left;
       line-height: 38px;
       img {
@@ -697,11 +697,11 @@ export default {
     }
 
     .top_info_title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       color: rgba(200, 164, 97, 1);
       line-height: 22px;
-      width: 1000px;
+      width: 1100px;
       margin: 0 auto;
       margin-top: 50px;
       text-align: left;
