@@ -77,7 +77,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p  class="info_p">尺寸240*180 不超过4G</p>
+                  <p class="info_p">尺寸240*180 不超过4G</p>
                 </div>
               </div>
             </div>
@@ -331,7 +331,7 @@
                     <p class="info_p">（美术概念设定）</p>
                   </div>
                 </div>
-                   <div class="upload_box">
+                <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
@@ -447,7 +447,8 @@ export default {
     // padding: 48px 0;
 
     .steps_box {
-      border: 1px solid red;
+      // border: 1px solid red;
+      margin-left: -65px;
       .el-step.is-horizontal {
         position: relative;
       }
@@ -464,14 +465,24 @@ export default {
       }
       .el-step.is-horizontal .el-step__line {
         top: 10px;
-        left: 230px;
-        right: -90px;
+        left: 250px;
+        right: -95px;
         background: #919191;
         height: 1px;
       }
       .el-step__title.is-process {
         color: #c8a461;
+        margin-left: 10px;
       }
+      .el-step__head.is-wait {
+        margin-left: 10px;
+      }
+      .el-step__title.is-wait {
+        // color: #c0c4cc;
+        margin-left: 16px;
+        // margin-right: 10px;
+      }
+
       //
       .el-step.is-horizontal {
         .el-step__icon {
@@ -499,6 +510,7 @@ export default {
       .el-step__title.is-success {
         color: #c8a461;
         border-color: #c8a461;
+        margin-left: 5px;
       }
       .el-step__head.is-success {
         color: #c8a461;
@@ -665,7 +677,7 @@ export default {
       font-weight: 400;
       color: rgba(119, 119, 119, 1);
     }
-    .info_p{
+    .info_p {
       line-height: 24px;
     }
     .add_img {

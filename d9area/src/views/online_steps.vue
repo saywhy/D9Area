@@ -136,7 +136,7 @@
                   <p>（美术概念设定）</p>
                 </div>
               </div>
-             <div class="upload_box">
+              <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
                   <p>支持jpg/gif/png格式RGB模式</p>
@@ -326,8 +326,8 @@
                     <p>（美术概念设定）</p>
                   </div>
                 </div>
-              
-               <div class="upload_box">
+
+                <div class="upload_box">
                   <div class="upload_img_box">
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
                     <p>支持jpg/gif/png格式RGB模式</p>
@@ -453,7 +453,8 @@ export default {
       width: 1200px;
       background: #fff;
       margin: 0 auto;
-      border:1px solid red;
+      margin-left: -108px;
+      // border: 1px solid red;
       .steps_box {
         // border: 1px solid red;
         .el-step.is-horizontal {

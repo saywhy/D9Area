@@ -352,7 +352,7 @@ export default {
       font-weight: bold;
     }
     .content {
-      height:40px;
+      // height:40px;
       text-align: center;
       margin: 100px 0;
 
