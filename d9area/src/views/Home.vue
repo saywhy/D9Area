@@ -20,37 +20,37 @@
       </div>
       <div class="section"
            style="position:relative; background:#0a0a0a">
-        <!-- <div class="setion_bom"> -->
+        <div class="setion_bom">
 
-        <!-- <img :src="img3"
+          <!-- <img :src="img3"
              alt=""> -->
 
-        <div class="video_box">
-          <div class="video_swiper_container">
-            <div class="swiper-wrapper swiper-no-swiping">
-              <div class="swiper-slide"
-                   v-for="(item,index) in video_list">
-                <div class="sider_video_box">
-                  <video-player class="video-player vjs-custom-skin"
-                                ref="videoPlayer"
-                                @play="onPlayerPlay($event,index)"
-                                @pause="onPlayerPause($event,index)"
-                                :playsinline="true"
-                                :options="item.playerOptions"></video-player>
-                  <img :src="item.suspend"
-                       @click="img_play(index)"
-                       v-if="item.suspend_show"
-                       class="suspend_box"
-                       alt />
+          <div class="video_box">
+            <div class="video_swiper_container">
+              <div class="swiper-wrapper swiper-no-swiping">
+                <div class="swiper-slide"
+                     v-for="(item,index) in video_list">
+                  <div class="sider_video_box">
+                    <video-player class="video-player vjs-custom-skin"
+                                  ref="videoPlayer"
+                                  @play="onPlayerPlay($event,index)"
+                                  @pause="onPlayerPause($event,index)"
+                                  :playsinline="true"
+                                  :options="item.playerOptions"></video-player>
+                    <img :src="item.suspend"
+                         @click="img_play(index)"
+                         v-if="item.suspend_show"
+                         class="suspend_box"
+                         alt />
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="swiper-button-prev_video"></div>
+            <div class="swiper-button-next_video"></div>
           </div>
-          <div class="swiper-button-prev_video"></div>
-          <div class="swiper-button-next_video"></div>
+          <Footer style="position:absolute;bottom:0"></Footer>
         </div>
-        <!-- <Footer style="position:absolute;bottom:0"></Footer> -->
-        <!-- </div> -->
       </div>
     </full-page>
   </div>
@@ -175,6 +175,7 @@ export default {
         // autoplay: {
         //   disableOnInteraction: false
         // }, //可选选项，自动滑动
+        // effect: 'cube',
         loop: true,
         speed: 1000,
         pagination: {
@@ -250,8 +251,9 @@ export default {
   background-color: #0a0a0a;
   /deep/ .swiper-container {
     width: 100%;
-    height: 100%;
+    height: ~'calc(100% - 80px)';
     color: #fff;
+    margin-top: 80px;
   }
   /deep/ .swiper-pagination {
     .swiper-pagination-bullet {
@@ -270,14 +272,14 @@ export default {
   }
   // 视频部分
   /deep/ .setion_bom {
-    height: 100%;
+    // height: 100%;
+    height: ~'calc(100% - 80px)';
+    margin-top: 80px;
+    position: relative;
   }
   /deep/ .video_box {
     position: relative;
-    // width: 100%;
-    // margin-top: 60px;
-    // height: 600px;
-    height: 100%;
+    height: ~'calc(100% - 110px)';
     overflow: hidden;
     &:hover .swiper-button-next_video {
       display: block;

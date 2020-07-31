@@ -1,15 +1,15 @@
 <template>
-  <div id="nav_home" >
+  <div id="nav_home">
     <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
-         <div class="logo_box">
-     <img class="logo"
-           v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
-           src="@/assets/images/home/D9-logo.png"
-           alt="">
-         </div>
- 
+      <div class="logo_box">
+        <img class="logo"
+             v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
+             src="@/assets/images/home/D9-logo.png"
+             alt="">
+      </div>
+
       <el-menu :default-active="activeIndex"
                text-color='#F6F6F6'
                active-text-color='#c8a461'
@@ -137,7 +137,8 @@ export default {
   // border: 1px solid red;
   background: #080808;
   font-size: 16px;
-  // position: fixed;
+  position: fixed;
+  top: 0;
   z-index: 9999999;
 }
 .nav_box {
@@ -149,7 +150,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   // border: 1px solid green;
-  .logo_box{
+  .logo_box {
     width: 44px;
     height: 80px;
     float: left;
@@ -158,7 +159,7 @@ export default {
   .logo {
     width: 44px;
     height: 44px;
-        position: absolute;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
