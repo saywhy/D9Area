@@ -279,7 +279,7 @@ export default {
   }
   /deep/ .video_box {
     position: relative;
-    height: ~'calc(100% - 110px)';
+    height: ~'calc(100% - 180px)';
     overflow: hidden;
     &:hover .swiper-button-next_video {
       display: block;
