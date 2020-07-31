@@ -1,7 +1,8 @@
 <template>
   <div class="recommend_top">
     <div class="swiper_box">
-      <div class="swiper-container">
+      <div class="swiper-container"
+           :class="id">
         <div class="swiper-wrapper">
           <div class="swiper-slide"
                v-for="(item,index) in img_list">
@@ -82,15 +83,51 @@ export default {
         },
         {
           src: require("@/assets/images/online/item1.png")
-        }
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item3.png")
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item3.png")
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item3.png")
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item3.png")
+        },
+        {
+          src: require("@/assets/images/online/item1.png")
+        },
+        {
+          src: require("@/assets/images/online/item3.png")
+        },
       ]
     };
   },
+  props: ["id"],
   mounted () {
     this.initSwiper();
     let _this = this;
-    this.swiper.on("onTap", function () {
+    this.swiper.on("tap", function (event, item) {
       console.log(this.clickedIndex);
+      // var index = swiper['clickedIndex'];
+      // console.log(index);
       // 当前活动块的索引，与activeIndex不同的是，在loop模式下不会将 复制的块 的数量计算在内。
       const clickedIndex = this.clickedIndex;
       _this.handleSelect(clickedIndex);
@@ -99,10 +136,11 @@ export default {
   methods: {
     initSwiper () {
       // this.$nextTick(() => {
-      this.swiper = new Swiper(".swiper-container", {
+      console.log(this.id);
+      this.swiper = new Swiper("." + this.id, {
         autoplay: false, //等同于以下设置
         slidesPerView: "auto",
-        slidesPerView: 5,
+        slidesPerView: 6,
         spaceBetween: 20,
         loop: false,
         speed: 1000,
@@ -130,10 +168,6 @@ export default {
           var index = swiper['clickedIndex'];
           console.log(index);
           // this.hasclass(index)
-
-
-
-
         }
       });
     },
@@ -161,17 +195,17 @@ export default {
 <style lang="less">
 .recommend_top {
   .swiper_box {
-    height: 220px;
+    height: 160px;
     position: relative;
     .swiper-container {
       width: 100%;
-      height: 220px;
+      height: 160px;
       color: #fff;
       .swiper-wrapper {
         width: 100%;
       }
       .swiper-button-prev {
-        width: 19.8%;
+        width: ~'calc((100% - 100px)/6)';
         height: 100%;
         left: 0;
         position: absolute;
@@ -179,22 +213,25 @@ export default {
         background: rgba(0, 0, 0, 0.6);
         margin-top: 0;
         background-image: url('../assets/images/online/prev.png');
+        background-size: 30px 30px;
         background-repeat: no-repeat;
+        outline: none;
         background-position: center;
         z-index: 99999;
       }
       .swiper-button-next {
-        width: 19.8%;
+        width: ~'calc((100% - 100px)/6)';
         height: 100%;
         position: absolute;
         right: 0;
         top: 0;
         background: rgba(0, 0, 0, 0.6);
-
         margin-top: 0;
         background-image: url('../assets/images/online/next.png');
         background-repeat: no-repeat;
         background-position: center;
+        outline: none;
+        background-size: 30px 30px;
         z-index: 99999;
       }
       .swiper-button-disabled {
@@ -216,12 +253,13 @@ export default {
     border: 2px solid red;
   }
   .detail_box {
-    height: 790px;
+    height: 646px;
     background-image: url('../assets/images/film_swiper/film_bg.png');
     background-size: 100% 100%;
     text-align: left;
+    margin-top: 26px;
     .detail_title {
-      font-size: 80px;
+      font-size: 42px;
       font-weight: bold;
       color: rgba(255, 255, 255, 1);
       padding-top: 95px;
@@ -229,69 +267,79 @@ export default {
         float: right;
         vertical-align: middle;
         cursor: pointer;
+        width: 32px;
       }
     }
     .detail_time {
-      font-size: 32px;
+      font-size: 16px;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
-      margin: 48px 0 26px 0;
+      margin: 30px 0 20px 0;
       .detail_date {
         margin-right: 53px;
       }
     }
     // 详情
     .detail_des {
-      font-size: 28px;
+      font-size: 16px;
       font-weight: 400;
       color: rgba(153, 153, 153, 1);
       width: 810px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     .detail_btn {
-      height: 84px;
+      height: 42px;
     }
     .detail_company {
-      font-size: 32px;
-      margin: 43px 0 47px 0;
+      font-size: 16px;
+      margin: 30px 0 20px 0;
     }
     .detail_team {
-      font-size: 32px;
+      font-size: 16px;
     }
     .banner_btn_left {
-      width: 240px;
-      height: 84px;
+      width: 120px;
+      height: 42px;
       background: rgba(200, 164, 97, 1);
       border-radius: 8px;
-      font-size: 36px;
+      font-size: 18px;
       font-weight: 400;
       color: #ffffff;
-      line-height: 84px;
+      line-height: 42px;
       text-align: center;
       float: left;
       cursor: pointer;
       img {
+        width: 14px;
+        height: 18px;
         vertical-align: sub;
-        margin-right: 14px;
+        margin-right: 5px;
+      }
+      span {
+        vertical-align: middle;
       }
     }
     .banner_btn_right {
       cursor: pointer;
-      width: 318px;
-      height: 84px;
-      border: 2px solid rgba(255, 255, 255, 1);
+      width: 140px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 1);
       border-radius: 8px;
-      font-size: 36px;
+      font-size: 18px;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
-      line-height: 84px;
+      line-height: 42px;
       text-align: center;
       float: left;
-      margin-left: 104px;
-      vertical-align: middle;
+      margin-left: 30px;
+      // vertical-align: middle;
       img {
-        vertical-align: sub;
-        margin-right: 14px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      span {
+        line-height: 42px;
+        vertical-align: middle;
       }
     }
   }
