@@ -433,7 +433,7 @@ export default {
 <style lang="less">
 .UploadSteps {
   // border: 1px solid red;
-  // min-height: 1080px;
+  min-height: 700px;
   background: #fff;
   padding-top: 70px;
   .step_box {

@@ -444,6 +444,7 @@ export default {
 <style scoped lang="less">
 .OnlineSteps {
   // border: 1px solid red;
+  min-height: 700px;
   background: #fff;
   padding: 70px 0 70px;
   /deep/ .main_box {
