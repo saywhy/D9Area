@@ -3,7 +3,7 @@
     <div class="swiper_box">
       <div class="swiper-container"
            :class="id">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper ">
           <div class="swiper-slide"
                v-for="(item,index) in img_list">
             <!-- 2323213 -->
@@ -182,7 +182,7 @@ export default {
         element.style.border = 0;
       });
       // $('.swiper-container').eq(clickedIndex).addClass('active_class').siblings().removeClass('active_class');
-      this.swiper.clickedSlide.style.border = "4px solid rgba(161,128,55,1)";
+      this.swiper.clickedSlide.style.border = "2px solid rgba(161,128,55,1)";
     },
     closed_detail () {
       this.detail_show = false;

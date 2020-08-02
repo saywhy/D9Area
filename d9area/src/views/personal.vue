@@ -277,8 +277,9 @@ export default {
       }
       .head_edit_img_box {
         cursor: pointer;
-        height: 180px;
-        width: 180px;
+
+            height: 80px;
+        width: 80px;
         background: rgba(0, 0, 0, 0.6);
         position: absolute;
         top: 0;
@@ -287,6 +288,8 @@ export default {
         .head_edit_img {
           cursor: pointer;
           position: absolute;
+             height: 18px;
+        width: 18px;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);

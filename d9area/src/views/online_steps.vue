@@ -446,7 +446,7 @@ export default {
   // border: 1px solid red;
   min-height: 860px;
   background: #fff;
-  padding: 70px 0 70px;
+  padding: 150px 0 80px;
   /deep/ .main_box {
     background: #fff;
     overflow: hidden;
@@ -638,6 +638,10 @@ export default {
         display: inline-block;
         float: right;
         cursor: pointer;
+        &:hover{
+           color: #c8a461;
+        border: 1px solid #c8a461;
+        }
       }
     }
     // 预告片信息

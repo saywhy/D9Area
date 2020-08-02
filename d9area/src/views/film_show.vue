@@ -4,24 +4,23 @@
       <film-nav :activenav="Index"></film-nav>
       <div class="FilmShow">
         <div class="FilmShow_top">
-          <img src="../assets/images/film/film_show1.jpg"
-               width:540px
-               alt />
+          <img src="../assets/images/film/film_show1.jpg" width:540px alt />
         </div>
-        <!-- 内容 -->
-        <div class="sub_container">
-          <div v-if="selected_box">
-            <p class="content_title">入围作品</p>
-            <div class="content_top">
-              <div class="content_top_left"
-                   @click="show_swiper('selected')">
+        <!-- 影片展示 -->
+        <div class>
+          <div >
+            <!-- <p class="content_title">入围作品</p> -->
+            <div class="content_top sub_container" :class="detail_status?'border_box':''" >
+              <div class="content_top_left" @click="show_detail_box">
                 <span class="content_top_left_time">时长：1分20秒</span>
               </div>
               <div class="content_top_right">
                 <div class="content_top_right_top">
                   <p class="film_name">拯救计划</p>
                   <p class="film_theme">VFX电影短片 | 战争</p>
-                  <p class="film_des">想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
+                  <p
+                    class="film_des"
+                  >想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
                 </div>
                 <div class="content_top_right_bom">
                   <p class="film_company">出品方：凉山重工</p>
@@ -29,56 +28,62 @@
                 </div>
               </div>
             </div>
-            <div class="content_bom">
-              <div class="content_bom_item">
-                <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
+            <!-- 弹出框 -->
+            <div class="show_detail" v-if="detail_status">
+              <div class="detail_box">
+                <div class="img_box">
+                  <img class="X" @click="closed_detail_box" src="../assets/images/film_swiper/closed.png" alt />
                 </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+
+                <div class="detail_box_left">
+                  <p class="title">恐怖之夜</p>
+                  <div class="time">
+                    <span>2020-06-23</span>
+                    <span>1小时39分钟</span>
                   </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
-                    </p>
+                  <p
+                    class="des"
+                  >罗德主持一个专门讨论恐怖的广播节目，有一天，播音员开始收到一个拼命求救的孩子的电话。起初，他认为这是一个笑话，后来他才意识到电话隐藏着一个黑暗的秘密。</p>
+                  <div class="btn">
+                    <div class="btn_left">
+                      <img src="../assets/images/online/start.png" alt />
+                      <span>播放</span>
+                    </div>
+
+                    <div class="btn_right">
+                      <img src="../assets/images/online/add.png" alt />
+                      <span>我的影片</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="space"></div>
-              <div class="content_bom_item">
-                <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
-                </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
-                  </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
-                    </p>
-                  </div>
+
+                  <p class>出品方：凉山童工</p>
+                  <p>主创团队：导演11111/编剧222/制片111/艺术指导2222</p>
                 </div>
               </div>
-              <div class="space"></div>
-              <div class="content_bom_item">
+            </div>
+
+            <div class="demo_box sub_container">
+              <div
+                class="demo_item_box"
+                v-for="item in demo_list"
+                :class="item.show?'display_none':''"
+              >
                 <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
+                  <span class="item_time">{{item.time}}</span>
                 </div>
                 <div class="item_content">
                   <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
+                    <p class="item_name">
+                      <span>{{item.type_name}}</span>
+                      <span>|</span>
+                      <span>{{item.name}}</span>
+                    </p>
+                    <p class="item_author">{{item.team}}</p>
                   </div>
                   <div class="item_content_bom">
                     <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
+                      <span class="item_company">{{item.company}}</span>
+                      <span class="item_theme">{{item.type}}</span>
                     </p>
                   </div>
                 </div>
@@ -87,89 +92,12 @@
           </div>
         </div>
         <div v-if="!selected_box">
-          <div class="sub_container">
+          <!-- <div class="sub_container">
             <p class="content_title">入围作品</p>
-          </div>
-          <film-swiper :id="selected"></film-swiper>
+          </div>-->
+          <!-- <film-swiper :id="selected"></film-swiper> -->
         </div>
         <!-- 获奖作品 -->
-        <div class="sub_container">
-          <div v-if="selected_box_2">
-            <p class="content_title">获奖作品</p>
-            <div class="content_top">
-              <div class="content_top_left"
-                   @click="show_swiper('selected_box_2')">
-                <span class="content_top_left_time">时长：1分20秒</span>
-              </div>
-              <div class="content_top_right">
-                <div class="content_top_right_top">
-                  <p class="film_name">拯救计划</p>
-                  <p class="film_theme">VFX电影短片 | 战争</p>
-                  <p class="film_des">想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
-                </div>
-                <div class="content_top_right_bom">
-                  <p class="film_company">出品方：凉山重工</p>
-                  <p class="film_author">主创团队：导演11111/编剧/制片……</p>
-                </div>
-              </div>
-            </div>
-            <div class="content_bom">
-              <div class="content_bom_item">
-                <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
-                </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
-                  </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="space"></div>
-              <div class="content_bom_item">
-                <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
-                </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
-                  </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="space"></div>
-              <div class="content_bom_item">
-                <div class="item_img">
-                  <span class="item_time">时长：1分20秒</span>
-                </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">复古文艺短片 | 拯救计划</p>
-                    <p class="item_author">主创团队：导演11111/编剧/制片......</p>
-                  </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">出品方：凉山重工</span>
-                      <span class="item_theme">VFX电影短片</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div v-if="!selected_box_2">
           <div class="sub_container">
             <p class="content_title">获奖作品</p>
@@ -191,36 +119,131 @@ import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
   components: { Nav, Footer, filmNav, filmSwiper },
-  data () {
+  data() {
     return {
       Index: "3",
       selected_box: true,
       selected_box_2: true,
-      awards: 'awards',
-      selected: 'selected'
+      detail_status:false,
+      awards: "awards",
+      selected: "selected",
+      demo_list: [
+        {
+          img: "",
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+          work: "ruwei",
+        },
+        {
+          name: "杀手精英",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+          work: "huojiang",
+        },
+        {
+          name: "恐怖之夜",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "永无止境",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+        {
+          name: "拯救计划",
+          time: "时长：1分20秒",
+          type_name: "复古文艺短片",
+          team: "主创团队：导演11111/编剧/制片......",
+          company: "出品方：凉山重工",
+          type: "VFX电影短片",
+        },
+      ],
     };
   },
-  mounted () { },
+  mounted() {},
   methods: {
-    show_swiper (name) {
-      switch (name) {
-        case "selected":
-          this.selected_box = false;
-          break;
-        case "selected_box_2":
-          this.selected_box_2 = false;
-          break;
-
-        default:
-          break;
-      }
+    show_detail_box() {
+    this.detail_status = true
     },
+    closed_detail_box(){
+      this.detail_status = false
+    }
   },
 };
 </script>
 <style lang="less">
 .FilmShow {
-  background: #0a0a0a;
+  background: #000;
   padding-bottom: 70px;
   .FilmShow_top {
     width: 100%;
@@ -243,13 +266,14 @@ export default {
     text-align: left;
   }
   .content_top {
+    margin-top: 70px;
     overflow: hidden;
     background: #000000;
     .content_top_left {
       width: 800px;
       float: left;
       height: 500px;
-      background-image: url('../assets/images/film/show/main.png');
+      background-image: url("../assets/images/film/show/main.png");
       background-size: 100% 100%;
       cursor: pointer;
       position: relative;
@@ -296,60 +320,169 @@ export default {
       }
     }
   }
-  .content_bom {
-    margin-top: 40px;
-    // height: 406px;
-    width: 100%;
+  .border_box{
+    border: 1px solid #C8A461;
+  }
+  .demo_box {
     display: flex;
-    .space {
-      width: 27px;
-      // height: 406px
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+  }
+
+  .demo_item_box {
+    flex: 0 0 calc(33.33% - 15px);
+    margin-top: 32px;
+    align-items: flex-start;
+    height: 390px;
+    align-self: flex-start;
+    background: #000;
+    .item_img {
+      height: 226px;
+      background-image: url("../assets/images/film/show/sub.png");
+      background-size: 100% 100%;
+      position: relative;
+      .item_time {
+        position: absolute;
+        right: 30px;
+        bottom: 18px;
+        font-size: 14px;
+      }
     }
-    .content_bom_item {
-      flex: 1;
-      // height: 406px;
-      background: #000;
-      .item_img {
-        height: 226px;
-        background-image: url('../assets/images/film/show/sub.png');
-        background-size: 100% 100%;
-        position: relative;
-        .item_time {
-          position: absolute;
-          right: 30px;
-          bottom: 18px;
+    .item_content {
+      text-align: left;
+      .item_content_top {
+        height: 100px;
+        border-bottom: 1px solid rgba(10, 10, 10, 1);
+        padding: 24px 16px;
+        .item_name {
           font-size: 14px;
+          color: rgba(255, 255, 255, 1);
+          margin-bottom: 12px;
+        }
+        .item_author {
+          font-size: 12px;
+          color: rgba(123, 124, 123, 1);
         }
       }
-      .item_content {
+      .item_content_bom {
+        height: 60px;
+        line-height: 50px;
+        padding: 0 16px;
+        .item_company {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 1);
+          margin-right: 39px;
+        }
+        .item_theme {
+          font-size: 12px;
+          color: rgba(123, 124, 123, 1);
+        }
+      }
+    }
+  }
+  .display_none {
+    opacity: 0;
+  }
+  .show_detail {
+    width: 100%;
+    height: 646px;
+    // border: 1px solid red;
+    background: url(../assets/images/film_swiper/film_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 34px;
+    padding-top: 30px;
+    outline: none;
+    .detail_box {
+      width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      .img_box {
+        height: 32px;
+        .X {
+          width: 32px;
+          height: 32px;
+          float: right;
+          cursor: pointer;
+        }
+      }
+      .detail_box_left {
+        width: 464px;
+        height: 400px;
+        // border: 1px solid red;
+        margin-top: 66px;
         text-align: left;
-        .item_content_top {
-          height: 100px;
-          border-bottom: 1px solid rgba(10, 10, 10, 1);
-          padding: 24px 16px;
-          .item_name {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 1);
-            margin-bottom: 12px;
-          }
-          .item_author {
-            font-size: 12px;
-            color: rgba(123, 124, 123, 1);
+        .title {
+          font-size: 36px;
+          color: #fff;
+        }
+        .time {
+          margin: 32px 0 22px 0;
+          span {
+            font-size: 16px;
+            font-weight: 400;
+            margin-right: 30px;
           }
         }
-        .item_content_bom {
-          height: 60px;
-          line-height: 50px;
-          padding: 0 16px;
-          .item_company {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 1);
-            margin-right: 39px;
+
+        .des {
+          font-size: 16px;
+          color: #999;
+          line-height: 30px;
+        }
+
+        .btn {
+          height: 42px;
+          // border: 1px solid red;
+          margin: 30px 0;
+
+          .btn_left {
+            width: 120px;
+            height: 42px;
+            background-color: #c8a461;
+            border-radius: 4px;
+            // border: 1px solid tomato;
+            text-align: center;
+            line-height: 42px;
+            float: left;
+            cursor: pointer;
+            img {
+              width: 14px;
+              height: 16px;
+              vertical-align: middle;
+              margin-right: 10px;
+            }
+            span {
+              vertical-align: middle;
+            }
           }
-          .item_theme {
-            font-size: 12px;
-            color: rgba(123, 124, 123, 1);
+
+          .btn_right {
+            width: 140px;
+            height: 42px;
+            border: 1px solid #fff;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            margin-left: 30px;
+            cursor: pointer;
+            background: #000000;
+            border-radius: 8px;
+            img {
+              width: 16px;
+              height: 16px;
+              vertical-align: middle;
+              margin-right: 10px;
+            }
+            span {
+              vertical-align: middle;
+            }
           }
+        }
+        p {
+          font-size: 16px;
+          margin-top: 20px;
         }
       }
     }

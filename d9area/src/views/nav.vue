@@ -1,6 +1,5 @@
 <template>
   <div id="nav_home">
-    <!-- :class="srcolltop?'showCont':'hiddenCont'"> -->
     <div class="nav_box"
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
       <div class="logo_box">
@@ -36,7 +35,7 @@
       <span class="nav_right personl"
             v-if="personl_show">
         <span class="personl_name"
-              @click="go_personl">永恒</span>
+              @click="go_personl">小毛驴</span>
         <span>｜</span>
         <span @click="logout">退出</span>
       </span>
@@ -61,8 +60,6 @@ export default {
     if (sessionStorage.getItem('personal') == 'true') {
       this.personl_show = true
     }
-    //首先，在mounted钩子window添加一个滚动滚动监听事件
-    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleSelect (key, keyPath) {
@@ -106,23 +103,6 @@ export default {
     },
     go_personl () {
       this.$router.push('/personal')
-    },
-    //然后在方法中，添加这个handleScroll方法来获取滚动的位置
-    handleScroll () {
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-      let offsetTop = document.querySelector("#nav_home").offsetTop;
-
-
-      if (scrollTop < 5 && this.activeIndex == '2') {
-        console.log("我到顶部里");
-        this.srcolltop = true;
-      } else if (scrollTop > 5 && this.activeIndex == '2') {
-        console.log("我滚动里");
-        this.srcolltop = false;
-      }
     },
   }
 }

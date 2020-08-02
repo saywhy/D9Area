@@ -10,7 +10,7 @@
             </div>
           </div>
           <!-- 如果需要分页器 -->
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
         </div>
       </div>
       <div class="FilmFestival_content">
@@ -35,6 +35,16 @@
               </div>
             </div>
           </div>
+          <!-- 中间轮播图 -->
+          <div class="festival_mid">
+            <div class="init_mid_Swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="xt in mid_Swiper_img">
+                  <img :src="xt.src" style="height: 100%; width: 100%;" alt />
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- 下 -->
           <!-- <div class="bom">
             <div class="left">
@@ -52,8 +62,8 @@
               <p class="right_top_p">ICF国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
-          </div> -->
-           <div class="top">
+          </div>-->
+          <div class="top">
             <div class="left">
               <div class="big_img">
                 <img src="@/assets/images/film/top_left.png" alt />
@@ -104,13 +114,23 @@ export default {
           src: require("@/assets/images/film/banner3.jpg"),
         },
       ],
+      mid_Swiper_img: [
+        {
+          src: require("@/assets/images/film/mid_swiper_01.jpg"),
+        },
+        {
+          src: require("@/assets/images/film/mid_swiper_02.jpg"),
+        
+        },
+      ],
     };
   },
   mounted() {
-    this.initSwiper();
+    this.init_top_Swiper();
+    this.init_mid_Swiper();
   },
   methods: {
-    initSwiper() {
+    init_top_Swiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
         autoplay: false, //等同于以下设置
@@ -125,6 +145,24 @@ export default {
           dragSize: 30,
           // type: 'progress',
         },
+      });
+      // });
+    },
+    init_mid_Swiper() {
+      // this.$nextTick(() => {
+      var swiper = new Swiper(".init_mid_Swiper", {
+        autoplay: false, //等同于以下设置
+        // autoplay: {
+        //   disableOnInteraction: false
+        // }, //可选选项，自动滑动
+        loop: true,
+        speed: 1000,
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true,
+        //   dragSize: 30,
+        //   // type: 'progress',
+        // },
       });
       // });
     },
@@ -207,35 +245,17 @@ export default {
         }
       }
     }
-    // .bom {
-    //   overflow: auto;
-    //   margin-top: 20px;
-    //   .left {
-    //     float: left;
-    //     width: 370px;
-    //     p {
-    //       height: 64px;
-    //       font-size: 18px;
-    //       line-height: 64px;
-    //       font-size: 18px;
-    //       font-weight: 400;
-    //       color: rgba(0, 0, 0, 1);
-    //     }
-    //   }
-    //   .right {
-    //     float: right;
-    //     width: 740px;
-    //     p {
-    //       margin-top: 20px;
-    //       font-size: 28px;
-    //       font-weight: 400;
-    //       color: rgba(0, 0, 0, 1);
-    //     }
-    //     .right_top_p {
-    //       margin-top: 40px;
-    //     }
-    //   }
-    // }
+    .festival_mid {
+      // border: 1px solid red;
+      margin-bottom: 70px;
+      height: 380px;
+    }
+  }
+
+  .init_mid_Swiper {
+    width: 100%;
+    height: 100%;
+    color: #000;
   }
 }
 </style>

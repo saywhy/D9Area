@@ -134,10 +134,16 @@ export default {
     },
     login_go() {
       if (this.account.email == "admin" || this.account.pswd == "12345") {
-        this.$router.push("/personal");
+        // this.$router.push("/personal");
+        this.$message({
+          message: "登录成功",
+          type: "success",
+        });
+        this.$router.push("/submit_type");
         sessionStorage.setItem("personal", "true");
       } else {
-        this.$router.push("/submit_type");
+        // this.$router.push("/submit_type");
+        this.$message.error("账号密码错误，请重新输入");
       }
     },
   },

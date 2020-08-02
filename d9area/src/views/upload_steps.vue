@@ -19,15 +19,15 @@
           <div class="content_item">
             <span class="item_title">影片类目：</span>
             <div class="upload_radio">
-              <el-radio v-model="base.type" label="1">VFX电影短片</el-radio>
-              <el-radio v-model="base.type" label="2">CG动画短片</el-radio>
-              <el-radio v-model="base.type" label="3">VR短片</el-radio>
+              <el-radio v-model="upload_info.base.type" label="1">VFX电影短片</el-radio>
+              <el-radio v-model="upload_info.base.type" label="2">CG动画短片</el-radio>
+              <el-radio v-model="upload_info.base.type" label="3">VR短片</el-radio>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">作品名称：</span>
             <div class="item_right">
-              <el-input v-model="base.name" placeholder="请填写作品名称"></el-input>
+              <el-input v-model="upload_info.base.name" placeholder="请填写作品名称"></el-input>
             </div>
           </div>
           <div class="content_item">
@@ -37,7 +37,7 @@
                 type="textarea"
                 placeholder="请填写作品简介"
                 :autosize="{ minRows: 3, maxRows: 1000}"
-                v-model="base.des"
+                v-model="upload_info.base.des"
                 maxlength="1000"
                 show-word-limit
               ></el-input>
@@ -46,13 +46,13 @@
           <div class="content_item">
             <span class="item_title">出品方：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请填写出品方"></el-input>
+              <el-input v-model="upload_info.base.company" placeholder="请填写出品方"></el-input>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">主创团队：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
+              <el-input v-model="upload_info.base.team" placeholder="请注明职务与姓名"></el-input>
             </div>
           </div>
           <!-- <div class="content_item">
@@ -206,15 +206,15 @@
             <div class="content_item">
               <span class="item_title">影片类目：</span>
               <div class="upload_radio">
-                <el-radio v-model="base.type" label="1">VFX电影短片</el-radio>
-                <el-radio v-model="base.type" label="2">CG动画短片</el-radio>
-                <el-radio v-model="base.type" label="3">VR短片</el-radio>
+                <el-radio v-model="upload_info.base.type" label="1">VFX电影短片</el-radio>
+              <el-radio v-model="upload_info.base.type" label="2">CG动画短片</el-radio>
+              <el-radio v-model="upload_info.base.type" label="3">VR短片</el-radio>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">作品名称：</span>
               <div class="item_right">
-                <el-input v-model="base.name" placeholder="请填写作品名称"></el-input>
+                 <el-input v-model="upload_info.base.name" placeholder="请填写作品名称"></el-input>
               </div>
             </div>
             <div class="content_item">
@@ -224,7 +224,7 @@
                   type="textarea"
                   placeholder="请填写作品简介"
                   :autosize="{ minRows: 3, maxRows: 1000}"
-                  v-model="base.des"
+                 v-model="upload_info.base.des"
                   maxlength="1000"
                   show-word-limit
                 ></el-input>
@@ -233,13 +233,13 @@
             <div class="content_item">
               <span class="item_title">出品方：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请填写出品方"></el-input>
+                <el-input v-model="upload_info.base.company" placeholder="请填写出品方"></el-input>
               </div>
             </div>
             <div class="content_item">
               <span class="item_title">主创团队：</span>
               <div class="item_right">
-                <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
+               <el-input v-model="upload_info.base.team" placeholder="请注明职务与姓名"></el-input>
               </div>
             </div>
             <!-- <div class="content_item">
@@ -387,7 +387,7 @@
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
           <span class="next btn_common" @click="next_click" v-if="stpes_active!=4">下一页</span>
-          <span class="save btn_common" v-if="stpes_active!=4">保存</span>
+          <span class="save btn_common" v-if="stpes_active!=4" @click="save_info">保存</span>
           <span class="save btn_common" v-if="stpes_active==4">提交</span>
           <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
         </div>
@@ -414,6 +414,29 @@ export default {
         des: "",
       },
       checked: true,
+
+      upload_info:{
+        // 基础信息
+          base:{
+            type:'1',
+            name:'',
+            des:'',
+            company:'',
+            team:''
+          },
+          // 预告片
+          trailer:{
+
+          },
+          // 正片信息
+          positive:{
+
+          },
+          // 联系人
+          contacts:{
+
+          }
+      }
     };
   },
   methods: {
@@ -426,6 +449,10 @@ export default {
       console.log(this.stpes_active);
       this.stpes_active -= 1;
     },
+    // 保存
+    save_info(){
+      console.log(this.upload_info);
+    }
   },
   computed: {},
 };
@@ -650,10 +677,10 @@ export default {
       display: inline-block;
       float: right;
       cursor: pointer;
-    }
-    .save {
-    }
-    .pre {
+         &:hover{
+           color: #c8a461;
+        border: 1px solid #c8a461;
+        }
     }
   }
   // 预告片信息
