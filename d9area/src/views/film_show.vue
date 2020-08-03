@@ -243,7 +243,7 @@ export default {
 </script>
 <style lang="less">
 .FilmShow {
-  background: #000;
+  background: #0a0a0a;
   padding-bottom: 70px;
   .FilmShow_top {
     width: 100%;
@@ -268,7 +268,7 @@ export default {
   .content_top {
     margin-top: 70px;
     overflow: hidden;
-    background: #000000;
+    background: #000;
     .content_top_left {
       width: 800px;
       float: left;
