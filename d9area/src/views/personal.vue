@@ -224,7 +224,7 @@ export default {
   components: { Nav, Footer },
   data () {
     return {
-      mainnav: '',
+      mainnav: '5',
       personal_active: '1',
       radio: '1',
       edit_head_img: false,

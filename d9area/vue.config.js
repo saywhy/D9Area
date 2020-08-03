@@ -46,6 +46,31 @@ module.exports = {
             .set('@router', resolve('./src/router'))
             .set('@store', resolve('./src/store'))
             .set('@utils', resolve('./src/utils'))
+          // 压缩图片
+          // 需要 npm i -D image-webpack-loader
+          config.module
+              .rule("images")
+              .use("image-webpack-loader")
+              .loader("image-webpack-loader")
+              .options({
+                  mozjpeg: {
+                      progressive: true,
+                      quality: 65
+                  },
+                  optipng: {
+                      enabled: false
+                  },
+                  pngquant: {
+                      quality: [0.65, 0.9],
+                      speed: 4
+                  },
+                  gifsicle: {
+                      interlaced: false
+                  },
+                  webp: {
+                      quality: 75
+                  }
+              });
     },
 
     css: {
@@ -69,8 +94,9 @@ module.exports = {
                 ]
             }
         }
-    }
-
+    },
+  
+  
 
 
     // 配置打包 js、css文件为.gz格式，优化加载速度  （参考：https://blog.csdn.net/qq_31677507/article/details/102742196）

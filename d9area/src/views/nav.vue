@@ -4,7 +4,7 @@
          :class="activeIndex=='2'? 'widht100':''||activeIndex=='3'? 'widht100':''">
       <div class="logo_box">
         <img class="logo"
-             v-if="activeIndex =='1'|| activeIndex =='4' ||activeIndex ==undefined "
+             v-if="activeIndex =='1'|| activeIndex =='4' || activeIndex =='5' || activeIndex ==undefined "
              src="@/assets/images/home/D9-logo.png"
              alt="">
       </div>

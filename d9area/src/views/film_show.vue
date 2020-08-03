@@ -270,7 +270,7 @@ export default {
     overflow: hidden;
     background: #000;
     .content_top_left {
-      width: 800px;
+      width: 798px;
       float: left;
       height: 500px;
       background-image: url("../assets/images/film/show/main.png");
