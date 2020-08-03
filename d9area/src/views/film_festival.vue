@@ -46,40 +46,22 @@
             </div>
           </div>
           <!-- 下 -->
-          <!-- <div class="bom">
+          <div class="bom">
             <div class="left">
               <div class="left_top">
-                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
-                <p>详细了解2020年官方评选影片</p>
-              </div>
-              <div class="left_bom">
-                <img src="@/assets/images/film/bom_left.png" class="smal_img" alt />
-                <p>详细了解2020年官方评选影片</p>
-              </div>
-            </div>
-            <div class="right">
-              <img src="@/assets/images/film/bom_right.png" class="big_img" alt />
-              <p class="right_top_p">ICF国际CG动画电影周</p>
-              <p>开启短片申报通道</p>
-            </div>
-          </div>-->
-          <div class="top">
-            <div class="left">
-              <div class="big_img">
-                <img src="@/assets/images/film/top_left.png" alt />
-              </div>
-              <p class="left_top_p">ICF国际CG动画电影周</p>
-              <p>开启短片申报通道</p>
-            </div>
-            <div class="right">
-              <div class="right_top">
                 <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
                 <p>ICF短片申报规则说明</p>
               </div>
-              <div class="right_bom">
+              <div class="left_bom">
                 <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
                 <p>新闻发布会</p>
               </div>
+            </div>
+
+            <div class="right">
+              <img src="@/assets/images/film/top_left.png" alt />
+              <p class="right_top_p">ICF国际CG动画电影周</p>
+              <p>开启短片申报通道</p>
             </div>
           </div>
         </div>
@@ -120,7 +102,6 @@ export default {
         },
         {
           src: require("@/assets/images/film/mid_swiper_02.jpg"),
-        
         },
       ],
     };
@@ -173,7 +154,7 @@ export default {
 /deep/ .content_box {
   width: 1200px;
   margin: 0 auto;
-  padding-bottom: 40px;
+  padding-bottom: 70px;
   .big_img {
     width: 740px;
     height: 484px;
@@ -241,10 +222,58 @@ export default {
           line-height: 64px;
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
-          margin-bottom: 50px;
+          margin-bottom: 30px;
         }
       }
     }
+
+    .bom {
+      // border: 1px solid red;
+      .left {
+        float: left;
+        .left_top {
+          .smal_img {
+            width: 370px;
+            height: 226px;
+          }
+          p {
+            font-size: 18px;
+            color: #000;
+            margin: 30px 0 50px 0;
+          }
+          
+        }
+        .left_bom {
+            .smal_img {
+              width: 370px;
+              height: 226px;
+            }
+            p {
+              font-size: 18px;
+              color: #000;
+              margin-top: 30px;
+            }
+          }
+      }
+      .right {
+        float: right;
+        img {
+          width: 740px;
+          height: 484px;
+        }
+        .right_top_p {
+          font-size: 28px;
+          color: #000;
+          margin:30px 0 15px 0;
+        }
+        p {
+          font-size: 28px;
+          color: #000;
+           font-weight:400;
+        }
+      }
+    }
+
     .festival_mid {
       // border: 1px solid red;
       margin-bottom: 70px;
