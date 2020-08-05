@@ -9,7 +9,7 @@
                class="jj" />
         </div>
         <div class="main_container">
-          <p class="title">“人才猎头”</p>
+          <p class="sub_title">人才猎头</p>
           <p class="content">为才华横溢的CG影片创作者提供一个展示自我的机遇，为年轻导演的CG电影项目提供支持以及国际化的展示平台，并帮助他们寻找项目启动所需的资金赞助。</p>
           <p class="sub_title">项目评选</p>
           <p class="content">旨在挖掘并扶持新兴人才，每年都会从D9区国际CG动画电影周的竞赛单元入围作品中遴选出优秀的原创CG短片作品。</p>
