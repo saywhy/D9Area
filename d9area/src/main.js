@@ -5,13 +5,21 @@ import store from './store'
 
 import '@/assets/css/common.less'
 import '@/assets/js/rem'
+
+import vueAxios from 'vue-axios'
+import axios from 'axios'
+
+Vue.use(vueAxios, axios)
+
+
 // import 'amfe-flexible'
 // 引入element-UI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI);
 
-
+Vue.prototype.$axios = axios;
+axios.defaults.baseURL = '/api/' // api 即上面 vue.config.js 中配置的地址
 import 'fullpage.js/vendors/scrolloverflow'
 // import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
 import VueFullPage from 'vue-fullpage.js/dist/vue-fullpage.js'

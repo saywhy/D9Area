@@ -34,7 +34,20 @@ module.exports = {
         //     }
         // }
         // },
+        proxy: { //配置多个跨域
+            "/api": {
+                target: "http://33310y89m5.wicp.vip/",
+                changeOrigin: true,
+                // ws: true,//websocket支持
+                secure: false,
+                pathRewrite: {
+                    "^/api": "/"
+                }
+            },
+
+        },
     },
+    
     chainWebpack: (config) => {
         // 移除 prefetch 插件(针对生产环境首屏请求数进行优化)
         config.plugins.delete('prefetch')

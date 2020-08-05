@@ -4,7 +4,7 @@
       <film-nav :activenav="Index" class="top_nav"></film-nav>
       <div class="QA">
         <div class="QA_bg">
-          <img src="../assets/images/QA/QA.png" alt />
+          <img src="../assets/images/QA/QA.jpg" alt />
         </div>
         <div class="QA_box">
           <div class="QA_min">
@@ -64,7 +64,7 @@ export default {
   // padding-bottom: 180px;
   .QA_bg img {
     width: 100%;
-    height: 540px;
+    height: 300;
   }
   .QA_box {
     width: 1200px;

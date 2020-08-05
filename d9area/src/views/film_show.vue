@@ -247,7 +247,7 @@ export default {
   padding-bottom: 70px;
   .FilmShow_top {
     width: 100%;
-    height: 540px;
+    height: 300px;
     img {
       width: 100%;
       height: 100%;

@@ -137,6 +137,9 @@ export default {
             this.$router.push("/upload_steps");
           }
           break;
+           case "5":
+          this.$router.push("/film_fund");
+          break;
         case "6":
           this.$router.push("/QA");
           break;

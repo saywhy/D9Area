@@ -18,7 +18,8 @@ import UploadSteps from '@/views/upload_steps.vue'
 import Newlogin from '@/views/newlogin.vue'
 import Details from '../views/details.vue'
 import OnlineSteps from '../views/online_steps.vue'
-// import OnlineView from '../views/online_view.vue'
+import FilmFund from '../views/film_fund.vue'
+import SimpieNav from '../views/simple_nav.vue'
 
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
@@ -129,11 +130,17 @@ const routes = [{
         name: 'OnlineSteps',
         component: OnlineSteps
     },
-    // {
-    //     path: '/Online_view',
-    //     name: 'OnlineView',
-    //     component: OnlineView
-    // },
+     {
+         path: '/film_fund',
+         name: 'FilmFund',
+         component: FilmFund
+     },
+    {
+        path: '/simpie_nav',
+        name: 'SimpieNav',
+        component: SimpieNav
+    },
+    
 ]
 
 const router = new VueRouter({
