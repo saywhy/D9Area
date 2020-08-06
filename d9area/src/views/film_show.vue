@@ -2,15 +2,15 @@
   <div class="body_box">
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
+      <div class="FilmShow_top">
+        <img src="../assets/images/film/film_show1.jpg" width:540px alt />
+      </div>
       <div class="FilmShow">
-        <div class="FilmShow_top">
-          <img src="../assets/images/film/film_show1.jpg" width:540px alt />
-        </div>
         <!-- 影片展示 -->
         <div class>
-          <div >
+          <div>
             <!-- <p class="content_title">入围作品</p> -->
-            <div class="content_top sub_container" :class="detail_status?'border_box':''" >
+            <div class="content_top sub_container" :class="detail_status?'border_box':''">
               <div class="content_top_left" @click="show_detail_box">
                 <span class="content_top_left_time">时长：1分20秒</span>
               </div>
@@ -32,7 +32,12 @@
             <div class="show_detail" v-if="detail_status">
               <div class="detail_box">
                 <div class="img_box">
-                  <img class="X" @click="closed_detail_box" src="../assets/images/film_swiper/closed.png" alt />
+                  <img
+                    class="X"
+                    @click="closed_detail_box"
+                    src="../assets/images/film_swiper/closed.png"
+                    alt
+                  />
                 </div>
 
                 <div class="detail_box_left">
@@ -124,7 +129,7 @@ export default {
       Index: "3",
       selected_box: true,
       selected_box_2: true,
-      detail_status:false,
+      detail_status: false,
       awards: "awards",
       selected: "selected",
       demo_list: [
@@ -233,26 +238,30 @@ export default {
   mounted() {},
   methods: {
     show_detail_box() {
-    this.detail_status = true
+      this.detail_status = true;
     },
-    closed_detail_box(){
-      this.detail_status = false
-    }
+    closed_detail_box() {
+      this.detail_status = false;
+    },
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
+.FilmShow_top {
+  width: 100%;
+  height: 300px;
+  position: fixed;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 .FilmShow {
   background: #0a0a0a;
   padding-bottom: 70px;
-  .FilmShow_top {
-    width: 100%;
-    height: 300px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
+  margin-top: 300px;
+  padding-top: 70px;
+  position: relative;
   // 内容
   .sub_container {
     width: 1200px;
@@ -266,7 +275,6 @@ export default {
     text-align: left;
   }
   .content_top {
-    margin-top: 70px;
     overflow: hidden;
     background: #000;
     .content_top_left {
@@ -320,8 +328,8 @@ export default {
       }
     }
   }
-  .border_box{
-    border: 1px solid #C8A461;
+  .border_box {
+    border: 1px solid #c8a461;
   }
   .demo_box {
     display: flex;

@@ -97,9 +97,7 @@
         </el-dialog>
       </div>
 
-
-<div id="player-con"></div>
-
+      <div id="player-con"></div>
 
       <Footer></Footer>
     </div>
@@ -123,20 +121,8 @@ export default {
       },
     };
   },
-  mounted () {
-    var player = new Aliplayer({
-    id: "player-con",
-    source: "//player.alicdn.com/video/editor.mp4",
-    width: "100%",
-    height: "500px",
-    cover: 'https://img.alicdn.com/tps/TB1EXIhOFXXXXcIaXXXXXXXXXXX-760-340.jpg',
-    /* To set an album art, you must set 'autoplay' and 'preload' to 'false' */
-    autoplay: false,
-    preload: false,
-    isLive: false
-  }, function (player) {
-    console.log("The player is created");
-  });
+  mounted() {
+   
   },
   methods: {
     find_pswd() {
@@ -152,19 +138,20 @@ export default {
       this.creat_box = false;
     },
     login_go() {
-        this.axios.get('/user/userLogin',{
-          params:{
-            mobilephone:'15237304009',
-            userpassword:'why15237304009'
-          }
+      this.axios
+        .get("/user/userLogin", {
+          params: {
+            mobilephone: "15237304009",
+            userpassword: "why15237304009",
+          },
         })
-      .then(response => {
-        console.log(response);
-        console.log('ok')
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+        .then((response) => {
+          console.log(response);
+          console.log("ok");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
 
       if (this.account.email == "admin" || this.account.pswd == "12345") {
         // this.$router.push("/personal");

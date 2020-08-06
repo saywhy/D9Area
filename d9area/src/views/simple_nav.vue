@@ -1,5 +1,5 @@
 <template>
-  <div class="simpie_nav">
+  <div class="simpie_nav" >
     <div class="simpie_nav_box">
       <el-menu
         :default-active="activeIndex"
@@ -24,8 +24,10 @@ export default {
     return {
       activeIndex: "1",
       sim_nav: {},
+      offsetTop:0
     };
   },
+  
   methods: {
     handleSelect(key, keyPath) {
       switch (key) {
@@ -40,6 +42,8 @@ export default {
           break;
       }
     },
+
+    
   },
 };
 </script>
@@ -49,7 +53,7 @@ export default {
   background-color: #141414;
   height: 40px;
   width: 100%;
-  margin-top: 0;
+  margin-top: 300px;
   position: relative;
   z-index: 99;
 
@@ -91,4 +95,5 @@ export default {
     border: 0;
   }
 }
+
 </style>

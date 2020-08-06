@@ -2,33 +2,19 @@
   <div class="body_box">
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
-      <div class="simple_box">
-        <div class="simple_img_box">
-          <img src="@/assets/images/simple/jj.jpg" alt />
-        </div>
+      <div class="simple_img_box">
+        <img src="@/assets/images/simple/jj.jpg" alt />
+      </div>
+
+      <div id="simpie_nav" :class="srcolltop?'fixed_nav':''">
         <SimpleNav @selected="selected"></SimpleNav>
+      </div>
+
+      <div class="simple_box">
         <div class="simple_box_min">
           <!-- <img src="@/assets/images/simple/tc.png" alt class="tc" /> -->
           <simple-film v-if="defult_selected=='1'"></simple-film>
           <simple-rules v-if="defult_selected=='2'"></simple-rules>
-          <!-- <p class="question">CG动画电影周的使命是什么？</p>
-          <p
-            class="key"
-          >D9区国际CG动画电影周（以下简称ICF）将评选并奖励优秀CG短片的创作，发现、扶持有理想、有激情、有创造力的动画团队和人才，孵化优质短片项目，促进国际文化交流与合作，创建CG短片创作、汇聚、交流、交易的国际化平台。</p>
-          <p class="question">首届ICF会有哪些内容板块？</p>
-          <p
-            class="key"
-          >首届ICF分为竞赛单元、展映单元、论坛单元、创投计划四大板块内容，首届主竞赛单元只接受VFX电影短片、三维动画短片、VR短片三个方向，面向全球CG短片创作者开放。</p>
-          <p class="question">竞赛单元的评选标准是什么？</p>
-          <p
-            class="key1"
-          >通过全CG三维制作的影片你要体现完整的叙事结构、独特的视角、鲜明的视觉风格和制作技术的突破。入围竞赛单元的影片将会是“全新时代CG影片”优秀的阐释，不仅着重用视觉讲故事，阐述作品意图和审美的独特性，以通过全CG三维制作来展示一种强有力的美学风格。获奖作品将会进入ICF电影基金会的创投计划中，以挖掘高品质影片创作为宗旨。</p>
-
-          <p
-            class="key"
-          >该单元将邀请国内外影视、动画行业领军人士和著名导演担任评委，首届D9区国际CG动画电影周的国际评审主席是彼得.拉姆齐（Peter Ramsey），他是《蜘蛛侠.平行宇宙》的导演，该作品获得奥斯卡最佳动画片奖。</p>
-          <p class="question">展映单元由什么组成？</p>
-          <p class="key">由ICF竞赛单元入围影片和主题展映邀约两部分组成。</p>-->
         </div>
       </div>
       <Footer></Footer>
@@ -59,11 +45,34 @@ export default {
       Index: "2",
       mainnav: "2",
       defult_selected: "1",
+      srcolltop: false,
     };
+  },
+  mounted() {
+    //首先，在mounted钩子window添加一个滚动滚动监听事件
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     selected(childValue) {
       this.defult_selected = childValue;
+    },
+    handleScroll() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      let offsetTop = document.querySelector("#simpie_nav").offsetTop;
+      console.log(offsetTop);
+      console.log(scrollTop);
+      if (scrollTop >= 280) {
+        console.log(" 执行固定定位");
+        // 执行固定定位
+        // this.srcolltop = true;
+      }
+      // else
+      // if(scrollTop-offsetTop) {
+      //   this.srcolltop = false;
+      // }
     },
   },
 };
@@ -73,25 +82,36 @@ export default {
 .nav_margin_top {
   background-color: #000;
 }
+.simple_img_box {
+  width: 100%;
+  height: 300px;
+  position: fixed;
+  z-index: 1;
+  img {
+    width: 100%;
+    height: 300px;
+  }
+}
 .simple_box {
+  position: relative;
   background: #fff;
   padding-bottom: 80px;
   width: 100%;
-  .simple_img_box {
-    width: 100%;
-    height: 300px;
-    position: fixed;
-    z-index: 1;
-    img {
-      width: 100%;
-      height: 300px;
-    }
-  }
+  padding-top: 30px;
+  z-index: 9099;
+
   .simple_box_min {
     background-color: #fff;
-    margin-top: 340px;
+    // margin-top: 340px;
     position: relative;
     z-index: 999;
   }
+}
+
+.fixed_nav {
+  position: fixed !important;
+  z-index: 99999 !important;
+  // top: 61px !important;
+  margin-top: 0 !important;
 }
 </style>
