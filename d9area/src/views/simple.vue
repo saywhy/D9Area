@@ -3,10 +3,10 @@
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
       <div class="simple_box">
-        <div class="jj">
+        <div class="simple_img_box">
           <img src="@/assets/images/simple/jj.jpg" alt />
         </div>
-        <SimpleNav @selected='selected'></SimpleNav>
+        <SimpleNav @selected="selected"></SimpleNav>
         <div class="simple_box_min">
           <!-- <img src="@/assets/images/simple/tc.png" alt class="tc" /> -->
           <simple-film v-if="defult_selected=='1'"></simple-film>
@@ -28,7 +28,7 @@
             class="key"
           >该单元将邀请国内外影视、动画行业领军人士和著名导演担任评委，首届D9区国际CG动画电影周的国际评审主席是彼得.拉姆齐（Peter Ramsey），他是《蜘蛛侠.平行宇宙》的导演，该作品获得奥斯卡最佳动画片奖。</p>
           <p class="question">展映单元由什么组成？</p>
-          <p class="key">由ICF竞赛单元入围影片和主题展映邀约两部分组成。</p> -->
+          <p class="key">由ICF竞赛单元入围影片和主题展映邀约两部分组成。</p>-->
         </div>
       </div>
       <Footer></Footer>
@@ -43,22 +43,29 @@ import filmNav from "@/views/film_nav.vue";
 import filmTop from "@/views/film_top.vue";
 import SimpleNav from "@/views/simple_nav.vue";
 import simpleFilm from "@/views/simple_film.vue";
-import simpleRules  from "@/views/simple_rules.vue";
+import simpleRules from "@/views/simple_rules.vue";
 export default {
-  components: { Nav, Footer, filmTop, filmNav, SimpleNav,simpleFilm,simpleRules },
+  components: {
+    Nav,
+    Footer,
+    filmTop,
+    filmNav,
+    SimpleNav,
+    simpleFilm,
+    simpleRules,
+  },
   data() {
     return {
       Index: "2",
       mainnav: "2",
-      defult_selected:'1'
+      defult_selected: "1",
     };
   },
-   methods: {
-      selected(childValue){
-         this.defult_selected =childValue
-      }
-    
-    }
+  methods: {
+    selected(childValue) {
+      this.defult_selected = childValue;
+    },
+  },
 };
 </script>
 
@@ -70,20 +77,21 @@ export default {
   background: #fff;
   padding-bottom: 80px;
   width: 100%;
-  .jj {
+  .simple_img_box {
     width: 100%;
     height: 300px;
+    position: fixed;
+    z-index: 1;
     img {
       width: 100%;
       height: 300px;
     }
   }
   .simple_box_min {
-    width: 1200px;
-    margin: 0 auto;
     background-color: #fff;
-    margin-top: 40px;
+    margin-top: 340px;
+    position: relative;
+    z-index: 999;
   }
- 
 }
 </style>

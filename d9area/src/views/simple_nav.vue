@@ -10,9 +10,9 @@
         text-color="#fff"
         active-text-color="#C8A461"
       >
-        <el-menu-item index="1" >电影周</el-menu-item>
-        <el-menu-item index="2" >章程</el-menu-item>
-        <el-menu-item index="3" >评审委员会</el-menu-item>
+        <el-menu-item index="1">电影周</el-menu-item>
+        <el-menu-item index="2">章程</el-menu-item>
+        <el-menu-item index="3">评审委员会</el-menu-item>
       </el-menu>
     </div>
   </div>
@@ -30,13 +30,13 @@ export default {
     handleSelect(key, keyPath) {
       switch (key) {
         case "1":
-          this.$emit('selected', '1')
+          this.$emit("selected", "1");
           break;
         case "2":
-          this.$emit('selected', '2')
+          this.$emit("selected", "2");
           break;
         case "3":
-          this.$emit('selected', '3')
+          this.$emit("selected", "3");
           break;
       }
     },
@@ -50,15 +50,16 @@ export default {
   height: 40px;
   width: 100%;
   margin-top: 0;
+  position: relative;
+  z-index: 99;
 
   .simpie_nav_box {
     width: 1200px;
     margin: 0 auto;
-    background-color: red;
     height: 40px;
   }
 
-   .el-menu.el-menu--horizontal {
+  .el-menu.el-menu--horizontal {
     border-bottom: 0;
 
     .el-menu-demo el-menu--horizontal el-menu {
@@ -79,21 +80,15 @@ export default {
   }
 
   //---------------------------
-  /deep/
-  .el-menu.el-menu--horizontal {
-      border: 0;
-       background-color: #141414 !important;
-    }
-    .el-menu--horizontal > .el-menu-item.is-active {
-      border: 0;
-    }
-    .el-menu--horizontal > .el-menu-item {
-      border: 0;
-    }
-
-
-
-
-
+  /deep/ .el-menu.el-menu--horizontal {
+    border: 0;
+    background-color: #141414 !important;
+  }
+  .el-menu--horizontal > .el-menu-item.is-active {
+    border: 0;
+  }
+  .el-menu--horizontal > .el-menu-item {
+    border: 0;
+  }
 }
 </style>

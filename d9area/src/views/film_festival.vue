@@ -92,9 +92,7 @@ export default {
         {
           src: require("@/assets/images/film/banner2.jpg"),
         },
-        {
-          src: require("@/assets/images/film/banner3.jpg"),
-        },
+      
       ],
       mid_Swiper_img: [
         {
