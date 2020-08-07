@@ -19,19 +19,19 @@
           <div class="top">
             <div class="left">
               <div class="big_img">
-                <img src="@/assets/images/film/top_left.png" alt />
+                <img src="@/assets/images/film/top_left1.jpg" alt />
               </div>
-              <p class="left_top_p">ICF国际CG动画电影周</p>
+              <p class="left_top_p">北京国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
             <div class="right">
               <div class="right_top">
-                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                <p>ICF短片申报规则说明</p>
+                <img src="@/assets/images/film/top_right.jpg" class="smal_img" alt />
+                <p>申报章程</p>
               </div>
               <div class="right_bom">
-                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                <p>新闻发布会</p>
+                <img src="../assets/images/film/top_right_bottom.jpg" class="smal_img" alt />
+                <p>媒体通道</p>
               </div>
             </div>
           </div>
@@ -43,26 +43,55 @@
                   <img :src="xt.src" style="height: 100%; width: 100%;" alt />
                 </div>
               </div>
+              <!-- 如果需要分页器 -->
+              <!-- <div class="swiper-pagination"></div> -->
             </div>
           </div>
           <!-- 下 -->
           <div class="bom">
-            <div class="left">
-              <div class="left_top">
-                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                <p>ICF短片申报规则说明</p>
+            <div class="bom_box_title">所有新闻</div>
+            <div class="bom_box">
+              <div class="bom_box_left">
+                <!-- 下拉框 -->
+                <el-select v-model="value" placeholder="2020">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  ></el-option>
+                </el-select>
+                <p class="awards">获奖作品</p>
+                <div class="direction">
+                  <div class="direction_l">
+                    <p><</p>
+                  </div>
+                  <div class="direction_r">
+                    <p>></p>
+                  </div>
+                </div>
+                <!-- <div class="more">
+                  <span>了解更多获奖作品</span>
+                  <span>——></span>
+                </div> -->
               </div>
-              <div class="left_bom">
-                <img src="@/assets/images/film/top_right.png" class="smal_img" alt />
-                <p>新闻发布会</p>
-              </div>
-            </div>
 
-            <div class="right">
-              <img src="@/assets/images/film/top_left.png" alt />
-              <p class="right_top_p">ICF国际CG动画电影周</p>
-              <p>开启短片申报通道</p>
+              <div class="bom_box_right">
+                <div class="box_img">
+                  <div class="img_l"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
+                  <div class="img_r"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
+                </div>
+                 <div class="box_img">
+                  <div class="img_l"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
+                  <div class="img_r"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
+                </div>
+              </div>
             </div>
+          </div>
+
+<!-- 底部 -->
+          <div class="" >
+
           </div>
         </div>
       </div>
@@ -92,16 +121,22 @@ export default {
         {
           src: require("@/assets/images/film/banner2.jpg"),
         },
-      
       ],
       mid_Swiper_img: [
         {
           src: require("@/assets/images/film/mid_swiper_01.jpg"),
         },
+        // {
+        //   src: require("@/assets/images/film/mid_swiper_02.jpg"),
+        // },
+      ],
+      options: [
         {
-          src: require("@/assets/images/film/mid_swiper_02.jpg"),
+          value: "选项1",
+          label: "2020",
         },
       ],
+      value: ''
     };
   },
   mounted() {
@@ -112,7 +147,7 @@ export default {
     init_top_Swiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper(".swiper-container", {
-        autoplay: false, //等同于以下设置
+        // autoplay: false, //等同于以下设置
         // autoplay: {
         //   disableOnInteraction: false
         // }, //可选选项，自动滑动
@@ -122,28 +157,28 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
           dragSize: 30,
-          // type: 'progress',
+          // type: "progress",
         },
       });
       // });
     },
     init_mid_Swiper() {
-      // this.$nextTick(() => {
-      var swiper = new Swiper(".init_mid_Swiper", {
-        autoplay: false, //等同于以下设置
-        // autoplay: {
-        //   disableOnInteraction: false
-        // }, //可选选项，自动滑动
-        loop: true,
-        speed: 1000,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   clickable: true,
-        //   dragSize: 30,
-        //   // type: 'progress',
-        // },
+      this.$nextTick(() => {
+        var swiper = new Swiper(".init_mid_Swiper", {
+          // autoplay: false, //等同于以下设置
+          // autoplay: {
+          //   disableOnInteraction: false
+          // }, //可选选项，自动滑动
+          loop: true,
+          speed: 1000,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dragSize: 30,
+            // type: 'progress',
+          },
+        });
       });
-      // });
     },
   },
 };
@@ -225,64 +260,121 @@ export default {
       }
     }
 
+    // 底部
+
     .bom {
-      // border: 1px solid red;
-      .left {
-        float: left;
-        .left_top {
-          .smal_img {
-            width: 370px;
-            height: 226px;
-          }
-          p {
-            font-size: 18px;
-            color: #000;
-            margin: 30px 0 50px 0;
-          }
-          
-        }
-        .left_bom {
-            .smal_img {
-              width: 370px;
-              height: 226px;
-            }
-            p {
-              font-size: 18px;
-              color: #000;
-              margin-top: 30px;
-            }
-          }
+      .bom_box_title {
+        font-size: 18px;
+        color: #000000;
+        text-align: left;
+        height: 100px;
+        // border:1px solid red;
       }
-      .right {
-        float: right;
-        img {
-          width: 740px;
-          height: 484px;
+
+      .bom_box {
+        .bom_box_left {
+          width: 150px;
+          height: 700px;
+          // border: 1px solid red;
+          float: left;
+          // .el-input el-input--suffix {
+          //   width: 150px;
+          //   height: 50px;
+          //   background-color: #c8a461;
+          // }
+          .el-input__inner {
+            width: 150px;
+            height: 50px;
+            background-color: #c8a461;
+            font-size: 20px;
+            color: red !important;
+            border: 0;
+            border-radius: 0;
+            // margin-top: 60px;
+          }
+          .awards {
+            font-size: 28px;
+            color: #000;
+            font-weight: 500;
+            text-align: left;
+            margin: 30px 0 36px 0;
+          }
+          .direction {
+            overflow: hidden;
+            .direction_l {
+              border: 1px solid #9b9b9b;
+              width: 56px;
+              height: 56px;
+              float: left;
+
+              p {
+                width: 10px;
+                height: 18px;
+                color: #9b9b9b;
+                margin: 20px auto;
+              }
+            }
+            .direction_r {
+              border: 1px solid #9b9b9b;
+              width: 56px;
+              height: 56px;
+              float: right;
+              p {
+                width: 10px;
+                height: 18px;
+                color: #9b9b9b;
+                margin: 20px auto;
+              }
+            }
+            // .more {
+            //   margin-top: 60px;
+            //   span {
+            //     font-size: 16px;
+            //     // color: #a5aaa9;
+            //     color:#000;
+            //   }
+            
+          }
         }
-        .right_top_p {
-          font-size: 28px;
-          color: #000;
-          margin:30px 0 15px 0;
-        }
-        p {
-          font-size: 28px;
-          color: #000;
-           font-weight:400;
+
+        .bom_box_right {
+          width: 840px;
+          height: 700px;
+          float: right;
+          
+          .box_img{
+            height: 280px;
+            width:840px;
+            margin-bottom: 16px;
+            .img_l{
+              width:410px;
+               height: 280px;
+               float: left;
+            }
+            .img_l{
+              width:410px;
+               height: 280px;
+               float: right;
+            }
+          }
         }
       }
     }
 
+    // 中间轮播图
     .festival_mid {
       // border: 1px solid red;
-      margin-bottom: 70px;
+      width: 830px;
       height: 380px;
-    }
-  }
+      margin-bottom: 70px;
 
-  .init_mid_Swiper {
-    width: 100%;
-    height: 100%;
-    color: #000;
+      .init_mid_Swiper {
+        width: 100%;
+        height: 100%;
+        color: #000;
+        // border: 1px solid green;
+      }
+    }
   }
 }
 </style>
