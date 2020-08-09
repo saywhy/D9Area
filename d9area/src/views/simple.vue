@@ -3,7 +3,8 @@
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
       <div class="simple_img_box">
-        <img src="@/assets/images/simple/jj.jpg" alt />
+        <img  v-if="defult_selected=='1'" src="@/assets/images/simple/jj.jpg" alt />
+        <img v-if="defult_selected=='2'" src="@/assets/images/simple/zc.jpg" alt />
       </div>
 
       <div id="simpie_nav" :class="srcolltop?'fixed_nav':''">

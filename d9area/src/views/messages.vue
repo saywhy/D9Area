@@ -268,6 +268,7 @@ export default {
     }
     .user_box {
       margin: 30px 34px 42px 30px;
+      display: none;
       p {
         line-height: 34px;
       }
@@ -298,6 +299,7 @@ export default {
     }
     .privacy_box {
       margin: 30px 34px 42px 30px;
+      display: none;
       p {
         line-height: 34px;
       }
@@ -327,7 +329,7 @@ export default {
     }
     .help_box {
       margin: 30px 0 0 30px;
-
+      display: none;
       .yelloe {
         font-size: 20px;
         color: #c8a461;
@@ -354,9 +356,11 @@ export default {
     }
   }
   .us_box {
+     display: none;
     font-size: 16px;
     height: 634px;
     margin: 40px 0 0px 30px;
+   
     p {
       margin-bottom: 30px;
     }

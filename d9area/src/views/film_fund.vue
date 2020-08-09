@@ -3,7 +3,7 @@
     <div class="film_fund">
       <film-nav :activenav="Index"></film-nav>
       <div class="img_box">
-        <img src="@/assets/images/simple/jj.jpg" alt class="jj" />
+        <img src="@/assets/images/simple_fund/banner.jpg" alt class="jj" />
       </div>
       <div class="film_fund_box">
         <div class="container_box">

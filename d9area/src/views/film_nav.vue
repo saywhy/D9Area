@@ -221,6 +221,8 @@ export default {
 .film_nav {
   width: 100%;
   overflow: hidden;
+      position: relative;
+  z-index: 999;
   // 大导航
   .top_nav {
     height: 40px;
