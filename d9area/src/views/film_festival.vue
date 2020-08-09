@@ -3,10 +3,14 @@
     <film-nav :activenav="Index"></film-nav>
     <div class="FilmFestival">
       <div class="FilmFestival_swiper">
-        <div class="swiper-container">
+        <div class="swiper-container"
+             id="top_swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="item in img_list">
-              <img :src="item.src" style="height: 100%; width: 100%;" alt />
+            <div class="swiper-slide"
+                 v-for="item in img_list">
+              <img :src="item.src"
+                   style="height: 100%; width: 100%;"
+                   alt />
             </div>
           </div>
           <!-- 如果需要分页器 -->
@@ -14,83 +18,69 @@
         </div>
       </div>
       <div class="FilmFestival_content">
-        <div class="content_box" style="overflow: hidden;">
+        <div class="content_box">
           <!-- 上 -->
           <div class="top">
             <div class="left">
               <div class="big_img">
-                <img src="@/assets/images/film/top_left1.jpg" alt />
+                <img src="@/assets/images/film/top_left1.jpg"
+                     alt />
               </div>
               <p class="left_top_p">北京国际CG动画电影周</p>
               <p>开启短片申报通道</p>
             </div>
             <div class="right">
               <div class="right_top">
-                <img src="@/assets/images/film/top_right.jpg" class="smal_img" alt />
+                <img src="@/assets/images/film/top_right.jpg"
+                     class="smal_img"
+                     alt />
                 <p>申报章程</p>
               </div>
               <div class="right_bom">
-                <img src="../assets/images/film/top_right_bottom.jpg" class="smal_img" alt />
+                <img src="../assets/images/film/top_right_bottom.jpg"
+                     class="smal_img"
+                     alt />
                 <p>媒体通道</p>
               </div>
             </div>
           </div>
-          <!-- 中间轮播图 -->
-          <div class="festival_mid">
-            <div class="init_mid_Swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="xt in mid_Swiper_img">
-                  <img :src="xt.src" style="height: 100%; width: 100%;" alt />
+          <!-- 中间图片加轮播图 -->
+          <div class="mid_box">
+            <div class="mid">
+              <!-- <img src=""
+                 alt=""> -->
+            </div>
+            <div class="mid_swiper">
+              <!-- 轮播图 -->
+              <div class="mid_swiper_top">
+
+                <div class="swiper-container"
+                     id="mid_Swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"
+                         v-for="item in mid_swiper_list">
+                      <p>{{item.title}}</p>
+                      <p>{{item.content}}</p>
+                    </div>
+                  </div>
+                  <!-- 如果需要分页器 -->
+                  <div class="swiper-pagination mid-swiper-pagination"></div>
+                </div>
+
+              </div>
+
+              <div class="mid_swiper_bom">
+                <div class="bom_btn">
+                  所有新闻
                 </div>
               </div>
-              <!-- 如果需要分页器 -->
-              <!-- <div class="swiper-pagination"></div> -->
+
             </div>
           </div>
           <!-- 下 -->
-          <div class="bom">
-            <div class="bom_box_title">所有新闻</div>
-            <div class="bom_box">
-              <div class="bom_box_left">
-                <!-- 下拉框 -->
-                <el-select v-model="value" placeholder="2020">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
-                </el-select>
-                <p class="awards">获奖作品</p>
-                <div class="direction">
-                  <div class="direction_l">
-                    <p><</p>
-                  </div>
-                  <div class="direction_r">
-                    <p>></p>
-                  </div>
-                </div>
-                <!-- <div class="more">
-                  <span>了解更多获奖作品</span>
-                  <span>——></span>
-                </div> -->
-              </div>
 
-              <div class="bom_box_right">
-                <div class="box_img">
-                  <div class="img_l"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
-                  <div class="img_r"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
-                </div>
-                 <div class="box_img">
-                  <div class="img_l"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
-                  <div class="img_r"><img src="../assets/images/film/bottom_icf.png" alt=""></div> 
-                </div>
-              </div>
-            </div>
-          </div>
-
-<!-- 底部 -->
-          <div class="" >
+          <!-- 底部 -->
+          <div class="">
 
           </div>
         </div>
@@ -110,7 +100,7 @@ import filmTop from "@/views/film_top.vue";
 export default {
   name: "FilmFestival",
   components: { Nav, Footer, filmNav, filmTop },
-  data() {
+  data () {
     return {
       Index: "1",
       mainnav: "2",
@@ -122,31 +112,27 @@ export default {
           src: require("@/assets/images/film/banner2.jpg"),
         },
       ],
-      mid_Swiper_img: [
+      mid_swiper_list: [
         {
-          src: require("@/assets/images/film/mid_swiper_01.jpg"),
+          title: '2020年北京国际CG动画电影周',
+          content: '首届ICF分为竞赛单元、展映单元、论坛单元、 D9区创投计划四大板块内容，首届主竞赛单元只接受CG电影短片、三维动画短片、VR短片三个方向， 面向全球CG动画电影创作者开放。'
         },
-        // {
-        //   src: require("@/assets/images/film/mid_swiper_02.jpg"),
-        // },
-      ],
-      options: [
         {
-          value: "选项1",
-          label: "2020",
+          title: '2021年北京国际CG动画电影周',
+          content: '首届ICF分为竞赛单元、展映单元、论坛单元、 D9区创投计划四大板块内容，首届主竞赛单元只接受CG电影短片、三维动画短片、VR短片三个方向， 面向全球CG动画电影创作者开放。'
         },
       ],
       value: ''
     };
   },
-  mounted() {
+  mounted () {
     this.init_top_Swiper();
     this.init_mid_Swiper();
   },
   methods: {
-    init_top_Swiper() {
+    init_top_Swiper () {
       // this.$nextTick(() => {
-      var swiper = new Swiper(".swiper-container", {
+      var swiper = new Swiper("#top_swiper", {
         // autoplay: false, //等同于以下设置
         // autoplay: {
         //   disableOnInteraction: false
@@ -162,9 +148,9 @@ export default {
       });
       // });
     },
-    init_mid_Swiper() {
+    init_mid_Swiper () {
       this.$nextTick(() => {
-        var swiper = new Swiper(".init_mid_Swiper", {
+        var swiper = new Swiper("#mid_Swiper", {
           // autoplay: false, //等同于以下设置
           // autoplay: {
           //   disableOnInteraction: false
@@ -207,7 +193,7 @@ export default {
 }
 
 /deep/ .FilmFestival {
-  .swiper-container {
+  #top_swiper {
     width: 100%;
     height: 640px;
     color: #fff;
@@ -227,9 +213,10 @@ export default {
       opacity: 1;
     }
   }
+
   .FilmFestival_content {
     background: #fff;
-    padding-top: 70px;
+    padding: 100px 0;
 
     .top {
       overflow: auto;
@@ -256,6 +243,43 @@ export default {
           font-weight: 400;
           color: rgba(0, 0, 0, 1);
           margin-bottom: 30px;
+        }
+      }
+    }
+    // 中间
+    .mid_box {
+      position: relative;
+      .mid {
+        border: 1px solid red;
+        height: 375px;
+        position: relative;
+      }
+      .mid_swiper {
+        background: #f7f7f7;
+        width: 460px;
+        height: 426px;
+        position: absolute;
+        right: 44px;
+        top: 44px;
+        .mid_swiper_top {
+          height: 331px;
+          border: 1px solid red;
+        }
+        .mid_swiper_bom {
+          border: 1px solid red;
+          height: 95px;
+          position: relative;
+          .bom_btn {
+            cursor: pointer;
+            width: 90px;
+            height: 30px;
+            color: #c7a361;
+            border: 1px solid rgba(199, 163, 97, 1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
         }
       }
     }
@@ -333,7 +357,6 @@ export default {
             //     // color: #a5aaa9;
             //     color:#000;
             //   }
-            
           }
         }
 
@@ -341,20 +364,20 @@ export default {
           width: 840px;
           height: 700px;
           float: right;
-          
-          .box_img{
+
+          .box_img {
             height: 280px;
-            width:840px;
+            width: 840px;
             margin-bottom: 16px;
-            .img_l{
-              width:410px;
-               height: 280px;
-               float: left;
+            .img_l {
+              width: 410px;
+              height: 280px;
+              float: left;
             }
-            .img_l{
-              width:410px;
-               height: 280px;
-               float: right;
+            .img_l {
+              width: 410px;
+              height: 280px;
+              float: right;
             }
           }
         }
@@ -362,17 +385,27 @@ export default {
     }
 
     // 中间轮播图
-    .festival_mid {
-      // border: 1px solid red;
-      width: 830px;
-      height: 380px;
-      margin-bottom: 70px;
-
-      .init_mid_Swiper {
-        width: 100%;
-        height: 100%;
-        color: #000;
-        // border: 1px solid green;
+    #mid_Swiper {
+      border: 1px solid red;
+      width: 460px;
+      height: 331px;
+      color: #000;
+    }
+    .mid-swiper-pagination {
+      .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: #000;
+        border-radius: 10px;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        width: 10px;
+        height: 10px;
+        border-radius: 15px;
+        background: #fff;
+        border: 3px solid #c7a361;
+        opacity: 1;
       }
     }
   }

@@ -69,7 +69,12 @@ export default {
           this.$router.push('/home')
           break;
         case '2':
-          this.$router.push('/film_festival')
+          // this.$router.push('/film_festival')
+          const { href } = this.$router.resolve({
+            path: "/film_festival",
+
+          });
+          window.open(href, '_blank');
           break;
         case '3':
           // this.$router.push('/online_login')
