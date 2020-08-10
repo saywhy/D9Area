@@ -3,114 +3,95 @@
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
       <div class="FilmShow_top">
-        <img src="../assets/images/film/film_show1.jpg" width:540px alt />
+        <img src="@/assets/images/film/show/banner_fixed.png"
+             alt="">
       </div>
-      <div class="FilmShow">
-        <!-- 影片展示 -->
-        <div class>
-          <div>
-            <!-- <p class="content_title">入围作品</p> -->
-            <div class="content_top sub_container" :class="detail_status?'border_box':''">
-              <div class="content_top_left" @click="show_detail_box">
-                <span class="content_top_left_time">时长：1分20秒</span>
-              </div>
-              <div class="content_top_right">
-                <div class="content_top_right_top">
-                  <p class="film_name">拯救计划</p>
-                  <p class="film_theme">VFX电影短片 | 战争</p>
-                  <p
-                    class="film_des"
-                  >想知道好莱坞电影摄影师是如何运用光圈的？想知道最佳光圈为什么是f/T2.8，这部短片用四个原因告诉你，一起来涨知识吧！相信你一定有所提高！</p>
+      <div class="FilmShow_swiper">
+        <div class="container">
+          <div class="swiper-container"
+               id="top_swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"
+                   v-for="item in demo_list">
+                <div class="border_box">
                 </div>
-                <div class="content_top_right_bom">
-                  <p class="film_company">出品方：凉山重工</p>
-                  <p class="film_author">主创团队：导演11111/编剧/制片……</p>
+                <div class="cover_box">
+                  <img src="@/assets/images/film/show/cover.png"
+                       alt="">
+                </div>
+                <div class="info_box">
+                  <p class="info_title">{{item.name}}</p>
+                  <p class="info_des">影片简介2312321312321332312323323213232131232323131232323232 34324324234343432432434342423432</p>
                 </div>
               </div>
             </div>
-            <!-- 弹出框 -->
-            <div class="show_detail" v-if="detail_status">
-              <div class="detail_box">
-                <div class="img_box">
-                  <img
-                    class="X"
-                    @click="closed_detail_box"
-                    src="../assets/images/film_swiper/closed.png"
-                    alt
-                  />
-                </div>
-
-                <div class="detail_box_left">
-                  <p class="title">恐怖之夜</p>
-                  <div class="time">
-                    <span>2020-06-23</span>
-                    <span>1小时39分钟</span>
-                  </div>
-                  <p
-                    class="des"
-                  >罗德主持一个专门讨论恐怖的广播节目，有一天，播音员开始收到一个拼命求救的孩子的电话。起初，他认为这是一个笑话，后来他才意识到电话隐藏着一个黑暗的秘密。</p>
-                  <div class="btn">
-                    <div class="btn_left">
-                      <img src="../assets/images/online/start.png" alt />
-                      <span>播放</span>
-                    </div>
-
-                    <div class="btn_right">
-                      <img src="../assets/images/online/add.png" alt />
-                      <span>我的影片</span>
-                    </div>
-                  </div>
-
-                  <p class>出品方：凉山童工</p>
-                  <p>主创团队：导演11111/编剧222/制片111/艺术指导2222</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="demo_box sub_container">
-              <div
-                class="demo_item_box"
-                v-for="item in demo_list"
-                :class="item.show?'display_none':''"
-              >
-                <div class="item_img">
-                  <span class="item_time">{{item.time}}</span>
-                </div>
-                <div class="item_content">
-                  <div class="item_content_top">
-                    <p class="item_name">
-                      <span>{{item.type_name}}</span>
-                      <span>|</span>
-                      <span>{{item.name}}</span>
-                    </p>
-                    <p class="item_author">{{item.team}}</p>
-                  </div>
-                  <div class="item_content_bom">
-                    <p>
-                      <span class="item_company">{{item.company}}</span>
-                      <span class="item_theme">{{item.type}}</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-button-prev left_prev"></div>
+            <div class="swiper-button-next right_next"></div>
           </div>
         </div>
-        <div v-if="!selected_box">
-          <!-- <div class="sub_container">
-            <p class="content_title">入围作品</p>
-          </div>-->
-          <!-- <film-swiper :id="selected"></film-swiper> -->
-        </div>
-        <!-- 获奖作品 -->
-        <div v-if="!selected_box_2">
-          <div class="sub_container">
-            <p class="content_title">获奖作品</p>
+
+      </div>
+      <!-- 内容 -->
+      <div class="FilmShow_content">
+        <div class="content_top">
+          <div class="down_box">
+            2020
           </div>
-          <film-swiper :id="awards"></film-swiper>
+          <div class="top_item">
+            <li>
+              <p class="p_title">最佳短片</p>
+              <p class="p_icon">></p>
+            </li>
+            <li>
+              <p class="p_title">最佳剪辑</p>
+              <p class="p_icon">></p>
+            </li>
+          </div>
+          <div class="top_item">
+            <li>
+              <p class="p_title">最佳角色设计</p>
+              <p class="p_icon">></p>
+            </li>
+            <li>
+              <p class="p_title">最佳环境设计</p>
+              <p class="p_icon">></p>
+            </li>
+          </div>
+          <div class="top_item">
+            <li>
+              <p class="p_title">最佳导演</p>
+              <p class="p_icon">></p>
+            </li>
+            <li>
+              <p class="p_title">最佳艺术指导</p>
+              <p class="p_icon">></p>
+            </li>
+          </div>
+          <div class="top_item">
+            <li>
+              <p class="p_title">最佳动效设计</p>
+              <p class="p_icon">></p>
+            </li>
+            <li>
+              <p class="p_title">最佳技术贡献</p>
+              <p class="p_icon">></p>
+            </li>
+          </div>
+          <div class="top_item">
+            <li>
+              <p class="p_title">最佳编剧</p>
+              <p class="p_icon">></p>
+            </li>
+            <li>
+              <p class="p_title">最佳特效制作</p>
+              <p class="p_icon">></p>
+            </li>
+          </div>
+
         </div>
       </div>
-      <Footer></Footer>
+      <!-- <Footer></Footer> -->
     </div>
   </div>
 </template>
@@ -124,7 +105,7 @@ import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
   components: { Nav, Footer, filmNav, filmSwiper },
-  data() {
+  data () {
     return {
       Index: "3",
       selected_box: true,
@@ -235,13 +216,45 @@ export default {
       ],
     };
   },
-  mounted() {},
+  mounted () {
+    this.init_top_Swiper()
+  },
   methods: {
-    show_detail_box() {
-      this.detail_status = true;
-    },
-    closed_detail_box() {
-      this.detail_status = false;
+    init_top_Swiper () {
+      // this.$nextTick(() => {
+      var swiper = new Swiper("#top_swiper", {
+        // autoplay: false, //等同于以下设置
+        autoplay: {
+          disableOnInteraction: false
+        }, //可选选项，自动滑动
+        loop: true,
+        speed: 1000,
+        // effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dragSize: 30,
+          // type: "progress",
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          slideChangeTransitionStart: function () {
+            //alert(this.activeIndex);
+          },
+          slideChangeTransitionEnd: function () {
+            // alert(this.activeIndex);//切换结束时，告诉我现在是第几个slide
+          },
+        }
+
+
+      });
+      // });
     },
   },
 };
@@ -249,248 +262,135 @@ export default {
 <style lang="less" scoped>
 .FilmShow_top {
   width: 100%;
-  height: 300px;
+  height: 540px;
   position: fixed;
+  // border: 1px solid red;
+  z-index: 11;
   img {
     width: 100%;
     height: 100%;
   }
 }
-.FilmShow {
-  background: #0a0a0a;
-  padding-bottom: 70px;
-  margin-top: 300px;
-  padding-top: 70px;
+
+// 轮播图
+.FilmShow_swiper {
+  // border: 1px solid red;
+  height: 360px;
   position: relative;
-  // 内容
-  .sub_container {
+  z-index: 99;
+  margin-top: 400px;
+  .container {
     width: 1200px;
     margin: 0 auto;
-  }
-  .content_title {
-    font-size: 28px;
-    font-weight: 500;
-    color: #fff;
-    margin: 70px 0 50px 0;
-    text-align: left;
-  }
-  .content_top {
-    overflow: hidden;
-    background: #000;
-    .content_top_left {
-      width: 798px;
-      float: left;
-      height: 500px;
-      background-image: url("../assets/images/film/show/main.png");
-      background-size: 100% 100%;
-      cursor: pointer;
-      position: relative;
-      .content_top_left_time {
-        position: absolute;
-        right: 14px;
-        bottom: 12px;
-        font-size: 14px;
-      }
-    }
-    .content_top_right {
-      width: 398px;
-      float: left;
-      text-align: left;
-      .content_top_right_top {
-        height: 380px;
-        border-bottom: 1px solid #292929;
-        padding: 44px 0 25px 34px;
-        .film_name {
-          font-size: 22px;
-        }
-        .film_theme {
-          font-size: 16px;
-          color: rgba(123, 124, 123, 1);
-          margin: 26px 0;
-        }
-        .film_des {
-          font-size: 14px;
-          color: rgba(207, 207, 207, 1);
-          margin: 0 20px 136px 0;
-          line-height: 28px;
-        }
-      }
-      .content_top_right_bom {
-        padding: 32px 0px 28px 34px;
-        .film_company {
-          font-size: 14px;
-          margin-bottom: 24px;
-        }
-        .film_author {
-          font-size: 14px;
-          color: rgba(123, 124, 123, 1);
-        }
-      }
-    }
-  }
-  .border_box {
-    border: 1px solid #c8a461;
-  }
-  .demo_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: flex-start;
-  }
-
-  .demo_item_box {
-    flex: 0 0 calc(33.33% - 15px);
-    margin-top: 32px;
-    align-items: flex-start;
-    height: 390px;
-    align-self: flex-start;
-    background: #000;
-    .item_img {
-      height: 226px;
-      background-image: url("../assets/images/film/show/sub.png");
-      background-size: 100% 100%;
-      position: relative;
-      .item_time {
-        position: absolute;
-        right: 30px;
-        bottom: 18px;
-        font-size: 14px;
-      }
-    }
-    .item_content {
-      text-align: left;
-      .item_content_top {
-        height: 100px;
-        border-bottom: 1px solid rgba(10, 10, 10, 1);
-        padding: 24px 16px;
-        .item_name {
-          font-size: 14px;
-          color: rgba(255, 255, 255, 1);
-          margin-bottom: 12px;
-        }
-        .item_author {
-          font-size: 12px;
-          color: rgba(123, 124, 123, 1);
-        }
-      }
-      .item_content_bom {
-        height: 60px;
-        line-height: 50px;
-        padding: 0 16px;
-        .item_company {
-          font-size: 12px;
-          color: rgba(255, 255, 255, 1);
-          margin-right: 39px;
-        }
-        .item_theme {
-          font-size: 12px;
-          color: rgba(123, 124, 123, 1);
-        }
-      }
-    }
-  }
-  .display_none {
-    opacity: 0;
-  }
-  .show_detail {
-    width: 100%;
-    height: 646px;
-    // border: 1px solid red;
-    background: url(../assets/images/film_swiper/film_bg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-top: 34px;
-    padding-top: 30px;
-    outline: none;
-    .detail_box {
-      width: 1200px;
+    #top_swiper {
+      width: 100%;
       height: 100%;
-      margin: 0 auto;
-      .img_box {
-        height: 32px;
-        .X {
-          width: 32px;
-          height: 32px;
-          float: right;
-          cursor: pointer;
+      // border: 1px solid green;
+      color: #fff;
+      .swiper-slide {
+        padding: 0 45px;
+        position: relative;
+        .border_box {
+          height: 277px;
+          width: 222px;
+          border: 1px solid #c8a461;
+          position: absolute;
+          left: 5px;
+          top: 0;
         }
-      }
-      .detail_box_left {
-        width: 464px;
-        height: 400px;
-        // border: 1px solid red;
-        margin-top: 66px;
-        text-align: left;
-        .title {
-          font-size: 36px;
-          color: #fff;
+        .cover_box {
+          height: 277px;
+          width: 222px;
+          position: absolute;
+          left: 18px;
+          top: 13px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
-        .time {
-          margin: 32px 0 22px 0;
-          span {
+        .info_box {
+          // border: 1px solid red;
+          margin-left: 345px;
+          width: 520px;
+          margin-top: 86px;
+          text-align: left;
+          .info_title {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 48px;
+          }
+          .info_des {
             font-size: 16px;
             font-weight: 400;
-            margin-right: 30px;
           }
         }
+      }
+      // 前进后退按钮
+      .left_prev {
+        border: 1px solid #c8a461;
+        width: 50px;
+        height: 50px;
+        background-size: 10px 18px;
+        background-image: url(../assets/images/film/show/left.png);
+        margin-top: 0;
+        left: initial;
+        top: 0;
+        right: 80px !important;
+      }
+      .right_next {
+        border: 1px solid #4d4c4c;
+        width: 50px;
+        height: 50px;
+        background-size: 10px 18px;
+        background-image: url(../assets/images/film/show/right.png);
+        margin-top: 0;
+        left: initial;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
 
-        .des {
+.FilmShow_content {
+  height: 1200px;
+  border: 1px solid red;
+  background: #000;
+  position: relative;
+  color: #fff;
+  padding-top: 100px;
+  z-index: 99;
+  .content_top {
+    height: 144px;
+    border: 1px solid red;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    .down_box {
+      width: 140px;
+      height: 50px;
+      border: 1px solid #c8a461;
+      margin-right: 38px;
+    }
+    .top_item {
+      // border: 1px solid red;
+      flex: 1;
+      border-left: 1px solid #c8a461;
+      padding-left: 24px;
+      li {
+        height: 72px;
+        // border: 1px solid red;
+        text-align: left;
+        padding-top: 15px;
+        .p_title {
           font-size: 16px;
-          color: #999;
-          line-height: 30px;
+          cursor: pointer;
         }
-
-        .btn {
-          height: 42px;
-          // border: 1px solid red;
-          margin: 30px 0;
-
-          .btn_left {
-            width: 120px;
-            height: 42px;
-            background-color: #c8a461;
-            border-radius: 4px;
-            // border: 1px solid tomato;
-            text-align: center;
-            line-height: 42px;
-            float: left;
-            cursor: pointer;
-            img {
-              width: 14px;
-              height: 16px;
-              vertical-align: middle;
-              margin-right: 10px;
-            }
-            span {
-              vertical-align: middle;
-            }
-          }
-
-          .btn_right {
-            width: 140px;
-            height: 42px;
-            border: 1px solid #fff;
-            text-align: center;
-            line-height: 40px;
-            float: left;
-            margin-left: 30px;
-            cursor: pointer;
-            background: #000000;
-            border-radius: 8px;
-            img {
-              width: 16px;
-              height: 16px;
-              vertical-align: middle;
-              margin-right: 10px;
-            }
-            span {
-              vertical-align: middle;
-            }
-          }
-        }
-        p {
-          font-size: 16px;
-          margin-top: 20px;
+        .p_icon {
+          color: #c8a461;
+          font-size: 15px;
+          cursor: pointer;
         }
       }
     }
