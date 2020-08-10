@@ -138,11 +138,111 @@
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <div class="award_content">
         <div class="award_form">asdasdasdasdas</div>
       </div>
+    </div>-->
+
+    <!-- 更多计划 -->
+    <div class="more">
+      <div class="more_box">
+        <div class="more_title">
+          <p class="title_top">更 多 计 划</p>
+          <p class="title_bom">ICF电影周与电影基金都将全力支持这些计划 不要错过展示自我的机遇</p>
+        </div>
+
+        <div class="more_plan">
+          <div class="plan_title">创投计划</div>
+          <div class="plan_mid">竞赛单元与创投计划的申报并不冲突，入选创投计划的导演都将获得一项国际资助，以加快其制作过程</div>
+          <div class="plan_r">
+            <p>></p>
+          </div>
+        </div>
+
+        <div class="more_plan">
+          <div class="plan_title">扶持计划</div>
+          <div class="plan_mid">我们称之为“人才猎头”，旨在挖掘并扶持新兴人才，并帮助他们寻找项目启动所需要的资金赞助</div>
+          <div class="plan_r">
+            <p>></p>
+          </div>
+        </div>
+
+        <div class="more_plan">
+          <div class="plan_title">驻留计划</div>
+          <div class="plan_mid">每年通过电影基金会在全球范围内评选出的优秀导演将在中国写下自己的故事</div>
+          <div class="plan_r">
+            <p>></p>
+          </div>
+        </div>
+
+        <!-- 分享 -->
+        <div class="share_box">
+          <div>
+            <img src="../assets/images/film_share/1.png" alt />
+          </div>
+          <div>
+            <img src="../assets/images/film_share/2.png" alt />
+          </div>
+          <div>
+            <img src="../assets/images/film_share/3.png" alt />
+          </div>
+          <div>
+            <img src="../assets/images/film_share/4.png" alt />
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- 合作伙伴 -->
+    <div class="partner">
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+      <div>
+        <p>合作伙伴</p>
+      </div>
+    </div>
+
+    <!-- 底部新闻资讯 -->
+    <div class="real">
+      <div class="real_box">
+        <div class="real_top">
+          <p class="up" v-show="up" @click="toTop"> 返回顶部 ^</p>
+         
+          
+          </div>
+
+        <div class="real_bom">
+          <p class="real_bom_title">新 闻 资 讯</p>
+          <p>电影节新闻</p>
+
+          <div class="input_box">
+            <input type="text" placeholder="请输入您的电子邮箱" />
+            <div class="subscribe">订阅</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <Footer></Footer>
   </div>
 </template>
@@ -182,11 +282,14 @@ export default {
         },
       ],
       value: "",
+      up: true,
     };
   },
   mounted() {
     this.init_top_Swiper();
-    this.init_mid_Swiper();
+    this.init_mid_Swiper(); 
+    // 此处true需要加上，不加滚动事件可能绑定不成功
+    // window.addEventListener("scroll", this.handleScroll, true);
   },
   methods: {
     init_top_Swiper() {
@@ -225,8 +328,26 @@ export default {
         });
       });
     },
-  },
-};
+
+    // 回到顶部
+
+  handleScroll(e) {
+      let scrolltop = e.target.scrollTop;
+      scrolltop > 30 ? (this.gotop = true) : (this.gotop = false);
+    },
+    toTop() {
+      
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 实现滚动效果 
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+        if (top <= 0) {
+          clearInterval(timeTop);
+        }
+      }, 10);
+    }
+  }
+  }
 </script>
 <style lang="less" scoped>
 /deep/ .content_box {
@@ -445,7 +566,7 @@ export default {
 
     // 中间轮播图
     #mid_Swiper {
-      border: 1px solid red;
+      // border: 1px solid red;
       width: 460px;
       height: 331px;
       color: #000;
@@ -494,7 +615,7 @@ export default {
   color: #000;
   height: 120px;
   background: #fff;
-  border: 1px solid red;
+  // border: 1px solid red;
   position: relative;
   line-height: 120px;
   z-index: 99;
@@ -507,7 +628,7 @@ export default {
 .form_box {
   width: 100%;
   height: 1000px;
-  border: 1px solid red;
+  // border: 1px solid red;
   position: relative;
   z-index: 99;
   .form_container {
@@ -580,6 +701,186 @@ export default {
   img {
     width: 100%;
     height: 1000px;
+  }
+}
+
+// 更多计划
+.more {
+  width: 100%;
+  // height: 600px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+  z-index: 999;
+  .more_box {
+    width: 1200px;
+    // height: 800px;
+    margin: 0 auto;
+    // border: 1px solid green;
+
+    .more_title {
+      width: 294px;
+      height: 112px;
+      margin: 0 auto;
+      margin-top: 60px;
+      .title_top {
+        font-size: 22px;
+        color: #000;
+      }
+      .title_bom {
+        font-size: 16px;
+        color: #000;
+        margin-top: 30px;
+        line-height: 30px;
+      }
+    }
+    .more_plan {
+      width: 100%;
+      height: 80px;
+      border-bottom: 1px solid #a99a5e;
+      // border: 1px solid #a99a5e;
+      margin-top: 30px;
+      color: #a99a5e;
+      text-align: left;
+      .plan_title {
+        font-size: 22px;
+        line-height: 80px;
+        float: left;
+      }
+      .plan_mid {
+        font-size: 14px;
+        line-height: 80px;
+        float: left;
+        margin-left: 20px;
+      }
+      .plan_r {
+        width: 108px;
+        height: 44px;
+        border: 1px solid #a99a5e;
+        float: right;
+        margin-top: 10px;
+        cursor: pointer;
+        p {
+          font-size: 10px;
+          text-align: center;
+          margin-top: 16px;
+        }
+      }
+    }
+
+    .share_box {
+      width: 400px;
+      height: 60px;
+      margin: 0 auto;
+      margin-top: 60px;
+      margin-bottom: 50px;
+
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #c8a461;
+        float: left;
+        margin-right: 45px;
+        position: relative;
+
+        img {
+          width: 18px;
+          height: 22px;
+          position: absolute;
+          left: 50%;
+          top:50%;
+          transform: translate(-50%,-50%);
+       
+        }
+      }
+    }
+  }
+}
+
+// 合作伙伴
+.partner {
+  width: 100%;
+  height: 260px;
+  background: #fff;
+  position: relative;
+  z-index: 999;
+  display: flex;
+  div {
+    // width: 237px;
+    height: 100%;
+    border: 0.5px solid #b3b3b2;
+    float: left;
+    // margin-left: 3px;
+    background-color: #dbdce4;
+    flex: 1;
+    cursor: pointer;
+    p {
+      font-size: 18px;
+      color: #b3b3b2;
+      line-height: 260px;
+    }
+  }
+}
+
+//底部新闻资讯
+
+.real {
+  width: 100%;
+  height: 220px;
+  background-color: #141414;
+  position: relative;
+  z-index: 999;
+
+  // border: 1px solid green;
+
+  .real_box {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #141414;
+    // border: 1px solid green;
+    .real_top {
+      height: 40px;
+      width: 100%;
+      border-bottom: 1px solid #292929;
+      .up{
+      font-size: 14px;
+      color: #c8a461;
+      text-align: right;
+      line-height: 40px;
+      margin-right: 30px;
+      cursor: pointer;
+   }
+    }
+    .real_bom {
+      height: 150px;
+      width: 100%;
+      border-bottom: 1px solid #292929;
+      .real_bom_title {
+        margin: 30px 0 14px 0;
+        font-size: 18px;
+      }
+
+      .input_box {
+        height: 30px;
+        // border: 1px solid green;
+        margin-top: 30px;
+        input {
+          width: 1020px;
+          height: 30px;
+          float: left;
+        }
+        .subscribe {
+          width: 150px;
+          height: 30px;
+          float: right;
+          line-height: 30px;
+          cursor: pointer;
+          border: 1px solid #292929;
+        }
+      }
+    }
   }
 }
 </style>

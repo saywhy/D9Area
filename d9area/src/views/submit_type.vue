@@ -15,7 +15,7 @@
           </div>
           <div class="submit_bom">
             <div class="bom_left">
-              <p class="bom_title">提交ICF电影节作品</p>
+              <p class="bom_title">提交电影周竞赛单元作品</p>
               <div class="bom_content">
                 <p>ICF电影节：</p>
                 <p>• D9区影视；</p>
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="bom_right">
-              <p class="bom_title">提交在线观影作品</p>
+              <p class="bom_title">提交创投计划作品</p>
               <div class="bom_content">
                 <p>在线观影：</p>
                 <p>• D9区影视；</p>
