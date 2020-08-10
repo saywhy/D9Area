@@ -227,8 +227,6 @@
       <div class="real_box">
         <div class="real_top">
           <p class="up" v-show="up" @click="toTop"> 返回顶部 ^</p>
-         
-          
           </div>
 
         <div class="real_bom">
@@ -695,7 +693,7 @@ export default {
   width: 100%;
   height: 1000px;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 2;
   img {

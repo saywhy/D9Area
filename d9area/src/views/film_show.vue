@@ -3,25 +3,22 @@
     <div class="container_box">
       <film-nav :activenav="Index"></film-nav>
       <div class="FilmShow_top">
-        <img src="@/assets/images/film/show/banner_fixed.png"
-             alt="">
+        <img src="@/assets/images/film/show/banner_fixed.png" alt />
       </div>
       <div class="FilmShow_swiper">
         <div class="container">
-          <div class="swiper-container"
-               id="top_swiper">
+          <div class="swiper-container" id="top_swiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"
-                   v-for="item in demo_list">
-                <div class="border_box">
-                </div>
+              <div class="swiper-slide" v-for="item in demo_list">
+                <div class="border_box"></div>
                 <div class="cover_box">
-                  <img src="@/assets/images/film/show/cover.png"
-                       alt="">
+                  <img src="@/assets/images/film/show/cover.png" alt />
                 </div>
                 <div class="info_box">
                   <p class="info_title">{{item.name}}</p>
-                  <p class="info_des">影片简介2312321312321332312323323213232131232323131232323232 34324324234343432432434342423432</p>
+                  <p
+                    class="info_des"
+                  >影片简介2312321312321332312323323213232131232323131232323232 34324324234343432432434342423432</p>
                 </div>
               </div>
             </div>
@@ -30,13 +27,22 @@
             <div class="swiper-button-next right_next"></div>
           </div>
         </div>
-
       </div>
+
       <!-- 内容 -->
       <div class="FilmShow_content">
+        <div class="mid_box"></div>
         <div class="content_top">
           <div class="down_box">
-            2020
+            <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                2020
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <!-- <el-dropdown-menu slot="dropdown"> -->
+              <!-- <el-dropdown-item>2020</el-dropdown-item> -->
+              <!-- </el-dropdown-menu> -->
+            </el-dropdown>
           </div>
           <div class="top_item">
             <li>
@@ -88,7 +94,22 @@
               <p class="p_icon">></p>
             </li>
           </div>
+        </div>
+        <!-- 电影列表 -->
 
+        <div class="item_list_box">
+          <div class="item_box" v-for="item in demo_list">
+            <div class="img_box">
+              <img src="@/assets/images/film/show/cover.png" alt />
+            </div>
+            <div class="name_box">
+              <p>{{item.name}}</p>
+            </div>
+            <div class="item_des">
+              <p>{{item.team}}</p>
+              <p>{{item.company}}</p>
+            </div>
+          </div>
         </div>
       </div>
       <!-- <Footer></Footer> -->
@@ -105,7 +126,7 @@ import filmSwiper from "@/views/film_swiper.vue";
 export default {
   name: "FilmShow",
   components: { Nav, Footer, filmNav, filmSwiper },
-  data () {
+  data() {
     return {
       Index: "3",
       selected_box: true,
@@ -142,7 +163,7 @@ export default {
           type: "VFX电影短片",
         },
         {
-          name: "永无止境",
+          name: "永无止境永无止境永无止境永无止境永无止境永无止境永无止境",
           time: "时长：1分20秒",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
@@ -216,20 +237,20 @@ export default {
       ],
     };
   },
-  mounted () {
-    this.init_top_Swiper()
+  mounted() {
+    this.init_top_Swiper();
   },
   methods: {
-    init_top_Swiper () {
+    init_top_Swiper() {
       // this.$nextTick(() => {
       var swiper = new Swiper("#top_swiper", {
         // autoplay: false, //等同于以下设置
         autoplay: {
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }, //可选选项，自动滑动
         loop: true,
         speed: 1000,
-        // effect: 'fade',
+        // effect: "cube",
         fadeEffect: {
           crossFade: true,
         },
@@ -240,8 +261,8 @@ export default {
           // type: "progress",
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
         on: {
           slideChangeTransitionStart: function () {
@@ -250,9 +271,7 @@ export default {
           slideChangeTransitionEnd: function () {
             // alert(this.activeIndex);//切换结束时，告诉我现在是第几个slide
           },
-        }
-
-
+        },
       });
       // });
     },
@@ -260,6 +279,31 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.el-dropdown-menu {
+  width: 140px;
+  background: #141414;
+  border: 1px solid#c8a461;
+  padding: 2px 0;
+  .el-dropdown-menu__item {
+    color: #fff;
+  }
+  .el-popper[x-placement^="bottom"] .popper__arrow::after {
+    border-bottom-color: #c8a461 !important;
+  }
+  .el-popper[x-placement^="bottom"] .popper__arrow {
+    border-bottom-color: #c8a461 !important;
+  }
+  .popper__arrow::after {
+    border-bottom-color: #c8a461 !important;
+  }
+}
+
+.el-dropdown-menu__item:focus,
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: #141414;
+  color: #fff;
+}
+
 .FilmShow_top {
   width: 100%;
   height: 540px;
@@ -354,24 +398,43 @@ export default {
 }
 
 .FilmShow_content {
-  height: 1200px;
-  border: 1px solid red;
-  background: #000;
+  // height: 1200px;
+  background: #0a0a0a;
   position: relative;
   color: #fff;
   padding-top: 100px;
   z-index: 99;
+  .mid_box {
+    // border: 1px solid red;
+    height: 162px;
+    position: absolute;
+    background-image: url(../assets/images/film/show/mid_banner.png);
+    background-size: 100% 100%;
+    width: 1861px;
+    z-index: 100;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .content_top {
     height: 144px;
-    border: 1px solid red;
     width: 1200px;
     margin: 0 auto;
     display: flex;
+    position: relative;
+    z-index: 199;
     .down_box {
       width: 140px;
       height: 50px;
       border: 1px solid #c8a461;
       margin-right: 38px;
+      .el-dropdown {
+        width: 140px;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+        color: #c8a461;
+      }
     }
     .top_item {
       // border: 1px solid red;
@@ -392,6 +455,56 @@ export default {
           font-size: 15px;
           cursor: pointer;
         }
+      }
+    }
+  }
+  // 电影列表
+  .item_list_box {
+    margin: 0 auto;
+    margin-top: 60px;
+    min-height: 200px;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    .item_box {
+      height: 500px;
+      flex: 0 0 calc(25% - 15px);
+      align-items: flex-start;
+      margin-bottom: 22px;
+      position: relative;
+      .name_box {
+        position: absolute;
+        width: 220px;
+        height: 100px;
+        right: 0;
+        top: 282px;
+        background: rgba(200, 164, 97, 0.64);
+        p {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          text-align: left;
+          padding: 0 20px;
+          font-size: 18px;
+          transform: translateY(-50%);
+        }
+      }
+      .img_box {
+        height: 356px;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .item_des {
+        margin-top: 54px;
+        text-align: left;
+        width: 100%;
+        height: 80px;
+        padding: 0 20px;
       }
     }
   }
