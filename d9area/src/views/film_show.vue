@@ -98,10 +98,11 @@
         <!-- 电影列表 -->
 
         <div class="item_list_box">
-          <div class="item_box" v-for="item in demo_list">
+          <div class="item_box" v-for="item in demo_list" @click="goDetail">
             <div class="img_box">
               <img src="@/assets/images/film/show/cover.png" alt />
             </div>
+            <div class="time_box">{{item.time}}</div>
             <div class="name_box">
               <p>{{item.name}}</p>
             </div>
@@ -112,7 +113,8 @@
           </div>
         </div>
       </div>
-      <!-- <Footer></Footer> -->
+      <realFoot></realFoot>
+      <Footer></Footer>
     </div>
   </div>
 </template>
@@ -123,9 +125,10 @@ import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import filmNav from "@/views/film_nav.vue";
 import filmSwiper from "@/views/film_swiper.vue";
+import realFoot from "../views/real_foot.vue";
 export default {
   name: "FilmShow",
-  components: { Nav, Footer, filmNav, filmSwiper },
+  components: { Nav, Footer, filmNav, filmSwiper, realFoot },
   data() {
     return {
       Index: "3",
@@ -138,7 +141,7 @@ export default {
         {
           img: "",
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01'20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -147,7 +150,7 @@ export default {
         },
         {
           name: "杀手精英",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -156,7 +159,7 @@ export default {
         },
         {
           name: "恐怖之夜",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -164,7 +167,7 @@ export default {
         },
         {
           name: "永无止境永无止境永无止境永无止境永无止境永无止境永无止境",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -172,7 +175,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -180,7 +183,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -188,7 +191,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -196,7 +199,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -204,7 +207,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -212,7 +215,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -220,7 +223,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -228,7 +231,7 @@ export default {
         },
         {
           name: "拯救计划",
-          time: "时长：1分20秒",
+          time: "01' 20''",
           type_name: "复古文艺短片",
           team: "主创团队：导演11111/编剧/制片......",
           company: "出品方：凉山重工",
@@ -275,6 +278,9 @@ export default {
       });
       // });
     },
+    goDetail(){
+     this.$router.push("/details");
+    }
   },
 };
 </script>
@@ -468,12 +474,23 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
+    position: relative;
     .item_box {
       height: 500px;
       flex: 0 0 calc(25% - 15px);
       align-items: flex-start;
       margin-bottom: 22px;
       position: relative;
+        cursor: pointer;
+      .time_box {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #0a0a0a;
+      }
+
       .name_box {
         position: absolute;
         width: 220px;

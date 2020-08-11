@@ -67,9 +67,31 @@
         </el-dialog>
 
         <!-- 创建账号 -->
-        <el-dialog title="欢迎！请创建一个账号：" class="creat_account_box" :visible.sync="creat_box">
+        <el-dialog
+          title="欢迎！请创建一个账号："
+          class="creat_account_box"
+          :close-on-click-modal="false"
+          :visible.sync="creat_box"
+        >
           <div class="content">
-            <div class="creat_item">
+            <div>
+              <el-tabs type="border-card">
+                <el-tab-pane label="手机号注册">
+                  <el-input v-model="user_mobile.mobilephone" placeholder="请输入手机号"></el-input>
+                  <el-input
+                    v-model="user_mobile.userpassword"
+                    placeholder="请输入密码"
+                    minlength="6"
+                    maxlength="10"
+                    show-word-limit
+                    show-password
+                  ></el-input>
+                </el-tab-pane>
+                <el-tab-pane label="邮箱注册"></el-tab-pane>
+              </el-tabs>
+            </div>
+
+            <!-- <div class="creat_item">
               <span class="title2">姓名：</span>
               <input class="email_input" type="email" />
             </div>
@@ -89,7 +111,7 @@
               <span class="title2">验证码：</span>
               <img src="../assets/images/login/picture.png" class="code" alt />
               <input class="email_input" type="text" />
-            </div>
+            </div>-->
           </div>
           <div>
             <p class="sure_box2" @click="creat_btn">创建</p>
@@ -119,11 +141,13 @@ export default {
         email: "",
         pswd: "",
       },
+      user_mobile: {
+        mobilephone: "",
+        userpassword: "",
+      },
     };
   },
-  mounted() {
-   
-  },
+  mounted() {},
   methods: {
     find_pswd() {
       this.find_pswd_box = true;
@@ -135,7 +159,48 @@ export default {
       this.creat_box = true;
     },
     creat_btn() {
-      this.creat_box = false;
+      // this.creat_box = false;
+
+      console.log(this.user_mobile);
+      let telRegex = /^1[3456789]\d{9}$/;
+
+      if (!telRegex.test(this.user_mobile.mobilephone)) {
+        console.log("走到这里说明手机号不合格");
+        this.$message({
+          message: "手机号码格式不正确",
+          type: "warning",
+        });
+        // 走到这里说明手机号不合格
+        return false;
+      }
+      if (this.user_mobile.userpassword.length < 6) {
+        console.log("走到这里说明手机号不合格");
+        this.$message({
+          message: "密码最小为6位",
+          type: "warning",
+        });
+        return false;
+      }
+
+      // 所有的验证全部通过之后，请求接口注册
+      //http://33310y89m5.wicp.vip/user/userRegister?mobilephone=15237304009&userpassword=w123456
+    this.axios
+        .post("/user/userRegister", {
+          data: {
+            mobilephone: this.user_mobile.mobilephone,
+            userpassword: this.user_mobile.userpassword,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          console.log("ok");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+
+      console.log(123213);
     },
     login_go() {
       this.axios

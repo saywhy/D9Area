@@ -2,9 +2,7 @@
   <div class="detail">
     <!-- 返回按钮 -->
 
-    <div class="return">
-       返回
-    </div>
+    <div class="return" @click="return_click">返回</div>
     <!-- 头部背景图 -->
     <div class="detail_top">
       <img src="../assets/images/detail/top_logo.png" alt />
@@ -13,12 +11,29 @@
     </div>
 
     <!-- 轮播图 -->
-    <div class="swip_box"></div>
+    <div class="swiper_box">
+      <div class="swiper-container" id="top_swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="item in img_list">
+            <img :src="item.src" style="height: 100%; width: 100%;" alt />
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <!-- 白色 -->
+        <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <!-- 白色 -->
+        <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
+      </div>
+    </div>
 
     <!--  视频 -->
     <div class="video_box">
       <div class="video">
         <img src="../assets/images/detail/video.png" alt />
+        <div class="type_box">预告片</div>
         <div class="but_box">
           <img class="but" src="../assets/images/detail/but.png" alt />
         </div>
@@ -60,67 +75,77 @@
               <p>国家</p>
             </div>
           </div>
-           <div class="brief">
-              <p>影片简介:212314354622766666ff44454534545656563453534535353545435454545 85959485u8934589457893457983479837589438945793457894hh58475947594754958945u948u948u48935934ju</p>
-            </div>
+          <div class="brief">
+            <p>影片简介:212314354622766666ff44454534545656563453534535353545435454545 85959485u8934589457893457983479837589438945793457894hh58475947594754958945u948u948u48935934ju</p>
+          </div>
         </div>
       </div>
     </div>
-
 
     <!-- 底部新闻资讯 -->
-    <div class="real">
-      <div class="real_box">
-        <div class="real_top">
-          <p class="up" v-show="up" @click="toTop"> 返回顶部 ^</p>
-          </div>
-
-        <div class="real_bom">
-          <p class="real_bom_title">新 闻 资 讯</p>
-          <p>电影节新闻</p>
-
-          <div class="input_box">
-            <input type="text" placeholder="请输入您的电子邮箱" />
-            <div class="subscribe">订阅</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <realFoot></realFoot>
 
     <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Swiper from "swiper";
 import Footer from "../views/footer";
+import realFoot from "../views/real_foot.vue";
 export default {
-  components: { Footer },
+  components: { Footer, realFoot },
   data() {
     return {
-      up: true,
+      img_list: [
+        {
+          src: require("../assets/images/detail/swip.png"),
+        },
+        {
+          src: require("../assets/images/detail/swip.png"),
+        },
+        {
+          src: require("../assets/images/detail/swip.png"),
+        },
+        {
+          src: require("../assets/images/detail/swip.png"),
+        },
+      ],
     };
   },
-    methods:{
-      
-    // 回到顶部
-
-  handleScroll(e) {
-      let scrolltop = e.target.scrollTop;
-      scrolltop > 30 ? (this.gotop = true) : (this.gotop = false);
+  mounted() {
+    this.init_Swiper();
+  },
+  methods: {
+    init_Swiper() {
+      // this.$nextTick(() => {
+      var swiper = new Swiper("#top_swiper", {
+        // autoplay: false, //等同于以下设置
+        autoplay: {
+          disableOnInteraction: false
+        }, //可选选项，自动滑动
+        //slidesPerView : 'auto',    根据slide的宽度自动调整展示数量。此时需要设置slide的宽度，如下style所示
+        slidesPerView: 2.5,
+        loop: true,
+        speed: 1000,
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true,
+        //   dragSize: 30,
+        //   // type: "progress",
+        // },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      // });
     },
-    toTop() {
-      
-      let top = document.documentElement.scrollTop || document.body.scrollTop;
-      // 实现滚动效果 
-      const timeTop = setInterval(() => {
-        document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
-        if (top <= 0) {
-          clearInterval(timeTop);
-        }
-      }, 10);
+    return_click(){
+      //  this.$router.push("/film_show");
+        this.$router.go(-1);//返回上一层
     }
-    }
+  },
 };
 </script>
 
@@ -130,16 +155,16 @@ export default {
   height: 1000px;
   //  返回按钮
 
-  .return{
-    width:63px;
-    height:36px;
+  .return {
+    width: 63px;
+    height: 36px;
     line-height: 36px;
-    background: #C8A461;
+    background: #c8a461;
     position: fixed;
     right: 0;
     bottom: 100px;
     cursor: pointer;
-    
+    z-index: 999999;
   }
   // border: 1px solid red;
   .detail_top {
@@ -158,23 +183,45 @@ export default {
     }
   }
 
-  .swip_box {
+  #top_swiper {
     height: 476px;
-    // border: 1px solid red;
+    .swiper-button-prev {
+      width: 23px;
+      height: 39px;
+      left: 80px;
+    }
+    .swiper-button-next {
+      width: 23px;
+      height: 39px;
+      right: 80px;
+    }
   }
   //  视频
   .video_box {
     width: 100%;
     height: 844px;
-    border: 1px solid green;
     background: url(../assets/images/detail/bgt.png);
+     padding-top: 82px;
     .video {
       width: 1200px;
       height: 680px;
       // border: 1px solid green;
       margin: 0 auto;
-      margin-top: 82px;
+     
       position: relative;
+      .type_box {
+        position: absolute;
+        width: 80px;
+        height: 36px;
+        background: #c8a461;
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 36px;
+        text-align: center;
+        top: 40px;
+        left: 0;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -188,7 +235,7 @@ export default {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         .but {
           width: 70px;
           height: 70px;
@@ -274,75 +321,13 @@ export default {
           font-size: 16px;
           width: 600px;
           height: 120px;
-          margin-top:70px;
+          margin-top: 70px;
           line-height: 30px;
-          word-wrap:break-word; 
+          word-wrap: break-word;
           // border: 1px solid red;
         }
       }
     }
   }
-
-
-  //底部新闻资讯
-
-.real {
-  width: 100%;
-  height: 220px;
-  background-color: #141414;
-  position: relative;
-  z-index: 999;
-
-  // border: 1px solid green;
-
-  .real_box {
-    width: 1200px;
-    height: 100%;
-    margin: 0 auto;
-    border-bottom: 1px solid #141414;
-    // border: 1px solid green;
-    .real_top {
-      height: 40px;
-      width: 100%;
-      border-bottom: 1px solid #292929;
-      .up{
-      font-size: 14px;
-      color: #c8a461;
-      text-align: right;
-      line-height: 40px;
-      margin-right: 30px;
-      cursor: pointer;
-   }
-    }
-    .real_bom {
-      height: 150px;
-      width: 100%;
-      border-bottom: 1px solid #292929;
-      .real_bom_title {
-        margin: 30px 0 14px 0;
-        font-size: 18px;
-      }
-
-      .input_box {
-        height: 30px;
-        // border: 1px solid green;
-        margin-top: 30px;
-        input {
-          width: 1020px;
-          height: 30px;
-          float: left;
-        }
-        .subscribe {
-          width: 150px;
-          height: 30px;
-          float: right;
-          line-height: 30px;
-          cursor: pointer;
-          border: 1px solid #292929;
-        }
-      }
-    }
-  }
-}
 }
 </style>
