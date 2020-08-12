@@ -74,7 +74,7 @@
           :visible.sync="creat_box"
         >
           <div class="content">
-            <div>
+            <!-- <div>
               <el-tabs type="border-card">
                 <el-tab-pane label="手机号注册">
                   <el-input v-model="user_mobile.mobilephone" placeholder="请输入手机号"></el-input>
@@ -89,9 +89,9 @@
                 </el-tab-pane>
                 <el-tab-pane label="邮箱注册"></el-tab-pane>
               </el-tabs>
-            </div>
+            </div> -->
 
-            <!-- <div class="creat_item">
+            <div class="creat_item">
               <span class="title2">姓名：</span>
               <input class="email_input" type="email" />
             </div>
@@ -111,7 +111,7 @@
               <span class="title2">验证码：</span>
               <img src="../assets/images/login/picture.png" class="code" alt />
               <input class="email_input" type="text" />
-            </div>-->
+            </div>
           </div>
           <div>
             <p class="sure_box2" @click="creat_btn">创建</p>
@@ -184,7 +184,7 @@ export default {
 
       // 所有的验证全部通过之后，请求接口注册
       //http://33310y89m5.wicp.vip/user/userRegister?mobilephone=15237304009&userpassword=w123456
-    this.axios
+      this.axios
         .post("/user/userRegister", {
           data: {
             mobilephone: this.user_mobile.mobilephone,
@@ -198,7 +198,6 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-
 
       console.log(123213);
     },
@@ -355,6 +354,7 @@ export default {
               border-color: rgba(200, 164, 97, 1);
             }
           }
+        
           .login_btn {
             position: absolute;
             left: 50%;

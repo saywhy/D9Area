@@ -108,7 +108,7 @@
             </div>
             <div class="item_des">
               <p>{{item.team}}</p>
-              <p>{{item.company}}</p>
+              <!-- <p>{{item.company}}</p> -->
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default {
           name: "拯救计划",
           time: "01'20''",
           type_name: "复古文艺短片",
-          team: "主创团队：导演11111/编剧/制片......",
+          team: "影片简介：ergdsrgsergr11111/编剧/制片......",
           company: "出品方：凉山重工",
           type: "VFX电影短片",
           work: "ruwei",
@@ -152,7 +152,7 @@ export default {
           name: "杀手精英",
           time: "01' 20''",
           type_name: "复古文艺短片",
-          team: "主创团队：导演11111/编剧/制片......",
+          team: "影片简介：ergdsrgsergr11111/编剧/制片......",
           company: "出品方：凉山重工",
           type: "VFX电影短片",
           work: "huojiang",
@@ -161,7 +161,7 @@ export default {
           name: "恐怖之夜",
           time: "01' 20''",
           type_name: "复古文艺短片",
-          team: "主创团队：导演11111/编剧/制片......",
+          team: "影片简介：ergdsrgsergr11111/编剧/制片......",
           company: "出品方：凉山重工",
           type: "VFX电影短片",
         },
