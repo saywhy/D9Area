@@ -512,7 +512,8 @@ export default {
       padding-bottom: 56px;
       width: 700px;
       height: 750px;
-      overflow-y: scroll;
+      // overflow-y: scroll;
+      overflow: hidden;
       
     }
   }
@@ -523,7 +524,8 @@ export default {
     // margin-top: 80px;
     .border {
       width: 600px;
-      height: 3780px;
+       height: 500px;
+      // height: 3780px;
       margin: 0 auto;
       border: 1px solid #9b9b9b;
       border-radius: 4px;

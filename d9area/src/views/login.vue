@@ -18,20 +18,44 @@
               <p class="bom_title">我已有D9区账号了</p>
               <div class="bom_content">
                 <p class="select_type">
-                  <span class="type_account">账号登录</span>
+                  <span
+                    class="type_account"
+                    @click="change_login('e-mail')"
+                    :class="login_type?'login_color':''"
+                  >邮箱登录</span>
                   <span>/</span>
-                  <span class="type_mobile">手机号登录</span>
+                  <span
+                    class="type_mobile"
+                    @click="change_login('mobile')"
+                    :class="login_type?'':'login_color'"
+                  >手机号登录</span>
                 </p>
-                <p class="email_box">
-                  <span class="email">邮箱</span>
-                  <span>:</span>
-                  <input type="email" v-model="account.email" />
-                </p>
-                <p class="pswd_box">
-                  <span class="pswd">密码</span>
-                  <span>:</span>
-                  <input type="password" v-model="account.pswd" />
-                </p>
+                <!-- 邮箱登录 -->
+                <div v-if="login_type">
+                  <p class="email_box">
+                    <span class="email">邮箱</span>
+                    <span>:</span>
+                    <input type="email" v-model="account.email" />
+                  </p>
+                  <p class="pswd_box">
+                    <span class="pswd">密码</span>
+                    <span>:</span>
+                    <input type="password" v-model="account.email_pswd" />
+                  </p>
+                </div>
+                <!-- 手机号登录 -->
+                <div v-if="!login_type">
+                  <p class="email_box">
+                    <span class="email">手机</span>
+                    <span>:</span>
+                    <input type="email" v-model="account.mobilephone" />
+                  </p>
+                  <p class="pswd_box">
+                    <span class="pswd">密码</span>
+                    <span>:</span>
+                    <input type="password" v-model="account.mobilephone_pswd" />
+                  </p>
+                </div>
                 <p class="forget">
                   <span @click="find_pswd">忘记密码?</span>
                 </p>
@@ -74,46 +98,90 @@
           :visible.sync="creat_box"
         >
           <div class="content">
-            <!-- <div>
-              <el-tabs type="border-card">
-                <el-tab-pane label="手机号注册">
-                  <el-input v-model="user_mobile.mobilephone" placeholder="请输入手机号"></el-input>
-                  <el-input
-                    v-model="user_mobile.userpassword"
-                    placeholder="请输入密码"
-                    minlength="6"
-                    maxlength="10"
-                    show-word-limit
-                    show-password
-                  ></el-input>
-                </el-tab-pane>
-                <el-tab-pane label="邮箱注册"></el-tab-pane>
-              </el-tabs>
-            </div> -->
+            <div class="content_title">
+              <span @click="change_ebh('email')" :class="ebh_type?'ebh_color':''">邮箱创建</span>
+              <span>/</span>
+              <span @click="change_ebh('mobile')" :class="ebh_type?'':'ebh_color'">手机号创建</span>
+            </div>
 
-            <div class="creat_item">
-              <span class="title2">姓名：</span>
-              <input class="email_input" type="email" />
-            </div>
-            <div class="creat_item">
-              <span class="title2">邮箱：</span>
-              <input class="email_input" type="email" />
-            </div>
-            <div class="creat_item">
-              <span class="title2">密码：</span>
-              <input class="email_input" type="password" />
-            </div>
-            <div class="creat_item">
+            <!-- 邮箱创建 -->
+            <div v-if="ebh_type">
+              <div class="creat_item">
+                <span class="title2">姓名：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入姓名"
+                  v-model="creat.email.name"
+                  type="text"
+                />
+              </div>
+              <div class="creat_item">
+                <span class="title2">邮箱：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入邮箱"
+                  v-model="creat.email.email"
+                  type="email"
+                />
+              </div>
+              <div class="creat_item">
+                <span class="title2">密码：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入密码"
+                  v-model="creat.email.pswd"
+                  type="password"
+                />
+              </div>
+              <!-- <div class="creat_item">
               <span class="title2">手机号：</span>
               <input class="email_input" type="text" />
+              </div>-->
+              <!-- <div class="creat_item">
+                <span class="title2">验证码：</span>
+                <img src="../assets/images/login/picture.png" class="code" alt />
+                <input class="email_input" type="text" />
+              </div>-->
             </div>
-            <div class="creat_item">
-              <span class="title2">验证码：</span>
-              <img src="../assets/images/login/picture.png" class="code" alt />
-              <input class="email_input" type="text" />
+
+            <!-- 手机号创建 -->
+            <div v-if="!ebh_type">
+              <div class="creat_item">
+                <span class="title2">姓名：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入姓名"
+                  v-model="creat.mobile.name"
+                  type="email"
+                />
+              </div>
+              <div class="creat_item">
+                <span class="title2">手机：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入手机号"
+                  v-model="creat.mobile.mobilephone"
+                  type="text"
+                />
+              </div>
+              <div class="creat_item">
+                <span class="title2">密码：</span>
+                <input
+                  class="email_input"
+                  placeholder="请输入密码"
+                  v-model="creat.mobile.pswd"
+                  type="password"
+                />
+              </div>
+
+              <!-- <div class="creat_item">
+                <span class="title2">验证码：</span>
+                <img src="../assets/images/login/picture.png" class="code" alt />
+                <input class="email_input" type="text" />
+              </div>-->
             </div>
-          </div>
-          <div>
+            <div></div>
+
             <p class="sure_box2" @click="creat_btn">创建</p>
           </div>
         </el-dialog>
@@ -137,14 +205,31 @@ export default {
       checked: true,
       find_pswd_box: false,
       creat_box: false,
+      // 登录
       account: {
         email: "",
-        pswd: "",
-      },
-      user_mobile: {
+        email_pswd: "",
         mobilephone: "",
-        userpassword: "",
+        mobilephone_pswd: "",
       },
+
+      login_type: true,
+
+      // 创建
+      creat: {
+        email: {
+          name: "",
+          email: "",
+          pswd: "",
+        },
+        mobile: {
+          name: "",
+          mobilephone: "",
+          pswd: "",
+        },
+      },
+
+      ebh_type: true,
     };
   },
   mounted() {},
@@ -158,76 +243,192 @@ export default {
     creat_account() {
       this.creat_box = true;
     },
+    // 创建账号
     creat_btn() {
       // this.creat_box = false;
+      if (this.ebh_type) {
+        //  邮箱创建
+        let reg = /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+        if (!reg.test(this.creat.email.email)) {
+          console.log("走到这里说明手机号不合格");
+          this.$message({
+            message: "邮箱格式不正确",
+            type: "warning",
+          });
+          // 走到这里说明手机号不符合
+          return false;
+        }
+        if (this.creat.email.pswd.length < 6) {
+          this.$message({
+            message: "密码最小为6位",
+            type: "warning",
+          });
+          return false;
+        }
 
-      console.log(this.user_mobile);
-      let telRegex = /^1[3456789]\d{9}$/;
-
-      if (!telRegex.test(this.user_mobile.mobilephone)) {
-        console.log("走到这里说明手机号不合格");
-        this.$message({
-          message: "手机号码格式不正确",
-          type: "warning",
-        });
-        // 走到这里说明手机号不合格
-        return false;
-      }
-      if (this.user_mobile.userpassword.length < 6) {
-        console.log("走到这里说明手机号不合格");
-        this.$message({
-          message: "密码最小为6位",
-          type: "warning",
-        });
-        return false;
-      }
-
-      // 所有的验证全部通过之后，请求接口注册
-      //http://33310y89m5.wicp.vip/user/userRegister?mobilephone=15237304009&userpassword=w123456
-      this.axios
-        .post("/user/userRegister", {
-          data: {
-            mobilephone: this.user_mobile.mobilephone,
-            userpassword: this.user_mobile.userpassword,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          console.log("ok");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      console.log(123213);
-    },
-    login_go() {
-      this.axios
-        .get("/user/userLogin", {
-          params: {
-            mobilephone: "15237304009",
-            userpassword: "why15237304009",
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          console.log("ok");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      if (this.account.email == "admin" || this.account.pswd == "12345") {
-        // this.$router.push("/personal");
-        this.$message({
-          message: "登录成功",
-          type: "success",
-        });
-        this.$router.push("/submit_type");
-        sessionStorage.setItem("personal", "true");
+        // 所有的验证全部通过之后，请求接口注册
+        this.axios
+          .get("/user/emailRegister", {
+            params: {
+              email: this.creat.email.email,
+              userpassword: this.creat.email.pswd,
+            },
+          })
+          .then((response) => {
+            console.log(response);
+            console.log("ok");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       } else {
-        // this.$router.push("/submit_type");
-        this.$message.error("账号密码错误，请重新输入");
+        //  手机号创建
+        // console.log(this.user_mobile);
+        let telRegex = /^1[3456789]\d{9}$/;
+        if (!telRegex.test(this.creat.mobile.mobilephone)) {
+          console.log("走到这里说明手机号不合格");
+          this.$message({
+            message: "手机号码格式不正确",
+            type: "warning",
+          });
+          // 走到这里说明手机号不符合
+          return false;
+        }
+        if (this.creat.mobile.pswd.length < 6) {
+          this.$message({
+            message: "密码最小为6位",
+            type: "warning",
+          });
+          return false;
+        }
+
+        // 所有的验证全部通过之后，请求接口注册
+        //http://33310y89m5.wicp.vip/user/userRegister?mobilephone=15237304009&userpassword=w123456
+        this.axios
+          .post("/user/userRegister", {
+            data: {
+              mobilephone: this.creat.mobile.mobilephone,
+              userpassword: this.creat.mobile.pswd,
+            },
+          })
+          .then((response) => {
+            console.log(response);
+            console.log("ok");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        console.log(123213);
+      }
+    },
+    // 登录
+    login_go() {
+
+       this.$router.push("/submit_type");
+        sessionStorage.setItem("personal", "true");
+
+      if (this.login_type) {
+        //  邮箱登录
+        let reg = /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+
+        if (!reg.test(this.account.email)) {
+          console.log("走到这里说明手机号不合格");
+          this.$message({
+            message: "邮箱码格式不正确",
+            type: "warning",
+          });
+          // 走到这里说明手机号不符合
+          return false;
+        }
+
+        this.axios
+          .get("/user/emailLogin", {
+            params: {
+              email: this.account.email,
+              userpassword: this.account.email_pswd,
+            },
+          })
+          .then((response) => {
+            console.log(response);
+            console.log("ok");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        // 手机号登录
+        let telRegex = /^1[3456789]\d{9}$/;
+        if (!telRegex.test(this.account.mobilephone)) {
+          console.log("走到这里说明手机号不合格");
+          this.$message({
+            message: "手机号码格式不正确",
+            type: "warning",
+          });
+          // 走到这里说明手机号不符合
+          return false;
+        }
+
+        //  =======/user/userLogin?mobilephone=15237304009&userpassword=w123456
+        this.axios
+          .get("/user/userLogin", {
+            params: {
+              mobilephone: this.account.mobilephone,
+              userpassword: this.account.mobilephone_pswd,
+            },
+          })
+          .then((response) => {
+            console.log(response);
+            if (response.data.code == 400) {
+              this.$message({
+                message: response.data.message,
+                type: "warning",
+              });
+            }
+            console.log("ok");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+
+      // if (this.account.email == "admin" || this.account.pswd == "12345") {
+      //   // this.$router.push("/personal");
+      //   this.$message({
+      //     message: "登录成功",
+      //     type: "success",
+      //   });
+      //   this.$router.push("/submit_type");
+      //   sessionStorage.setItem("personal", "true");
+      // } else {
+      //   // this.$router.push("/submit_type");
+      //   this.$message.error("账号密码错误，请重新输入");
+      // }
+    },
+    change_login(name) {
+      switch (name) {
+        case "e-mail":
+          this.login_type = true;
+          break;
+        case "mobile":
+          this.login_type = false;
+          break;
+
+        default:
+          break;
+      }
+    },
+
+    change_ebh(name) {
+      switch (name) {
+        case "email":
+          this.ebh_type = true;
+          break;
+        case "mobile":
+          this.ebh_type = false;
+          break;
+        default:
+          break;
       }
     },
   },
@@ -300,8 +501,15 @@ export default {
             font-weight: 400;
             margin-bottom: 40px;
             .type_account {
-              color: #c8a461;
+              // color: #c8a461;
+              cursor: pointer;
             }
+            .type_mobile {
+              cursor: pointer;
+            }
+          }
+          .login_color {
+            color: #c8a461;
           }
 
           input {
@@ -354,7 +562,7 @@ export default {
               border-color: rgba(200, 164, 97, 1);
             }
           }
-        
+
           .login_btn {
             position: absolute;
             left: 50%;
@@ -377,14 +585,16 @@ export default {
         border: 1px solid rgba(0, 0, 0, 1);
         .bom_content {
           height: 400px;
-          padding: 58px 52px;
+          padding: 0px 52px;
           text-align: left;
           position: relative;
+          padding-top: 46px;
           p {
             font-size: 16px;
             font-weight: 400;
             margin-bottom: 10px;
           }
+
           .creat_box {
             margin: 0;
             position: absolute;
@@ -445,7 +655,7 @@ export default {
     .content {
       // height:40px;
       text-align: center;
-      margin: 100px 0;
+      margin: 30px 0 100px 0;
 
       .title1 {
         font-size: 18px;
@@ -488,6 +698,18 @@ export default {
     .el-dialog__body {
       padding: 0;
     }
+
+    .content_title {
+      font-size: 18px;
+      font-weight: 400;
+      color: #000;
+      margin: 50px 0 30px 0;
+      cursor: pointer;
+    }
+    .ebh_color {
+      color: #c8a461;
+    }
+
     .creat_item {
       margin-bottom: 40px;
       height: 60px;

@@ -15,7 +15,9 @@
       <div class="swiper-container" id="top_swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="item in img_list">
-            <img :src="item.src" style="height: 100%; width: 100%;" alt />
+            <div :class="item.class">
+              <img :src="item.src" style="height: 100%; width: 100%;" alt />
+            </div>
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -99,17 +101,22 @@ export default {
     return {
       img_list: [
         {
-          src: require("../assets/images/detail/swip.png"),
+          src: require("../assets/images/detail/swip1.jpg"),
+          class: "width338",
         },
+
         {
-          src: require("../assets/images/detail/swip.png"),
+          src: require("../assets/images/detail/swip2.jpg"),
+          class: "width843",
         },
+
         {
-          src: require("../assets/images/detail/swip.png"),
+          src: require("../assets/images/detail/swip3.jpg"),
+          class: "width740",
         },
-        {
-          src: require("../assets/images/detail/swip.png"),
-        },
+        // {
+        //   // src: require("../assets/images/detail/swip.png"),
+        // },
       ],
     };
   },
@@ -122,10 +129,11 @@ export default {
       var swiper = new Swiper("#top_swiper", {
         // autoplay: false, //等同于以下设置
         autoplay: {
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }, //可选选项，自动滑动
-        //slidesPerView : 'auto',    根据slide的宽度自动调整展示数量。此时需要设置slide的宽度，如下style所示
-        slidesPerView: 2.5,
+        slidesPerView: "auto",
+        loopedSlides: 5,
+        // slidesOffsetBefore : 100,
         loop: true,
         speed: 1000,
         // pagination: {
@@ -141,10 +149,10 @@ export default {
       });
       // });
     },
-    return_click(){
+    return_click() {
       //  this.$router.push("/film_show");
-        this.$router.go(-1);//返回上一层
-    }
+      this.$router.go(-1); //返回上一层
+    },
   },
 };
 </script>
@@ -185,15 +193,28 @@ export default {
 
   #top_swiper {
     height: 476px;
+
+    .swiper-slide {
+      width: auto; /*根据内容调整宽度*/
+    }
     .swiper-button-prev {
-      width: 23px;
+      // width: 23px;
       height: 39px;
       left: 80px;
     }
     .swiper-button-next {
-      width: 23px;
+      // width: 23px;
       height: 39px;
       right: 80px;
+    }
+    .width338{
+      width: 338px;
+    }
+     .width843{
+      width: 843px;
+    }
+     .width740{
+      width: 740px;
     }
   }
   //  视频
@@ -201,13 +222,13 @@ export default {
     width: 100%;
     height: 844px;
     background: url(../assets/images/detail/bgt.png);
-     padding-top: 82px;
+    padding-top: 82px;
     .video {
       width: 1200px;
       height: 680px;
       // border: 1px solid green;
       margin: 0 auto;
-     
+
       position: relative;
       .type_box {
         position: absolute;
