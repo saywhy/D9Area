@@ -128,9 +128,9 @@ export default {
       // this.$nextTick(() => {
       var swiper = new Swiper("#top_swiper", {
         // autoplay: false, //等同于以下设置
-        autoplay: {
-          disableOnInteraction: false,
-        }, //可选选项，自动滑动
+        // autoplay: {
+        //   disableOnInteraction: false,
+        // }, //可选选项，自动滑动
         slidesPerView: "auto",
         loopedSlides: 5,
         // slidesOffsetBefore : 100,
@@ -193,7 +193,6 @@ export default {
 
   #top_swiper {
     height: 476px;
-
     .swiper-slide {
       width: auto; /*根据内容调整宽度*/
     }
@@ -209,12 +208,15 @@ export default {
     }
     .width338{
       width: 338px;
+      height: 100%;
     }
      .width843{
       width: 843px;
+       height: 100%;
     }
      .width740{
-      width: 740px;
+      width: 843px;
+       height: 100%;
     }
   }
   //  视频
