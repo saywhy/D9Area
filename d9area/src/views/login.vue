@@ -325,8 +325,8 @@ export default {
     // 登录
     login_go() {
 
-      //  this.$router.push("/submit_type");
-      //   sessionStorage.setItem("personal", "true");
+       this.$router.push("/submit_type");
+        sessionStorage.setItem("personal", "true");
 
       if (this.login_type) {
         //  邮箱登录
