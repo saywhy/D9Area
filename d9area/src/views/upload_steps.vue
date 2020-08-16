@@ -10,7 +10,7 @@
               <el-step title="预告片信息"></el-step>
               <el-step title="正片信息"></el-step>
               <el-step title="联系人信息"></el-step>
-              <el-step title="信息确认"></el-step>
+              <!-- <el-step title="信息确认"></el-step> -->
             </el-steps>
           </div>
         </div>
@@ -481,9 +481,9 @@
 
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
-          <span class="next btn_common" @click="next_click" v-if="stpes_active!=4">下一页</span>
-          <span class="save btn_common" v-if="stpes_active!=4" @click="save_info">保存</span>
-          <span class="save btn_common" v-if="stpes_active==4">提交</span>
+          <span class="next btn_common" @click="next_click" v-if="stpes_active!=3">下一页</span>
+          <span class="save btn_common" v-if="stpes_active!=3" @click="save_info">保存</span>
+          <span class="save btn_common" v-if="stpes_active==3">提交</span>
           <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
         </div>
       </div>
@@ -499,6 +499,7 @@ import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import filmNav from "@/views/film_nav.vue";
 import realFoot from "../views/real_foot.vue";
+  import mapaData from '@/assets/js/data.js';
 export default {
   name: "UploadSteps",
   components: { Nav, Footer, filmNav, realFoot },
@@ -538,7 +539,7 @@ export default {
         },
         {
           value: "选项2",
-          label: "english",
+          label: "English",
         },
       ],
       value: "",
@@ -552,6 +553,9 @@ export default {
     };
   },
 
+mounted () {
+  console.log(mapaData);
+},
   methods: {
     next_click() {
       console.log(this.stpes_active);
@@ -595,7 +599,7 @@ export default {
       .el-step__title {
         position: absolute;
         top: 0;
-        left: 140px;
+        left: 170px;
         font-size: 16px;
         line-height: 24px;
         color: #919191;
@@ -605,7 +609,7 @@ export default {
       }
       .el-step.is-horizontal .el-step__line {
         top: 10px;
-        left: 250px;
+        left: 280px;
         right: -95px;
         background: #919191;
         height: 1px;

@@ -26,7 +26,7 @@
         <span class="nav_right personl"
               v-if="personl_show">
           <span class="personl_name"
-                @click="go_personl">永恒</span>
+                @click="go_personl">小毛驴</span>
           <span>｜</span>
           <span @click="logout">退出</span>
         </span>
