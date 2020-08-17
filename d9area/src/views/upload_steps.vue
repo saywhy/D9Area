@@ -153,7 +153,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">尺寸240*180 不超过4G</p>
+                  <p class="info_p">尺寸240*180 不超过1G</p>
                 </div>
               </div>
             </div>
@@ -202,7 +202,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">支持jpg/gif/png格式</p>
                   <p class="info_p">尺寸240*180不超过10M</p>
                   <p class="info_p">1-3张</p>
                 </div>
@@ -215,7 +215,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">支持jpg/gif/png格式</p>
                   <p class="info_p">尺寸240*180不超过10M</p>
                   <p class="info_p">（美术概念设定）</p>
                 </div>
@@ -223,7 +223,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">支持jpg/gif/png格式</p>
                   <p class="info_p">尺寸240*180不超过10M</p>
                   <p class="info_p">（故事版分镜）</p>
                 </div>
@@ -237,7 +237,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                  <p class="info_p">支持jpg/gif/png格式</p>
                   <p class="info_p">尺寸240*180不超过10M</p>
                 </div>
               </div>
@@ -1074,8 +1074,8 @@ mounted () {
     border: 1px solid #999;
     background: #fff;
     position: relative;
-    margin-right: 20px;
-    float: left;
+    margin-bottom: 20px;
+    // float: left;
     cursor: pointer;
     .upload_img_box {
       text-align: center;

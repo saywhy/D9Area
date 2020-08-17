@@ -10,7 +10,7 @@
               <el-step title="预告片信息"></el-step>
               <el-step title="正片信息"></el-step>
               <el-step title="联系人信息"></el-step>
-              <el-step title="信息确认"></el-step>
+              <!-- <el-step title="信息确认"></el-step> -->
             </el-steps>
           </div>
         </div>
@@ -131,7 +131,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
+                  <p>支持jpg/gif/png格式</p>
                   <p>尺寸240*180不超过10M</p>
                   <p>（美术概念设定）</p>
                 </div>
@@ -139,7 +139,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
+                  <p>支持jpg/gif/png格式</p>
                   <p>尺寸240*180不超过10M</p>
                   <p>（故事版分镜）</p>
                 </div>
@@ -153,7 +153,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p>支持jpg/gif/png格式RGB模式</p>
+                  <p>支持jpg/gif/png格式</p>
                   <p>尺寸240*180不超过10M</p>
                 </div>
               </div>
@@ -188,7 +188,7 @@
           </div>
         </div>
         <!-- 信息确认 -->
-        <div class="info" v-if="stpes_active==4">
+        <!-- <div class="info" v-if="stpes_active==4">
           <p class="top_info">
             <img src="@/assets/images/upload/warning.png" alt />
             <span>请检查内容是否正确，提交后不可再次修改</span>
@@ -239,7 +239,7 @@
                 <el-input v-model="base.des" placeholder="请注明职务与姓名"></el-input>
               </div>
             </div>
-            <!-- <div class="content_item">
+            <div class="content_item">
               <span class="item_title">剧本大纲：</span>
               <div class="item_right">
                 <el-input type="textarea"
@@ -249,7 +249,7 @@
                           maxlength="1000"
                           show-word-limit></el-input>
               </div>
-            </div>-->
+            </div>
           </div>
           <p class="top_info_title">预告片信息：</p>
           <div class="content">
@@ -378,13 +378,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> 
 
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
-          <span class="next btn_common" @click="next_click" v-if="stpes_active!=4">下一页</span>
-          <span class="save btn_common" v-if="stpes_active!=4">保存</span>
-          <span class="save btn_common" v-if="stpes_active==4">提交</span>
+          <span class="next btn_common" @click="next_click" v-if="stpes_active!=3">下一页</span>
+          <span class="save btn_common" v-if="stpes_active!=3">保存</span>
+          <span class="save btn_common" v-if="stpes_active==3">提交</span>
           <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
         </div>
       </div>
@@ -464,14 +464,14 @@ export default {
         .el-step__title {
           position: absolute;
           top: 0;
-          left: 140px;
+          left: 180px;
           font-size: 16px;
           line-height: 24px;
           color: #999;
         }
         .el-step.is-horizontal .el-step__line {
           top: 10px;
-          left: 230px;
+          left: 270px;
           right: -90px;
           background: #999;
           height: 1px;
@@ -649,8 +649,8 @@ export default {
       width: 240px;
       height: 180px;
       // border: 1px solid red;
-      float: left;
-      margin-left: 20px;
+      // float: left;
+      margin-bottom: 20px;
       background: #fff;
       border: 1px solid #999;
       position: relative;
