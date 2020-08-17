@@ -5710,6 +5710,4 @@ var arrAll = [{
         type: 1
     }
 ]
-
-
 export default arrAll
