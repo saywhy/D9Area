@@ -196,6 +196,8 @@
 <script>
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
+
+import {LOGINM} from '@/apis/login.js'
 export default {
   name: "Login",
   components: { Nav, Footer },
@@ -323,7 +325,7 @@ export default {
       }
     },
     // 登录
-    login_go() {
+     login_go() {
 
        this.$router.push("/submit_type");
         sessionStorage.setItem("personal", "true");
@@ -370,6 +372,14 @@ export default {
         }
 
         //  =======/user/userLogin?mobilephone=15237304009&userpassword=w123456
+
+        // let user_login = await LOGINM({
+        //    mobilephone: this.account.mobilephone,
+        //   userpassword: this.account.mobilephone_pswd,
+        // })
+
+
+      console.log(user_login);
         this.axios
           .get("/user/userLogin", {
             params: {
@@ -390,6 +400,9 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
+
+
+
       }
 
       // if (this.account.email == "admin" || this.account.pswd == "12345") {

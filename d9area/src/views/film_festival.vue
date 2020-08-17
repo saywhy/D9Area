@@ -223,7 +223,7 @@
     </div>
 
     <!-- 底部新闻资讯 -->
-  
+
     <realFoot></realFoot>
 
     <Footer></Footer>
@@ -236,11 +236,11 @@ import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 import filmNav from "@/views/film_nav.vue";
 import filmTop from "@/views/film_top.vue";
-import realFoot from '../views/real_foot.vue'
+import realFoot from "../views/real_foot.vue";
 
 export default {
   name: "FilmFestival",
-  components: { Nav, Footer, filmNav, filmTop,realFoot },
+  components: { Nav, Footer, filmNav, filmTop, realFoot },
   data() {
     return {
       Index: "1",
@@ -266,12 +266,11 @@ export default {
         },
       ],
       value: "",
-     
     };
   },
   mounted() {
     this.init_top_Swiper();
-    this.init_mid_Swiper(); 
+    this.init_mid_Swiper();
     // 此处true需要加上，不加滚动事件可能绑定不成功
     // window.addEventListener("scroll", this.handleScroll, true);
   },
@@ -312,8 +311,8 @@ export default {
         });
       });
     },
-  }
-  }
+  },
+};
 </script>
 <style lang="less" scoped>
 /deep/ .content_box {
@@ -322,19 +321,47 @@ export default {
   .big_img {
     width: 740px;
     height: 484px;
+  overflow: hidden;
     img {
       width: 100%;
       height: 100%;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+    img:hover {
+      transform: scale(1.2);
     }
   }
-  .smal_img {
+
+  .right_top {
     width: 370px;
-    height: 226px;
+    // height: 226px;
+    overflow: hidden;
     img {
       width: 100%;
       height: 100%;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+      img:hover {
+      transform: scale(1.2);
     }
   }
+ .right_bom {
+    width: 370px;
+    // height: 226px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+      img:hover {
+      transform: scale(1.2);
+    }
+  }
+ 
 }
 
 /deep/ .FilmFestival {
@@ -755,9 +782,8 @@ export default {
           // height: 22px;
           position: absolute;
           left: 50%;
-          top:50%;
-          transform: translate(-50%,-50%);
-       
+          top: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }
@@ -787,8 +813,5 @@ export default {
       line-height: 260px;
     }
   }
-
-   }
- 
-
+}
 </style>

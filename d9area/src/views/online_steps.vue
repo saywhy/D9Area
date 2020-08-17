@@ -458,6 +458,7 @@ export default {
       // border: 1px solid red;
       .steps_box {
         // border: 1px solid red;
+         margin-left: -25px;
         .el-step.is-horizontal {
           position: relative;
         }
