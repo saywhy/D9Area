@@ -197,7 +197,7 @@
 import Nav from "@/views/nav.vue";
 import Footer from "@/views/footer.vue";
 
-import {LOGINM} from '@/apis/login.js'
+import { LOGINM } from "@/apis/login.js";
 export default {
   name: "Login",
   components: { Nav, Footer },
@@ -316,6 +316,14 @@ export default {
           .then((response) => {
             console.log(response);
             console.log("ok");
+            if (response.data.code == 200) {
+              this.$message({
+                message: response.data.message,
+                type: "success",
+              });
+              // 注册成功后提示 并关闭弹窗
+              this.creat_box = false;
+            }
           })
           .catch(function (error) {
             console.log(error);
@@ -325,10 +333,9 @@ export default {
       }
     },
     // 登录
-     login_go() {
-
-       this.$router.push("/submit_type");
-        sessionStorage.setItem("personal", "true");
+    login_go() {
+      this.$router.push("/submit_type");
+      sessionStorage.setItem("personal", "true");
 
       if (this.login_type) {
         //  邮箱登录
@@ -378,8 +385,7 @@ export default {
         //   userpassword: this.account.mobilephone_pswd,
         // })
 
-
-      console.log(user_login);
+        console.log(user_login);
         this.axios
           .get("/user/userLogin", {
             params: {
@@ -400,9 +406,6 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-
-
-
       }
 
       // if (this.account.email == "admin" || this.account.pswd == "12345") {
