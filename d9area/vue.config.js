@@ -36,8 +36,8 @@ module.exports = {
         // },
         proxy: { //配置多个跨域
             "/api": {
-                target: "http://33310y89m5.wicp.vip/",
-                changeOrigin: true,
+                // target: "http://33310y89m5.wicp.vip/",
+                target: "http://47.94.20.54:8080/",
                 // ws: true,//websocket支持
                 secure: false,
                 pathRewrite: {

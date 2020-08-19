@@ -173,7 +173,7 @@
               <div class="upload_box">
                 <div class="upload_img_box">
                   <el-upload class="avatar-uploader"
-                             action="/movie/addMovie"
+                             action="/d9time/movie/addMovie"
                              :file-list="fileList"
                              :on-success="handleAvatarSuccess"
                              :on-change="handleChange"
