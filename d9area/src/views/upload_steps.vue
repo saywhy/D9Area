@@ -17,7 +17,7 @@
         <!-- 基础信息 -->
         <div class="content" v-if="stpes_active==0">
           <div class="content_item">
-            <span class="item_title_direction">影片方向：</span>
+            <span class="item_title">影片方向：</span>
             <div class="upload_radio">
               <el-radio v-model="upload_info.base.filmtype" label="0">VFX电影短片</el-radio>
               <el-radio v-model="upload_info.base.filmtype" label="1">三维动画短片</el-radio>
@@ -29,15 +29,15 @@
             <span class="item_title">中文片名：</span>
             <div class="item_right">
               <el-input v-model="upload_info.base.filmname" placeholder="请填写中文片名"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
           <div class="content_item">
             <span class="item_title">英文片名：</span>
             <div class="item_right">
               <el-input v-model="upload_info.base.enfilmname" placeholder="请填写英文片名"></el-input>
+              <span class="fff">*</span>
             </div>
-            <span class="fff">*</span>
           </div>
           <!-- 简介 -->
           <div class="content_item">
@@ -51,8 +51,8 @@
                 maxlength="1000"
                 show-word-limit
               ></el-input>
+              <span class="red_ch">*</span>
             </div>
-            <span class="red_ch">*</span>
           </div>
           <div class="content_item">
             <span class="item_title">影片英文简介：</span>
@@ -72,8 +72,8 @@
             <span class="item_title">出品方：</span>
             <div class="item_right">
               <el-input v-model="upload_info.base.producer" placeholder="拥有影片版权方，不得超过三家"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
           <div class="content_item">
             <span class="item_title">制片国家/地区：</span>
@@ -84,16 +84,16 @@
                 v-model="upload_info.base.productarea"
                 filterable
               ></el-cascader>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
             <span class="item_title">对白语言：</span>
             <div class="item_right">
               <el-input v-model="upload_info.base.dialogue" placeholder="请输入对白语言"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
           <div class="content_item">
             <span class="item_title">字幕语言：</span>
@@ -106,16 +106,24 @@
                   :value="item.value"
                 ></el-option>
               </el-select>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
-            <span class="item_title_long">片长：</span>
-            <div class="item_slice_box">
-              <el-input v-model="upload_info.base.filmetime" placeholder="请输入时长"></el-input>
-
-              <div class="notes">（注：5-17分钟之间） *</div>
+            <span class="item_title">片长：</span>
+            <div class="item_right">
+              <div class="item_slice_box">
+                <!-- <el-input v-model="upload_info.base.filmetime" placeholder="请输入时长"></el-input> -->
+                <el-input-number
+                  v-model="upload_info.base.filmetime"
+                  @change="handleChange"
+                  :min="5"
+                  :max="17"
+                  label="请输入时长"
+                ></el-input-number>
+                <div class="notes">（注：5-17分钟之间） *</div>
+              </div>
             </div>
           </div>
 
@@ -131,17 +139,17 @@
                   value-format="timestamp"
                   placeholder="选择日期"
                 ></el-date-picker>
+                <span class="red">*</span>
               </div>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
             <span class="item_title">主创团队：</span>
             <div class="item_right">
               <el-input v-model="upload_info.base.creators" placeholder="请注明职务与姓名"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
@@ -169,23 +177,29 @@
                 <div class="upload_img_box">
                   <el-upload
                     class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/movie/addMovie"
-                    :file-list="fileList"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
                     :on-success="handleAvatarSuccess"
                     :on-change="handleChange"
+                    :on-exceed="onExceed"
+                    :limit="3"
                     name="file1"
                     :before-upload="beforeAvatarUpload"
                   >
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">1-3张</p>
+
                     <!-- <i class="el-icon-plus avatar-uploader-icon"></i> -->
                   </el-upload>
                   <!-- <img class="add_img" src="@/assets/images/upload/add.png" alt />
                   <p class="info_p">支持jpg/gif/png格式RGB模式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>-->
+                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <p class="info_p">1-3张</p>-->
                 </div>
               </div>
-              <div class="upload_box">
-                <img v-if="imageUrl" :src="imageUrl" alt />
+              <div class="upload_box" v-for="item in fileList">
+                <img :src="item.imageUrl" alt />
               </div>
             </div>
           </div>
@@ -268,42 +282,40 @@
           <div class="content_item">
             <span class="item_title">申报人姓名：</span>
             <div class="item_right">
-              <el-input v-model="base.name" placeholder="请输入联系人姓名"></el-input>
+              <el-input v-model="upload_info.contacts.Realname" placeholder="请输入联系人姓名"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
-
           <div class="content_item">
             <span class="item_title">公司名称：</span>
             <div class="item_right">
-              <el-input v-model="base.des" placeholder="请输入公司名称"></el-input>
+              <el-input v-model="upload_info.contacts.Company" placeholder="请输入公司名称"></el-input>
+              <span class="fff">*</span>
             </div>
-            <span class="fff">*</span>
           </div>
 
           <div class="content_item">
             <span class="item_title">手机号：</span>
             <div class="item_right">
-              <el-input v-model="base.mobile" placeholder="请输入联系人手机号"></el-input>
-              <!-- <span class="red">*</span> -->
+              <el-input v-model="upload_info.contacts.Phone" placeholder="请输入联系人手机号"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
             <span class="item_title">邮箱：</span>
             <div class="item_right">
-              <el-input v-model="base.email" placeholder="请输入联系人邮箱"></el-input>
+              <el-input v-model="upload_info.contacts.Email" placeholder="请输入联系人邮箱"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
 
           <div class="content_item">
             <span class="item_title">收件地址：</span>
             <div class="item_right">
-              <el-input v-model="base.addres" placeholder="请填输入收件地址"></el-input>
+              <el-input v-model="upload_info.contacts.Address" placeholder="请填输入收件地址"></el-input>
+              <span class="red">*</span>
             </div>
-            <span class="red">*</span>
           </div>
           <div class="content_item">
             <div class="tips">注：*星号为必填项</div>
@@ -360,7 +372,7 @@ export default {
           ensynopsis: "", //英文简介
           producer: "", //出品方
           dialogue: "", //对白语言
-          filmetime: "", // 电影时长  片长
+          filmetime: "5", // 电影时长  片长
           creators: "", //出品团队
           subtitle: "", //字幕语言
           productarea: "", //制片国家地区
@@ -371,7 +383,13 @@ export default {
         // 正片信息
         positive: {},
         // 联系人
-        contacts: {},
+        contacts: {
+          Realname: "", //姓名
+          Company: "", // 公司名称
+          Phone: "", //手机号
+          Email: "", //邮箱
+          Address: "", // 地址
+        },
       },
       //  字幕语言
       subtitle_list: [
@@ -411,18 +429,53 @@ export default {
       console.log(this.upload_info);
       // 这个地方先做基本信息的保存请求接口
       // 当点击保存时候，获取输入的信息
-      if (
-        this.upload_info.filmname == "" ||
-        this.upload_info.synopsis == "" ||
-        this.upload_info.producer == ""
-      ) {
-        this.$message({
-          message: "*星号为必填项,不能为空",
-          type: "warning",
+
+      this.axios
+        .post("/d9time/movie/addMovie", {
+          filmtype: this.upload_info.base.filmtype, //影片类型
+          filmname: this.upload_info.base.filmname, //作品名称
+          enfilmname: this.upload_info.base.enfilmname, //作品名称
+          synopsis: this.upload_info.base.synopsis, //简介
+          producer: this.upload_info.base.producer, //出品方
+          productarea: this.upload_info.base.productarea[0], //制作地区
+          dialogue: this.upload_info.base.dialogue, //对白语言
+          subtitle: this.upload_info.base.subtitle, //字幕语言
+          filmetime: this.upload_info.base.filmetime, //片长：
+          //缺少制作完成日期字段
+          creators: this.upload_info.base.creators, //出品团队
+          //  联系人字段
+          Realname: this.upload_info.contacts.Realname, //姓名
+          Company: this.upload_info.contacts.Company, // 公司名称
+          Phone: this.upload_info.contacts.Phone, //手机号
+          Email: this.upload_info.contacts.Email, //邮箱
+          Address: this.upload_info.contacts.Address, // 地址
+        })
+        .then((response) => {
+          console.log(response);
+          console.log("ok");
+        })
+        .catch(function (error) {
+          console.log(error);
         });
-        // 走到这里说明手机号不符合
-        return false;
-      }
+
+      // if (
+      //   this.upload_info.base.filmname == "" ||
+      //   this.upload_info.base.synopsis == "" ||
+      //   this.upload_info.base.producer == "" ||
+      //   this.upload_info.base.productarea==""||
+      //   this.upload_info.base.dialogue==""||
+      //   this.upload_info.base.subtitle==""||
+      //   this.upload_info.base.filmetime=="" ||
+      //   this.upload_info.base.time==""||
+      //   this.upload_info.base.creators==""
+      // ) {
+      //   this.$message({
+      //     message: "*星号为必填项,不能为空",
+      //     type: "warning",
+      //   });
+      //   // 走到这里说明不符合
+      //   return false;
+      // }
     },
     handleAvatarSuccess(res, file, fileList) {
       console.log("----------------------------------------");
@@ -430,6 +483,7 @@ export default {
       console.log(res);
       console.log(file);
       console.log(fileList);
+
       console.log("----------------------------------------");
     },
     beforeAvatarUpload(file) {
@@ -442,12 +496,28 @@ export default {
       console.log("----------------------------------------");
       console.log("handleChange");
       console.log(file);
-      this.imageUrl = URL.createObjectURL(file.raw);
+      // this.imageUrl = URL.createObjectURL(file.raw);
       console.log(fileList);
+      this.fileList = fileList;
+      this.fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
       console.log("----------------------------------------");
+    },
+    // 文件上传超出提示
+    onExceed(file, fileList) {
+      console.log("文件上传超出提示");
+      this.$message({
+        message: "图片最多上传3张",
+        type: "warning",
+      });
     },
   },
   computed: {},
+  // 片长
+  handleChange(filmetime) {
+    console.log(filmetime);
+  },
 };
 </script>
 <style lang="less">
@@ -549,7 +619,7 @@ export default {
   }
   // 基本信息
   .content {
-    width: 800px;
+    width: 1200px;
     // margin-left: 30px;
     // margin: 0 auto;
     // border: 1px solid red;
@@ -607,7 +677,6 @@ export default {
       }
 
       .el-input__inner {
-        flex: 1;
         height: 48px;
         background: #fff;
         border: 1px solid #999999;
@@ -615,8 +684,11 @@ export default {
         border-radius: 0;
         font-size: 16px;
       }
+      .el-textarea {
+        width: 640px;
+      }
       .el-textarea__inner {
-        flex: 1;
+        width: 640px;
         height: 96px;
         background: #fff;
         border: 1px solid #999999;
@@ -669,13 +741,13 @@ export default {
         }
       }
       .item_right {
-        // flex: 1;
-        width: 700px;
+        flex: 1;
+        // width: 700px;
         float: right;
         font-size: 14px;
         text-align: left;
         display: flex;
-        border: 1px solid red;
+        // border: 1px solid red;
       }
       .red {
         font-size: 16px;
@@ -705,6 +777,9 @@ export default {
         color: #f83e48;
         margin-left: 130px;
       }
+      .el-input {
+        width: 640px;
+      }
       .el-input__inner {
         width: 640px;
       }
@@ -730,6 +805,15 @@ export default {
           left: 254px;
           top: 0;
         }
+      }
+      .el-input-number__decrease.is-disabled {
+        display: none;
+      }
+      .el-input-number__increase {
+        display: none;
+      }
+      .el-input-number__decrease {
+        display: none;
       }
     }
   }
