@@ -178,27 +178,21 @@
                   <el-upload
                     class="avatar-uploader"
                     action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="handleAvatarSuccess"
-                    :on-change="handleChange"
-                    :on-exceed="onExceed"
+                    :on-success="product_str_success"
+                    :on-change="product_str_change"
+                    :on-exceed="product_str_exceed"
                     :limit="3"
-                    name="file1"
-                    :before-upload="beforeAvatarUpload"
+                    :show-file-list="false"
+                    name="file"
                   >
                     <img class="add_img" src="@/assets/images/upload/add.png" alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">1-3张</p>
-
-                    <!-- <i class="el-icon-plus avatar-uploader-icon"></i> -->
                   </el-upload>
-                  <!-- <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
-                  <p class="info_p">1-3张</p>-->
                 </div>
               </div>
-              <div class="upload_box" v-for="item in fileList">
+              <div class="upload_box" v-for="item in product_str_fileList">
                 <img :src="item.imageUrl" alt />
               </div>
             </div>
@@ -208,10 +202,25 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式RGB模式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                    :on-success="product_cover_success"
+                    :on-change="product_cover_change"
+                    :on-exceed="product_cover_exceed"
+                    :limit="1"
+                    :show-file-list="false"
+                    name="file"
+                  >
+                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">1张</p>
+                  </el-upload>
                 </div>
+              </div>
+              <div class="upload_box" v-for="item in product_cover_fileList">
+                <img :src="item.imageUrl" alt />
               </div>
             </div>
           </div>
@@ -234,11 +243,28 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
-                  <p class="info_p">1-3张</p>
+                  <!-- 
+                   positive: {
+                  posters-->
+                  <el-upload
+                    class="avatar-uploader"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                    :on-success="positive_posters_success"
+                    :on-change="positive_posters_change"
+                    :on-exceed="positive_posters_exceed"
+                    :limit="3"
+                    :show-file-list="false"
+                    name="file"
+                  >
+                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">1-3张</p>
+                  </el-upload>
                 </div>
+              </div>
+              <div class="upload_box" v-for="item in positive_posters_fileList">
+                <img :src="item.imageUrl" alt />
               </div>
             </div>
           </div>
@@ -247,19 +273,52 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
-                  <p class="info_p">（美术概念设定）</p>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                    :on-success="positive_concepts_success"
+                    :on-change="positive_concepts_change"
+                    :on-exceed="positive_concepts_exceed"
+                    :limit="3"
+                    :show-file-list="false"
+                    name="file"
+                  >
+                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">（美术概念设定1-3张）</p>
+                  </el-upload>
                 </div>
               </div>
+              <div class="upload_box" v-for="item in positive_concepts_fileList">
+                <img :src="item.imageUrl" alt />
+              </div>
+            </div>
+          </div>
+          <div class="content_item">
+            <span class="item_title"></span>
+            <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
-                  <p class="info_p">（故事版分镜）</p>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                    :on-success="positive_storys_success"
+                    :on-change="positive_storys_change"
+                    :on-exceed="positive_storys_exceed"
+                    :limit="3"
+                    :show-file-list="false"
+                    name="file"
+                  >
+                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">（故事版分镜1-3张）</p>
+                  </el-upload>
                 </div>
+              </div>
+              <div class="upload_box" v-for="item in positive_storys_fileList">
+                <img :src="item.imageUrl" alt />
               </div>
             </div>
           </div>
@@ -269,10 +328,26 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
-                  <p class="info_p">支持jpg/gif/png格式</p>
-                  <p class="info_p">尺寸240*180不超过10M</p>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                    :on-success="positive_tooling_success"
+                    :on-change="positive_tooling_change"
+                    :on-exceed="positive_tooling_exceed"
+                    :limit="1"
+                    :show-file-list="false"
+                    name="file"
+                  >
+                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                    <p class="info_p">支持jpg/gif/png格式RGB模式</p>
+                    <p class="info_p">尺寸240*180不超过10M</p>
+                    <p class="info_p">1张</p>
+                  </el-upload>
                 </div>
+              </div>
+
+              <div class="upload_box" v-for="item in positive_tooling_fileList">
+                <img :src="item.imageUrl" alt />
               </div>
             </div>
           </div>
@@ -379,9 +454,17 @@ export default {
           time: "", //制作完成时间
         },
         // 预告片
-        trailer: {},
+        product: {
+          str: [], //海报
+          cover: [], //海报
+        },
         // 正片信息
-        positive: {},
+        positive: {
+          posters: [],
+          concepts: [],
+          storys: [],
+          tooling: [],
+        },
         // 联系人
         contacts: {
           Realname: "", //姓名
@@ -408,6 +491,14 @@ export default {
       area_data: [],
       imageUrl: "",
       fileList: [],
+      // 预告片
+      product_str_fileList: [], //海报数组
+      product_cover_fileList: [], //封面
+
+      positive_posters_fileList: [], //正片海报数组
+      positive_concepts_fileList: [], //美术概念
+      positive_storys_fileList: [], //故事分镜
+      positive_tooling_fileList: [], //故事分镜
     };
   },
 
@@ -432,6 +523,7 @@ export default {
 
       this.axios
         .post("/d9time/movie/addMovie", {
+          userid:'',
           filmtype: this.upload_info.base.filmtype, //影片类型
           filmname: this.upload_info.base.filmname, //作品名称
           enfilmname: this.upload_info.base.enfilmname, //作品名称
@@ -443,6 +535,16 @@ export default {
           filmetime: this.upload_info.base.filmetime, //片长：
           //缺少制作完成日期字段
           creators: this.upload_info.base.creators, //出品团队
+          // 预告片信息
+          cover:this.upload_info.product.cover,
+          str:this.upload_info.product.str,
+
+          // 正片信息
+          posters: this.upload_info.positive.posters, //海报
+          concepts: this.upload_info.positive.concepts, //美术概念
+          storys: this.upload_info.positive.storys, //故事分镜
+          Tooling: this.upload_info.positive.tooling, //封面
+
           //  联系人字段
           Realname: this.upload_info.contacts.Realname, //姓名
           Company: this.upload_info.contacts.Company, // 公司名称
@@ -453,6 +555,12 @@ export default {
         .then((response) => {
           console.log(response);
           console.log("ok");
+          if (response.data.code == "200") {
+            this.$message({
+              message: response.data.message,
+              type: "success",
+            });
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -504,9 +612,114 @@ export default {
       });
       console.log("----------------------------------------");
     },
+
+    // 预告片海报上传
+    product_str_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.product.str.push(res.data[0].fileUrl);
+    },
+    product_str_change(file, fileList) {
+      this.product_str_fileList = fileList;
+      this.product_str_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    product_str_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传3张",
+        type: "warning",
+      });
+    },
+    // 预告片封面
+    product_cover_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.product.cover.push(res.data[0].fileUrl);
+    },
+    product_cover_change(file, fileList) {
+      this.product_cover_fileList = fileList;
+      this.product_cover_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    product_cover_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传1张",
+        type: "warning",
+      });
+    },
+
+    // 正片海报上传
+    positive_posters_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.positive.posters.push(res.data[0].fileUrl);
+    },
+    positive_posters_change(file, fileList) {
+      this.positive_posters_fileList = fileList;
+      this.positive_posters_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    positive_posters_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传3张",
+        type: "warning",
+      });
+    },
+
+    // 美术概念
+    positive_concepts_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.positive.concepts.push(res.data[0].fileUrl);
+    },
+    positive_concepts_change(file, fileList) {
+      this.positive_concepts_fileList = fileList;
+      this.positive_concepts_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    positive_concepts_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传3张",
+        type: "warning",
+      });
+    },
+    // 故事分镜
+    positive_storys_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.positive.storys.push(res.data[0].fileUrl);
+    },
+    positive_storys_change(file, fileList) {
+      this.positive_storys_fileList = fileList;
+      this.positive_storys_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    positive_storys_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传3张",
+        type: "warning",
+      });
+    },
+    // 正片封面
+    positive_tooling_success(res, file, fileList) {
+      console.log(res);
+      this.upload_info.positive.tooling.push(res.data[0].fileUrl);
+    },
+    positive_tooling_change(file, fileList) {
+      this.positive_tooling_fileList = fileList;
+      this.positive_tooling_fileList.map((item) => {
+        item.imageUrl = URL.createObjectURL(item.raw);
+      });
+    },
+    positive_tooling_exceed(file, fileList) {
+      this.$message({
+        message: "图片最多上传1张",
+        type: "warning",
+      });
+    },
+
     // 文件上传超出提示
     onExceed(file, fileList) {
-      console.log("文件上传超出提示");
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
