@@ -61,6 +61,7 @@ export default {
     width: 1200px;
     margin: 0 auto;
     height: 40px;
+    font-size:14px;
   }
 
   .el-menu.el-menu--horizontal {

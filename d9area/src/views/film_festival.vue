@@ -279,9 +279,9 @@ export default {
       // this.$nextTick(() => {
       var swiper = new Swiper("#top_swiper", {
         // autoplay: false, //等同于以下设置
-        // autoplay: {
-        //   disableOnInteraction: false
-        // }, //可选选项，自动滑动
+        autoplay: {
+          disableOnInteraction: false
+        }, //可选选项，自动滑动
         loop: true,
         speed: 1000,
         pagination: {
@@ -297,9 +297,9 @@ export default {
       this.$nextTick(() => {
         var swiper = new Swiper("#mid_Swiper", {
           // autoplay: false, //等同于以下设置
-          // autoplay: {
-          //   disableOnInteraction: false
-          // }, //可选选项，自动滑动
+          autoplay: {
+            disableOnInteraction: false
+          }, //可选选项，自动滑动
           loop: true,
           speed: 1000,
           pagination: {

@@ -55,6 +55,7 @@
                     <span>:</span>
                     <input type="password" v-model="account.mobilephone_pswd" />
                   </p>
+                  <p @click="get_code">获取验证码</p>
                 </div>
                 <p class="forget">
                   <span @click="find_pswd">忘记密码?</span>
@@ -245,6 +246,21 @@ export default {
     creat_account() {
       this.creat_box = true;
     },
+    // 获取手机验证码
+    get_code(){
+// http://47.94.20.54:8080/d9time/user/sms?phoneNumber=15237304009
+   this.axios
+          .post("/d9time/user/sms?phoneNumber=15237304009")
+          .then((response) => {
+            console.log(response);
+            console.log("ok");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+
+    },
     // 创建账号
     creat_btn() {
       // this.creat_box = false;
@@ -307,7 +323,7 @@ export default {
         // 所有的验证全部通过之后，请求接口注册
         //http://33310y89m5.wicp.vip/user/userRegister?mobilephone=15237304009&userpassword=w123456
         this.axios
-          .post("/user/userRegister", {
+          .post("/d9time/user/userRegister", {
             data: {
               mobilephone: this.creat.mobile.mobilephone,
               userpassword: this.creat.mobile.pswd,
@@ -334,8 +350,8 @@ export default {
     },
     // 登录
     login_go() {
-      this.$router.push("/submit_type");
-      sessionStorage.setItem("personal", "true");
+      // this.$router.push("/submit_type");
+      // sessionStorage.setItem("personal", "true");
 
       if (this.login_type) {
         //  邮箱登录
