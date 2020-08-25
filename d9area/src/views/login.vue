@@ -246,11 +246,16 @@ export default {
     creat_account() {
       this.creat_box = true;
     },
+
+
     // 获取手机验证码
     get_code(){
 // http://47.94.20.54:8080/d9time/user/sms?phoneNumber=15237304009
    this.axios
-          .post("/d9time/user/sms?phoneNumber=15237304009")
+          // .post("/d9time/user/sms?phoneNumber=15237304009")
+          // .post("http://33310y89m5.wicp.vip/user/sms?phoneNumber=15237304009")
+          // .post("/d9time/user/sms?",{})
+         .get("/d9time/user/sms?phoneNumber=15237304009")
           .then((response) => {
             console.log(response);
             console.log("ok");
