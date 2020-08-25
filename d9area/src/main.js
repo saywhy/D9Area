@@ -20,6 +20,7 @@ Vue.use(ElementUI);
 
 Vue.prototype.$axios = axios;
 axios.defaults.baseURL = '/api/' // api 即上面 vue.config.js 中配置的地址
+axios.defaults.withCredentials = true
 import 'fullpage.js/vendors/scrolloverflow'
 // import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
 
