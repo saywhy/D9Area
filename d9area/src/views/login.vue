@@ -6,8 +6,7 @@
         <div class="login_box">
           <div class="login_top">
             <div class="top_left">
-              <img src="@/assets/images/login/user.png"
-                   alt />
+              <img src="@/assets/images/login/user.png" alt />
               <p>我的账号</p>
             </div>
             <div class="top_right">
@@ -19,27 +18,29 @@
               <p class="bom_title">我已有D9区账号了</p>
               <div class="bom_content">
                 <p class="select_type">
-                  <span class="type_account"
-                        @click="change_login('e-mail')"
-                        :class="login_type?'login_color':''">邮箱登录</span>
+                  <span
+                    class="type_account"
+                    @click="change_login('e-mail')"
+                    :class="login_type?'login_color':''"
+                  >邮箱登录</span>
                   <span>/</span>
-                  <span class="type_mobile"
-                        @click="change_login('mobile')"
-                        :class="login_type?'':'login_color'">手机号登录</span>
+                  <span
+                    class="type_mobile"
+                    @click="change_login('mobile')"
+                    :class="login_type?'':'login_color'"
+                  >手机号登录</span>
                 </p>
                 <!-- 邮箱登录 -->
                 <div v-if="login_type">
                   <p class="email_box">
                     <span class="email">邮箱</span>
                     <span>:</span>
-                    <input type="email"
-                           v-model="account.email" />
+                    <input type="email" v-model="account.email" />
                   </p>
                   <p class="pswd_box">
                     <span class="pswd">密码</span>
                     <span>:</span>
-                    <input type="password"
-                           v-model="account.email_pswd" />
+                    <input type="password" v-model="account.email_pswd" />
                   </p>
                 </div>
                 <!-- 手机号登录 -->
@@ -47,17 +48,21 @@
                   <p class="email_box">
                     <span class="email">手机</span>
                     <span>:</span>
-                    <input type="email"
-                           v-model="account.mobilephone" />
+                    <input type="email" v-model="account.mobilephone" />
                   </p>
                   <p class="pswd_box">
                     <span class="pswd">密码</span>
                     <span>:</span>
-                    <input type="password"
-                           v-model="account.mobilephone_pswd" />
+                    <input type="password" v-model="account.mobilephone_pswd" />
                   </p>
-                  <p @click="get_code">获取验证码</p>
+                  <!-- 验证码 -->
+                  <p class="verif_box">
+                      <input class="verif" type />
+                    <span @click="get_code">获取验证码</span>
+                  
+                  </p>
                 </div>
+
                 <p class="forget">
                   <span @click="find_pswd">忘记密码?</span>
                 </p>
@@ -65,8 +70,7 @@
                 <p class="remember">
                   <el-checkbox v-model="checked">记住密码</el-checkbox>
                 </p>
-                <p class="login_btn"
-                   @click="login_go">登录</p>
+                <p class="login_btn" @click="login_go">登录</p>
               </div>
             </div>
             <div class="bom_right">
@@ -77,62 +81,64 @@
                 <p>• D9区影视</p>
                 <p>• D9区上传作品的正片在线下进行放映；</p>
                 <p>• 请您遵循审核过程</p>
-                <p class="creat_box"
-                   @click="creat_account">创建</p>
+                <p class="creat_box" @click="creat_account">创建</p>
               </div>
             </div>
           </div>
         </div>
         <!-- 找回密码弹窗 -->
-        <el-dialog title="找回密码"
-                   :visible.sync="find_pswd_box">
+        <el-dialog title="找回密码" :visible.sync="find_pswd_box">
           <div class="content">
             <span class="title1">邮箱：</span>
-            <input class="email_input"
-                   type="email" />
+            <input class="email_input" type="email" />
           </div>
           <div>
-            <p class="sure_box"
-               @click="ok_btn">确定</p>
+            <p class="sure_box" @click="ok_btn">确定</p>
           </div>
         </el-dialog>
 
         <!-- 创建账号 -->
-        <el-dialog title="欢迎！请创建一个账号："
-                   class="creat_account_box"
-                   :close-on-click-modal="false"
-                   :visible.sync="creat_box">
+        <el-dialog
+          title="欢迎！请创建一个账号："
+          class="creat_account_box"
+          :close-on-click-modal="false"
+          :visible.sync="creat_box"
+        >
           <div class="content">
             <div class="content_title">
-              <span @click="change_ebh('email')"
-                    :class="ebh_type?'ebh_color':''">邮箱创建</span>
+              <span @click="change_ebh('email')" :class="ebh_type?'ebh_color':''">邮箱创建</span>
               <span>/</span>
-              <span @click="change_ebh('mobile')"
-                    :class="ebh_type?'':'ebh_color'">手机号创建</span>
+              <span @click="change_ebh('mobile')" :class="ebh_type?'':'ebh_color'">手机号创建</span>
             </div>
 
             <!-- 邮箱创建 -->
             <div v-if="ebh_type">
               <div class="creat_item">
                 <span class="title2">姓名：</span>
-                <input class="email_input"
-                       placeholder="请输入姓名"
-                       v-model="creat.email.name"
-                       type="text" />
+                <input
+                  class="email_input"
+                  placeholder="请输入姓名"
+                  v-model="creat.email.name"
+                  type="text"
+                />
               </div>
               <div class="creat_item">
                 <span class="title2">邮箱：</span>
-                <input class="email_input"
-                       placeholder="请输入邮箱"
-                       v-model="creat.email.email"
-                       type="email" />
+                <input
+                  class="email_input"
+                  placeholder="请输入邮箱"
+                  v-model="creat.email.email"
+                  type="email"
+                />
               </div>
               <div class="creat_item">
                 <span class="title2">密码：</span>
-                <input class="email_input"
-                       placeholder="请输入密码"
-                       v-model="creat.email.pswd"
-                       type="password" />
+                <input
+                  class="email_input"
+                  placeholder="请输入密码"
+                  v-model="creat.email.pswd"
+                  type="password"
+                />
               </div>
               <!-- <div class="creat_item">
               <span class="title2">手机号：</span>
@@ -149,24 +155,30 @@
             <div v-if="!ebh_type">
               <div class="creat_item">
                 <span class="title2">姓名：</span>
-                <input class="email_input"
-                       placeholder="请输入姓名"
-                       v-model="creat.mobile.name"
-                       type="email" />
+                <input
+                  class="email_input"
+                  placeholder="请输入姓名"
+                  v-model="creat.mobile.name"
+                  type="email"
+                />
               </div>
               <div class="creat_item">
                 <span class="title2">手机：</span>
-                <input class="email_input"
-                       placeholder="请输入手机号"
-                       v-model="creat.mobile.mobilephone"
-                       type="text" />
+                <input
+                  class="email_input"
+                  placeholder="请输入手机号"
+                  v-model="creat.mobile.mobilephone"
+                  type="text"
+                />
               </div>
               <div class="creat_item">
                 <span class="title2">密码：</span>
-                <input class="email_input"
-                       placeholder="请输入密码"
-                       v-model="creat.mobile.pswd"
-                       type="password" />
+                <input
+                  class="email_input"
+                  placeholder="请输入密码"
+                  v-model="creat.mobile.pswd"
+                  type="password"
+                />
               </div>
 
               <!-- <div class="creat_item">
@@ -177,8 +189,7 @@
             </div>
             <div></div>
 
-            <p class="sure_box2"
-               @click="creat_btn">创建</p>
+            <p class="sure_box2" @click="creat_btn">创建</p>
           </div>
         </el-dialog>
       </div>
@@ -197,7 +208,7 @@ import { LOGINM } from "@/apis/login.js";
 export default {
   name: "Login",
   components: { Nav, Footer },
-  data () {
+  data() {
     return {
       mainnav: "4",
       checked: true,
@@ -230,21 +241,20 @@ export default {
       ebh_type: true,
     };
   },
-  mounted () { },
+  mounted() {},
   methods: {
-    find_pswd () {
+    find_pswd() {
       this.find_pswd_box = true;
     },
-    ok_btn () {
+    ok_btn() {
       this.find_pswd_box = false;
     },
-    creat_account () {
+    creat_account() {
       this.creat_box = true;
     },
 
-
     // 获取手机验证码
-    get_code () {
+    get_code() {
       // http://47.94.20.54:8080/d9time/user/sms?phoneNumber=15237304009
       this.axios
         // .post("/d9time/user/sms?phoneNumber=15237304009")
@@ -258,11 +268,9 @@ export default {
         .catch(function (error) {
           console.log(error);
         });
-
-
     },
     // 创建账号
-    creat_btn () {
+    creat_btn() {
       // this.creat_box = false;
       if (this.ebh_type) {
         //  邮箱创建
@@ -349,8 +357,8 @@ export default {
       }
     },
     // 登录
-    login_go () {
-      // this.$router.push("/submit_type");
+    login_go() {
+      this.$router.push("/submit_type");
       // sessionStorage.setItem("personal", "true");
 
       if (this.login_type) {
@@ -437,7 +445,7 @@ export default {
       //   this.$message.error("账号密码错误，请重新输入");
       // }
     },
-    change_login (name) {
+    change_login(name) {
       switch (name) {
         case "e-mail":
           this.login_type = true;
@@ -451,7 +459,7 @@ export default {
       }
     },
 
-    change_ebh (name) {
+    change_ebh(name) {
       switch (name) {
         case "email":
           this.ebh_type = true;
@@ -573,13 +581,29 @@ export default {
               font-weight: 400;
             }
           }
+
+          // 获取验证码
+          .verif_box {
+            margin-bottom: 20px;
+            cursor: pointer;
+            .verif {
+              width:125px;
+            }
+            span {
+              font-size: 16px;
+              font-weight: 400;
+              margin-left:5px;
+            }
+          }
+
+          // 忘记密码
           .forget {
             cursor: pointer;
             font-size: 12px;
             text-align: right;
             padding-right: 95px;
             color: rgba(200, 164, 97, 1);
-            margin-bottom: 34px;
+            margin-bottom: 20px;
           }
           .remember {
             .el-checkbox__input.is-checked + .el-checkbox__label {
