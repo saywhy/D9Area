@@ -5,7 +5,9 @@
       <div class="step_box">
         <div class="steps_top">
           <div class="steps_box">
-            <el-steps :active="stpes_active" finish-status="success" align-center>
+            <el-steps :active="stpes_active"
+                      finish-status="success"
+                      align-center>
               <el-step title="基本信息"></el-step>
               <el-step title="预告片信息"></el-step>
               <el-step title="正片信息"></el-step>
@@ -15,27 +17,33 @@
           </div>
         </div>
         <!-- 基础信息 -->
-        <div class="content" v-if="stpes_active==0">
+        <div class="content"
+             v-if="stpes_active==0">
           <div class="content_item">
             <span class="item_title">影片方向：</span>
             <div class="upload_radio">
-              <el-radio v-model="upload_info.base.filmtype" label="0">VFX电影短片</el-radio>
-              <el-radio v-model="upload_info.base.filmtype" label="1">三维动画短片</el-radio>
-              <el-radio v-model="upload_info.base.filmtype" label="2">VR短片</el-radio>
+              <el-radio v-model="upload_info.base.filmtype"
+                        label="0">VFX电影短片</el-radio>
+              <el-radio v-model="upload_info.base.filmtype"
+                        label="1">三维动画短片</el-radio>
+              <el-radio v-model="upload_info.base.filmtype"
+                        label="2">VR短片</el-radio>
             </div>
           </div>
           <!-- 片名 -->
           <div class="content_item">
             <span class="item_title">中文片名：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.base.filmname" placeholder="请填写中文片名"></el-input>
+              <el-input v-model="upload_info.base.filmname"
+                        placeholder="请填写中文片名"></el-input>
               <span class="red">*</span>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">英文片名：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.base.enfilmname" placeholder="请填写英文片名"></el-input>
+              <el-input v-model="upload_info.base.enfilmname"
+                        placeholder="请填写英文片名"></el-input>
               <span class="fff">*</span>
             </div>
           </div>
@@ -43,47 +51,42 @@
           <div class="content_item">
             <span class="item_title">影片中文简介：</span>
             <div class="item_right">
-              <el-input
-                type="textarea"
-                placeholder="请填写中文简介"
-                :autosize="{ minRows: 3, maxRows: 1000}"
-                v-model="upload_info.base.synopsis"
-                maxlength="1000"
-                show-word-limit
-              ></el-input>
+              <el-input type="textarea"
+                        placeholder="请填写中文简介"
+                        :autosize="{ minRows: 3, maxRows: 1000}"
+                        v-model="upload_info.base.synopsis"
+                        maxlength="1000"
+                        show-word-limit></el-input>
               <span class="red_ch">*</span>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">影片英文简介：</span>
             <div class="item_right">
-              <el-input
-                type="textarea"
-                placeholder="请填写英文简介"
-                :autosize="{ minRows: 3, maxRows: 1000}"
-                v-model="upload_info.base.ensynopsis"
-                maxlength="1000"
-                show-word-limit
-              ></el-input>
+              <el-input type="textarea"
+                        placeholder="请填写英文简介"
+                        :autosize="{ minRows: 3, maxRows: 1000}"
+                        v-model="upload_info.base.ensynopsis"
+                        maxlength="1000"
+                        show-word-limit></el-input>
             </div>
             <span class="fff">*</span>
           </div>
           <div class="content_item">
             <span class="item_title">出品方：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.base.producer" placeholder="拥有影片版权方，不得超过三家"></el-input>
+              <el-input v-model="upload_info.base.producer"
+                        placeholder="拥有影片版权方，不得超过三家"></el-input>
               <span class="red">*</span>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">制片国家/地区：</span>
             <div class="item_right">
-              <el-cascader
-                placeholder="请选择制片国家/地区"
-                :options="area_data"
-                v-model="upload_info.base.productarea"
-                filterable
-              ></el-cascader>
+              <el-cascader placeholder="请选择制片国家/地区"
+                           :options="area_data"
+                           v-model="upload_info.base.productarea"
+                           filterable></el-cascader>
               <span class="red">*</span>
             </div>
           </div>
@@ -91,20 +94,20 @@
           <div class="content_item">
             <span class="item_title">对白语言：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.base.dialogue" placeholder="请输入对白语言"></el-input>
+              <el-input v-model="upload_info.base.dialogue"
+                        placeholder="请输入对白语言"></el-input>
               <span class="red">*</span>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">字幕语言：</span>
             <div class="item_right">
-              <el-select v-model="upload_info.base.subtitle " placeholder="请选择字幕语言">
-                <el-option
-                  v-for="item in subtitle_list"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
+              <el-select v-model="upload_info.base.subtitle "
+                         placeholder="请选择字幕语言">
+                <el-option v-for="item in subtitle_list"
+                           :key="item.value"
+                           :label="item.label"
+                           :value="item.value"></el-option>
               </el-select>
               <span class="red">*</span>
             </div>
@@ -115,13 +118,11 @@
             <div class="item_right">
               <div class="item_slice_box">
                 <!-- <el-input v-model="upload_info.base.filmetime" placeholder="请输入时长"></el-input> -->
-                <el-input-number
-                  v-model="upload_info.base.filmetime"
-                  @change="handleChange"
-                  :min="5"
-                  :max="17"
-                  label="请输入时长"
-                ></el-input-number>
+                <el-input-number v-model="upload_info.base.filmetime"
+                                 @change="handleChange"
+                                 :min="5"
+                                 :max="17"
+                                 label="请输入时长"></el-input-number>
                 <div class="notes">（注：5-17分钟之间） *</div>
               </div>
             </div>
@@ -133,12 +134,10 @@
               <!-- <el-input v-model="upload_info.base.company"></el-input> -->
               <div class="block">
                 <!-- <span class="demonstration">默认</span> -->
-                <el-date-picker
-                  v-model="upload_info.base.time"
-                  type="date"
-                  value-format="timestamp"
-                  placeholder="选择日期"
-                ></el-date-picker>
+                <el-date-picker v-model="upload_info.base.time"
+                                type="date"
+                                value-format="timestamp"
+                                placeholder="选择日期"></el-date-picker>
                 <span class="red">*</span>
               </div>
             </div>
@@ -147,7 +146,8 @@
           <div class="content_item">
             <span class="item_title">主创团队：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.base.creators" placeholder="请注明职务与姓名"></el-input>
+              <el-input v-model="upload_info.base.creators"
+                        placeholder="请注明职务与姓名"></el-input>
               <span class="red">*</span>
             </div>
           </div>
@@ -158,42 +158,59 @@
         </div>
 
         <!-- 预告片信息 -->
-        <div class="content" v-if="stpes_active==1">
+        <div class="content"
+             v-if="stpes_active==1">
           <div class="content_item">
             <span class="item_title">上传作品：</span>
             <div class="item_right">
-              <div class="upload_box">
+              <div class="upload_box"
+                   style="position:relative;">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p class="info_p">尺寸240*180 不超过1G</p>
                 </div>
+                <input type="file"
+                       id="fileUpload"
+                       style="opacity:0;width:100%;height:100%;position:absolute;top:0;left:0;cursor: pointer;"
+                       @change="fileChange_product($event)">
+              </div>
+              <div class="upload_box"
+                   v-for="item in upload_info.product.video_list">
+                <!-- <p style="color:red;">{{ upload_info.product.authProgress+'%'}}</p> -->
+                <el-progress :percentage="upload_info.product.authProgress"></el-progress>
+
               </div>
             </div>
           </div>
+
           <div class="content_item">
             <span class="item_title">上传海报：</span>
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="product_str_success"
-                    :on-change="product_str_change"
-                    :on-exceed="product_str_exceed"
-                    :limit="3"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="product_str_success"
+                             :on-change="product_str_change"
+                             :on-exceed="product_str_exceed"
+                             :limit="3"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">1-3张</p>
                   </el-upload>
                 </div>
               </div>
-              <div class="upload_box" v-for="item in product_str_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in product_str_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
@@ -202,37 +219,42 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="product_cover_success"
-                    :on-change="product_cover_change"
-                    :on-exceed="product_cover_exceed"
-                    :limit="1"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="product_cover_success"
+                             :on-change="product_cover_change"
+                             :on-exceed="product_cover_exceed"
+                             :limit="1"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">1张</p>
                   </el-upload>
                 </div>
               </div>
-              <div class="upload_box" v-for="item in product_cover_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in product_cover_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
         </div>
         <!-- 正片信息 -->
-        <div class="content" v-if="stpes_active==2">
+        <div class="content"
+             v-if="stpes_active==2">
           <div class="content_item">
             <span class="item_title">上传作品：</span>
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <img class="add_img"
+                       src="@/assets/images/upload/add.png"
+                       alt />
                   <p class="info_p">尺寸240*180 不超过4G</p>
                 </div>
               </div>
@@ -246,25 +268,27 @@
                   <!-- 
                    positive: {
                   posters-->
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="positive_posters_success"
-                    :on-change="positive_posters_change"
-                    :on-exceed="positive_posters_exceed"
-                    :limit="3"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="positive_posters_success"
+                             :on-change="positive_posters_change"
+                             :on-exceed="positive_posters_exceed"
+                             :limit="3"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">1-3张</p>
                   </el-upload>
                 </div>
               </div>
-              <div class="upload_box" v-for="item in positive_posters_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in positive_posters_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
@@ -273,25 +297,27 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="positive_concepts_success"
-                    :on-change="positive_concepts_change"
-                    :on-exceed="positive_concepts_exceed"
-                    :limit="3"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="positive_concepts_success"
+                             :on-change="positive_concepts_change"
+                             :on-exceed="positive_concepts_exceed"
+                             :limit="3"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">（美术概念设定1-3张）</p>
                   </el-upload>
                 </div>
               </div>
-              <div class="upload_box" v-for="item in positive_concepts_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in positive_concepts_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
@@ -300,25 +326,27 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="positive_storys_success"
-                    :on-change="positive_storys_change"
-                    :on-exceed="positive_storys_exceed"
-                    :limit="3"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="positive_storys_success"
+                             :on-change="positive_storys_change"
+                             :on-exceed="positive_storys_exceed"
+                             :limit="3"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">（故事版分镜1-3张）</p>
                   </el-upload>
                 </div>
               </div>
-              <div class="upload_box" v-for="item in positive_storys_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in positive_storys_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
@@ -328,17 +356,17 @@
             <div class="item_right">
               <div class="upload_box">
                 <div class="upload_img_box">
-                  <el-upload
-                    class="avatar-uploader"
-                    action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
-                    :on-success="positive_tooling_success"
-                    :on-change="positive_tooling_change"
-                    :on-exceed="positive_tooling_exceed"
-                    :limit="1"
-                    :show-file-list="false"
-                    name="file"
-                  >
-                    <img class="add_img" src="@/assets/images/upload/add.png" alt />
+                  <el-upload class="avatar-uploader"
+                             action="http://47.94.20.54:8080/d9time/fileUpload/uploadImg"
+                             :on-success="positive_tooling_success"
+                             :on-change="positive_tooling_change"
+                             :on-exceed="positive_tooling_exceed"
+                             :limit="1"
+                             :show-file-list="false"
+                             name="file">
+                    <img class="add_img"
+                         src="@/assets/images/upload/add.png"
+                         alt />
                     <p class="info_p">支持jpg/gif/png格式RGB模式</p>
                     <p class="info_p">尺寸240*180不超过10M</p>
                     <p class="info_p">1张</p>
@@ -346,25 +374,30 @@
                 </div>
               </div>
 
-              <div class="upload_box" v-for="item in positive_tooling_fileList">
-                <img :src="item.imageUrl" alt />
+              <div class="upload_box"
+                   v-for="item in positive_tooling_fileList">
+                <img :src="item.imageUrl"
+                     alt />
               </div>
             </div>
           </div>
         </div>
         <!-- 联系人信息 -->
-        <div class="content" v-if="stpes_active==3">
+        <div class="content"
+             v-if="stpes_active==3">
           <div class="content_item">
             <span class="item_title">申报人姓名：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.contacts.Realname" placeholder="请输入联系人姓名"></el-input>
+              <el-input v-model="upload_info.contacts.Realname"
+                        placeholder="请输入联系人姓名"></el-input>
               <span class="red">*</span>
             </div>
           </div>
           <div class="content_item">
             <span class="item_title">公司名称：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.contacts.Company" placeholder="请输入公司名称"></el-input>
+              <el-input v-model="upload_info.contacts.Company"
+                        placeholder="请输入公司名称"></el-input>
               <span class="fff">*</span>
             </div>
           </div>
@@ -372,7 +405,8 @@
           <div class="content_item">
             <span class="item_title">手机号：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.contacts.Phone" placeholder="请输入联系人手机号"></el-input>
+              <el-input v-model="upload_info.contacts.Phone"
+                        placeholder="请输入联系人手机号"></el-input>
               <span class="red">*</span>
             </div>
           </div>
@@ -380,7 +414,8 @@
           <div class="content_item">
             <span class="item_title">邮箱：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.contacts.Email" placeholder="请输入联系人邮箱"></el-input>
+              <el-input v-model="upload_info.contacts.Email"
+                        placeholder="请输入联系人邮箱"></el-input>
               <span class="red">*</span>
             </div>
           </div>
@@ -388,7 +423,8 @@
           <div class="content_item">
             <span class="item_title">收件地址：</span>
             <div class="item_right">
-              <el-input v-model="upload_info.contacts.Address" placeholder="请填输入收件地址"></el-input>
+              <el-input v-model="upload_info.contacts.Address"
+                        placeholder="请填输入收件地址"></el-input>
               <span class="red">*</span>
             </div>
           </div>
@@ -398,10 +434,17 @@
         </div>
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
-          <span class="next btn_common" @click="next_click" v-if="stpes_active!=3">下一页</span>
-          <span class="save btn_common" v-if="stpes_active!=3" @click="save_info">保存</span>
-          <span class="save btn_common" v-if="stpes_active==3">提交</span>
-          <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
+          <span class="next btn_common"
+                @click="next_click"
+                v-if="stpes_active!=3">下一页</span>
+          <span class="save btn_common"
+                v-if="stpes_active!=3"
+                @click="save_info">保存</span>
+          <span class="save btn_common"
+                v-if="stpes_active==3">提交</span>
+          <span class="pre btn_common"
+                v-if="stpes_active!=0"
+                @click="pre_click">上一页</span>
         </div>
       </div>
     </div>
@@ -418,10 +461,11 @@ import filmNav from "@/views/film_nav.vue";
 import realFoot from "../views/real_foot.vue";
 import mapaData from "@/assets/js/data.js";
 import country from "@/assets/js/country.js";
+import axios from 'axios'
 export default {
   name: "UploadSteps",
   components: { Nav, Footer, filmNav, realFoot },
-  data() {
+  data () {
     return {
       Index: "4",
       mainnav: "2",
@@ -455,6 +499,11 @@ export default {
         },
         // 预告片
         product: {
+          file: null,
+          uploader: null,
+          video_list: [],
+          authProgress: '0',
+          videoId: '',
           str: [], //海报
           cover: [], //海报
         },
@@ -502,28 +551,154 @@ export default {
     };
   },
 
-  mounted() {
+  mounted () {
     this.area_data = country;
   },
   methods: {
-    next_click() {
+    // 上传预告片视频
+    fileChange_product (e) {
+      this.upload_info.product.video_list = [];
+      this.upload_info.product.file = e.target.files[0]
+      if (!this.upload_info.product.file) {
+        alert("请先选择需要上传的文件!")
+        return
+      }
+      var Title = this.upload_info.product.file.name
+      var userData = '{"Vod":{}}'
+      if (this.upload_info.product.uploader) {
+        this.upload_info.product.uploader.stopUpload()
+        this.upload_info.product.authProgress = 0
+        this.statusText = ""
+      }
+      this.upload_info.product.uploader = this.createUploader_product()
+      this.upload_info.product.video_list.push(this.upload_info.product.file)
+      console.log(userData)
+      this.upload_info.product.uploader.addFile(this.upload_info.product.file, null, null, null, userData)
+      this.uploadDisabled = false
+      this.pauseDisabled = true
+      this.resumeDisabled = true
+      this.upload_info.product.uploader.startUpload()
+    },
+    createUploader_product (type) {
+      let self = this
+      let uploader = new AliyunUpload.Vod({
+        timeout: 60000,
+        partSize: 1048576,
+        parallel: 5,
+        retryCount: 3,
+        retryDuration: 2,
+        region: 'cn-shanghai',
+        userId: '1805191102790951',
+        // 添加文件成功
+        addFileSuccess: function (uploadInfo) {
+          self.uploadDisabled = false
+          self.resumeDisabled = false
+          self.statusText = '添加文件成功, 等待上传...'
+          console.log("addFileSuccess: " + uploadInfo.file.name)
+        },
+        // 开始上传
+        onUploadstarted: function (uploadInfo) {
+          // 如果是 UploadAuth 上传方式, 需要调用 uploader.setUploadAuthAndAddress 方法
+          // 如果是 UploadAuth 上传方式, 需要根据 uploadInfo.videoId是否有值，调用点播的不同接口获取uploadauth和uploadAddress
+          // 如果 uploadInfo.videoId 有值，调用刷新视频上传凭证接口，否则调用创建视频上传凭证接口
+          // 注意: 这里是测试 demo 所以直接调用了获取 UploadAuth 的测试接口, 用户在使用时需要判断 uploadInfo.videoId 存在与否从而调用 openApi
+          // 如果 uploadInfo.videoId 存在, 调用 刷新视频上传凭证接口(https://help.aliyun.com/document_detail/55408.html)
+          // 如果 uploadInfo.videoId 不存在,调用 获取视频上传地址和凭证接口(https://help.aliyun.com/document_detail/55407.html)
+          if (!uploadInfo.videoId) {
+            let createUrl = '/d9time/movie/createUploadVideo?title=15237304009'
+            let url_refres = 'movie/refreshUploadVideo'
+            axios.get(createUrl).then(({ data }) => {
+              let uploadAuth = data.UploadAuth
+              let uploadAddress = data.UploadAddress
+              let videoId = data.VideoId
+              console.log('文件开始上传...');
+              console.log(data);
+              console.log('------------------------------------------------');
+              uploader.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress, videoId)
+            })
+            self.statusText = '文件开始上传...'
+            console.log("onUploadStarted:" + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object)
+          } else {
+            // 如果videoId有值，根据videoId刷新上传凭证
+            // https://help.aliyun.com/document_detail/55408.html?spm=a2c4g.11186623.6.630.BoYYcY
+            let refreshUrl = '/d9time/movie/createUploadVideo?title=15237304009'
+            let url_refres11 = 'movie/refreshUploadVideo'
+            axios.get(refreshUrl).then(({ data }) => {
+              let uploadAuth = data.UploadAuth
+              let uploadAddress = data.UploadAddress
+              let videoId = data.VideoId
+              uploader.setUploadAuthAndAddress(uploadInfo, uploadAuth, uploadAddress, videoId)
+            })
+          }
+        },
+        // 文件上传成功
+        onUploadSucceed: function (uploadInfo) {
+          console.log(uploadInfo.videoId);
+          self.upload_info.product.videoId = uploadInfo.videoId
+          console.log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object)
+          self.statusText = '文件上传成功!'
+          self.$message({
+            message: "上传成功",
+            type: "success",
+          });
+        },
+        // 文件上传失败
+        onUploadFailed: function (uploadInfo, code, message) {
+          console.log("onUploadFailed: file:" + uploadInfo.file.name + ",code:" + code + ", message:" + message)
+          self.statusText = '文件上传失败!'
+        },
+        // 取消文件上传
+        onUploadCanceled: function (uploadInfo, code, message) {
+          console.log("Canceled file: " + uploadInfo.file.name + ", code: " + code + ", message:" + message)
+          self.statusText = '文件已暂停上传'
+        },
+        // 文件上传进度，单位：字节, 可以在这个函数中拿到上传进度并显示在页面上
+        onUploadProgress: function (uploadInfo, totalSize, progress) {
+          console.log("onUploadProgress:file:" + uploadInfo.file.name + ", fileSize:" + totalSize + ", percent:" + Math.ceil(progress * 100) + "%")
+          let progressPercent = Math.ceil(progress * 100)
+          self.upload_info.product.authProgress = progressPercent
+          self.statusText = '文件上传中...'
+        },
+        // 上传凭证超时
+        onUploadTokenExpired: function (uploadInfo) {
+          // 上传大文件超时, 如果是上传方式一即根据 UploadAuth 上传时
+          // 需要根据 uploadInfo.videoId 调用刷新视频上传凭证接口(https://help.aliyun.com/document_detail/55408.html)重新获取 UploadAuth
+          // 然后调用 resumeUploadWithAuth 方法, 这里是测试接口, 所以我直接获取了 UploadAuth
+          let refreshUrl = '/d9time/movie/createUploadVideo?title=15237304009'
+          axios.get(refreshUrl).then(({ data }) => {
+            let uploadAuth = data.UploadAuth
+            uploader.resumeUploadWithAuth(uploadAuth)
+            console.log('upload expired and resume upload with uploadauth ' + uploadAuth)
+          })
+          self.statusText = '文件超时...'
+        },
+        // 全部文件上传结束
+        onUploadEnd: function (uploadInfo) {
+          console.log("onUploadEnd: uploaded all the files")
+          self.statusText = '文件上传完毕'
+        }
+      })
+      return uploader
+    },
+
+    next_click () {
       console.log(this.stpes_active);
       this.stpes_active += 1;
     },
 
-    pre_click() {
+    pre_click () {
       console.log(this.stpes_active);
       this.stpes_active -= 1;
     },
     // 保存
-    save_info() {
+    save_info () {
       console.log(this.upload_info);
       // 这个地方先做基本信息的保存请求接口
       // 当点击保存时候，获取输入的信息
 
       this.axios
         .post("/d9time/movie/addMovie", {
-          userid:'',
+          userid: '',
           filmtype: this.upload_info.base.filmtype, //影片类型
           filmname: this.upload_info.base.filmname, //作品名称
           enfilmname: this.upload_info.base.enfilmname, //作品名称
@@ -536,8 +711,8 @@ export default {
           //缺少制作完成日期字段
           creators: this.upload_info.base.creators, //出品团队
           // 预告片信息
-          cover:this.upload_info.product.cover,
-          str:this.upload_info.product.str,
+          cover: this.upload_info.product.cover,
+          str: this.upload_info.product.str,
 
           // 正片信息
           posters: this.upload_info.positive.posters, //海报
@@ -585,7 +760,7 @@ export default {
       //   return false;
       // }
     },
-    handleAvatarSuccess(res, file, fileList) {
+    handleAvatarSuccess (res, file, fileList) {
       console.log("----------------------------------------");
       console.log("handleAvatarSuccess");
       console.log(res);
@@ -594,13 +769,13 @@ export default {
 
       console.log("----------------------------------------");
     },
-    beforeAvatarUpload(file) {
+    beforeAvatarUpload (file) {
       console.log("----------------------------------------");
       console.log(file);
       console.log("beforeAvatarUpload");
       console.log("----------------------------------------");
     },
-    handleChange(file, fileList) {
+    handleChange (file, fileList) {
       console.log("----------------------------------------");
       console.log("handleChange");
       console.log(file);
@@ -614,34 +789,34 @@ export default {
     },
 
     // 预告片海报上传
-    product_str_success(res, file, fileList) {
+    product_str_success (res, file, fileList) {
       console.log(res);
       this.upload_info.product.str.push(res.data[0].fileUrl);
     },
-    product_str_change(file, fileList) {
+    product_str_change (file, fileList) {
       this.product_str_fileList = fileList;
       this.product_str_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    product_str_exceed(file, fileList) {
+    product_str_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
       });
     },
     // 预告片封面
-    product_cover_success(res, file, fileList) {
+    product_cover_success (res, file, fileList) {
       console.log(res);
       this.upload_info.product.cover.push(res.data[0].fileUrl);
     },
-    product_cover_change(file, fileList) {
+    product_cover_change (file, fileList) {
       this.product_cover_fileList = fileList;
       this.product_cover_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    product_cover_exceed(file, fileList) {
+    product_cover_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传1张",
         type: "warning",
@@ -649,17 +824,17 @@ export default {
     },
 
     // 正片海报上传
-    positive_posters_success(res, file, fileList) {
+    positive_posters_success (res, file, fileList) {
       console.log(res);
       this.upload_info.positive.posters.push(res.data[0].fileUrl);
     },
-    positive_posters_change(file, fileList) {
+    positive_posters_change (file, fileList) {
       this.positive_posters_fileList = fileList;
       this.positive_posters_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    positive_posters_exceed(file, fileList) {
+    positive_posters_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
@@ -667,51 +842,51 @@ export default {
     },
 
     // 美术概念
-    positive_concepts_success(res, file, fileList) {
+    positive_concepts_success (res, file, fileList) {
       console.log(res);
       this.upload_info.positive.concepts.push(res.data[0].fileUrl);
     },
-    positive_concepts_change(file, fileList) {
+    positive_concepts_change (file, fileList) {
       this.positive_concepts_fileList = fileList;
       this.positive_concepts_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    positive_concepts_exceed(file, fileList) {
+    positive_concepts_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
       });
     },
     // 故事分镜
-    positive_storys_success(res, file, fileList) {
+    positive_storys_success (res, file, fileList) {
       console.log(res);
       this.upload_info.positive.storys.push(res.data[0].fileUrl);
     },
-    positive_storys_change(file, fileList) {
+    positive_storys_change (file, fileList) {
       this.positive_storys_fileList = fileList;
       this.positive_storys_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    positive_storys_exceed(file, fileList) {
+    positive_storys_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
       });
     },
     // 正片封面
-    positive_tooling_success(res, file, fileList) {
+    positive_tooling_success (res, file, fileList) {
       console.log(res);
       this.upload_info.positive.tooling.push(res.data[0].fileUrl);
     },
-    positive_tooling_change(file, fileList) {
+    positive_tooling_change (file, fileList) {
       this.positive_tooling_fileList = fileList;
       this.positive_tooling_fileList.map((item) => {
         item.imageUrl = URL.createObjectURL(item.raw);
       });
     },
-    positive_tooling_exceed(file, fileList) {
+    positive_tooling_exceed (file, fileList) {
       this.$message({
         message: "图片最多上传1张",
         type: "warning",
@@ -719,7 +894,7 @@ export default {
     },
 
     // 文件上传超出提示
-    onExceed(file, fileList) {
+    onExceed (file, fileList) {
       this.$message({
         message: "图片最多上传3张",
         type: "warning",
@@ -728,7 +903,7 @@ export default {
   },
   computed: {},
   // 片长
-  handleChange(filmetime) {
+  handleChange (filmetime) {
     console.log(filmetime);
   },
 };
@@ -939,7 +1114,7 @@ export default {
               background-position: -1px -1px;
               background-repeat: no-repeat;
               background-size: 20px;
-              background-image: url("../assets/images/upload/check.png");
+              background-image: url('../assets/images/upload/check.png');
             }
           }
         }
