@@ -186,7 +186,8 @@ export default {
           // 如果 uploadInfo.videoId 存在, 调用 刷新视频上传凭证接口(https://help.aliyun.com/document_detail/55408.html)
           // 如果 uploadInfo.videoId 不存在,调用 获取视频上传地址和凭证接口(https://help.aliyun.com/document_detail/55407.html)
           if (!uploadInfo.videoId) {
-            let createUrl = '/d9time/movie/createUploadVideo?title=15237304009'
+            // let createUrl = '/d9time/movie/createUploadVideo?title=15237304009'
+            let createUrl = '/d9time/movie/createUploadVideo?title=111&filename=sasa.mp4'
             let url_refres = 'movie/refreshUploadVideo'
             axios.get(createUrl).then(({ data }) => {
               let uploadAuth = data.UploadAuth
