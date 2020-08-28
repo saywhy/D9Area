@@ -147,7 +147,7 @@ export default {
         case "4":
           // 如果是没有登录 就跳转到登陆
           if (sessionStorage.getItem("personal") != "true") {
-            this.$router.push("/login");
+            this.$router.push("/film_login");
           } else {
             // 如果是已登录，就跳转到申报
             this.$router.push("/upload_steps");

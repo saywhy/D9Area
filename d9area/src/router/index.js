@@ -20,6 +20,7 @@ import Details from '../views/details.vue'
 import OnlineSteps from '../views/online_steps.vue'
 import FilmFund from '../views/film_fund.vue'
 import UploadDemo from '../views/upload_demo.vue'
+import FilmLogin from '../views/film_login.vue'
 
 
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
@@ -139,6 +140,11 @@ const routes = [{
          path: '/upload_demo',
          name: 'UploadDemo',
          component: UploadDemo
+     },
+     {
+         path: '/film_login',
+         name: 'FilmLogin',
+         component: FilmLogin
      },
 ]
 

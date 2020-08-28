@@ -420,7 +420,8 @@
         <!-- 保存 上一步下一步 -->
         <div class="btn_box">
           <span class="next btn_common" @click="next_click" v-if="stpes_active!=3">下一页</span>
-          <span class="save btn_common" v-if="stpes_active!=3" @click="save_info">保存</span>
+          <!-- <span class="save btn_common" v-if="stpes_active!=3" @click="save_info">保存</span> -->
+          <span class="save btn_common" v-if="stpes_active!=3" >保存</span>
           <span class="save btn_common" v-if="stpes_active==3" @click="save_info">提交</span>
           <span class="pre btn_common" v-if="stpes_active!=0" @click="pre_click">上一页</span>
         </div>
