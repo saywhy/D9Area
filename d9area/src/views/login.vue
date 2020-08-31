@@ -6,7 +6,8 @@
         <div class="login_box">
           <div class="login_top">
             <div class="top_left">
-              <img src="@/assets/images/login/user.png" alt />
+              <img src="@/assets/images/login/user.png"
+                   alt />
               <p>我的账号</p>
             </div>
             <div class="top_right">
@@ -25,12 +26,14 @@
                 <p class="email_box">
                   <span class="email">邮箱</span>
                   <span>:</span>
-                  <input type="email" v-model="account.email" />
+                  <input type="email"
+                         v-model="account.email" />
                 </p>
                 <p class="pswd_box">
                   <span class="pswd">密码</span>
                   <span>:</span>
-                  <input type="password" v-model="account.pswd" />
+                  <input type="password"
+                         v-model="account.pswd" />
                 </p>
                 <p class="forget">
                   <span @click="find_pswd">忘记密码?</span>
@@ -39,7 +42,8 @@
                 <p class="remember">
                   <el-checkbox v-model="checked">记住密码</el-checkbox>
                 </p>
-                <p class="login_btn" @click="login_go">登录</p>
+                <p class="login_btn"
+                   @click="login_go">登录</p>
               </div>
             </div>
             <div class="bom_right">
@@ -50,56 +54,68 @@
                 <p>• D9区影视</p>
                 <p>• D9区上传作品的正片在线下进行放映；</p>
                 <p>• 请您遵循审核过程</p>
-                <p class="creat_box" @click="creat_account">创建</p>
+                <p class="creat_box"
+                   @click="creat_account">创建</p>
               </div>
             </div>
           </div>
         </div>
         <!-- 找回密码弹窗 -->
-        <el-dialog title="找回密码" :visible.sync="find_pswd_box">
+        <el-dialog title="找回密码"
+                   :visible.sync="find_pswd_box">
           <div class="content">
             <span class="title1">邮箱：</span>
-            <input class="email_input" type="email" />
+            <input class="email_input"
+                   type="email" />
           </div>
           <div>
-            <p class="sure_box" @click="ok_btn">确定</p>
+            <p class="sure_box"
+               @click="ok_btn">确定</p>
           </div>
         </el-dialog>
 
         <!-- 创建账号 -->
-        <el-dialog title="欢迎！请创建一个账号：" class="creat_account_box" :visible.sync="creat_box">
+        <el-dialog title="欢迎！请创建一个账号："
+                   class="creat_account_box"
+                   :visible.sync="creat_box">
           <div class="content">
             <div class="creat_item">
               <span class="title2">姓名：</span>
-              <input class="email_input" type="email" />
+              <input class="email_input"
+                     type="email" />
             </div>
             <div class="creat_item">
               <span class="title2">邮箱：</span>
-              <input class="email_input" type="email" />
+              <input class="email_input"
+                     type="email" />
             </div>
             <div class="creat_item">
               <span class="title2">密码：</span>
-              <input class="email_input" type="password" />
+              <input class="email_input"
+                     type="password" />
             </div>
             <div class="creat_item">
               <span class="title2">手机号：</span>
-              <input class="email_input" type="text" />
+              <input class="email_input"
+                     type="text" />
             </div>
             <div class="creat_item">
               <span class="title2">验证码：</span>
-              <img src="../assets/images/login/picture.png" class="code" alt />
-              <input class="email_input" type="text" />
+              <img src="../assets/images/login/picture.png"
+                   class="code"
+                   alt />
+              <input class="email_input"
+                     type="text" />
             </div>
           </div>
           <div>
-            <p class="sure_box2" @click="creat_btn">创建</p>
+            <p class="sure_box2"
+               @click="creat_btn">创建</p>
           </div>
         </el-dialog>
       </div>
 
-
-<div id="player-con"></div>
-
+      <div id="player-con"></div>
 
       <Footer></Footer>
     </div>
@@ -111,7 +127,7 @@ import Footer from "@/views/footer.vue";
 export default {
   name: "Login",
   components: { Nav, Footer },
-  data() {
+  data () {
     return {
       mainnav: "4",
       checked: true,
@@ -125,46 +141,46 @@ export default {
   },
   mounted () {
     var player = new Aliplayer({
-    id: "player-con",
-    source: "//player.alicdn.com/video/editor.mp4",
-    width: "100%",
-    height: "500px",
-    cover: 'https://img.alicdn.com/tps/TB1EXIhOFXXXXcIaXXXXXXXXXXX-760-340.jpg',
-    /* To set an album art, you must set 'autoplay' and 'preload' to 'false' */
-    autoplay: false,
-    preload: false,
-    isLive: false
-  }, function (player) {
-    console.log("The player is created");
-  });
+      id: "player-con",
+      source: "//player.alicdn.com/video/editor.mp4",
+      width: "100%",
+      height: "500px",
+      cover: 'https://img.alicdn.com/tps/TB1EXIhOFXXXXcIaXXXXXXXXXXX-760-340.jpg',
+      /* To set an album art, you must set 'autoplay' and 'preload' to 'false' */
+      autoplay: false,
+      preload: false,
+      isLive: false
+    }, function (player) {
+      console.log("The player is created");
+    });
   },
   methods: {
-    find_pswd() {
+    find_pswd () {
       this.find_pswd_box = true;
     },
-    ok_btn() {
+    ok_btn () {
       this.find_pswd_box = false;
     },
-    creat_account() {
+    creat_account () {
       this.creat_box = true;
     },
-    creat_btn() {
+    creat_btn () {
       this.creat_box = false;
     },
-    login_go() {
-        this.axios.get('/user/userLogin',{
-          params:{
-            mobilephone:'15237304009',
-            userpassword:'why15237304009'
-          }
+    login_go () {
+      this.axios.get('/user/userLogin', {
+        params: {
+          mobilephone: '',
+          userpassword: ''
+        }
+      })
+        .then(response => {
+          console.log(response);
+          console.log('ok')
         })
-      .then(response => {
-        console.log(response);
-        console.log('ok')
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+        .catch(function (error) {
+          console.log(error)
+        })
 
       if (this.account.email == "admin" || this.account.pswd == "12345") {
         // this.$router.push("/personal");
