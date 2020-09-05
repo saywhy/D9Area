@@ -7,7 +7,7 @@
           <div class="login_top">
             <div class="top_left">
               <img src="@/assets/images/login/user.png" alt />
-              <p>我的账号</p>
+              <p>我的账号1</p>
             </div>
             <div class="top_right">
               <p>登录 / 创建账号</p>
